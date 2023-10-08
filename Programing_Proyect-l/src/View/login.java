@@ -49,7 +49,7 @@ public class login extends javax.swing.JFrame {
         lblTitle.setText("Titulo");
         PNMain.add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 200, 250, -1));
 
-        lblCity.setIcon(new javax.swing.ImageIcon(getClass().getResource("/V/Images/ciudad.jpg"))); // NOI18N
+        lblCity.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Images/ciudad.jpg"))); // NOI18N
         PNMain.add(lblCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 0, 260, 510));
 
         lblLogin.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N

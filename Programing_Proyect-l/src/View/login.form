@@ -68,7 +68,7 @@
         <Component class="javax.swing.JLabel" name="lblCity">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/V/Images/ciudad.jpg"/>
+              <Image iconType="3" name="/View/Images/ciudad.jpg"/>
             </Property>
           </Properties>
           <Constraints>
