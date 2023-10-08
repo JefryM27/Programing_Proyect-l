@@ -1,4 +1,3 @@
-
 package Model;
 
 /**
@@ -6,12 +5,29 @@ package Model;
  * @author allys
  */
 public class Entity {
-    private int id,legalId,telephone;
-    private String name,email,address,description;
-    
-    public Entity(){}
 
- 
+    private int id;
+    private int legalId;
+    private int telephone;
+    private String entityName;
+    private String email;
+    private String address;
+    private String description;
+
+    public Entity() {
+    }
+
+    public Entity(int id, int legalId, int telephone, String entityName, String email, String address, String description) {
+        this.id = id;
+        this.legalId = legalId;
+        this.telephone = telephone;
+        this.entityName = entityName;
+        this.email = email;
+        this.address = address;
+        this.description = description;
+    }
+    
+
     public int getId() {
         return id;
     }
@@ -36,12 +52,12 @@ public class Entity {
         this.telephone = telephone;
     }
 
-    public String getName() {
-        return name;
+    public String getEntityName() {
+        return entityName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setEntityName(String entityName) {
+        this.entityName = entityName;
     }
 
     public String getEmail() {

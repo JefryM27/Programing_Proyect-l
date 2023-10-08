@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Model;
 
 /**
@@ -10,20 +7,20 @@ package Model;
  */
 public class Canton {
     private int id;
-    private String name;
+    private String cantonName;
     private int province_id;
 
     public Canton() {
     }
 
-    public Canton(String name, int province_id) {
-        this.name = name;
+    public Canton(String cantonName, int province_id) {
+        this.cantonName = cantonName;
         this.province_id = province_id;
     }
 
-    public Canton(int id, String name, int province_id) {
+    public Canton(int id, String cantonName, int province_id) {
         this.id = id;
-        this.name = name;
+        this.cantonName = cantonName;
         this.province_id = province_id;
     }
 
@@ -35,12 +32,12 @@ public class Canton {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getCantonName() {
+        return cantonName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setCantonName(String cantonName) {
+        this.cantonName = cantonName;
     }
 
     public int getProvince_id() {

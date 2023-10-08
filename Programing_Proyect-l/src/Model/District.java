@@ -7,17 +7,17 @@ package Model;
  */
 public class District {
     private int id,cantonId;
-    private String name;
+    private String districtName;
     
     public District(){}
-    public District(int cantonId,String name){
+    public District(int cantonId,String districtName){
         this.cantonId= cantonId;
-        this.name= name;
+        this.districtName= districtName;
     }
-    public District(int id,int cantonId,String name){
+    public District(int id,int cantonId,String districtName){
         this.id= id;
         this.cantonId= cantonId;
-        this.name= name;
+        this.districtName= districtName;
     }
 
     public int getId() {
@@ -36,11 +36,11 @@ public class District {
         this.cantonId = cantonId;
     }
 
-    public String getName() {
-        return name;
+    public String getDistrictName() {
+        return districtName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setDistrictName(String districtName) {
+        this.districtName = districtName;
     }
 }

@@ -1,4 +1,3 @@
-
 package Model;
 
 import java.util.Date;
@@ -8,13 +7,20 @@ import java.util.Date;
  * @author allys
  */
 public class FlowMeasurement {
-    private int id,springsId,samplingId;
+
+    private int id;
+    private int springsId;
+    private int samplingId;
     private double capacity;
-    private String metod,observation,weather,done;
+    private String metod;
+    private String observation;
+    private String weather;
+    private String done;
+
     private Date date;
-    
-   public FlowMeasurement(){
-   }
+
+    public FlowMeasurement() {
+    }
 
     public int getId() {
         return id;

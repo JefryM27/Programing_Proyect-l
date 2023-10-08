@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Model;
 
 /**
@@ -10,7 +7,7 @@ package Model;
  */
 public class User {
     private int id;
-    private String name;
+    private String userName;
     private String firstSurname;
     private String secondSurname;
     private String mail;
@@ -21,8 +18,8 @@ public class User {
     public User() {
     }
 
-    public User(String name, String firstSurname, String secondSurname, String mail, String password, int entity_id, int rol_id) {
-        this.name = name;
+    public User(String userName, String firstSurname, String secondSurname, String mail, String password, int entity_id, int rol_id) {
+        this.userName = userName;
         this.firstSurname = firstSurname;
         this.secondSurname = secondSurname;
         this.mail = mail;
@@ -31,9 +28,9 @@ public class User {
         this.rol_id = rol_id;
     }
 
-    public User(int id, String name, String firstSurname, String secondSurname, String mail, String password, int entity_id, int rol_id) {
+    public User(int id, String userName, String firstSurname, String secondSurname, String mail, String password, int entity_id, int rol_id) {
         this.id = id;
-        this.name = name;
+        this.userName = userName;
         this.firstSurname = firstSurname;
         this.secondSurname = secondSurname;
         this.mail = mail;
@@ -50,12 +47,12 @@ public class User {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getFirstSurname() {

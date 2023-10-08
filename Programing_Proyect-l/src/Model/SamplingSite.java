@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Model;
 
 /**
@@ -10,7 +7,7 @@ package Model;
  */
 public class SamplingSite {
     private int id;
-    private String name;
+    private String samplingName;
     private int province_id;
     private int canton_id;
     private int district_id;
@@ -19,17 +16,17 @@ public class SamplingSite {
     public SamplingSite() {
     }
 
-    public SamplingSite(String name, int province_id, int canton_id, int district_id, int entity_id) {
-        this.name = name;
+    public SamplingSite(String samplingName, int province_id, int canton_id, int district_id, int entity_id) {
+        this.samplingName = samplingName;
         this.province_id = province_id;
         this.canton_id = canton_id;
         this.district_id = district_id;
         this.entity_id = entity_id;
     }
 
-    public SamplingSite(int id, String name, int province_id, int canton_id, int district_id, int entity_id) {
+    public SamplingSite(int id, String samplingName, int province_id, int canton_id, int district_id, int entity_id) {
         this.id = id;
-        this.name = name;
+        this.samplingName= samplingName;
         this.province_id = province_id;
         this.canton_id = canton_id;
         this.district_id = district_id;
@@ -44,12 +41,12 @@ public class SamplingSite {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getSamplingName() {
+        return samplingName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setSamplingName(String samplingName) {
+        this.samplingName = samplingName;
     }
 
     public int getProvince_id() {
