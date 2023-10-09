@@ -28,170 +28,808 @@ public class Register extends javax.swing.JFrame {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
         Entidades = new javax.swing.JPanel();
+        pnMainSprings = new javax.swing.JPanel();
+        pnSpringsTable = new javax.swing.JPanel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        tblSprings = new javax.swing.JTable();
+        pnInfoSprings = new javax.swing.JPanel();
+        btnSpringsEdit = new javax.swing.JButton();
+        lblSpringsLenght = new javax.swing.JLabel();
+        lblSpringAdress = new javax.swing.JLabel();
+        lblSpringsName = new javax.swing.JLabel();
+        lblSpringsLatitude = new javax.swing.JLabel();
+        lblSpringsDescripsion = new javax.swing.JLabel();
+        txtSpringsName = new javax.swing.JTextField();
+        txtSpringsLatitude = new javax.swing.JTextField();
+        txtSpringsAdress = new javax.swing.JTextField();
+        txtSpringsLenght = new javax.swing.JTextField();
+        txtSpringsDescription = new javax.swing.JTextField();
+        btnSpringsSave = new javax.swing.JButton();
+        btnSpringsDelete = new javax.swing.JButton();
+        btnFlowExportPDF4 = new javax.swing.JButton();
         Nacientes = new javax.swing.JPanel();
+        pnMainEntity = new javax.swing.JPanel();
+        pnEntityTable = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tblEntity = new javax.swing.JTable();
+        pnInfoEntities = new javax.swing.JPanel();
+        lblIdLegal = new javax.swing.JLabel();
+        btnEntityEdit = new javax.swing.JButton();
+        lblEntityAdress = new javax.swing.JLabel();
+        lblEntityEmail = new javax.swing.JLabel();
+        lblEntityName = new javax.swing.JLabel();
+        lblEntityTelephoneNumber = new javax.swing.JLabel();
+        lblEntityDescription = new javax.swing.JLabel();
+        txtEntityName = new javax.swing.JTextField();
+        txtEntityLegalId = new javax.swing.JTextField();
+        txtEntityNumber = new javax.swing.JTextField();
+        txtEntityEmail = new javax.swing.JTextField();
+        txtEntityAdress = new javax.swing.JTextField();
+        txtEntityDescription = new javax.swing.JTextField();
+        btnEntitySave = new javax.swing.JButton();
+        btnEntityDelete = new javax.swing.JButton();
+        btnEntityExportPDF = new javax.swing.JButton();
         Muestreo = new javax.swing.JPanel();
-        User = new javax.swing.JPanel();
-        jPanel6 = new javax.swing.JPanel();
-        lblUserName = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        Medicion = new javax.swing.JPanel();
-        jPanel7 = new javax.swing.JPanel();
-        lblUserName1 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
+        pnMainMeassureSite = new javax.swing.JPanel();
+        pnMeassureSiteTable = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable3 = new javax.swing.JTable();
+        pnInfoMeassureSite = new javax.swing.JPanel();
+        lblMeassureSite = new javax.swing.JLabel();
+        btnMeassureEdit = new javax.swing.JButton();
+        txtMeassureName = new javax.swing.JTextField();
+        btnMeassureSave = new javax.swing.JButton();
+        btnMeassureDelete = new javax.swing.JButton();
+        btnMeassureExportPDF = new javax.swing.JButton();
+        pnMainMedition = new javax.swing.JPanel();
+        pnInfoCaudal = new javax.swing.JPanel();
+        lblFlowCapacity = new javax.swing.JLabel();
+        btnFlowEdit = new javax.swing.JButton();
+        lblFlowDate = new javax.swing.JLabel();
+        lblFlowObservation = new javax.swing.JLabel();
+        lblUserName7 = new javax.swing.JLabel();
+        lblUserName8 = new javax.swing.JLabel();
+        lblFlowDone = new javax.swing.JLabel();
+        txtFlowCapacity = new javax.swing.JTextField();
+        txtFlowObservation = new javax.swing.JTextField();
+        txtFlowDate = new javax.swing.JTextField();
+        txtDoneBy = new javax.swing.JTextField();
+        btnFlowSave = new javax.swing.JButton();
+        btnShowGrafic = new javax.swing.JButton();
+        btnFlowDelete = new javax.swing.JButton();
+        btnFlowExportPDF = new javax.swing.JButton();
+        cbxMethod = new javax.swing.JComboBox<>();
+        cbxWeather = new javax.swing.JComboBox<>();
+        pnCaudalTable = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        tblFlowMeassure = new javax.swing.JTable();
+        pnMainUser = new javax.swing.JPanel();
+        pnUserTable = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblUser = new javax.swing.JTable();
+        pnInfoUser = new javax.swing.JPanel();
+        lblUserName = new javax.swing.JLabel();
+        btnUserEdit = new javax.swing.JButton();
+        lblPassaword = new javax.swing.JLabel();
+        lblEmailUser = new javax.swing.JLabel();
+        txtUserEmail = new javax.swing.JTextField();
+        txtUserName = new javax.swing.JTextField();
+        txtUserPassaword = new javax.swing.JTextField();
+        btnUserSave = new javax.swing.JButton();
+        btnUserDelete = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         Entidades.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jTabbedPane1.addTab("Registro Entidades", Entidades);
+
+        pnMainSprings.setBackground(new java.awt.Color(0, 152, 198));
+        pnMainSprings.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        pnSpringsTable.setBackground(new java.awt.Color(255, 255, 255));
+        pnSpringsTable.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tabla", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14), new java.awt.Color(0, 0, 0))); // NOI18N
+
+        tblSprings.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "Nombre", "Direccion", "Latitud", "Longitud", "Descipcion", "Provincia", "Canton", "Distrito", "Entidad"
+            }
+        ));
+        jScrollPane5.setViewportView(tblSprings);
+
+        javax.swing.GroupLayout pnSpringsTableLayout = new javax.swing.GroupLayout(pnSpringsTable);
+        pnSpringsTable.setLayout(pnSpringsTableLayout);
+        pnSpringsTableLayout.setHorizontalGroup(
+            pnSpringsTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnSpringsTableLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 909, Short.MAX_VALUE)
+                .addGap(15, 15, 15))
+        );
+        pnSpringsTableLayout.setVerticalGroup(
+            pnSpringsTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
+        );
+
+        pnMainSprings.add(pnSpringsTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 410, 940, 240));
+
+        pnInfoSprings.setBackground(new java.awt.Color(255, 255, 255));
+        pnInfoSprings.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Informacion del Caudal", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14), new java.awt.Color(0, 0, 0))); // NOI18N
+
+        btnSpringsEdit.setText("Editar");
+
+        lblSpringsLenght.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblSpringsLenght.setForeground(new java.awt.Color(0, 0, 0));
+        lblSpringsLenght.setText("Longitud: ");
+
+        lblSpringAdress.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblSpringAdress.setForeground(new java.awt.Color(0, 0, 0));
+        lblSpringAdress.setText("Direccion: ");
+
+        lblSpringsName.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblSpringsName.setForeground(new java.awt.Color(0, 0, 0));
+        lblSpringsName.setText("Nombre: ");
+
+        lblSpringsLatitude.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblSpringsLatitude.setForeground(new java.awt.Color(0, 0, 0));
+        lblSpringsLatitude.setText("Latitud: ");
+
+        lblSpringsDescripsion.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblSpringsDescripsion.setForeground(new java.awt.Color(0, 0, 0));
+        lblSpringsDescripsion.setText("Descripcion: ");
+
+        txtSpringsName.setBackground(new java.awt.Color(255, 255, 255));
+        txtSpringsName.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtSpringsName.setForeground(new java.awt.Color(0, 0, 0));
+        txtSpringsName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        txtSpringsLatitude.setBackground(new java.awt.Color(255, 255, 255));
+        txtSpringsLatitude.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtSpringsLatitude.setForeground(new java.awt.Color(0, 0, 0));
+        txtSpringsLatitude.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        txtSpringsAdress.setBackground(new java.awt.Color(255, 255, 255));
+        txtSpringsAdress.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtSpringsAdress.setForeground(new java.awt.Color(0, 0, 0));
+        txtSpringsAdress.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        txtSpringsLenght.setBackground(new java.awt.Color(255, 255, 255));
+        txtSpringsLenght.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtSpringsLenght.setForeground(new java.awt.Color(0, 0, 0));
+        txtSpringsLenght.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        txtSpringsDescription.setBackground(new java.awt.Color(255, 255, 255));
+        txtSpringsDescription.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtSpringsDescription.setForeground(new java.awt.Color(0, 0, 0));
+        txtSpringsDescription.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        btnSpringsSave.setText("Guardar");
+
+        btnSpringsDelete.setText("Eliminar");
+
+        btnFlowExportPDF4.setText("Exportar en PDF");
+
+        javax.swing.GroupLayout pnInfoSpringsLayout = new javax.swing.GroupLayout(pnInfoSprings);
+        pnInfoSprings.setLayout(pnInfoSpringsLayout);
+        pnInfoSpringsLayout.setHorizontalGroup(
+            pnInfoSpringsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnInfoSpringsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnInfoSpringsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnInfoSpringsLayout.createSequentialGroup()
+                        .addComponent(lblSpringsDescripsion)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtSpringsDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnInfoSpringsLayout.createSequentialGroup()
+                        .addComponent(lblSpringsLenght)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
+                        .addComponent(txtSpringsLenght, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnInfoSpringsLayout.createSequentialGroup()
+                        .addComponent(lblSpringsName)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtSpringsName, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnInfoSpringsLayout.createSequentialGroup()
+                        .addComponent(lblSpringAdress)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtSpringsAdress, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnInfoSpringsLayout.createSequentialGroup()
+                        .addComponent(lblSpringsLatitude)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtSpringsLatitude, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(34, 34, 34)
+                .addGroup(pnInfoSpringsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnSpringsSave, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnSpringsDelete, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE))
+                .addGap(42, 42, 42)
+                .addGroup(pnInfoSpringsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnSpringsEdit, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                    .addComponent(btnFlowExportPDF4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 9, Short.MAX_VALUE))
+        );
+        pnInfoSpringsLayout.setVerticalGroup(
+            pnInfoSpringsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnInfoSpringsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnInfoSpringsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnInfoSpringsLayout.createSequentialGroup()
+                        .addComponent(btnSpringsEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(39, 39, 39)
+                        .addGroup(pnInfoSpringsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnSpringsDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnFlowExportPDF4, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(pnInfoSpringsLayout.createSequentialGroup()
+                        .addGroup(pnInfoSpringsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnSpringsSave, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnInfoSpringsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(lblSpringsName, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtSpringsName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addGroup(pnInfoSpringsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblSpringAdress, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtSpringsAdress, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(pnInfoSpringsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnInfoSpringsLayout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(lblSpringsLatitude, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(pnInfoSpringsLayout.createSequentialGroup()
+                                .addGap(28, 28, 28)
+                                .addComponent(txtSpringsLatitude, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(18, 18, 18)
+                .addGroup(pnInfoSpringsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblSpringsLenght, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtSpringsLenght, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addGroup(pnInfoSpringsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtSpringsDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblSpringsDescripsion, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(48, Short.MAX_VALUE))
+        );
+
+        pnMainSprings.add(pnInfoSprings, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 760, 330));
+
+        Entidades.add(pnMainSprings, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1060, -1));
+
+        jTabbedPane1.addTab("Registro Nacientes", Entidades);
 
         Nacientes.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jTabbedPane1.addTab("Registro Nacientes", Nacientes);
+
+        pnMainEntity.setBackground(new java.awt.Color(0, 152, 198));
+        pnMainEntity.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        pnEntityTable.setBackground(new java.awt.Color(255, 255, 255));
+        pnEntityTable.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tabla", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14), new java.awt.Color(0, 0, 0))); // NOI18N
+
+        tblEntity.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "Cedula Juridica", "Nombre", "Email", "Telefono", "Direccion", "Descipcion"
+            }
+        ));
+        jScrollPane4.setViewportView(tblEntity);
+
+        javax.swing.GroupLayout pnEntityTableLayout = new javax.swing.GroupLayout(pnEntityTable);
+        pnEntityTable.setLayout(pnEntityTableLayout);
+        pnEntityTableLayout.setHorizontalGroup(
+            pnEntityTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnEntityTableLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 894, Short.MAX_VALUE))
+        );
+        pnEntityTableLayout.setVerticalGroup(
+            pnEntityTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
+        );
+
+        pnMainEntity.add(pnEntityTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, 910, 240));
+
+        pnInfoEntities.setBackground(new java.awt.Color(255, 255, 255));
+        pnInfoEntities.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Informacion de la Entidad", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14), new java.awt.Color(0, 0, 0))); // NOI18N
+
+        lblIdLegal.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblIdLegal.setForeground(new java.awt.Color(0, 0, 0));
+        lblIdLegal.setText("Cedula Juridica: ");
+
+        btnEntityEdit.setText("Editar");
+
+        lblEntityAdress.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblEntityAdress.setForeground(new java.awt.Color(0, 0, 0));
+        lblEntityAdress.setText("Direccion: ");
+
+        lblEntityEmail.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblEntityEmail.setForeground(new java.awt.Color(0, 0, 0));
+        lblEntityEmail.setText("Email: ");
+
+        lblEntityName.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblEntityName.setForeground(new java.awt.Color(0, 0, 0));
+        lblEntityName.setText("Nombre: ");
+
+        lblEntityTelephoneNumber.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblEntityTelephoneNumber.setForeground(new java.awt.Color(0, 0, 0));
+        lblEntityTelephoneNumber.setText("Telefono: ");
+
+        lblEntityDescription.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblEntityDescription.setForeground(new java.awt.Color(0, 0, 0));
+        lblEntityDescription.setText("Descripcion: ");
+
+        txtEntityName.setBackground(new java.awt.Color(255, 255, 255));
+        txtEntityName.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtEntityName.setForeground(new java.awt.Color(0, 0, 0));
+        txtEntityName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        txtEntityLegalId.setBackground(new java.awt.Color(255, 255, 255));
+        txtEntityLegalId.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtEntityLegalId.setForeground(new java.awt.Color(0, 0, 0));
+        txtEntityLegalId.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        txtEntityNumber.setBackground(new java.awt.Color(255, 255, 255));
+        txtEntityNumber.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtEntityNumber.setForeground(new java.awt.Color(0, 0, 0));
+        txtEntityNumber.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        txtEntityEmail.setBackground(new java.awt.Color(255, 255, 255));
+        txtEntityEmail.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtEntityEmail.setForeground(new java.awt.Color(0, 0, 0));
+        txtEntityEmail.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        txtEntityAdress.setBackground(new java.awt.Color(255, 255, 255));
+        txtEntityAdress.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtEntityAdress.setForeground(new java.awt.Color(0, 0, 0));
+        txtEntityAdress.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        txtEntityDescription.setBackground(new java.awt.Color(255, 255, 255));
+        txtEntityDescription.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtEntityDescription.setForeground(new java.awt.Color(0, 0, 0));
+        txtEntityDescription.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        btnEntitySave.setText("Guardar");
+
+        btnEntityDelete.setText("Eliminar");
+
+        btnEntityExportPDF.setText("Exportar en PDF");
+
+        javax.swing.GroupLayout pnInfoEntitiesLayout = new javax.swing.GroupLayout(pnInfoEntities);
+        pnInfoEntities.setLayout(pnInfoEntitiesLayout);
+        pnInfoEntitiesLayout.setHorizontalGroup(
+            pnInfoEntitiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnInfoEntitiesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnInfoEntitiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(pnInfoEntitiesLayout.createSequentialGroup()
+                        .addComponent(lblEntityName)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtEntityName, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnInfoEntitiesLayout.createSequentialGroup()
+                        .addComponent(lblEntityEmail)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtEntityEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnInfoEntitiesLayout.createSequentialGroup()
+                        .addComponent(lblEntityTelephoneNumber)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtEntityNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnInfoEntitiesLayout.createSequentialGroup()
+                        .addGap(0, 2, Short.MAX_VALUE)
+                        .addComponent(lblIdLegal)
+                        .addGap(34, 34, 34)
+                        .addComponent(txtEntityLegalId, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnInfoEntitiesLayout.createSequentialGroup()
+                        .addComponent(lblEntityAdress)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtEntityAdress, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnInfoEntitiesLayout.createSequentialGroup()
+                        .addComponent(lblEntityDescription)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtEntityDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(34, 34, 34)
+                .addGroup(pnInfoEntitiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnEntitySave, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnEntityDelete, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE))
+                .addGap(42, 42, 42)
+                .addGroup(pnInfoEntitiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnEntityEdit, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                    .addComponent(btnEntityExportPDF, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 15, Short.MAX_VALUE))
+        );
+        pnInfoEntitiesLayout.setVerticalGroup(
+            pnInfoEntitiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnInfoEntitiesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnInfoEntitiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnInfoEntitiesLayout.createSequentialGroup()
+                        .addGroup(pnInfoEntitiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnInfoEntitiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(txtEntityLegalId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblIdLegal, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnEntitySave, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(pnInfoEntitiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblEntityName, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtEntityName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(26, 26, 26)
+                        .addGroup(pnInfoEntitiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblEntityEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtEntityEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(pnInfoEntitiesLayout.createSequentialGroup()
+                        .addComponent(btnEntityEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(39, 39, 39)
+                        .addGroup(pnInfoEntitiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnEntityDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnEntityExportPDF, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(18, 18, 18)
+                .addGroup(pnInfoEntitiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtEntityNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblEntityTelephoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(pnInfoEntitiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtEntityAdress, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblEntityAdress, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(pnInfoEntitiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblEntityDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtEntityDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(12, Short.MAX_VALUE))
+        );
+
+        pnMainEntity.add(pnInfoEntities, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 760, 330));
+
+        Nacientes.add(pnMainEntity, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, -1));
+
+        jTabbedPane1.addTab("Registro Entidades", Nacientes);
 
         Muestreo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        pnMainMeassureSite.setBackground(new java.awt.Color(0, 152, 198));
+        pnMainMeassureSite.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        pnMeassureSiteTable.setBackground(new java.awt.Color(255, 255, 255));
+        pnMeassureSiteTable.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tabla", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14), new java.awt.Color(0, 0, 0))); // NOI18N
+
+        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "Nombre del Sitio", "Provincia", "Canton", "Distrito ", "Entidad"
+            }
+        ));
+        jScrollPane3.setViewportView(jTable3);
+
+        javax.swing.GroupLayout pnMeassureSiteTableLayout = new javax.swing.GroupLayout(pnMeassureSiteTable);
+        pnMeassureSiteTable.setLayout(pnMeassureSiteTableLayout);
+        pnMeassureSiteTableLayout.setHorizontalGroup(
+            pnMeassureSiteTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnMeassureSiteTableLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 894, Short.MAX_VALUE))
+        );
+        pnMeassureSiteTableLayout.setVerticalGroup(
+            pnMeassureSiteTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
+        );
+
+        pnMainMeassureSite.add(pnMeassureSiteTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, 910, 240));
+
+        pnInfoMeassureSite.setBackground(new java.awt.Color(255, 255, 255));
+        pnInfoMeassureSite.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Informacion de los sitios de muestreo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14), new java.awt.Color(0, 0, 0))); // NOI18N
+        pnInfoMeassureSite.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblMeassureSite.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblMeassureSite.setForeground(new java.awt.Color(0, 0, 0));
+        lblMeassureSite.setText("Ingrese el nombre del sitio de muestreo: ");
+        pnInfoMeassureSite.add(lblMeassureSite, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, 28));
+
+        btnMeassureEdit.setText("Editar");
+        pnInfoMeassureSite.add(btnMeassureEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 150, 120, 50));
+
+        txtMeassureName.setBackground(new java.awt.Color(255, 255, 255));
+        txtMeassureName.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtMeassureName.setForeground(new java.awt.Color(0, 0, 0));
+        txtMeassureName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        pnInfoMeassureSite.add(txtMeassureName, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 60, 258, -1));
+
+        btnMeassureSave.setText("Guardar");
+        pnInfoMeassureSite.add(btnMeassureSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 121, 50));
+
+        btnMeassureDelete.setText("Eliminar");
+        pnInfoMeassureSite.add(btnMeassureDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 150, 121, 48));
+
+        btnMeassureExportPDF.setText("Exportar en PDF");
+        pnInfoMeassureSite.add(btnMeassureExportPDF, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 150, 143, 49));
+
+        pnMainMeassureSite.add(pnInfoMeassureSite, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 760, 220));
+
+        Muestreo.add(pnMainMeassureSite, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1020, 650));
+
         jTabbedPane1.addTab("Registro Sitio de Muestreo", Muestreo);
 
-        User.setBackground(new java.awt.Color(0, 152, 198));
-        User.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        pnMainMedition.setBackground(new java.awt.Color(0, 152, 192));
+        pnMainMedition.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Usuario", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14), new java.awt.Color(0, 0, 0))); // NOI18N
+        pnInfoCaudal.setBackground(new java.awt.Color(255, 255, 255));
+        pnInfoCaudal.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Informacion del Caudal", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14), new java.awt.Color(0, 0, 0))); // NOI18N
+
+        lblFlowCapacity.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblFlowCapacity.setForeground(new java.awt.Color(0, 0, 0));
+        lblFlowCapacity.setText("Capacidad: ");
+
+        btnFlowEdit.setText("Editar");
+
+        lblFlowDate.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblFlowDate.setForeground(new java.awt.Color(0, 0, 0));
+        lblFlowDate.setText("Fecha: ");
+
+        lblFlowObservation.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblFlowObservation.setForeground(new java.awt.Color(0, 0, 0));
+        lblFlowObservation.setText("Observacion: ");
+
+        lblUserName7.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblUserName7.setForeground(new java.awt.Color(0, 0, 0));
+        lblUserName7.setText("Metodo: ");
+
+        lblUserName8.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblUserName8.setForeground(new java.awt.Color(0, 0, 0));
+        lblUserName8.setText("Clima: ");
+
+        lblFlowDone.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblFlowDone.setForeground(new java.awt.Color(0, 0, 0));
+        lblFlowDone.setText("Realizado por: ");
+
+        txtFlowCapacity.setBackground(new java.awt.Color(255, 255, 255));
+        txtFlowCapacity.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtFlowCapacity.setForeground(new java.awt.Color(0, 0, 0));
+        txtFlowCapacity.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        txtFlowObservation.setBackground(new java.awt.Color(255, 255, 255));
+        txtFlowObservation.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtFlowObservation.setForeground(new java.awt.Color(0, 0, 0));
+        txtFlowObservation.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        txtFlowDate.setBackground(new java.awt.Color(255, 255, 255));
+        txtFlowDate.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtFlowDate.setForeground(new java.awt.Color(0, 0, 0));
+        txtFlowDate.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        txtDoneBy.setBackground(new java.awt.Color(255, 255, 255));
+        txtDoneBy.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtDoneBy.setForeground(new java.awt.Color(0, 0, 0));
+        txtDoneBy.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        btnFlowSave.setText("Guardar");
+
+        btnShowGrafic.setText("Mostrar Grafica");
+
+        btnFlowDelete.setText("Eliminar");
+
+        btnFlowExportPDF.setText("Exportar en PDF");
+
+        cbxMethod.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        cbxWeather.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        javax.swing.GroupLayout pnInfoCaudalLayout = new javax.swing.GroupLayout(pnInfoCaudal);
+        pnInfoCaudal.setLayout(pnInfoCaudalLayout);
+        pnInfoCaudalLayout.setHorizontalGroup(
+            pnInfoCaudalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnInfoCaudalLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnInfoCaudalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnInfoCaudalLayout.createSequentialGroup()
+                        .addComponent(btnFlowSave, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(btnFlowEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(35, 35, 35)
+                        .addComponent(btnFlowDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29)
+                        .addComponent(btnShowGrafic, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnFlowExportPDF, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(35, 35, 35))
+                    .addGroup(pnInfoCaudalLayout.createSequentialGroup()
+                        .addGroup(pnInfoCaudalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(pnInfoCaudalLayout.createSequentialGroup()
+                                .addComponent(lblFlowCapacity)
+                                .addGap(34, 34, 34)
+                                .addComponent(txtFlowCapacity, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnInfoCaudalLayout.createSequentialGroup()
+                                .addGroup(pnInfoCaudalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblFlowObservation)
+                                    .addComponent(lblFlowDate))
+                                .addGap(18, 18, 18)
+                                .addGroup(pnInfoCaudalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtFlowDate, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtFlowObservation, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnInfoCaudalLayout.createSequentialGroup()
+                                .addComponent(lblFlowDone)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtDoneBy, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(67, 67, 67)
+                        .addComponent(lblUserName7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cbxMethod, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                        .addComponent(lblUserName8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cbxWeather, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18))))
+        );
+        pnInfoCaudalLayout.setVerticalGroup(
+            pnInfoCaudalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnInfoCaudalLayout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addGroup(pnInfoCaudalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtFlowCapacity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblFlowCapacity, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblUserName7, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblUserName8, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbxMethod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbxWeather, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(pnInfoCaudalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblFlowObservation, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtFlowObservation, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(pnInfoCaudalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblFlowDate, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtFlowDate, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(pnInfoCaudalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblFlowDone, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDoneBy, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(52, 52, 52)
+                .addGroup(pnInfoCaudalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnFlowSave, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnFlowEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnFlowDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnShowGrafic, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnFlowExportPDF, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(30, Short.MAX_VALUE))
+        );
+
+        pnMainMedition.add(pnInfoCaudal, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 810, 350));
+
+        pnCaudalTable.setBackground(new java.awt.Color(255, 255, 255));
+        pnCaudalTable.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tabla", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14), new java.awt.Color(0, 0, 0))); // NOI18N
+
+        tblFlowMeassure.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "Capacidad", "Metodo", "Observasion", "Fecha", "Clima", "Realizado por", "Naciente", "Sitio de Muestreo"
+            }
+        ));
+        jScrollPane2.setViewportView(tblFlowMeassure);
+
+        javax.swing.GroupLayout pnCaudalTableLayout = new javax.swing.GroupLayout(pnCaudalTable);
+        pnCaudalTable.setLayout(pnCaudalTableLayout);
+        pnCaudalTableLayout.setHorizontalGroup(
+            pnCaudalTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnCaudalTableLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 958, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        pnCaudalTableLayout.setVerticalGroup(
+            pnCaudalTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
+        );
+
+        pnMainMedition.add(pnCaudalTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 980, 240));
+
+        jTabbedPane1.addTab("Registro de la Medicion del Caudal", pnMainMedition);
+
+        pnMainUser.setBackground(new java.awt.Color(0, 152, 198));
+        pnMainUser.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        pnUserTable.setBackground(new java.awt.Color(255, 255, 255));
+        pnUserTable.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tabla", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14), new java.awt.Color(0, 0, 0))); // NOI18N
+
+        tblUser.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "Nombre", "Correo", "Contraseña", "Entidad", "Rol"
+            }
+        ));
+        jScrollPane1.setViewportView(tblUser);
+
+        javax.swing.GroupLayout pnUserTableLayout = new javax.swing.GroupLayout(pnUserTable);
+        pnUserTable.setLayout(pnUserTableLayout);
+        pnUserTableLayout.setHorizontalGroup(
+            pnUserTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnUserTableLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 894, Short.MAX_VALUE))
+        );
+        pnUserTableLayout.setVerticalGroup(
+            pnUserTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnUserTableLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        pnMainUser.add(pnUserTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 910, 200));
+
+        pnInfoUser.setBackground(new java.awt.Color(255, 255, 255));
+        pnInfoUser.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Informacion del Usuario", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14), new java.awt.Color(0, 0, 0))); // NOI18N
+        pnInfoUser.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblUserName.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lblUserName.setForeground(new java.awt.Color(0, 0, 0));
         lblUserName.setText("Nombre: ");
+        pnInfoUser.add(lblUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 25, -1, 28));
 
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblUserName)
-                .addContainerGap(831, Short.MAX_VALUE))
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(282, Short.MAX_VALUE))
-        );
+        btnUserEdit.setText("Editar");
+        pnInfoUser.add(btnUserEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, 120, 50));
 
-        User.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 910, 340));
+        lblPassaword.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblPassaword.setForeground(new java.awt.Color(0, 0, 0));
+        lblPassaword.setText("Contraseña: ");
+        pnInfoUser.add(lblPassaword, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, 28));
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tabla", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14), new java.awt.Color(0, 0, 0))); // NOI18N
+        lblEmailUser.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblEmailUser.setForeground(new java.awt.Color(0, 0, 0));
+        lblEmailUser.setText("Correo electonico: ");
+        pnInfoUser.add(lblEmailUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 71, -1, 28));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        txtUserEmail.setBackground(new java.awt.Color(255, 255, 255));
+        txtUserEmail.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtUserEmail.setForeground(new java.awt.Color(0, 0, 0));
+        txtUserEmail.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        pnInfoUser.add(txtUserEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, 260, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 894, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
-        );
+        txtUserName.setBackground(new java.awt.Color(255, 255, 255));
+        txtUserName.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtUserName.setForeground(new java.awt.Color(0, 0, 0));
+        txtUserName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        pnInfoUser.add(txtUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, 258, -1));
 
-        User.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, 910, 240));
+        txtUserPassaword.setBackground(new java.awt.Color(255, 255, 255));
+        txtUserPassaword.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtUserPassaword.setForeground(new java.awt.Color(0, 0, 0));
+        txtUserPassaword.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        pnInfoUser.add(txtUserPassaword, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, 258, 26));
 
-        jTabbedPane1.addTab("Registro Usuario", User);
+        btnUserSave.setText("Guardar");
+        pnInfoUser.add(btnUserSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 121, 50));
 
-        Medicion.setBackground(new java.awt.Color(0, 152, 192));
-        Medicion.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        btnUserDelete.setText("Eliminar");
+        pnInfoUser.add(btnUserDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 180, 121, 48));
 
-        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Informacion del Caudal", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14), new java.awt.Color(0, 0, 0))); // NOI18N
+        pnMainUser.add(pnInfoUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 760, 240));
 
-        lblUserName1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lblUserName1.setForeground(new java.awt.Color(0, 0, 0));
-        lblUserName1.setText("Nombre: ");
-
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblUserName1)
-                .addContainerGap(828, Short.MAX_VALUE))
-        );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblUserName1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(282, Short.MAX_VALUE))
-        );
-
-        Medicion.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 910, 340));
-
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tabla", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14), new java.awt.Color(0, 0, 0))); // NOI18N
-
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane2.setViewportView(jTable2);
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 894, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
-        );
-
-        Medicion.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 410, 910, 240));
-
-        jTabbedPane1.addTab("Registro de la Medicion del Caudal", Medicion);
+        jTabbedPane1.addTab("Registro Usuario", pnMainUser);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1003, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jTabbedPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 718, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1)
                 .addContainerGap())
         );
 
@@ -235,20 +873,95 @@ public class Register extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Entidades;
-    private javax.swing.JPanel Medicion;
     private javax.swing.JPanel Muestreo;
     private javax.swing.JPanel Nacientes;
-    private javax.swing.JPanel User;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
+    private javax.swing.JButton btnEntityDelete;
+    private javax.swing.JButton btnEntityEdit;
+    private javax.swing.JButton btnEntityExportPDF;
+    private javax.swing.JButton btnEntitySave;
+    private javax.swing.JButton btnFlowDelete;
+    private javax.swing.JButton btnFlowEdit;
+    private javax.swing.JButton btnFlowExportPDF;
+    private javax.swing.JButton btnFlowExportPDF4;
+    private javax.swing.JButton btnFlowSave;
+    private javax.swing.JButton btnMeassureDelete;
+    private javax.swing.JButton btnMeassureEdit;
+    private javax.swing.JButton btnMeassureExportPDF;
+    private javax.swing.JButton btnMeassureSave;
+    private javax.swing.JButton btnShowGrafic;
+    private javax.swing.JButton btnSpringsDelete;
+    private javax.swing.JButton btnSpringsEdit;
+    private javax.swing.JButton btnSpringsSave;
+    private javax.swing.JButton btnUserDelete;
+    private javax.swing.JButton btnUserEdit;
+    private javax.swing.JButton btnUserSave;
+    private javax.swing.JComboBox<String> cbxMethod;
+    private javax.swing.JComboBox<String> cbxWeather;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
+    private javax.swing.JTable jTable3;
+    private javax.swing.JLabel lblEmailUser;
+    private javax.swing.JLabel lblEntityAdress;
+    private javax.swing.JLabel lblEntityDescription;
+    private javax.swing.JLabel lblEntityEmail;
+    private javax.swing.JLabel lblEntityName;
+    private javax.swing.JLabel lblEntityTelephoneNumber;
+    private javax.swing.JLabel lblFlowCapacity;
+    private javax.swing.JLabel lblFlowDate;
+    private javax.swing.JLabel lblFlowDone;
+    private javax.swing.JLabel lblFlowObservation;
+    private javax.swing.JLabel lblIdLegal;
+    private javax.swing.JLabel lblMeassureSite;
+    private javax.swing.JLabel lblPassaword;
+    private javax.swing.JLabel lblSpringAdress;
+    private javax.swing.JLabel lblSpringsDescripsion;
+    private javax.swing.JLabel lblSpringsLatitude;
+    private javax.swing.JLabel lblSpringsLenght;
+    private javax.swing.JLabel lblSpringsName;
     private javax.swing.JLabel lblUserName;
-    private javax.swing.JLabel lblUserName1;
+    private javax.swing.JLabel lblUserName7;
+    private javax.swing.JLabel lblUserName8;
+    private javax.swing.JPanel pnCaudalTable;
+    private javax.swing.JPanel pnEntityTable;
+    private javax.swing.JPanel pnInfoCaudal;
+    private javax.swing.JPanel pnInfoEntities;
+    private javax.swing.JPanel pnInfoMeassureSite;
+    private javax.swing.JPanel pnInfoSprings;
+    private javax.swing.JPanel pnInfoUser;
+    private javax.swing.JPanel pnMainEntity;
+    private javax.swing.JPanel pnMainMeassureSite;
+    private javax.swing.JPanel pnMainMedition;
+    private javax.swing.JPanel pnMainSprings;
+    private javax.swing.JPanel pnMainUser;
+    private javax.swing.JPanel pnMeassureSiteTable;
+    private javax.swing.JPanel pnSpringsTable;
+    private javax.swing.JPanel pnUserTable;
+    private javax.swing.JTable tblEntity;
+    private javax.swing.JTable tblFlowMeassure;
+    private javax.swing.JTable tblSprings;
+    private javax.swing.JTable tblUser;
+    private javax.swing.JTextField txtDoneBy;
+    private javax.swing.JTextField txtEntityAdress;
+    private javax.swing.JTextField txtEntityDescription;
+    private javax.swing.JTextField txtEntityEmail;
+    private javax.swing.JTextField txtEntityLegalId;
+    private javax.swing.JTextField txtEntityName;
+    private javax.swing.JTextField txtEntityNumber;
+    private javax.swing.JTextField txtFlowCapacity;
+    private javax.swing.JTextField txtFlowDate;
+    private javax.swing.JTextField txtFlowObservation;
+    private javax.swing.JTextField txtMeassureName;
+    private javax.swing.JTextField txtSpringsAdress;
+    private javax.swing.JTextField txtSpringsDescription;
+    private javax.swing.JTextField txtSpringsLatitude;
+    private javax.swing.JTextField txtSpringsLenght;
+    private javax.swing.JTextField txtSpringsName;
+    private javax.swing.JTextField txtUserEmail;
+    private javax.swing.JTextField txtUserName;
+    private javax.swing.JTextField txtUserPassaword;
     // End of variables declaration//GEN-END:variables
 }
