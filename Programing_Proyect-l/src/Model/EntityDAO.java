@@ -8,7 +8,7 @@ package Model;
 public class EntityDAO extends GeneralDAO {
     
     public EntityDAO() {
-        super("entity");
+        super.getName(1, "entity");
     }
     
 }

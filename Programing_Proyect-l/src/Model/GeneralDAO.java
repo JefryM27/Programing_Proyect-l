@@ -3,21 +3,22 @@ package Model;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author jefry
  */
 public abstract class GeneralDAO {
-    protected final String table;
-    public GeneralDAO(java.lang.String table) {
-        this.table = table;
+
+    //protected final String table;
+    public GeneralDAO() {
     }
 
-    public String getName (int id) {
+    public String getName(int id, String table) {
         String value = "";
         DBConnection db = new DBConnection();
-        String sql = "SELECT name FROM "+ this.table +" WHERE id = ?";
+        String sql = "SELECT name FROM " + table + " WHERE id = ?";
         try {
             PreparedStatement ps = db.getConnection().prepareStatement(sql);
             ps.setInt(1, id);
@@ -32,11 +33,11 @@ public abstract class GeneralDAO {
         }
         return value;
     }
-    
-    public int getIDByName(String name) {
+
+    public int getIDByName(String name, String table) {
         int value = 0;
         DBConnection db = new DBConnection();
-        String sql = "SELECT id FROM " + this.table +" WHERE name = ?";
+        String sql = "SELECT id FROM " + table + " WHERE name = ?";
         try {
             PreparedStatement ps = db.getConnection().prepareStatement(sql);
             ps.setString(1, name);

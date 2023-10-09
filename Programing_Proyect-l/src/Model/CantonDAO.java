@@ -8,7 +8,7 @@ package Model;
 public class CantonDAO extends GeneralDAO {
 
     public CantonDAO() {
-        super("canton");
+        super.getName(1, "canton");
     }
     
 }

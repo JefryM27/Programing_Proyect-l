@@ -8,7 +8,7 @@ package Model;
 public class ProvinceDAO extends GeneralDAO {
 
     public ProvinceDAO() {
-        super("province");
+        super.getName(1, "province");
     }
     
 }
