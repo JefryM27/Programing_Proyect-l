@@ -1,8 +1,13 @@
-
 package Controller;
 
 import Model.DBConnection;
 import View.login;
+import Model.CantonDAO;
+import Model.EntityDAO;
+import Model.GeneralDAO;
+import Model.ProvinceDAO;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
@@ -14,8 +19,25 @@ public class Programing_ProyectL {
         //DBConnection db = new DBConnection();
         //db.getConnection();
         //db.disconnect();
-        login Login = new login();
-        Login.setVisible(true);
+        //login Login = new login();
+        //Login.setVisible(true);
+        /*CantonDAO canton = new CantonDAO();
+        System.out.println(canton.getName(3));
+        System.out.println(canton.getIDByName("Desamparados"));
+        ProvinceDAO province = new ProvinceDAO();
+        System.out.println(province.getName(3));
+        System.out.println(province.getIDByName("Alajuela"));
+        EntityDAO entity = new EntityDAO();
+        System.out.println(entity.getName(4));
+        System.out.println(entity.getIDByName("Municipalidad de San Jose"));*/
+
+        HashMap mapa = new HashMap<String, String>();
+        mapa.put("id", "int");
+        mapa.put("name", "String");
+        System.out.println(mapa.get("Color"));
+        mapa.forEach((clave, valor) -> {
+            System.out.println("Clave: " + clave + ", Valor: " + valor);
+        });
+
     }
-    
 }
