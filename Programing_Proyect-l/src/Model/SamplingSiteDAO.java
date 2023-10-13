@@ -10,16 +10,12 @@ import java.sql.SQLException;
  *
  * @author Bravo
  */
-public class CantonDAO extends GeneralDAO {
-/*
-    public CantonDAO() {
-        super.getName(1, "canton");
-    }
-*/
-    public List<Canton> readCantons() {
+public class SamplingSiteDAO {
+
+    public List<SamplingSite> readSamplingSites() {
         DBConnection db = new DBConnection();
-        List<Canton> cantons = new ArrayList<>();
-        String sql = "SELECT * FROM canton";
+        List<SamplingSite> samplingSites = new ArrayList<>();
+        String sql = "SELECT * FROM sampling_site";
 
         try {
             PreparedStatement ps = db.getConnection().prepareStatement(sql);
@@ -27,11 +23,14 @@ public class CantonDAO extends GeneralDAO {
 
             while (resultSet.next()) {
                 int id = resultSet.getInt("id");
-                String cantonName = resultSet.getString("name");
+                String samplingName = resultSet.getString("name");
                 int province_id = resultSet.getInt("province_id");
+                int canton_id = resultSet.getInt("canton_id");
+                int district_id = resultSet.getInt("district_id");
+                int entity_id = resultSet.getInt("entity_id");
 
-                Canton canton = new Canton(id, cantonName, province_id);
-                cantons.add(canton);
+                SamplingSite site = new SamplingSite(id, samplingName, province_id, canton_id, district_id, entity_id);
+                samplingSites.add(site);
             }
         } catch (SQLException e) {
             System.err.println("Error: " + e.getMessage());
@@ -39,7 +38,7 @@ public class CantonDAO extends GeneralDAO {
             db.disconnect();
         }
 
-        return cantons;
+        return samplingSites;
     }
 
 }

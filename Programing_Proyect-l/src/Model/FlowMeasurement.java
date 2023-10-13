@@ -16,10 +16,32 @@ public class FlowMeasurement {
     private String observation;
     private String weather;
     private String done;
-
     private Date date;
 
     public FlowMeasurement() {
+    }
+
+    public FlowMeasurement(int springsId, int samplingId, double capacity, String metod, String observation, String weather, String done, Date date) {
+        this.springsId = springsId;
+        this.samplingId = samplingId;
+        this.capacity = capacity;
+        this.metod = metod;
+        this.observation = observation;
+        this.weather = weather;
+        this.done = done;
+        this.date = date;
+    }
+
+    public FlowMeasurement(int id, int springsId, int samplingId, double capacity, String metod, String observation, String weather, String done, Date date) {
+        this.id = id;
+        this.springsId = springsId;
+        this.samplingId = samplingId;
+        this.capacity = capacity;
+        this.metod = metod;
+        this.observation = observation;
+        this.weather = weather;
+        this.done = done;
+        this.date = date;
     }
 
     public int getId() {

@@ -1,4 +1,3 @@
-
 package Model;
 
 /**
@@ -6,8 +5,16 @@ package Model;
  * @author jefry
  */
 public class Province {
-   private int id;
-   private int provinceName;
+
+    private int id;
+    private int provinceName;
+
+    public Province() {
+    }
+
+    public Province(int provinceName) {
+        this.provinceName = provinceName;
+    }
 
     public Province(int id, int provinceName) {
         this.id = id;
@@ -29,6 +36,5 @@ public class Province {
     public void setProvinceName(int provinceName) {
         this.provinceName = provinceName;
     }
-   
-   
+
 }

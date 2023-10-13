@@ -1,4 +1,3 @@
-
 package Model;
 
 /**
@@ -6,6 +5,7 @@ package Model;
  * @author Bravo
  */
 public class Canton {
+
     private int id;
     private String cantonName;
     private int province_id;
@@ -47,5 +47,5 @@ public class Canton {
     public void setProvince_id(int province_id) {
         this.province_id = province_id;
     }
-    
+
 }

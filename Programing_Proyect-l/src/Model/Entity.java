@@ -17,6 +17,15 @@ public class Entity {
     public Entity() {
     }
 
+    public Entity(int legalId, int telephone, String entityName, String email, String address, String description) {
+        this.legalId = legalId;
+        this.telephone = telephone;
+        this.entityName = entityName;
+        this.email = email;
+        this.address = address;
+        this.description = description;
+    }
+
     public Entity(int id, int legalId, int telephone, String entityName, String email, String address, String description) {
         this.id = id;
         this.legalId = legalId;
@@ -26,7 +35,6 @@ public class Entity {
         this.address = address;
         this.description = description;
     }
-    
 
     public int getId() {
         return id;

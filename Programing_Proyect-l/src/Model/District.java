@@ -1,4 +1,3 @@
-
 package Model;
 
 /**
@@ -6,18 +5,22 @@ package Model;
  * @author allys
  */
 public class District {
-    private int id,cantonId;
+
+    private int id, cantonId;
     private String districtName;
-    
-    public District(){}
-    public District(int cantonId,String districtName){
-        this.cantonId= cantonId;
-        this.districtName= districtName;
+
+    public District() {
     }
-    public District(int id,int cantonId,String districtName){
-        this.id= id;
-        this.cantonId= cantonId;
-        this.districtName= districtName;
+
+    public District(int cantonId, String districtName) {
+        this.cantonId = cantonId;
+        this.districtName = districtName;
+    }
+
+    public District(int id, String districtName, int cantonId) {
+        this.id = id;
+        this.cantonId = cantonId;
+        this.districtName = districtName;
     }
 
     public int getId() {

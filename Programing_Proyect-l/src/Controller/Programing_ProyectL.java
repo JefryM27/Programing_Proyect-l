@@ -21,6 +21,7 @@ public class Programing_ProyectL {
         //db.disconnect();
         //login Login = new login();
         //Login.setVisible(true);
+        /*
         CantonDAO canton = new CantonDAO();
         System.out.println(canton.getName(3,"canton"));
         System.out.println(canton.getIDByName("Desamparados", "canton"));

@@ -6,6 +6,7 @@ package Model;
  * @author Bravo
  */
 public class SamplingSite {
+
     private int id;
     private String samplingName;
     private int province_id;
@@ -26,7 +27,7 @@ public class SamplingSite {
 
     public SamplingSite(int id, String samplingName, int province_id, int canton_id, int district_id, int entity_id) {
         this.id = id;
-        this.samplingName= samplingName;
+        this.samplingName = samplingName;
         this.province_id = province_id;
         this.canton_id = canton_id;
         this.district_id = district_id;
@@ -80,5 +81,5 @@ public class SamplingSite {
     public void setEntity_id(int entity_id) {
         this.entity_id = entity_id;
     }
-    
+
 }
