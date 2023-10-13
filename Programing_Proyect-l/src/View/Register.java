@@ -46,7 +46,14 @@ public class Register extends javax.swing.JFrame {
         txtSpringsDescription = new javax.swing.JTextField();
         btnSpringsSave = new javax.swing.JButton();
         btnSpringsDelete = new javax.swing.JButton();
-        btnFlowExportPDF4 = new javax.swing.JButton();
+        cbxProvinceSprings = new javax.swing.JComboBox<>();
+        lblSpringsDescripsion1 = new javax.swing.JLabel();
+        lblSpringsDescripsion2 = new javax.swing.JLabel();
+        cbxCantonSprings = new javax.swing.JComboBox<>();
+        lblSpringsDescripsion3 = new javax.swing.JLabel();
+        cbxDistrictSprings = new javax.swing.JComboBox<>();
+        lblSpringsDescripsion4 = new javax.swing.JLabel();
+        cbxEntitySprings = new javax.swing.JComboBox<>();
         Nacientes = new javax.swing.JPanel();
         pnMainEntity = new javax.swing.JPanel();
         pnEntityTable = new javax.swing.JPanel();
@@ -68,7 +75,6 @@ public class Register extends javax.swing.JFrame {
         txtEntityDescription = new javax.swing.JTextField();
         btnEntitySave = new javax.swing.JButton();
         btnEntityDelete = new javax.swing.JButton();
-        btnEntityExportPDF = new javax.swing.JButton();
         Muestreo = new javax.swing.JPanel();
         pnMainMeassureSite = new javax.swing.JPanel();
         pnMeassureSiteTable = new javax.swing.JPanel();
@@ -80,7 +86,14 @@ public class Register extends javax.swing.JFrame {
         txtMeassureName = new javax.swing.JTextField();
         btnMeassureSave = new javax.swing.JButton();
         btnMeassureDelete = new javax.swing.JButton();
-        btnMeassureExportPDF = new javax.swing.JButton();
+        cbxEntitySampling = new javax.swing.JComboBox<>();
+        cbxProvinceSampling = new javax.swing.JComboBox<>();
+        cbxCantonSampling = new javax.swing.JComboBox<>();
+        lblMeassureSite1 = new javax.swing.JLabel();
+        lblMeassureSite2 = new javax.swing.JLabel();
+        lblMeassureSite3 = new javax.swing.JLabel();
+        lblMeassureSite4 = new javax.swing.JLabel();
+        cbxDistrictSampling1 = new javax.swing.JComboBox<>();
         pnMainMedition = new javax.swing.JPanel();
         pnInfoCaudal = new javax.swing.JPanel();
         lblFlowCapacity = new javax.swing.JLabel();
@@ -95,11 +108,13 @@ public class Register extends javax.swing.JFrame {
         txtFlowDate = new javax.swing.JTextField();
         txtDoneBy = new javax.swing.JTextField();
         btnFlowSave = new javax.swing.JButton();
-        btnShowGrafic = new javax.swing.JButton();
         btnFlowDelete = new javax.swing.JButton();
-        btnFlowExportPDF = new javax.swing.JButton();
         cbxMethod = new javax.swing.JComboBox<>();
         cbxWeather = new javax.swing.JComboBox<>();
+        lblUserName9 = new javax.swing.JLabel();
+        lblUserName10 = new javax.swing.JLabel();
+        cbxSpringsMeasure = new javax.swing.JComboBox<>();
+        cbxSamplingMeasure = new javax.swing.JComboBox<>();
         pnCaudalTable = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblFlowMeassure = new javax.swing.JTable();
@@ -117,6 +132,17 @@ public class Register extends javax.swing.JFrame {
         txtUserPassaword = new javax.swing.JTextField();
         btnUserSave = new javax.swing.JButton();
         btnUserDelete = new javax.swing.JButton();
+        cbxRolUser = new javax.swing.JComboBox<>();
+        lblUserName1 = new javax.swing.JLabel();
+        lblUserName2 = new javax.swing.JLabel();
+        cbxEntityUser1 = new javax.swing.JComboBox<>();
+        jPanel1 = new javax.swing.JPanel();
+        pnMainUser1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        btnUserSave1 = new javax.swing.JButton();
+        btnUserEdit1 = new javax.swing.JButton();
+        btnUserDelete1 = new javax.swing.JButton();
+        btnGeneratePDF = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -126,7 +152,7 @@ public class Register extends javax.swing.JFrame {
         pnMainSprings.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         pnSpringsTable.setBackground(new java.awt.Color(255, 255, 255));
-        pnSpringsTable.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tabla", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14), new java.awt.Color(0, 0, 0))); // NOI18N
+        pnSpringsTable.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tabla", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
 
         tblSprings.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -155,63 +181,66 @@ public class Register extends javax.swing.JFrame {
             .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
         );
 
-        pnMainSprings.add(pnSpringsTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 410, 940, 240));
+        pnMainSprings.add(pnSpringsTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 400, 940, 240));
 
         pnInfoSprings.setBackground(new java.awt.Color(255, 255, 255));
-        pnInfoSprings.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Informacion del Caudal", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14), new java.awt.Color(0, 0, 0))); // NOI18N
+        pnInfoSprings.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Informacion de la Naciente", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
 
         btnSpringsEdit.setText("Editar");
 
         lblSpringsLenght.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lblSpringsLenght.setForeground(new java.awt.Color(0, 0, 0));
         lblSpringsLenght.setText("Longitud: ");
 
         lblSpringAdress.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lblSpringAdress.setForeground(new java.awt.Color(0, 0, 0));
         lblSpringAdress.setText("Direccion: ");
 
         lblSpringsName.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lblSpringsName.setForeground(new java.awt.Color(0, 0, 0));
         lblSpringsName.setText("Nombre: ");
 
         lblSpringsLatitude.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lblSpringsLatitude.setForeground(new java.awt.Color(0, 0, 0));
         lblSpringsLatitude.setText("Latitud: ");
 
         lblSpringsDescripsion.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lblSpringsDescripsion.setForeground(new java.awt.Color(0, 0, 0));
         lblSpringsDescripsion.setText("Descripcion: ");
 
-        txtSpringsName.setBackground(new java.awt.Color(255, 255, 255));
         txtSpringsName.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        txtSpringsName.setForeground(new java.awt.Color(0, 0, 0));
         txtSpringsName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        txtSpringsLatitude.setBackground(new java.awt.Color(255, 255, 255));
         txtSpringsLatitude.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        txtSpringsLatitude.setForeground(new java.awt.Color(0, 0, 0));
         txtSpringsLatitude.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        txtSpringsAdress.setBackground(new java.awt.Color(255, 255, 255));
         txtSpringsAdress.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        txtSpringsAdress.setForeground(new java.awt.Color(0, 0, 0));
         txtSpringsAdress.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        txtSpringsLenght.setBackground(new java.awt.Color(255, 255, 255));
         txtSpringsLenght.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        txtSpringsLenght.setForeground(new java.awt.Color(0, 0, 0));
         txtSpringsLenght.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        txtSpringsDescription.setBackground(new java.awt.Color(255, 255, 255));
         txtSpringsDescription.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        txtSpringsDescription.setForeground(new java.awt.Color(0, 0, 0));
         txtSpringsDescription.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         btnSpringsSave.setText("Guardar");
 
         btnSpringsDelete.setText("Eliminar");
 
-        btnFlowExportPDF4.setText("Exportar en PDF");
+        cbxProvinceSprings.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        lblSpringsDescripsion1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblSpringsDescripsion1.setText("Provincia:");
+
+        lblSpringsDescripsion2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblSpringsDescripsion2.setText("Canton:");
+
+        cbxCantonSprings.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        lblSpringsDescripsion3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblSpringsDescripsion3.setText("Distrito:");
+
+        cbxDistrictSprings.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        lblSpringsDescripsion4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblSpringsDescripsion4.setText("Entidad:");
+
+        cbxEntitySprings.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout pnInfoSpringsLayout = new javax.swing.GroupLayout(pnInfoSprings);
         pnInfoSprings.setLayout(pnInfoSpringsLayout);
@@ -221,34 +250,48 @@ public class Register extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(pnInfoSpringsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnInfoSpringsLayout.createSequentialGroup()
-                        .addComponent(lblSpringsDescripsion)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtSpringsDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnInfoSpringsLayout.createSequentialGroup()
-                        .addComponent(lblSpringsLenght)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
-                        .addComponent(txtSpringsLenght, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(pnInfoSpringsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnInfoSpringsLayout.createSequentialGroup()
+                                .addComponent(lblSpringsName)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtSpringsName, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(pnInfoSpringsLayout.createSequentialGroup()
+                                .addComponent(lblSpringAdress)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
+                                .addComponent(txtSpringsAdress, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(pnInfoSpringsLayout.createSequentialGroup()
+                                .addComponent(lblSpringsLatitude)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtSpringsLatitude, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnInfoSpringsLayout.createSequentialGroup()
+                                .addGroup(pnInfoSpringsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblSpringsDescripsion)
+                                    .addComponent(lblSpringsLenght)
+                                    .addComponent(lblSpringsDescripsion1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                                .addGroup(pnInfoSpringsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnInfoSpringsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(cbxProvinceSprings, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(txtSpringsDescription, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
+                                        .addComponent(cbxCantonSprings, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(cbxDistrictSprings, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(cbxEntitySprings, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(txtSpringsLenght, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(34, 34, 34)
+                        .addGroup(pnInfoSpringsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(pnInfoSpringsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(btnSpringsSave, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnSpringsDelete, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE))
+                            .addComponent(btnSpringsEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(171, 171, 171))
                     .addGroup(pnInfoSpringsLayout.createSequentialGroup()
-                        .addComponent(lblSpringsName)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtSpringsName, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lblSpringsDescripsion2, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(pnInfoSpringsLayout.createSequentialGroup()
-                        .addComponent(lblSpringAdress)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtSpringsAdress, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnInfoSpringsLayout.createSequentialGroup()
-                        .addComponent(lblSpringsLatitude)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtSpringsLatitude, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(34, 34, 34)
-                .addGroup(pnInfoSpringsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnSpringsSave, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnSpringsDelete, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE))
-                .addGap(42, 42, 42)
-                .addGroup(pnInfoSpringsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnSpringsEdit, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
-                    .addComponent(btnFlowExportPDF4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 9, Short.MAX_VALUE))
+                        .addGroup(pnInfoSpringsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblSpringsDescripsion3, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblSpringsDescripsion4, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         pnInfoSpringsLayout.setVerticalGroup(
             pnInfoSpringsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -256,40 +299,53 @@ public class Register extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(pnInfoSpringsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnInfoSpringsLayout.createSequentialGroup()
-                        .addComponent(btnSpringsEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(39, 39, 39)
+                        .addGap(8, 8, 8)
                         .addGroup(pnInfoSpringsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnSpringsDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnFlowExportPDF4, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(pnInfoSpringsLayout.createSequentialGroup()
-                        .addGroup(pnInfoSpringsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnSpringsSave, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnInfoSpringsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(lblSpringsName, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtSpringsName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)
+                            .addComponent(lblSpringsName, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtSpringsName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(pnInfoSpringsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblSpringAdress, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtSpringsAdress, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(pnInfoSpringsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnInfoSpringsLayout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(lblSpringsLatitude, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(pnInfoSpringsLayout.createSequentialGroup()
-                                .addGap(28, 28, 28)
-                                .addComponent(txtSpringsLatitude, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(18, 18, 18)
-                .addGroup(pnInfoSpringsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblSpringsLenght, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtSpringsLenght, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
-                .addGroup(pnInfoSpringsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtSpringsDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblSpringsDescripsion, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(48, Short.MAX_VALUE))
+                            .addComponent(txtSpringsLatitude, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblSpringsLatitude, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(pnInfoSpringsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblSpringsLenght, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtSpringsLenght, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(pnInfoSpringsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblSpringsDescripsion, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtSpringsDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(pnInfoSpringsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cbxProvinceSprings, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblSpringsDescripsion1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pnInfoSpringsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblSpringsDescripsion2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbxCantonSprings, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pnInfoSpringsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblSpringsDescripsion3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbxDistrictSprings, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pnInfoSpringsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblSpringsDescripsion4, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbxEntitySprings, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(12, Short.MAX_VALUE))
+                    .addGroup(pnInfoSpringsLayout.createSequentialGroup()
+                        .addComponent(btnSpringsSave, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(13, 13, 13)
+                        .addComponent(btnSpringsEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnSpringsDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
 
-        pnMainSprings.add(pnInfoSprings, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 760, 330));
+        pnMainSprings.add(pnInfoSprings, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, 760, 380));
 
         Entidades.add(pnMainSprings, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1060, -1));
 
@@ -301,7 +357,7 @@ public class Register extends javax.swing.JFrame {
         pnMainEntity.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         pnEntityTable.setBackground(new java.awt.Color(255, 255, 255));
-        pnEntityTable.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tabla", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14), new java.awt.Color(0, 0, 0))); // NOI18N
+        pnEntityTable.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tabla", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
 
         tblEntity.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -329,72 +385,52 @@ public class Register extends javax.swing.JFrame {
             .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
         );
 
-        pnMainEntity.add(pnEntityTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, 910, 240));
+        pnMainEntity.add(pnEntityTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, 910, 240));
 
         pnInfoEntities.setBackground(new java.awt.Color(255, 255, 255));
-        pnInfoEntities.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Informacion de la Entidad", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14), new java.awt.Color(0, 0, 0))); // NOI18N
+        pnInfoEntities.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Informacion de la Entidad", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
 
         lblIdLegal.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lblIdLegal.setForeground(new java.awt.Color(0, 0, 0));
         lblIdLegal.setText("Cedula Juridica: ");
 
         btnEntityEdit.setText("Editar");
 
         lblEntityAdress.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lblEntityAdress.setForeground(new java.awt.Color(0, 0, 0));
         lblEntityAdress.setText("Direccion: ");
 
         lblEntityEmail.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lblEntityEmail.setForeground(new java.awt.Color(0, 0, 0));
         lblEntityEmail.setText("Email: ");
 
         lblEntityName.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lblEntityName.setForeground(new java.awt.Color(0, 0, 0));
         lblEntityName.setText("Nombre: ");
 
         lblEntityTelephoneNumber.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lblEntityTelephoneNumber.setForeground(new java.awt.Color(0, 0, 0));
         lblEntityTelephoneNumber.setText("Telefono: ");
 
         lblEntityDescription.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lblEntityDescription.setForeground(new java.awt.Color(0, 0, 0));
         lblEntityDescription.setText("Descripcion: ");
 
-        txtEntityName.setBackground(new java.awt.Color(255, 255, 255));
         txtEntityName.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        txtEntityName.setForeground(new java.awt.Color(0, 0, 0));
         txtEntityName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        txtEntityLegalId.setBackground(new java.awt.Color(255, 255, 255));
         txtEntityLegalId.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        txtEntityLegalId.setForeground(new java.awt.Color(0, 0, 0));
         txtEntityLegalId.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        txtEntityNumber.setBackground(new java.awt.Color(255, 255, 255));
         txtEntityNumber.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        txtEntityNumber.setForeground(new java.awt.Color(0, 0, 0));
         txtEntityNumber.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        txtEntityEmail.setBackground(new java.awt.Color(255, 255, 255));
         txtEntityEmail.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        txtEntityEmail.setForeground(new java.awt.Color(0, 0, 0));
         txtEntityEmail.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        txtEntityAdress.setBackground(new java.awt.Color(255, 255, 255));
         txtEntityAdress.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        txtEntityAdress.setForeground(new java.awt.Color(0, 0, 0));
         txtEntityAdress.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        txtEntityDescription.setBackground(new java.awt.Color(255, 255, 255));
         txtEntityDescription.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        txtEntityDescription.setForeground(new java.awt.Color(0, 0, 0));
         txtEntityDescription.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         btnEntitySave.setText("Guardar");
 
         btnEntityDelete.setText("Eliminar");
-
-        btnEntityExportPDF.setText("Exportar en PDF");
 
         javax.swing.GroupLayout pnInfoEntitiesLayout = new javax.swing.GroupLayout(pnInfoEntities);
         pnInfoEntities.setLayout(pnInfoEntitiesLayout);
@@ -433,9 +469,7 @@ public class Register extends javax.swing.JFrame {
                     .addComponent(btnEntitySave, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnEntityDelete, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE))
                 .addGap(42, 42, 42)
-                .addGroup(pnInfoEntitiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnEntityEdit, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
-                    .addComponent(btnEntityExportPDF, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(btnEntityEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 15, Short.MAX_VALUE))
         );
         pnInfoEntitiesLayout.setVerticalGroup(
@@ -459,10 +493,8 @@ public class Register extends javax.swing.JFrame {
                             .addComponent(txtEntityEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(pnInfoEntitiesLayout.createSequentialGroup()
                         .addComponent(btnEntityEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(39, 39, 39)
-                        .addGroup(pnInfoEntitiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnEntityDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnEntityExportPDF, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(40, 40, 40)
+                        .addComponent(btnEntityDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(pnInfoEntitiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtEntityNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -478,7 +510,7 @@ public class Register extends javax.swing.JFrame {
                 .addContainerGap(12, Short.MAX_VALUE))
         );
 
-        pnMainEntity.add(pnInfoEntities, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 760, 330));
+        pnMainEntity.add(pnInfoEntities, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, 760, 330));
 
         Nacientes.add(pnMainEntity, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, -1));
 
@@ -490,7 +522,7 @@ public class Register extends javax.swing.JFrame {
         pnMainMeassureSite.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         pnMeassureSiteTable.setBackground(new java.awt.Color(255, 255, 255));
-        pnMeassureSiteTable.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tabla", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14), new java.awt.Color(0, 0, 0))); // NOI18N
+        pnMeassureSiteTable.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tabla", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
 
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -518,36 +550,58 @@ public class Register extends javax.swing.JFrame {
             .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
         );
 
-        pnMainMeassureSite.add(pnMeassureSiteTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, 910, 240));
+        pnMainMeassureSite.add(pnMeassureSiteTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, 910, 240));
 
         pnInfoMeassureSite.setBackground(new java.awt.Color(255, 255, 255));
-        pnInfoMeassureSite.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Informacion de los sitios de muestreo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14), new java.awt.Color(0, 0, 0))); // NOI18N
+        pnInfoMeassureSite.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Informacion de los sitios de muestreo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
         pnInfoMeassureSite.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblMeassureSite.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lblMeassureSite.setForeground(new java.awt.Color(0, 0, 0));
-        lblMeassureSite.setText("Ingrese el nombre del sitio de muestreo: ");
-        pnInfoMeassureSite.add(lblMeassureSite, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, 28));
+        lblMeassureSite.setText("Entidad:");
+        pnInfoMeassureSite.add(lblMeassureSite, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 220, -1, 28));
 
         btnMeassureEdit.setText("Editar");
-        pnInfoMeassureSite.add(btnMeassureEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 150, 120, 50));
+        pnInfoMeassureSite.add(btnMeassureEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 270, 120, 50));
 
-        txtMeassureName.setBackground(new java.awt.Color(255, 255, 255));
         txtMeassureName.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        txtMeassureName.setForeground(new java.awt.Color(0, 0, 0));
         txtMeassureName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         pnInfoMeassureSite.add(txtMeassureName, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 60, 258, -1));
 
         btnMeassureSave.setText("Guardar");
-        pnInfoMeassureSite.add(btnMeassureSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 121, 50));
+        pnInfoMeassureSite.add(btnMeassureSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 270, 121, 50));
 
         btnMeassureDelete.setText("Eliminar");
-        pnInfoMeassureSite.add(btnMeassureDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 150, 121, 48));
+        pnInfoMeassureSite.add(btnMeassureDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 270, 121, 48));
 
-        btnMeassureExportPDF.setText("Exportar en PDF");
-        pnInfoMeassureSite.add(btnMeassureExportPDF, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 150, 143, 49));
+        cbxEntitySampling.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        pnInfoMeassureSite.add(cbxEntitySampling, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 220, 260, -1));
 
-        pnMainMeassureSite.add(pnInfoMeassureSite, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 760, 220));
+        cbxProvinceSampling.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        pnInfoMeassureSite.add(cbxProvinceSampling, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 100, 260, -1));
+
+        cbxCantonSampling.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        pnInfoMeassureSite.add(cbxCantonSampling, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 140, 260, -1));
+
+        lblMeassureSite1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblMeassureSite1.setText("Ingrese el nombre del sitio de muestreo: ");
+        pnInfoMeassureSite.add(lblMeassureSite1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 290, 28));
+
+        lblMeassureSite2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblMeassureSite2.setText("Provincia:");
+        pnInfoMeassureSite.add(lblMeassureSite2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, -1, 28));
+
+        lblMeassureSite3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblMeassureSite3.setText("Canton:");
+        pnInfoMeassureSite.add(lblMeassureSite3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 140, -1, 28));
+
+        lblMeassureSite4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblMeassureSite4.setText("Distrito:");
+        pnInfoMeassureSite.add(lblMeassureSite4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 180, -1, 28));
+
+        cbxDistrictSampling1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        pnInfoMeassureSite.add(cbxDistrictSampling1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 180, 260, -1));
+
+        pnMainMeassureSite.add(pnInfoMeassureSite, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, 840, 340));
 
         Muestreo.add(pnMainMeassureSite, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1020, 650));
 
@@ -557,65 +611,57 @@ public class Register extends javax.swing.JFrame {
         pnMainMedition.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         pnInfoCaudal.setBackground(new java.awt.Color(255, 255, 255));
-        pnInfoCaudal.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Informacion del Caudal", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14), new java.awt.Color(0, 0, 0))); // NOI18N
+        pnInfoCaudal.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Informacion del Caudal", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
 
         lblFlowCapacity.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lblFlowCapacity.setForeground(new java.awt.Color(0, 0, 0));
         lblFlowCapacity.setText("Capacidad: ");
 
         btnFlowEdit.setText("Editar");
 
         lblFlowDate.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lblFlowDate.setForeground(new java.awt.Color(0, 0, 0));
         lblFlowDate.setText("Fecha: ");
 
         lblFlowObservation.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lblFlowObservation.setForeground(new java.awt.Color(0, 0, 0));
         lblFlowObservation.setText("Observacion: ");
 
         lblUserName7.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lblUserName7.setForeground(new java.awt.Color(0, 0, 0));
         lblUserName7.setText("Metodo: ");
 
         lblUserName8.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lblUserName8.setForeground(new java.awt.Color(0, 0, 0));
         lblUserName8.setText("Clima: ");
 
         lblFlowDone.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lblFlowDone.setForeground(new java.awt.Color(0, 0, 0));
         lblFlowDone.setText("Realizado por: ");
 
-        txtFlowCapacity.setBackground(new java.awt.Color(255, 255, 255));
         txtFlowCapacity.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        txtFlowCapacity.setForeground(new java.awt.Color(0, 0, 0));
         txtFlowCapacity.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        txtFlowObservation.setBackground(new java.awt.Color(255, 255, 255));
         txtFlowObservation.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        txtFlowObservation.setForeground(new java.awt.Color(0, 0, 0));
         txtFlowObservation.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        txtFlowDate.setBackground(new java.awt.Color(255, 255, 255));
         txtFlowDate.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        txtFlowDate.setForeground(new java.awt.Color(0, 0, 0));
         txtFlowDate.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        txtDoneBy.setBackground(new java.awt.Color(255, 255, 255));
         txtDoneBy.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        txtDoneBy.setForeground(new java.awt.Color(0, 0, 0));
         txtDoneBy.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         btnFlowSave.setText("Guardar");
 
-        btnShowGrafic.setText("Mostrar Grafica");
-
         btnFlowDelete.setText("Eliminar");
-
-        btnFlowExportPDF.setText("Exportar en PDF");
 
         cbxMethod.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         cbxWeather.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        lblUserName9.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblUserName9.setText("Sitio de Muestreo:");
+
+        lblUserName10.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblUserName10.setText("Naciente:");
+
+        cbxSpringsMeasure.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        cbxSamplingMeasure.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout pnInfoCaudalLayout = new javax.swing.GroupLayout(pnInfoCaudal);
         pnInfoCaudal.setLayout(pnInfoCaudalLayout);
@@ -625,43 +671,49 @@ public class Register extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(pnInfoCaudalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnInfoCaudalLayout.createSequentialGroup()
-                        .addComponent(btnFlowSave, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
-                        .addComponent(btnFlowEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(35, 35, 35)
-                        .addComponent(btnFlowDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29)
-                        .addComponent(btnShowGrafic, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnFlowExportPDF, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(35, 35, 35))
-                    .addGroup(pnInfoCaudalLayout.createSequentialGroup()
                         .addGroup(pnInfoCaudalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(pnInfoCaudalLayout.createSequentialGroup()
-                                .addComponent(lblFlowCapacity)
-                                .addGap(34, 34, 34)
-                                .addComponent(txtFlowCapacity, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnInfoCaudalLayout.createSequentialGroup()
-                                .addGroup(pnInfoCaudalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblFlowObservation)
-                                    .addComponent(lblFlowDate))
-                                .addGap(18, 18, 18)
-                                .addGroup(pnInfoCaudalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtFlowDate, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtFlowObservation, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnInfoCaudalLayout.createSequentialGroup()
                                 .addComponent(lblFlowDone)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtDoneBy, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(67, 67, 67)
-                        .addComponent(lblUserName7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cbxMethod, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                        .addComponent(lblUserName8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cbxWeather, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtDoneBy, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblUserName9))
+                            .addGroup(pnInfoCaudalLayout.createSequentialGroup()
+                                .addGroup(pnInfoCaudalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(pnInfoCaudalLayout.createSequentialGroup()
+                                        .addComponent(lblFlowCapacity)
+                                        .addGap(34, 34, 34)
+                                        .addComponent(txtFlowCapacity, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnInfoCaudalLayout.createSequentialGroup()
+                                        .addGroup(pnInfoCaudalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblFlowObservation)
+                                            .addComponent(lblFlowDate))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(pnInfoCaudalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(txtFlowDate, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtFlowObservation, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(56, 56, 56)
+                                .addGroup(pnInfoCaudalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblUserName8)
+                                    .addGroup(pnInfoCaudalLayout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addGroup(pnInfoCaudalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(lblUserName10)
+                                            .addComponent(lblUserName7))))))
+                        .addGap(18, 18, 18))
+                    .addGroup(pnInfoCaudalLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnFlowSave, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(73, 73, 73)
+                        .addComponent(btnFlowEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(72, 72, 72)))
+                .addGroup(pnInfoCaudalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cbxMethod, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbxWeather, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbxSpringsMeasure, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbxSamplingMeasure, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnFlowDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(48, 48, 48))
         );
         pnInfoCaudalLayout.setVerticalGroup(
             pnInfoCaudalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -671,35 +723,37 @@ public class Register extends javax.swing.JFrame {
                     .addComponent(txtFlowCapacity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblFlowCapacity, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblUserName7, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblUserName8, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbxMethod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbxWeather, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbxMethod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(pnInfoCaudalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblFlowObservation, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtFlowObservation, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtFlowObservation, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblUserName8, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbxWeather, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(pnInfoCaudalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblFlowDate, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtFlowDate, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtFlowDate, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblUserName10, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbxSpringsMeasure, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(pnInfoCaudalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblFlowDone, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtDoneBy, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtDoneBy, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblUserName9, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbxSamplingMeasure, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(52, 52, 52)
                 .addGroup(pnInfoCaudalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnFlowSave, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnFlowEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnFlowDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnShowGrafic, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnFlowExportPDF, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnFlowDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
 
-        pnMainMedition.add(pnInfoCaudal, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 810, 350));
+        pnMainMedition.add(pnInfoCaudal, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 810, 350));
 
         pnCaudalTable.setBackground(new java.awt.Color(255, 255, 255));
-        pnCaudalTable.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tabla", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14), new java.awt.Color(0, 0, 0))); // NOI18N
+        pnCaudalTable.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tabla", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
 
         tblFlowMeassure.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -728,7 +782,7 @@ public class Register extends javax.swing.JFrame {
             .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
         );
 
-        pnMainMedition.add(pnCaudalTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 980, 240));
+        pnMainMedition.add(pnCaudalTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, 980, 240));
 
         jTabbedPane1.addTab("Registro de la Medicion del Caudal", pnMainMedition);
 
@@ -736,7 +790,7 @@ public class Register extends javax.swing.JFrame {
         pnMainUser.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         pnUserTable.setBackground(new java.awt.Color(255, 255, 255));
-        pnUserTable.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tabla", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14), new java.awt.Color(0, 0, 0))); // NOI18N
+        pnUserTable.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tabla", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
 
         tblUser.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -767,57 +821,137 @@ public class Register extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        pnMainUser.add(pnUserTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 910, 200));
+        pnMainUser.add(pnUserTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, 910, 200));
 
         pnInfoUser.setBackground(new java.awt.Color(255, 255, 255));
-        pnInfoUser.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Informacion del Usuario", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14), new java.awt.Color(0, 0, 0))); // NOI18N
+        pnInfoUser.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Informacion del Usuario", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
         pnInfoUser.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblUserName.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lblUserName.setForeground(new java.awt.Color(0, 0, 0));
-        lblUserName.setText("Nombre: ");
-        pnInfoUser.add(lblUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 25, -1, 28));
+        lblUserName.setText("Rol:");
+        pnInfoUser.add(lblUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 80, -1, 28));
 
         btnUserEdit.setText("Editar");
-        pnInfoUser.add(btnUserEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, 120, 50));
+        pnInfoUser.add(btnUserEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 180, 120, 50));
 
         lblPassaword.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lblPassaword.setForeground(new java.awt.Color(0, 0, 0));
         lblPassaword.setText("Contraseña: ");
         pnInfoUser.add(lblPassaword, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, 28));
 
         lblEmailUser.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lblEmailUser.setForeground(new java.awt.Color(0, 0, 0));
         lblEmailUser.setText("Correo electonico: ");
         pnInfoUser.add(lblEmailUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 71, -1, 28));
 
-        txtUserEmail.setBackground(new java.awt.Color(255, 255, 255));
         txtUserEmail.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        txtUserEmail.setForeground(new java.awt.Color(0, 0, 0));
         txtUserEmail.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         pnInfoUser.add(txtUserEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, 260, -1));
 
-        txtUserName.setBackground(new java.awt.Color(255, 255, 255));
         txtUserName.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        txtUserName.setForeground(new java.awt.Color(0, 0, 0));
         txtUserName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         pnInfoUser.add(txtUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, 258, -1));
 
-        txtUserPassaword.setBackground(new java.awt.Color(255, 255, 255));
         txtUserPassaword.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        txtUserPassaword.setForeground(new java.awt.Color(0, 0, 0));
         txtUserPassaword.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         pnInfoUser.add(txtUserPassaword, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, 258, 26));
 
         btnUserSave.setText("Guardar");
-        pnInfoUser.add(btnUserSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 121, 50));
+        pnInfoUser.add(btnUserSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, 121, 50));
 
         btnUserDelete.setText("Eliminar");
-        pnInfoUser.add(btnUserDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 180, 121, 48));
+        pnInfoUser.add(btnUserDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 180, 121, 48));
 
-        pnMainUser.add(pnInfoUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 760, 240));
+        cbxRolUser.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        pnInfoUser.add(cbxRolUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 80, 230, 30));
+
+        lblUserName1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblUserName1.setText("Nombre: ");
+        pnInfoUser.add(lblUserName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 25, -1, 28));
+
+        lblUserName2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblUserName2.setText("Entidad:");
+        pnInfoUser.add(lblUserName2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 30, -1, 28));
+
+        cbxEntityUser1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        pnInfoUser.add(cbxEntityUser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 30, 230, 30));
+
+        pnMainUser.add(pnInfoUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, 760, 240));
 
         jTabbedPane1.addTab("Registro Usuario", pnMainUser);
+
+        pnMainUser1.setBackground(new java.awt.Color(0, 152, 198));
+        pnMainUser1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Generar Reportes", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
+
+        btnUserSave1.setText("Reporte de nacientes");
+        btnUserSave1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUserSave1ActionPerformed(evt);
+            }
+        });
+
+        btnUserEdit1.setText("Reporte de medición de caudal");
+
+        btnUserDelete1.setText("Reporte de todos los sitios de muestreo");
+        btnUserDelete1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUserDelete1ActionPerformed(evt);
+            }
+        });
+
+        btnGeneratePDF.setText("Generad PDF");
+        btnGeneratePDF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGeneratePDFActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(97, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnGeneratePDF, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnUserDelete1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnUserEdit1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnUserSave1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(93, 93, 93))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addComponent(btnUserSave1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(49, 49, 49)
+                .addComponent(btnUserEdit1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(48, 48, 48)
+                .addComponent(btnUserDelete1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41)
+                .addComponent(btnGeneratePDF, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(44, Short.MAX_VALUE))
+        );
+
+        pnMainUser1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 40, 470, 440));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 12, Short.MAX_VALUE)
+                .addComponent(pnMainUser1, javax.swing.GroupLayout.PREFERRED_SIZE, 1060, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(pnMainUser1, javax.swing.GroupLayout.PREFERRED_SIZE, 660, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Reportes", jPanel1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -835,6 +969,18 @@ public class Register extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnUserDelete1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUserDelete1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnUserDelete1ActionPerformed
+
+    private void btnUserSave1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUserSave1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnUserSave1ActionPerformed
+
+    private void btnGeneratePDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGeneratePDFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGeneratePDFActionPerformed
 
     /**
      * @param args the command line arguments
@@ -877,26 +1023,39 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JPanel Nacientes;
     private javax.swing.JButton btnEntityDelete;
     private javax.swing.JButton btnEntityEdit;
-    private javax.swing.JButton btnEntityExportPDF;
     private javax.swing.JButton btnEntitySave;
     private javax.swing.JButton btnFlowDelete;
     private javax.swing.JButton btnFlowEdit;
-    private javax.swing.JButton btnFlowExportPDF;
-    private javax.swing.JButton btnFlowExportPDF4;
     private javax.swing.JButton btnFlowSave;
+    private javax.swing.JButton btnGeneratePDF;
     private javax.swing.JButton btnMeassureDelete;
     private javax.swing.JButton btnMeassureEdit;
-    private javax.swing.JButton btnMeassureExportPDF;
     private javax.swing.JButton btnMeassureSave;
-    private javax.swing.JButton btnShowGrafic;
     private javax.swing.JButton btnSpringsDelete;
     private javax.swing.JButton btnSpringsEdit;
     private javax.swing.JButton btnSpringsSave;
     private javax.swing.JButton btnUserDelete;
+    private javax.swing.JButton btnUserDelete1;
     private javax.swing.JButton btnUserEdit;
+    private javax.swing.JButton btnUserEdit1;
     private javax.swing.JButton btnUserSave;
+    private javax.swing.JButton btnUserSave1;
+    private javax.swing.JComboBox<String> cbxCantonSampling;
+    private javax.swing.JComboBox<String> cbxCantonSprings;
+    private javax.swing.JComboBox<String> cbxDistrictSampling1;
+    private javax.swing.JComboBox<String> cbxDistrictSprings;
+    private javax.swing.JComboBox<String> cbxEntitySampling;
+    private javax.swing.JComboBox<String> cbxEntitySprings;
+    private javax.swing.JComboBox<String> cbxEntityUser1;
     private javax.swing.JComboBox<String> cbxMethod;
+    private javax.swing.JComboBox<String> cbxProvinceSampling;
+    private javax.swing.JComboBox<String> cbxProvinceSprings;
+    private javax.swing.JComboBox<String> cbxRolUser;
+    private javax.swing.JComboBox<String> cbxSamplingMeasure;
+    private javax.swing.JComboBox<String> cbxSpringsMeasure;
     private javax.swing.JComboBox<String> cbxWeather;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -916,15 +1075,27 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JLabel lblFlowObservation;
     private javax.swing.JLabel lblIdLegal;
     private javax.swing.JLabel lblMeassureSite;
+    private javax.swing.JLabel lblMeassureSite1;
+    private javax.swing.JLabel lblMeassureSite2;
+    private javax.swing.JLabel lblMeassureSite3;
+    private javax.swing.JLabel lblMeassureSite4;
     private javax.swing.JLabel lblPassaword;
     private javax.swing.JLabel lblSpringAdress;
     private javax.swing.JLabel lblSpringsDescripsion;
+    private javax.swing.JLabel lblSpringsDescripsion1;
+    private javax.swing.JLabel lblSpringsDescripsion2;
+    private javax.swing.JLabel lblSpringsDescripsion3;
+    private javax.swing.JLabel lblSpringsDescripsion4;
     private javax.swing.JLabel lblSpringsLatitude;
     private javax.swing.JLabel lblSpringsLenght;
     private javax.swing.JLabel lblSpringsName;
     private javax.swing.JLabel lblUserName;
+    private javax.swing.JLabel lblUserName1;
+    private javax.swing.JLabel lblUserName10;
+    private javax.swing.JLabel lblUserName2;
     private javax.swing.JLabel lblUserName7;
     private javax.swing.JLabel lblUserName8;
+    private javax.swing.JLabel lblUserName9;
     private javax.swing.JPanel pnCaudalTable;
     private javax.swing.JPanel pnEntityTable;
     private javax.swing.JPanel pnInfoCaudal;
@@ -937,6 +1108,7 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JPanel pnMainMedition;
     private javax.swing.JPanel pnMainSprings;
     private javax.swing.JPanel pnMainUser;
+    private javax.swing.JPanel pnMainUser1;
     private javax.swing.JPanel pnMeassureSiteTable;
     private javax.swing.JPanel pnSpringsTable;
     private javax.swing.JPanel pnUserTable;
