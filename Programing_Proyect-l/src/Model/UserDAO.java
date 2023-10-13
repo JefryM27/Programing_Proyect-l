@@ -5,13 +5,34 @@ import java.util.List;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Bravo
  */
 public class UserDAO {
+    
+    
+public void create(User user) {
 
+        DBConnection db = new DBConnection();
+        String consultaSQL = "INSERT INTO user (name, mail, password, entity_id, rol_id) VALUES (?, ?, ?, ?, ?, ?)";
+        try {
+            PreparedStatement ps = db.getConnection().prepareStatement(consultaSQL);
+            ps.setString(1, user.getUserName());
+            ps.setString(2, user.getMail());
+            ps.setString(3, user.getPassword());
+            ps.setInt(4, user.getEntity_id());
+            ps.setInt(6, user.getRol_id());
+            ps.execute();
+            JOptionPane.showMessageDialog(null, "El usuario se ha guardado correctamente");
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "NNo se pudo guardar la naciente, error: " + e.toString());
+        } finally {
+            db.disconnect();
+        }
+    }
     public List<User> readUsers() {
         DBConnection db = new DBConnection();
         List<User> users = new ArrayList<>();
@@ -39,6 +60,27 @@ public class UserDAO {
         }
 
         return users;
+    }
+    
+    public void delete(int id) {
+
+        DBConnection db = new DBConnection();
+
+        String consultaSQL = "DELETE FROM user WHERE id=?";
+
+        try {
+            PreparedStatement preparedStatement = db.getConnection().prepareStatement(consultaSQL);
+            preparedStatement.setInt(1, id);
+            preparedStatement.execute();
+            JOptionPane.showMessageDialog(null, "Se eliminó correctamente el usuario");
+
+        } catch (SQLException e) {
+
+            JOptionPane.showMessageDialog(null, "No se pudo eliminar, error: " + e.toString());
+        }finally {
+            db.disconnect();
+        }
+        
     }
 
 }

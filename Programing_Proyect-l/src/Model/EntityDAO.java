@@ -5,6 +5,7 @@ import java.util.List;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -16,6 +17,28 @@ public class EntityDAO extends GeneralDAO {
         super.getName(1, "entity");
     }
 */
+    
+    public void create(Entity entity) {
+
+        DBConnection db = new DBConnection();
+        String consultaSQL = "INSERT INTO entity (legal_id, name, email, telephone, address, description) VALUES (?, ?, ?, ?, ?, ?)";
+        try {
+            PreparedStatement ps = db.getConnection().prepareStatement(consultaSQL);
+            ps.setInt(1, entity.getLegalId());
+            ps.setString(2, entity.getEntityName());
+            ps.setString(3, entity.getEmail());
+            ps.setInt(4, entity.getTelephone());
+            ps.setString(5, entity.getAddress());
+            ps.setString(6, entity.getDescription());
+            ps.execute();
+            JOptionPane.showMessageDialog(null, "La entidad se ha guardado correctamente");
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "NNo se pudo guardar la entidad, error: " + e.toString());
+        } finally {
+            db.disconnect();
+        }
+    }
+    
     public List<Entity> readEntities() {
         DBConnection db = new DBConnection();
         List<Entity> entities = new ArrayList<>();
@@ -45,5 +68,25 @@ public class EntityDAO extends GeneralDAO {
 
         return entities;
     }
+    
+    
+    public void delete(int id) {
 
+        DBConnection db = new DBConnection();
+
+        String consultaSQL = "DELETE FROM entity WHERE id=?";
+
+        try {
+            PreparedStatement preparedStatement = db.getConnection().prepareStatement(consultaSQL);
+            preparedStatement.setInt(1, id);
+            preparedStatement.execute();
+            JOptionPane.showMessageDialog(null, "Se eliminó correctamente la entidad");
+
+        } catch (SQLException e) {
+
+            JOptionPane.showMessageDialog(null, "No se pudo eliminar, error: " + e.toString());
+        }finally {
+            db.disconnect();
+        }
+    }
 }

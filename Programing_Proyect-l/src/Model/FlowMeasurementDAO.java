@@ -6,6 +6,7 @@ import java.util.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -13,6 +14,29 @@ import java.sql.SQLException;
  */
 
 public class FlowMeasurementDAO {
+    
+    
+    public void create(FlowMeasurement measurement) {
+        DBConnection db = new DBConnection();
+        String consultaSQL = "INSERT INTO flow_measurement (capacity, metod, observation, date, weather, done, springs_id, sampling_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        try {
+            PreparedStatement ps = db.getConnection().prepareStatement(consultaSQL);
+            ps.setDouble(1, measurement.getCapacity());
+            ps.setString(2, measurement.getMetod());
+            ps.setString(3, measurement.getObservation());
+            ps.setDate(4, (java.sql.Date) measurement.getDate());
+            ps.setString(5, measurement.getWeather());
+            ps.setString(6, measurement.getDone());
+            ps.setInt(7, measurement.getSpringsId());
+            ps.setInt(8, measurement.getSamplingId());
+            ps.execute();
+            JOptionPane.showMessageDialog(null, "La medicion del caudal se ha guardado correctamente");
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "NNo se pudo guardar la medicion del caudal, error: " + e.toString());
+        } finally {
+            db.disconnect();
+        }
+    }
 
     public List<FlowMeasurement> readFlowMeasurements() {
         DBConnection db = new DBConnection();
@@ -44,5 +68,25 @@ public class FlowMeasurementDAO {
 
         return measurements;
     }
+    
+    
+    public void delete(int id) {
 
+        DBConnection db = new DBConnection();
+
+        String consultaSQL = "DELETE FROM flow_measurement WHERE id=?";
+
+        try {
+            PreparedStatement preparedStatement = db.getConnection().prepareStatement(consultaSQL);
+            preparedStatement.setInt(1, id);
+            preparedStatement.execute();
+            JOptionPane.showMessageDialog(null, "Se eliminó correctamente la medicion del caudal");
+
+        } catch (SQLException e) {
+
+            JOptionPane.showMessageDialog(null, "No se pudo eliminar, error: " + e.toString());
+        }finally {
+            db.disconnect();
+        } 
+    }
 }
