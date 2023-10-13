@@ -1,7 +1,7 @@
 package Controller;
 
 import Model.DBConnection;
-import View.login;
+import View.Register;
 import Model.CantonDAO;
 import Model.EntityDAO;
 import Model.GeneralDAO;
@@ -39,6 +39,8 @@ public class Programing_ProyectL {
         mapa.forEach((clave, valor) -> {
             System.out.println("Clave: " + clave + ", Valor: " + valor);
         });*/
+        Register regis = new Register();
+        regis.setVisible(true);
 
     }
 }
