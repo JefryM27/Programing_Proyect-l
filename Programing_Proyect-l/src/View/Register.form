@@ -24,13 +24,20 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="jTabbedPane1" alignment="0" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+              <Component id="btnLogout" min="-2" pref="142" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jTabbedPane1" max="32767" attributes="0"/>
+              <Component id="btnLogout" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="jTabbedPane1" min="-2" pref="686" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -528,8 +535,12 @@
                           </StringArray>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbxEntitySpringsActionPerformed"/>
+                      </Events>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
                       </AuxValues>
                     </Component>
                   </SubComponents>
@@ -1294,38 +1305,23 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="lblUserName9" min="-2" max="-2" attributes="0"/>
                                       <Group type="102" attributes="0">
+                                          <Component id="lblFlowObservation" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="txtFlowObservation" min="-2" pref="258" max="-2" attributes="0"/>
+                                          <EmptySpace min="56" pref="92" max="32767" attributes="0"/>
+                                          <Group type="103" groupAlignment="1" attributes="0">
+                                              <Component id="lblUserName8" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblUserName7" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Group type="102" alignment="1" attributes="0">
                                           <Component id="lblFlowDone" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                           <Component id="txtDoneBy" min="-2" pref="258" max="-2" attributes="0"/>
                                           <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="lblUserName9" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" attributes="0">
-                                          <Group type="103" groupAlignment="1" attributes="0">
-                                              <Group type="102" attributes="0">
-                                                  <Component id="lblFlowCapacity" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                                                  <Component id="txtFlowCapacity" min="-2" pref="258" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="lblFlowObservation" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="lblFlowDate" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="txtFlowDate" min="-2" pref="258" max="-2" attributes="0"/>
-                                                      <Component id="txtFlowObservation" min="-2" pref="258" max="-2" attributes="0"/>
-                                                  </Group>
-                                              </Group>
-                                          </Group>
-                                          <EmptySpace min="56" pref="88" max="32767" attributes="0"/>
-                                          <Group type="103" groupAlignment="1" attributes="0">
-                                              <Component id="lblUserName8" min="-2" max="-2" attributes="0"/>
-                                              <Component id="lblUserName10" min="-2" max="-2" attributes="0"/>
-                                              <Component id="lblUserName7" min="-2" max="-2" attributes="0"/>
-                                          </Group>
+                                          <Component id="lblUserName10" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -1354,8 +1350,6 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="txtFlowCapacity" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblFlowCapacity" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                               <Component id="lblUserName7" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                               <Component id="cbxMethod" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -1366,17 +1360,24 @@
                               <Component id="lblUserName8" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                               <Component id="cbxWeather" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="lblFlowDate" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                              <Component id="txtFlowDate" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
-                              <Component id="lblUserName10" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                              <Component id="cbxSpringsMeasure" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="lblUserName10" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                                      <Component id="cbxSpringsMeasure" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="lblFlowDone" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                                      <Component id="txtDoneBy" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
                           </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="lblFlowDone" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                              <Component id="txtDoneBy" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
                               <Component id="lblUserName9" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                               <Component id="cbxSamplingMeasure" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -1386,31 +1387,15 @@
                               <Component id="btnFlowEdit" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                               <Component id="btnFlowDelete" alignment="3" min="-2" pref="48" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="30" max="32767" attributes="0"/>
+                          <EmptySpace pref="25" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="lblFlowCapacity">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Arial" size="14" style="1"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Capacidad: "/>
-                  </Properties>
-                </Component>
                 <Component class="javax.swing.JButton" name="btnFlowEdit">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Editar"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="lblFlowDate">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Arial" size="14" style="1"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Fecha: "/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblFlowObservation">
@@ -1445,23 +1430,7 @@
                     <Property name="text" type="java.lang.String" value="Realizado por: "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtFlowCapacity">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Arial" size="14" style="1"/>
-                    </Property>
-                    <Property name="horizontalAlignment" type="int" value="0"/>
-                  </Properties>
-                </Component>
                 <Component class="javax.swing.JTextField" name="txtFlowObservation">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Arial" size="14" style="1"/>
-                    </Property>
-                    <Property name="horizontalAlignment" type="int" value="0"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="txtFlowDate">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="14" style="1"/>
@@ -2114,7 +2083,7 @@
                     </Component>
                     <Component class="javax.swing.JButton" name="btnGeneratePDF">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Generad PDF"/>
+                        <Property name="text" type="java.lang.String" value="Generar PDF"/>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGeneratePDFActionPerformed"/>
@@ -2128,5 +2097,13 @@
         </Container>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JButton" name="btnLogout">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cerrar Sesi&#xf3;n"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLogoutActionPerformed"/>
+      </Events>
+    </Component>
   </SubComponents>
 </Form>

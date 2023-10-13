@@ -25,7 +25,7 @@ public class ProvinceDAO extends GeneralDAO {
 
             while (resultSet.next()) {
                 int id = resultSet.getInt("id");
-                int provinceName = resultSet.getInt("name");
+                String provinceName = resultSet.getString("name");
 
                 Province province = new Province(id, provinceName);
                 provinces.add(province);

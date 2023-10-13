@@ -1,5 +1,6 @@
 package View;
 
+import Controller.CtrlUser;
 import java.awt.Color;
 
 /**
@@ -10,9 +11,12 @@ public class login extends javax.swing.JFrame {
 
     private int xMouse;
     private int yMouse;
+    CtrlUser user = new CtrlUser();
 
     public login() {
         initComponents();
+        setResizable(false);
+        setLocationRelativeTo(null);
     }
 
     @SuppressWarnings("unchecked")
@@ -31,7 +35,7 @@ public class login extends javax.swing.JFrame {
         spUser = new javax.swing.JSeparator();
         psPassword = new javax.swing.JPasswordField();
         pnButtonEnter = new javax.swing.JPanel();
-        lblButtonEnter = new javax.swing.JLabel();
+        btnButtonEnter = new javax.swing.JLabel();
         pnBar = new javax.swing.JPanel();
         pnButtonExit = new javax.swing.JPanel();
         lblExit = new javax.swing.JLabel();
@@ -95,22 +99,22 @@ public class login extends javax.swing.JFrame {
 
         pnButtonEnter.setBackground(new java.awt.Color(0, 134, 190));
 
-        lblButtonEnter.setBackground(new java.awt.Color(0, 100, 190));
-        lblButtonEnter.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        lblButtonEnter.setForeground(new java.awt.Color(255, 255, 255));
-        lblButtonEnter.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblButtonEnter.setText("Entrar");
-        lblButtonEnter.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        lblButtonEnter.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        lblButtonEnter.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnButtonEnter.setBackground(new java.awt.Color(0, 100, 190));
+        btnButtonEnter.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnButtonEnter.setForeground(new java.awt.Color(255, 255, 255));
+        btnButtonEnter.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnButtonEnter.setText("Entrar");
+        btnButtonEnter.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnButtonEnter.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnButtonEnter.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblButtonEnterMouseClicked(evt);
+                btnButtonEnterMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                lblButtonEnterMouseEntered(evt);
+                btnButtonEnterMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                lblButtonEnterMouseExited(evt);
+                btnButtonEnterMouseExited(evt);
             }
         });
 
@@ -118,11 +122,15 @@ public class login extends javax.swing.JFrame {
         pnButtonEnter.setLayout(pnButtonEnterLayout);
         pnButtonEnterLayout.setHorizontalGroup(
             pnButtonEnterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblButtonEnter, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnButtonEnterLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnButtonEnter, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         pnButtonEnterLayout.setVerticalGroup(
             pnButtonEnterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblButtonEnter, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnButtonEnterLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnButtonEnter, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         PNMain.add(pnButtonEnter, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 400, 110, 50));
@@ -206,7 +214,6 @@ public class login extends javax.swing.JFrame {
     }//GEN-LAST:event_pnBarMouseEntered
 
     private void pnBarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnBarMousePressed
-
         xMouse = evt.getX();
         yMouse = evt.getY();
     }//GEN-LAST:event_pnBarMousePressed
@@ -231,13 +238,13 @@ public class login extends javax.swing.JFrame {
         lblExit.setForeground(Color.black);
     }//GEN-LAST:event_lblExitMouseExited
 
-    private void lblButtonEnterMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblButtonEnterMouseEntered
+    private void btnButtonEnterMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnButtonEnterMouseEntered
         pnButtonEnter.setBackground(new Color(0, 156, 233));
-    }//GEN-LAST:event_lblButtonEnterMouseEntered
+    }//GEN-LAST:event_btnButtonEnterMouseEntered
 
-    private void lblButtonEnterMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblButtonEnterMouseExited
+    private void btnButtonEnterMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnButtonEnterMouseExited
         pnButtonEnter.setBackground(new Color(0, 134, 190));
-    }//GEN-LAST:event_lblButtonEnterMouseExited
+    }//GEN-LAST:event_btnButtonEnterMouseExited
 
     private void txtUserMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtUserMousePressed
         if (txtUser.getText().equals("Ingrese su nombre de usuario")) {
@@ -248,7 +255,6 @@ public class login extends javax.swing.JFrame {
             psPassword.setText("********");
             psPassword.setForeground(Color.GRAY);
         }
-
     }//GEN-LAST:event_txtUserMousePressed
 
     private void psPasswordMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_psPasswordMousePressed
@@ -260,23 +266,23 @@ public class login extends javax.swing.JFrame {
             txtUser.setText("Ingrese su nombre de usuario");
             txtUser.setForeground(Color.GRAY);
         }
-
-
     }//GEN-LAST:event_psPasswordMousePressed
 
-    private void lblButtonEnterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblButtonEnterMouseClicked
-
-    }//GEN-LAST:event_lblButtonEnterMouseClicked
+    private void btnButtonEnterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnButtonEnterMouseClicked
+        String enteredMail = txtUser.getText();
+        String enteredPassword = new String(psPassword.getPassword());
+        user.loginUser(enteredMail, enteredPassword);
+    }//GEN-LAST:event_btnButtonEnterMouseClicked
 
     private void txtUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_txtUserActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PNMain;
+    private javax.swing.JLabel btnButtonEnter;
     private javax.swing.JScrollBar jScrollBar1;
-    private javax.swing.JLabel lblButtonEnter;
     private javax.swing.JLabel lblCity;
     private javax.swing.JLabel lblExit;
     private javax.swing.JLabel lblLogin;

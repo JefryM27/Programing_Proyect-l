@@ -6,6 +6,7 @@ import Model.CantonDAO;
 import Model.EntityDAO;
 import Model.GeneralDAO;
 import Model.ProvinceDAO;
+import View.login;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -39,8 +40,12 @@ public class Programing_ProyectL {
         mapa.forEach((clave, valor) -> {
             System.out.println("Clave: " + clave + ", Valor: " + valor);
         });*/
-        Register regis = new Register();
-        regis.setVisible(true);
+        
+        login l = new login();
+        l.setVisible(true);
+        
+        //Register regis = new Register();
+        //regis.setVisible(true);
 
     }
 }

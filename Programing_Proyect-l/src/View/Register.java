@@ -1,23 +1,25 @@
-
 package View;
 
-import Controller.CtrlSprings;
+import Controller.CtrlProvince;
 
 /**
  *
  * @author jefry
  */
 public class Register extends javax.swing.JFrame {
-    CtrlSprings cws = new CtrlSprings();
+
+    CtrlProvince cws = new CtrlProvince();
+
     public Register() {
         initComponents();
-        this.WaterSprings();
-    }
-    
-    public void WaterSprings(){
-        this.cws.loadSprings(cbxProvinceSprings);
+        setResizable(false);
+        setLocationRelativeTo(null);
+        this.provinces();
     }
 
+    public void provinces() {
+        this.cws.loadProvince(cbxProvinceSprings);
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -93,16 +95,12 @@ public class Register extends javax.swing.JFrame {
         cbxDistrictSampling1 = new javax.swing.JComboBox<>();
         pnMainMedition = new javax.swing.JPanel();
         pnInfoCaudal = new javax.swing.JPanel();
-        lblFlowCapacity = new javax.swing.JLabel();
         btnFlowEdit = new javax.swing.JButton();
-        lblFlowDate = new javax.swing.JLabel();
         lblFlowObservation = new javax.swing.JLabel();
         lblUserName7 = new javax.swing.JLabel();
         lblUserName8 = new javax.swing.JLabel();
         lblFlowDone = new javax.swing.JLabel();
-        txtFlowCapacity = new javax.swing.JTextField();
         txtFlowObservation = new javax.swing.JTextField();
-        txtFlowDate = new javax.swing.JTextField();
         txtDoneBy = new javax.swing.JTextField();
         btnFlowSave = new javax.swing.JButton();
         btnFlowDelete = new javax.swing.JButton();
@@ -140,6 +138,7 @@ public class Register extends javax.swing.JFrame {
         btnUserEdit1 = new javax.swing.JButton();
         btnUserDelete1 = new javax.swing.JButton();
         btnGeneratePDF = new javax.swing.JButton();
+        btnLogout = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -238,6 +237,11 @@ public class Register extends javax.swing.JFrame {
         lblSpringsDescripsion4.setText("Entidad:");
 
         cbxEntitySprings.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbxEntitySprings.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxEntitySpringsActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnInfoSpringsLayout = new javax.swing.GroupLayout(pnInfoSprings);
         pnInfoSprings.setLayout(pnInfoSpringsLayout);
@@ -610,13 +614,7 @@ public class Register extends javax.swing.JFrame {
         pnInfoCaudal.setBackground(new java.awt.Color(255, 255, 255));
         pnInfoCaudal.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Informacion del Caudal", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
 
-        lblFlowCapacity.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lblFlowCapacity.setText("Capacidad: ");
-
         btnFlowEdit.setText("Editar");
-
-        lblFlowDate.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lblFlowDate.setText("Fecha: ");
 
         lblFlowObservation.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lblFlowObservation.setText("Observacion: ");
@@ -630,14 +628,8 @@ public class Register extends javax.swing.JFrame {
         lblFlowDone.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lblFlowDone.setText("Realizado por: ");
 
-        txtFlowCapacity.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        txtFlowCapacity.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-
         txtFlowObservation.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         txtFlowObservation.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-
-        txtFlowDate.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        txtFlowDate.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         txtDoneBy.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         txtDoneBy.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -669,31 +661,21 @@ public class Register extends javax.swing.JFrame {
                 .addGroup(pnInfoCaudalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnInfoCaudalLayout.createSequentialGroup()
                         .addGroup(pnInfoCaudalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblUserName9)
+                            .addGroup(pnInfoCaudalLayout.createSequentialGroup()
+                                .addComponent(lblFlowObservation)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtFlowObservation, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(56, 92, Short.MAX_VALUE)
+                                .addGroup(pnInfoCaudalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblUserName8)
+                                    .addComponent(lblUserName7)))
                             .addGroup(pnInfoCaudalLayout.createSequentialGroup()
                                 .addComponent(lblFlowDone)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(txtDoneBy, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblUserName9))
-                            .addGroup(pnInfoCaudalLayout.createSequentialGroup()
-                                .addGroup(pnInfoCaudalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(pnInfoCaudalLayout.createSequentialGroup()
-                                        .addComponent(lblFlowCapacity)
-                                        .addGap(34, 34, 34)
-                                        .addComponent(txtFlowCapacity, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnInfoCaudalLayout.createSequentialGroup()
-                                        .addGroup(pnInfoCaudalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(lblFlowObservation)
-                                            .addComponent(lblFlowDate))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(pnInfoCaudalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtFlowDate, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtFlowObservation, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addGap(56, 88, Short.MAX_VALUE)
-                                .addGroup(pnInfoCaudalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lblUserName8)
-                                    .addComponent(lblUserName10)
-                                    .addComponent(lblUserName7))))
+                                .addComponent(lblUserName10)))
                         .addGap(18, 18, 18))
                     .addGroup(pnInfoCaudalLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -714,8 +696,6 @@ public class Register extends javax.swing.JFrame {
             .addGroup(pnInfoCaudalLayout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addGroup(pnInfoCaudalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtFlowCapacity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblFlowCapacity, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblUserName7, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cbxMethod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
@@ -724,16 +704,19 @@ public class Register extends javax.swing.JFrame {
                     .addComponent(txtFlowObservation, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblUserName8, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cbxWeather, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGroup(pnInfoCaudalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnInfoCaudalLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(pnInfoCaudalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblUserName10, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbxSpringsMeasure, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(pnInfoCaudalLayout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addGroup(pnInfoCaudalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblFlowDone, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtDoneBy, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnInfoCaudalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblFlowDate, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtFlowDate, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblUserName10, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbxSpringsMeasure, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(pnInfoCaudalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblFlowDone, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtDoneBy, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblUserName9, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cbxSamplingMeasure, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(52, 52, 52)
@@ -741,7 +724,7 @@ public class Register extends javax.swing.JFrame {
                     .addComponent(btnFlowSave, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnFlowEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnFlowDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         pnMainMedition.add(pnInfoCaudal, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 810, 350));
@@ -893,7 +876,7 @@ public class Register extends javax.swing.JFrame {
             }
         });
 
-        btnGeneratePDF.setText("Generad PDF");
+        btnGeneratePDF.setText("Generar PDF");
         btnGeneratePDF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGeneratePDFActionPerformed(evt);
@@ -947,17 +930,30 @@ public class Register extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Reportes", jPanel1);
 
+        btnLogout.setText("Cerrar Sesión");
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jTabbedPane1)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1)
+                .addComponent(btnLogout)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 686, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -976,6 +972,16 @@ public class Register extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnGeneratePDFActionPerformed
 
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        dispose();
+        login l = new login();
+        l.setVisible(true);
+    }//GEN-LAST:event_btnLogoutActionPerformed
+
+    private void cbxEntitySpringsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxEntitySpringsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbxEntitySpringsActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Entidades;
@@ -988,6 +994,7 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JButton btnFlowEdit;
     private javax.swing.JButton btnFlowSave;
     private javax.swing.JButton btnGeneratePDF;
+    private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnMeassureDelete;
     private javax.swing.JButton btnMeassureEdit;
     private javax.swing.JButton btnMeassureSave;
@@ -1005,7 +1012,7 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbxDistrictSampling1;
     private javax.swing.JComboBox<String> cbxDistrictSprings;
     private javax.swing.JComboBox<String> cbxEntitySampling;
-    private javax.swing.JComboBox<String> cbxEntitySprings;
+    public javax.swing.JComboBox<String> cbxEntitySprings;
     private javax.swing.JComboBox<String> cbxEntityUser1;
     private javax.swing.JComboBox<String> cbxMethod;
     private javax.swing.JComboBox<String> cbxProvinceSampling;
@@ -1029,8 +1036,6 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JLabel lblEntityEmail;
     private javax.swing.JLabel lblEntityName;
     private javax.swing.JLabel lblEntityTelephoneNumber;
-    private javax.swing.JLabel lblFlowCapacity;
-    private javax.swing.JLabel lblFlowDate;
     private javax.swing.JLabel lblFlowDone;
     private javax.swing.JLabel lblFlowObservation;
     private javax.swing.JLabel lblIdLegal;
@@ -1083,8 +1088,6 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JTextField txtEntityLegalId;
     private javax.swing.JTextField txtEntityName;
     private javax.swing.JTextField txtEntityNumber;
-    private javax.swing.JTextField txtFlowCapacity;
-    private javax.swing.JTextField txtFlowDate;
     private javax.swing.JTextField txtFlowObservation;
     private javax.swing.JTextField txtMeassureName;
     private javax.swing.JTextField txtSpringsAdress;

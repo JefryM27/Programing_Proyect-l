@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
  * @author jefry
  */
 public abstract class GeneralDAO {
-/*
+
     //protected final String table;
     public GeneralDAO() {
     }
@@ -52,5 +52,4 @@ public abstract class GeneralDAO {
         }
         return value;
     }
-*/
 }

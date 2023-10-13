@@ -7,16 +7,16 @@ package Model;
 public class Province {
 
     private int id;
-    private int provinceName;
+    private String provinceName;
 
     public Province() {
     }
 
-    public Province(int provinceName) {
+    public Province(String provinceName) {
         this.provinceName = provinceName;
     }
 
-    public Province(int id, int provinceName) {
+    public Province(int id, String provinceName) {
         this.id = id;
         this.provinceName = provinceName;
     }
@@ -29,11 +29,11 @@ public class Province {
         this.id = id;
     }
 
-    public int getProvinceName() {
+    public String getProvinceName() {
         return provinceName;
     }
 
-    public void setProvinceName(int provinceName) {
+    public void setProvinceName(String provinceName) {
         this.provinceName = provinceName;
     }
 
