@@ -1,4 +1,3 @@
-
 package Model;
 
 import java.sql.Connection;
@@ -10,10 +9,11 @@ import java.sql.SQLException;
  * @author Bravo
  */
 public class DBConnection {
+
     static String bd = "proyect1";
     static String port = "3306";
     static String login = "root";
-    static String password = "m0r3r@2002";
+    static String password = "CarlosPatas0405";
     static String url = "jdbc:mariadb://localhost:" + port + "/" + bd;
 
     Connection connection = null;
@@ -38,7 +38,7 @@ public class DBConnection {
         if (connection != null) {
             try {
                 connection.close();
-               // System.out.println("Conexion cerrada");
+                // System.out.println("Conexion cerrada");
             } catch (SQLException e) {
                 System.err.println("Error al cerrar la conexion: " + e.getMessage());
             }

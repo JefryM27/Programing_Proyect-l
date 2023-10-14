@@ -24,7 +24,7 @@ public class EntityDAO extends GeneralDAO {
         String consultaSQL = "INSERT INTO entity (legal_id, name, email, telephone, address, description) VALUES (?, ?, ?, ?, ?, ?)";
         try {
             PreparedStatement ps = db.getConnection().prepareStatement(consultaSQL);
-            ps.setInt(1, entity.getLegalId());
+            ps.setString(1, entity.getLegalId());
             ps.setString(2, entity.getEntityName());
             ps.setString(3, entity.getEmail());
             ps.setInt(4, entity.getTelephone());
@@ -50,7 +50,7 @@ public class EntityDAO extends GeneralDAO {
 
             while (resultSet.next()) {
                 int id = resultSet.getInt("id");
-                int legalId = resultSet.getInt("legal_id");
+                String legalId = resultSet.getString("legal_id");
                 String entityName = resultSet.getString("name");
                 String email = resultSet.getString("email");
                 int telephone = resultSet.getInt("telephone");

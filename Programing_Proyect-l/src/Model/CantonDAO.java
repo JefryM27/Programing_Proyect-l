@@ -17,13 +17,14 @@ public class CantonDAO extends GeneralDAO {
         super.getName(1, "canton");
     }
      */
-    public List<Canton> readCantons() {
+    public List<Canton> readCantonsByProvince(String provinceName) {
         DBConnection db = new DBConnection();
         List<Canton> cantons = new ArrayList<>();
-        String sql = "SELECT * FROM canton";
+        String sql = "SELECT * FROM canton WHERE province_id = (SELECT id FROM province WHERE name = ?)";
 
         try {
             PreparedStatement ps = db.getConnection().prepareStatement(sql);
+            ps.setString(1, provinceName);
             ResultSet resultSet = ps.executeQuery();
 
             while (resultSet.next()) {
@@ -43,4 +44,3 @@ public class CantonDAO extends GeneralDAO {
         return cantons;
     }
 }
-

@@ -22,40 +22,29 @@ public class Register extends javax.swing.JFrame {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
-        this.provinces();
-        this.cantons();
-        this.districts();
+        this.loadPlaces();
         this.entities();
         this.roles();
     }
 
-    public void provinces() {
-        this.cp.loadProvince(cbxProvinceSprings);
-        this.cp.loadProvince(cbxProvinceSampling);
+    public void loadPlaces() {
+        cp.loadProvince(cbxProvinceSprings);
+        cp.loadProvince(cbxProvinceSampling);
+        cc.loadCantonsByProvince(cbxProvinceSprings, cbxCantonSprings);
+        cd.loadDistrictsByCanton(cbxCantonSprings, cbxDistrictSprings);
+        cc.loadCantonsByProvince(cbxProvinceSampling, cbxCantonSampling);
+        cd.loadDistrictsByCanton(cbxCantonSampling, cbxDistrictSampling);
     }
 
-    public void cantons() {
-        this.cc.loadCanton(cbxCantonSprings);
-        this.cc.loadCanton(cbxCantonSampling);
-    }
-
-    public void districts() {
-        this.cd.loadDistrict(cbxCantonSprings);
-        this.cd.loadDistrict(cbxCantonSampling);
-    }
-    
-    public void entities(){
-        this.ce.loadEntity(cbxCantonSprings);
-        this.ce.loadEntity(cbxCantonSampling);
+    public void entities() {
+        this.ce.loadEntity(cbxEntitySprings);
         this.ce.loadEntity(cbxEntityUser);
         this.ce.loadEntity(cbxEntitySampling);
     }
-    
-    public void roles(){
+
+    public void roles() {
         this.cr.loadRol(cbxRolUser);
     }
-    
-    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -173,7 +162,7 @@ public class Register extends javax.swing.JFrame {
         lblMeassureSite2 = new javax.swing.JLabel();
         lblMeassureSite3 = new javax.swing.JLabel();
         lblMeassureSite4 = new javax.swing.JLabel();
-        cbxDistrictSampling1 = new javax.swing.JComboBox<>();
+        cbxDistrictSampling = new javax.swing.JComboBox<>();
         btnLogout = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -255,6 +244,11 @@ public class Register extends javax.swing.JFrame {
         btnSpringsDelete.setText("Eliminar");
 
         cbxProvinceSprings.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbxProvinceSprings.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxProvinceSpringsActionPerformed(evt);
+            }
+        });
 
         lblSpringsDescripsion1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lblSpringsDescripsion1.setText("Provincia:");
@@ -941,9 +935,19 @@ public class Register extends javax.swing.JFrame {
         pnInfoMeassureSite.add(cbxEntitySampling, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 220, 260, -1));
 
         cbxProvinceSampling.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbxProvinceSampling.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxProvinceSamplingActionPerformed(evt);
+            }
+        });
         pnInfoMeassureSite.add(cbxProvinceSampling, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 100, 260, -1));
 
         cbxCantonSampling.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbxCantonSampling.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxCantonSamplingActionPerformed(evt);
+            }
+        });
         pnInfoMeassureSite.add(cbxCantonSampling, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 140, 260, -1));
 
         lblMeassureSite1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -962,8 +966,13 @@ public class Register extends javax.swing.JFrame {
         lblMeassureSite4.setText("Distrito:");
         pnInfoMeassureSite.add(lblMeassureSite4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 180, -1, 28));
 
-        cbxDistrictSampling1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        pnInfoMeassureSite.add(cbxDistrictSampling1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 180, 260, -1));
+        cbxDistrictSampling.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbxDistrictSampling.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxDistrictSamplingActionPerformed(evt);
+            }
+        });
+        pnInfoMeassureSite.add(cbxDistrictSampling, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 180, 260, -1));
 
         pnMainMeassureSite.add(pnInfoMeassureSite, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, 840, 340));
 
@@ -1027,8 +1036,26 @@ public class Register extends javax.swing.JFrame {
     }//GEN-LAST:event_cbxEntitySpringsActionPerformed
 
     private void cbxCantonSpringsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxCantonSpringsActionPerformed
-
+        cd.loadDistrictsByCanton(cbxCantonSprings, cbxDistrictSprings);
     }//GEN-LAST:event_cbxCantonSpringsActionPerformed
+
+    private void cbxProvinceSpringsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxProvinceSpringsActionPerformed
+        cc.loadCantonsByProvince(cbxProvinceSprings, cbxCantonSprings);
+        cd.loadDistrictsByCanton(cbxCantonSprings, cbxDistrictSprings);
+    }//GEN-LAST:event_cbxProvinceSpringsActionPerformed
+
+    private void cbxProvinceSamplingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxProvinceSamplingActionPerformed
+        cc.loadCantonsByProvince(cbxProvinceSampling, cbxCantonSampling);
+        cd.loadDistrictsByCanton(cbxCantonSampling, cbxDistrictSampling);
+    }//GEN-LAST:event_cbxProvinceSamplingActionPerformed
+
+    private void cbxDistrictSamplingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxDistrictSamplingActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbxDistrictSamplingActionPerformed
+
+    private void cbxCantonSamplingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxCantonSamplingActionPerformed
+        cd.loadDistrictsByCanton(cbxCantonSampling, cbxDistrictSampling);
+    }//GEN-LAST:event_cbxCantonSamplingActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1057,7 +1084,7 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JButton btnUserSave1;
     private javax.swing.JComboBox<String> cbxCantonSampling;
     private javax.swing.JComboBox<String> cbxCantonSprings;
-    private javax.swing.JComboBox<String> cbxDistrictSampling1;
+    private javax.swing.JComboBox<String> cbxDistrictSampling;
     private javax.swing.JComboBox<String> cbxDistrictSprings;
     private javax.swing.JComboBox<String> cbxEntitySampling;
     public javax.swing.JComboBox<String> cbxEntitySprings;

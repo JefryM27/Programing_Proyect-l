@@ -7,7 +7,7 @@ package Model;
 public class Entity {
 
     private int id;
-    private int legalId;
+    private String legalId;
     private int telephone;
     private String entityName;
     private String email;
@@ -17,7 +17,7 @@ public class Entity {
     public Entity() {
     }
 
-    public Entity(int legalId, int telephone, String entityName, String email, String address, String description) {
+    public Entity(String legalId, int telephone, String entityName, String email, String address, String description) {
         this.legalId = legalId;
         this.telephone = telephone;
         this.entityName = entityName;
@@ -26,7 +26,7 @@ public class Entity {
         this.description = description;
     }
 
-    public Entity(int id, int legalId, int telephone, String entityName, String email, String address, String description) {
+    public Entity(int id, String legalId, int telephone, String entityName, String email, String address, String description) {
         this.id = id;
         this.legalId = legalId;
         this.telephone = telephone;
@@ -44,11 +44,11 @@ public class Entity {
         this.id = id;
     }
 
-    public int getLegalId() {
+    public String getLegalId() {
         return legalId;
     }
 
-    public void setLegalId(int legalId) {
+    public void setLegalId(String legalId) {
         this.legalId = legalId;
     }
 

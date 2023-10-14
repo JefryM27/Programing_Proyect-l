@@ -1,4 +1,3 @@
-
 package Controller;
 
 import Model.District;
@@ -12,14 +11,17 @@ import javax.swing.JComboBox;
  * @author jefry
  */
 public class CtrlDistrict {
-   DistrictDAO district = new DistrictDAO();
-   
-    public void loadDistrict(JComboBox c) {
-        List<District> districts = this.district.readDistricts();
+
+    DistrictDAO district = new DistrictDAO();
+
+    public void loadDistrictsByCanton(JComboBox cantonComboBox, JComboBox districtComboBox) {
+        String selectedCanton = (String) cantonComboBox.getSelectedItem();
+        List<District> districts = this.district.readDistrictsByCanton(selectedCanton);
+
         DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
-        for (District district :districts) {
+        for (District district : districts) {
             model.addElement(district.getDistrictName());
         }
-        c.setModel(model);
+        districtComboBox.setModel(model);
     }
 }

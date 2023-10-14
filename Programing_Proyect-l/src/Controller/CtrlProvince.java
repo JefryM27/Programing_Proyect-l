@@ -1,6 +1,9 @@
-
 package Controller;
 
+import Model.Canton;
+import Model.CantonDAO;
+import Model.District;
+import Model.DistrictDAO;
 import Model.Province;
 import Model.ProvinceDAO;
 import java.util.List;
@@ -12,8 +15,9 @@ import javax.swing.JComboBox;
  * @author Bravo
  */
 public class CtrlProvince {
-     ProvinceDAO province = new ProvinceDAO();
-   
+
+    ProvinceDAO province = new ProvinceDAO();
+
     public void loadProvince(JComboBox c) {
         List<Province> provinces = this.province.readProvinces();
         DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
