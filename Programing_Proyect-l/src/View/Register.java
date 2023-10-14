@@ -1,6 +1,10 @@
 package View;
 
+import Controller.CtrlCanton;
+import Controller.CtrlDistrict;
+import Controller.CtrlEntity;
 import Controller.CtrlProvince;
+import Controller.CtrlRol;
 
 /**
  *
@@ -8,18 +12,50 @@ import Controller.CtrlProvince;
  */
 public class Register extends javax.swing.JFrame {
 
-    CtrlProvince cws = new CtrlProvince();
+    CtrlProvince cp = new CtrlProvince();
+    CtrlCanton cc = new CtrlCanton();
+    CtrlDistrict cd = new CtrlDistrict();
+    CtrlEntity ce = new CtrlEntity();
+    CtrlRol cr = new CtrlRol();
 
     public Register() {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
         this.provinces();
+        this.cantons();
+        this.districts();
+        this.entities();
+        this.roles();
     }
 
     public void provinces() {
-        this.cws.loadProvince(cbxProvinceSprings);
+        this.cp.loadProvince(cbxProvinceSprings);
+        this.cp.loadProvince(cbxProvinceSampling);
     }
+
+    public void cantons() {
+        this.cc.loadCanton(cbxCantonSprings);
+        this.cc.loadCanton(cbxCantonSampling);
+    }
+
+    public void districts() {
+        this.cd.loadDistrict(cbxCantonSprings);
+        this.cd.loadDistrict(cbxCantonSampling);
+    }
+    
+    public void entities(){
+        this.ce.loadEntity(cbxCantonSprings);
+        this.ce.loadEntity(cbxCantonSampling);
+        this.ce.loadEntity(cbxEntityUser);
+        this.ce.loadEntity(cbxEntitySampling);
+    }
+    
+    public void roles(){
+        this.cr.loadRol(cbxRolUser);
+    }
+    
+    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -74,25 +110,6 @@ public class Register extends javax.swing.JFrame {
         txtEntityDescription = new javax.swing.JTextField();
         btnEntitySave = new javax.swing.JButton();
         btnEntityDelete = new javax.swing.JButton();
-        Muestreo = new javax.swing.JPanel();
-        pnMainMeassureSite = new javax.swing.JPanel();
-        pnMeassureSiteTable = new javax.swing.JPanel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
-        pnInfoMeassureSite = new javax.swing.JPanel();
-        lblMeassureSite = new javax.swing.JLabel();
-        btnMeassureEdit = new javax.swing.JButton();
-        txtMeassureName = new javax.swing.JTextField();
-        btnMeassureSave = new javax.swing.JButton();
-        btnMeassureDelete = new javax.swing.JButton();
-        cbxEntitySampling = new javax.swing.JComboBox<>();
-        cbxProvinceSampling = new javax.swing.JComboBox<>();
-        cbxCantonSampling = new javax.swing.JComboBox<>();
-        lblMeassureSite1 = new javax.swing.JLabel();
-        lblMeassureSite2 = new javax.swing.JLabel();
-        lblMeassureSite3 = new javax.swing.JLabel();
-        lblMeassureSite4 = new javax.swing.JLabel();
-        cbxDistrictSampling1 = new javax.swing.JComboBox<>();
         pnMainMedition = new javax.swing.JPanel();
         pnInfoCaudal = new javax.swing.JPanel();
         btnFlowEdit = new javax.swing.JButton();
@@ -130,7 +147,7 @@ public class Register extends javax.swing.JFrame {
         cbxRolUser = new javax.swing.JComboBox<>();
         lblUserName1 = new javax.swing.JLabel();
         lblUserName2 = new javax.swing.JLabel();
-        cbxEntityUser1 = new javax.swing.JComboBox<>();
+        cbxEntityUser = new javax.swing.JComboBox<>();
         jPanel1 = new javax.swing.JPanel();
         pnMainUser1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
@@ -138,6 +155,25 @@ public class Register extends javax.swing.JFrame {
         btnUserEdit1 = new javax.swing.JButton();
         btnUserDelete1 = new javax.swing.JButton();
         btnGeneratePDF = new javax.swing.JButton();
+        Muestreo = new javax.swing.JPanel();
+        pnMainMeassureSite = new javax.swing.JPanel();
+        pnMeassureSiteTable = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable3 = new javax.swing.JTable();
+        pnInfoMeassureSite = new javax.swing.JPanel();
+        lblMeassureSite = new javax.swing.JLabel();
+        btnMeassureEdit = new javax.swing.JButton();
+        txtMeassureName = new javax.swing.JTextField();
+        btnMeassureSave = new javax.swing.JButton();
+        btnMeassureDelete = new javax.swing.JButton();
+        cbxEntitySampling = new javax.swing.JComboBox<>();
+        cbxProvinceSampling = new javax.swing.JComboBox<>();
+        cbxCantonSampling = new javax.swing.JComboBox<>();
+        lblMeassureSite1 = new javax.swing.JLabel();
+        lblMeassureSite2 = new javax.swing.JLabel();
+        lblMeassureSite3 = new javax.swing.JLabel();
+        lblMeassureSite4 = new javax.swing.JLabel();
+        cbxDistrictSampling1 = new javax.swing.JComboBox<>();
         btnLogout = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -227,6 +263,11 @@ public class Register extends javax.swing.JFrame {
         lblSpringsDescripsion2.setText("Canton:");
 
         cbxCantonSprings.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbxCantonSprings.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxCantonSpringsActionPerformed(evt);
+            }
+        });
 
         lblSpringsDescripsion3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lblSpringsDescripsion3.setText("Distrito:");
@@ -517,97 +558,6 @@ public class Register extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Registro Entidades", Nacientes);
 
-        Muestreo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        pnMainMeassureSite.setBackground(new java.awt.Color(0, 152, 198));
-        pnMainMeassureSite.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        pnMeassureSiteTable.setBackground(new java.awt.Color(255, 255, 255));
-        pnMeassureSiteTable.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tabla", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
-
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
-            },
-            new String [] {
-                "ID", "Nombre del Sitio", "Provincia", "Canton", "Distrito ", "Entidad"
-            }
-        ));
-        jScrollPane3.setViewportView(jTable3);
-
-        javax.swing.GroupLayout pnMeassureSiteTableLayout = new javax.swing.GroupLayout(pnMeassureSiteTable);
-        pnMeassureSiteTable.setLayout(pnMeassureSiteTableLayout);
-        pnMeassureSiteTableLayout.setHorizontalGroup(
-            pnMeassureSiteTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnMeassureSiteTableLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 894, Short.MAX_VALUE))
-        );
-        pnMeassureSiteTableLayout.setVerticalGroup(
-            pnMeassureSiteTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
-        );
-
-        pnMainMeassureSite.add(pnMeassureSiteTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, 910, 240));
-
-        pnInfoMeassureSite.setBackground(new java.awt.Color(255, 255, 255));
-        pnInfoMeassureSite.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Informacion de los sitios de muestreo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
-        pnInfoMeassureSite.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblMeassureSite.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lblMeassureSite.setText("Entidad:");
-        pnInfoMeassureSite.add(lblMeassureSite, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 220, -1, 28));
-
-        btnMeassureEdit.setText("Editar");
-        pnInfoMeassureSite.add(btnMeassureEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 270, 120, 50));
-
-        txtMeassureName.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        txtMeassureName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        pnInfoMeassureSite.add(txtMeassureName, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 60, 258, -1));
-
-        btnMeassureSave.setText("Guardar");
-        pnInfoMeassureSite.add(btnMeassureSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 270, 121, 50));
-
-        btnMeassureDelete.setText("Eliminar");
-        pnInfoMeassureSite.add(btnMeassureDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 270, 121, 48));
-
-        cbxEntitySampling.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        pnInfoMeassureSite.add(cbxEntitySampling, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 220, 260, -1));
-
-        cbxProvinceSampling.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        pnInfoMeassureSite.add(cbxProvinceSampling, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 100, 260, -1));
-
-        cbxCantonSampling.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        pnInfoMeassureSite.add(cbxCantonSampling, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 140, 260, -1));
-
-        lblMeassureSite1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lblMeassureSite1.setText("Ingrese el nombre del sitio de muestreo: ");
-        pnInfoMeassureSite.add(lblMeassureSite1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 290, 28));
-
-        lblMeassureSite2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lblMeassureSite2.setText("Provincia:");
-        pnInfoMeassureSite.add(lblMeassureSite2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, -1, 28));
-
-        lblMeassureSite3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lblMeassureSite3.setText("Canton:");
-        pnInfoMeassureSite.add(lblMeassureSite3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 140, -1, 28));
-
-        lblMeassureSite4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lblMeassureSite4.setText("Distrito:");
-        pnInfoMeassureSite.add(lblMeassureSite4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 180, -1, 28));
-
-        cbxDistrictSampling1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        pnInfoMeassureSite.add(cbxDistrictSampling1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 180, 260, -1));
-
-        pnMainMeassureSite.add(pnInfoMeassureSite, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, 840, 340));
-
-        Muestreo.add(pnMainMeassureSite, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1020, 650));
-
-        jTabbedPane1.addTab("Registro Sitio de Muestreo", Muestreo);
-
         pnMainMedition.setBackground(new java.awt.Color(0, 152, 192));
         pnMainMedition.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -848,8 +798,8 @@ public class Register extends javax.swing.JFrame {
         lblUserName2.setText("Entidad:");
         pnInfoUser.add(lblUserName2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 30, -1, 28));
 
-        cbxEntityUser1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        pnInfoUser.add(cbxEntityUser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 30, 230, 30));
+        cbxEntityUser.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        pnInfoUser.add(cbxEntityUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 30, 230, 30));
 
         pnMainUser.add(pnInfoUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, 760, 240));
 
@@ -917,7 +867,7 @@ public class Register extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 12, Short.MAX_VALUE)
+                .addGap(0, 10, Short.MAX_VALUE)
                 .addComponent(pnMainUser1, javax.swing.GroupLayout.PREFERRED_SIZE, 1060, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -930,6 +880,97 @@ public class Register extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Reportes", jPanel1);
 
+        Muestreo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        pnMainMeassureSite.setBackground(new java.awt.Color(0, 152, 198));
+        pnMainMeassureSite.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        pnMeassureSiteTable.setBackground(new java.awt.Color(255, 255, 255));
+        pnMeassureSiteTable.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tabla", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
+
+        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "Nombre del Sitio", "Provincia", "Canton", "Distrito ", "Entidad"
+            }
+        ));
+        jScrollPane3.setViewportView(jTable3);
+
+        javax.swing.GroupLayout pnMeassureSiteTableLayout = new javax.swing.GroupLayout(pnMeassureSiteTable);
+        pnMeassureSiteTable.setLayout(pnMeassureSiteTableLayout);
+        pnMeassureSiteTableLayout.setHorizontalGroup(
+            pnMeassureSiteTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnMeassureSiteTableLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 894, Short.MAX_VALUE))
+        );
+        pnMeassureSiteTableLayout.setVerticalGroup(
+            pnMeassureSiteTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
+        );
+
+        pnMainMeassureSite.add(pnMeassureSiteTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, 910, 240));
+
+        pnInfoMeassureSite.setBackground(new java.awt.Color(255, 255, 255));
+        pnInfoMeassureSite.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Informacion de los sitios de muestreo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
+        pnInfoMeassureSite.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblMeassureSite.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblMeassureSite.setText("Entidad:");
+        pnInfoMeassureSite.add(lblMeassureSite, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 220, -1, 28));
+
+        btnMeassureEdit.setText("Editar");
+        pnInfoMeassureSite.add(btnMeassureEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 270, 120, 50));
+
+        txtMeassureName.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtMeassureName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        pnInfoMeassureSite.add(txtMeassureName, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 60, 258, -1));
+
+        btnMeassureSave.setText("Guardar");
+        pnInfoMeassureSite.add(btnMeassureSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 270, 121, 50));
+
+        btnMeassureDelete.setText("Eliminar");
+        pnInfoMeassureSite.add(btnMeassureDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 270, 121, 48));
+
+        cbxEntitySampling.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        pnInfoMeassureSite.add(cbxEntitySampling, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 220, 260, -1));
+
+        cbxProvinceSampling.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        pnInfoMeassureSite.add(cbxProvinceSampling, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 100, 260, -1));
+
+        cbxCantonSampling.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        pnInfoMeassureSite.add(cbxCantonSampling, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 140, 260, -1));
+
+        lblMeassureSite1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblMeassureSite1.setText("Ingrese el nombre del sitio de muestreo: ");
+        pnInfoMeassureSite.add(lblMeassureSite1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 290, 28));
+
+        lblMeassureSite2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblMeassureSite2.setText("Provincia:");
+        pnInfoMeassureSite.add(lblMeassureSite2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, -1, 28));
+
+        lblMeassureSite3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblMeassureSite3.setText("Canton:");
+        pnInfoMeassureSite.add(lblMeassureSite3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 140, -1, 28));
+
+        lblMeassureSite4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblMeassureSite4.setText("Distrito:");
+        pnInfoMeassureSite.add(lblMeassureSite4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 180, -1, 28));
+
+        cbxDistrictSampling1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        pnInfoMeassureSite.add(cbxDistrictSampling1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 180, 260, -1));
+
+        pnMainMeassureSite.add(pnInfoMeassureSite, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, 840, 340));
+
+        Muestreo.add(pnMainMeassureSite, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1020, 650));
+
+        jTabbedPane1.addTab("Registro Sitio de Muestreo", Muestreo);
+
         btnLogout.setText("Cerrar Sesión");
         btnLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -941,20 +982,23 @@ public class Register extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
             .addGroup(layout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTabbedPane1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btnLogout)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 686, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -981,6 +1025,10 @@ public class Register extends javax.swing.JFrame {
     private void cbxEntitySpringsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxEntitySpringsActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbxEntitySpringsActionPerformed
+
+    private void cbxCantonSpringsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxCantonSpringsActionPerformed
+
+    }//GEN-LAST:event_cbxCantonSpringsActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1013,7 +1061,7 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbxDistrictSprings;
     private javax.swing.JComboBox<String> cbxEntitySampling;
     public javax.swing.JComboBox<String> cbxEntitySprings;
-    private javax.swing.JComboBox<String> cbxEntityUser1;
+    private javax.swing.JComboBox<String> cbxEntityUser;
     private javax.swing.JComboBox<String> cbxMethod;
     private javax.swing.JComboBox<String> cbxProvinceSampling;
     private javax.swing.JComboBox<String> cbxProvinceSprings;

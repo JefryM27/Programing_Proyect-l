@@ -11,11 +11,12 @@ import java.sql.SQLException;
  * @author Bravo
  */
 public class CantonDAO extends GeneralDAO {
-/*
+
+    /*
     public CantonDAO() {
         super.getName(1, "canton");
     }
-*/
+     */
     public List<Canton> readCantons() {
         DBConnection db = new DBConnection();
         List<Canton> cantons = new ArrayList<>();
@@ -41,5 +42,5 @@ public class CantonDAO extends GeneralDAO {
 
         return cantons;
     }
-
 }
+
