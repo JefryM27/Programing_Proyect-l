@@ -582,9 +582,9 @@ public class Register extends javax.swing.JFrame {
 
         btnFlowDelete.setText("Eliminar");
 
-        cbxMethod.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbxMethod.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Directo", "Indirecto" }));
 
-        cbxWeather.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbxWeather.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Soleado", "Nublado", "Lluvioso" }));
 
         lblUserName9.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lblUserName9.setText("Sitio de Muestreo:");

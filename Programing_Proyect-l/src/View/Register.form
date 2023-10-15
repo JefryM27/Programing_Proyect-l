@@ -1127,11 +1127,9 @@
                 <Component class="javax.swing.JComboBox" name="cbxMethod">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="4">
-                        <StringItem index="0" value="Item 1"/>
-                        <StringItem index="1" value="Item 2"/>
-                        <StringItem index="2" value="Item 3"/>
-                        <StringItem index="3" value="Item 4"/>
+                      <StringArray count="2">
+                        <StringItem index="0" value="Directo"/>
+                        <StringItem index="1" value="Indirecto"/>
                       </StringArray>
                     </Property>
                   </Properties>
@@ -1142,11 +1140,10 @@
                 <Component class="javax.swing.JComboBox" name="cbxWeather">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="4">
-                        <StringItem index="0" value="Item 1"/>
-                        <StringItem index="1" value="Item 2"/>
-                        <StringItem index="2" value="Item 3"/>
-                        <StringItem index="3" value="Item 4"/>
+                      <StringArray count="3">
+                        <StringItem index="0" value="Soleado"/>
+                        <StringItem index="1" value="Nublado"/>
+                        <StringItem index="2" value="Lluvioso"/>
                       </StringArray>
                     </Property>
                   </Properties>
