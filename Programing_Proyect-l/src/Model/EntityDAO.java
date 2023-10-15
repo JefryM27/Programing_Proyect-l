@@ -68,8 +68,25 @@ public class EntityDAO extends GeneralDAO {
 
         return entities;
     }
-    
-    
+     public void update(Entity entity){
+        DBConnection db= new DBConnection();
+        String consultaSQL= "UPDATE entity SET legalID=?, name=?, email=?,telephone=?,address=?,description=? WHERE id=?";
+        try{
+             PreparedStatement ps = db.getConnection().prepareStatement(consultaSQL);
+             ps.setString(1, entity.getLegalId());
+             ps.setString(2, entity.getEntityName());
+             ps.setInt(3, entity.getTelephone());
+             ps.setString(4, entity.getAddress());
+             ps.setString(5, entity.getDescription());
+             ps.setInt(6, entity.getId());
+             ps.execute();
+             JOptionPane.showMessageDialog(null, "Actualización exitosa");
+        } catch (SQLException e){
+            JOptionPane.showMessageDialog(null, "Error, no se actualizó: " + e.toString());
+        }finally{
+            db.disconnect();
+        }
+    }
     public void delete(int id) {
 
         DBConnection db = new DBConnection();

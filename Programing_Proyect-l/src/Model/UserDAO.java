@@ -61,6 +61,25 @@ public void create(User user) {
 
         return users;
     }
+        public void update(User user){
+        DBConnection db= new DBConnection();
+        String consultaSQL= "UPDATE user SET name=?, mail=?, password=?,entity_id=?,rol_id=? WHERE id=?";
+        try{
+             PreparedStatement ps = db.getConnection().prepareStatement(consultaSQL);
+             ps.setString(1, user.getUserName());
+             ps.setString(2, user.getMail());
+             ps.setString(3, user.getPassword());
+             ps.setInt(4, user.getEntity_id());
+             ps.setInt(5, user.getRol_id());
+             ps.setInt(6, user.getId());
+             ps.execute();
+             JOptionPane.showMessageDialog(null, "Actualización exitosa");
+        } catch (SQLException e){
+            JOptionPane.showMessageDialog(null, "Error, no se actualizó: " + e.toString());
+        }finally{
+            db.disconnect();
+        }
+    }
     
     public void delete(int id) {
 

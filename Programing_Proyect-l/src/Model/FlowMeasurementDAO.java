@@ -69,6 +69,26 @@ public class FlowMeasurementDAO {
         return measurements;
     }
     
+    public void update(FlowMeasurement flowmeasurement){
+        DBConnection db= new DBConnection();
+        String consultaSQL= "UPDATE flow_measurement SET capacity=?, metod=?, observation=?,date=?,weather=?,done=?,springs_id=?,sampling_id=? WHERE id=?";
+        try{
+             PreparedStatement ps = db.getConnection().prepareStatement(consultaSQL);
+             ps.setDouble(1, flowmeasurement.getCapacity());
+             ps.setString(2, flowmeasurement.getMetod());
+             ps.setString(3, flowmeasurement.getObservation());
+             ps.setDate(4, (java.sql.Date) flowmeasurement.getDate());
+             ps.setString(5, flowmeasurement.getWeather());
+             ps.setInt(6, flowmeasurement.getSpringsId());
+             ps.setInt(8, flowmeasurement.getSamplingId());
+             ps.execute();
+             JOptionPane.showMessageDialog(null, "Actualización exitosa");
+        } catch (SQLException e){
+            JOptionPane.showMessageDialog(null, "Error, no se actualizó: " + e.toString());
+        }finally{
+            db.disconnect();
+        }
+    }
     
     public void delete(int id) {
 
