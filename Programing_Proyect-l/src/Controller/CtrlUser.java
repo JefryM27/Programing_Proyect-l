@@ -14,6 +14,7 @@ import javax.swing.JOptionPane;
 public class CtrlUser {
 
     UserDAO user = new UserDAO();
+    int id;
     User authenticatedUser = null;
 
     public void loginUser(String enteredMail, String enteredPassword) {
@@ -31,6 +32,10 @@ public class CtrlUser {
         } else {
             JOptionPane.showMessageDialog(null, "Correo o contraseña incorrectos", "Error de inicio de sesión", JOptionPane.ERROR_MESSAGE);
         }
+    }
+    
+    public void deleteUser(){
+        this.user.delete(this.id);
     }
 
     private void openFrame() {

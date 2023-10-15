@@ -13,6 +13,7 @@ import javax.swing.JComboBox;
  */
 public class CtrlEntity {
     EntityDAO entity = new EntityDAO();
+    int id;
    
     public void loadEntity(JComboBox c) {
         List<Entity> entities = this.entity.readEntities();
@@ -21,5 +22,9 @@ public class CtrlEntity {
             model.addElement(entity.getEntityName());
         }
         c.setModel(model);
+    }
+    
+    public void deleteEntity(){
+        this.entity.delete(this.id);
     }
 }
