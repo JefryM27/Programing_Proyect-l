@@ -6,7 +6,6 @@ import Model.EntityDAO;
 import Model.ProvinceDAO;
 import Model.SamplingSite;
 import Model.SamplingSiteDAO;
-import Model.WaterSpringsDAO;
 import java.util.List;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
@@ -15,7 +14,6 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
-
 /**
  *
  * @author allys

@@ -2,7 +2,6 @@ package Controller;
 
 import Model.Entity;
 import Model.EntityDAO;
-import Model.FlowMeasurement;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;

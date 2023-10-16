@@ -10,13 +10,8 @@ import java.sql.SQLException;
  *
  * @author Bravo
  */
-public class CantonDAO extends GeneralDAO {
+public class CantonDAO{
 
-    /*
-    public CantonDAO() {
-        super.getName(1, "canton");
-    }
-     */
     public List<Canton> readCantonsByProvince(String provinceName) {
         DBConnection db = new DBConnection();
         List<Canton> cantons = new ArrayList<>();

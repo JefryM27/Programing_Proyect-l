@@ -11,13 +11,7 @@ import javax.swing.JOptionPane;
  *
  * @author allys
  */
-public class EntityDAO extends GeneralDAO {
-
-    /*
-    public EntityDAO() {
-        super.getName(1, "entity");
-    }
-     */
+public class EntityDAO {
 
     public void create(Entity entity) {
 

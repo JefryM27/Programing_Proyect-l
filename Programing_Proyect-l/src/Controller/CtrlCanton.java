@@ -2,7 +2,6 @@ package Controller;
 
 import Model.Canton;
 import Model.CantonDAO;
-import Model.Province;
 import java.util.List;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;

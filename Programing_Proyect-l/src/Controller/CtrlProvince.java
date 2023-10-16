@@ -1,9 +1,5 @@
 package Controller;
 
-import Model.Canton;
-import Model.CantonDAO;
-import Model.District;
-import Model.DistrictDAO;
 import Model.Province;
 import Model.ProvinceDAO;
 import java.util.List;

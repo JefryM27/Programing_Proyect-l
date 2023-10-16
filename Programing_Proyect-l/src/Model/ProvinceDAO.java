@@ -10,11 +10,8 @@ import java.sql.SQLException;
  *
  * @author jefry
  */
-public class ProvinceDAO extends GeneralDAO {
+public class ProvinceDAO  {
 
-    public ProvinceDAO() {
-        super.getName(1, "province");
-    }
 
     public List<Province> readProvinces() {
         DBConnection db = new DBConnection();
