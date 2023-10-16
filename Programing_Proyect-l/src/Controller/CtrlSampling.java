@@ -7,6 +7,7 @@ import Model.ProvinceDAO;
 import Model.SamplingSite;
 import Model.SamplingSiteDAO;
 import java.util.List;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -30,6 +31,15 @@ public class CtrlSampling {
     int idCanton;
     int idDistrict;
     int idEntity;
+    
+    public void loadSampling(JComboBox c) {
+        List<SamplingSite> dao = this.dao.readSamplingSites();
+        DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
+        for (SamplingSite site : dao) {
+            model.addElement(site.getSamplingName());
+        }
+        c.setModel(model);
+    }
 
     public void loadDataSamplingSites(JTable table) {
 

@@ -50,9 +50,11 @@ public class CtrlEntity {
             JOptionPane.showMessageDialog(null, "No se pudo guardar la entidad, error: " + e.toString());
         }
     }
-    public void updateEntity(JTextField legalId, JTextField telephone, JTextField entityName, JTextField email, JTextField address, JTextField description){
+
+    public void updateEntity(JTextField legalId, JTextField telephone, JTextField entityName, JTextField email, JTextField address, JTextField description) {
         this.entity.update(new Entity(legalId.getText(), Integer.parseInt(telephone.getText()), entityName.getText(), email.getText(), address.getText(), description.getText()));
     }
+
     public void selectedRow(JTable table, JTextField legalId, JTextField telephone, JTextField entityName, JTextField email, JTextField address, JTextField description) {
         try {
             int row = table.getSelectedRow();
@@ -75,12 +77,13 @@ public class CtrlEntity {
     public void deleteEntity() {
         this.entity.delete(this.id);
     }
-    public void clearFields(JTextField legalId, JTextField telephone, JTextField entityName, JTextField email, JTextField address, JTextField description){
-    legalId.setText("");
-    telephone.setText("");
-    entityName.setText("");
-    email.setText("");
-    address.setText("");
-    description.setText("");
+
+    public void clearFields(JTextField legalId, JTextField telephone, JTextField entityName, JTextField email, JTextField address, JTextField description) {
+        legalId.setText("");
+        telephone.setText("");
+        entityName.setText("");
+        email.setText("");
+        address.setText("");
+        description.setText("");
     }
 }

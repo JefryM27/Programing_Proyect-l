@@ -2,6 +2,7 @@ package Controller;
 
 import Model.*;
 import java.util.List;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -26,6 +27,16 @@ public class CtrlSprings {
     int idCanton;
     int idDistrict;
     int idEntity;
+    
+        
+    public void loadSprings(JComboBox c) {
+        List<WaterSprings> springs = this.dao.readWaterSprings();
+        DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
+        for (WaterSprings water : springs) {
+            model.addElement(water.getSpringName());
+        }
+        c.setModel(model);
+    }
 
     public void loadDataSprings(JTable table) {
 

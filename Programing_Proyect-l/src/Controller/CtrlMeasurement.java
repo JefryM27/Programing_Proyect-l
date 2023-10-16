@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.Entity;
 import Model.FlowMeasurement;
 import Model.FlowMeasurementDAO;
 import Model.SamplingSiteDAO;
@@ -9,6 +10,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;

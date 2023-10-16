@@ -17,6 +17,7 @@ public class Register extends javax.swing.JFrame {
     CtrlSampling sampling = new CtrlSampling();
     CtrlUser user = new CtrlUser();
     CtrlMeasurement measure = new CtrlMeasurement();
+   
 
     public Register() {
         initComponents();
@@ -25,7 +26,9 @@ public class Register extends javax.swing.JFrame {
         this.loadPlaces();
         this.entities();
         this.roles();
-        loadTables();
+        this.loadTables();
+        this.springs();
+        this.Samplings();
     }
 
     public void loadPlaces() {
@@ -47,6 +50,14 @@ public class Register extends javax.swing.JFrame {
         this.cr.loadRol(cbxRolUser);
     }
     
+    public void springs(){
+        this.springs.loadSprings(cbxSpringsMeasure);
+    }
+    
+    public void Samplings(){
+        this.sampling.loadSampling(cbxSamplingMeasure);
+    }
+    
     public void loadTables(){
         this.springs.loadDataSprings(tblSprings);
         this.entity.loadDataEntity(tblEntity);
@@ -60,7 +71,46 @@ public class Register extends javax.swing.JFrame {
     private void initComponents() {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        Entidades = new javax.swing.JPanel();
+        User = new javax.swing.JPanel();
+        pnUserTable = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblUser = new javax.swing.JTable();
+        pnInfoUser = new javax.swing.JPanel();
+        lblUserName = new javax.swing.JLabel();
+        btnUserEdit = new javax.swing.JButton();
+        lblPassaword = new javax.swing.JLabel();
+        lblEmailUser = new javax.swing.JLabel();
+        txtUserEmail = new javax.swing.JTextField();
+        txtUserName = new javax.swing.JTextField();
+        txtUserPassaword = new javax.swing.JTextField();
+        btnUserSave = new javax.swing.JButton();
+        btnUserDelete = new javax.swing.JButton();
+        cbxRolUser = new javax.swing.JComboBox<>();
+        lblUserName1 = new javax.swing.JLabel();
+        lblUserName2 = new javax.swing.JLabel();
+        cbxEntityUser = new javax.swing.JComboBox<>();
+        Entities = new javax.swing.JPanel();
+        pnMainEntity = new javax.swing.JPanel();
+        pnEntityTable = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tblEntity = new javax.swing.JTable();
+        pnInfoEntities = new javax.swing.JPanel();
+        lblIdLegal = new javax.swing.JLabel();
+        btnEntityEdit = new javax.swing.JButton();
+        lblEntityAdress = new javax.swing.JLabel();
+        lblEntityEmail = new javax.swing.JLabel();
+        lblEntityName = new javax.swing.JLabel();
+        lblEntityTelephoneNumber = new javax.swing.JLabel();
+        lblEntityDescription = new javax.swing.JLabel();
+        txtEntityName = new javax.swing.JTextField();
+        txtEntityLegalId = new javax.swing.JTextField();
+        txtEntityNumber = new javax.swing.JTextField();
+        txtEntityEmail = new javax.swing.JTextField();
+        txtEntityAdress = new javax.swing.JTextField();
+        txtEntityDescription = new javax.swing.JTextField();
+        btnEntitySave = new javax.swing.JButton();
+        btnEntityDelete = new javax.swing.JButton();
+        Springs = new javax.swing.JPanel();
         pnMainSprings = new javax.swing.JPanel();
         pnSpringsTable = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
@@ -87,28 +137,7 @@ public class Register extends javax.swing.JFrame {
         cbxDistrictSprings = new javax.swing.JComboBox<>();
         lblSpringsDescripsion4 = new javax.swing.JLabel();
         cbxEntitySprings = new javax.swing.JComboBox<>();
-        Nacientes = new javax.swing.JPanel();
-        pnMainEntity = new javax.swing.JPanel();
-        pnEntityTable = new javax.swing.JPanel();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        tblEntity = new javax.swing.JTable();
-        pnInfoEntities = new javax.swing.JPanel();
-        lblIdLegal = new javax.swing.JLabel();
-        btnEntityEdit = new javax.swing.JButton();
-        lblEntityAdress = new javax.swing.JLabel();
-        lblEntityEmail = new javax.swing.JLabel();
-        lblEntityName = new javax.swing.JLabel();
-        lblEntityTelephoneNumber = new javax.swing.JLabel();
-        lblEntityDescription = new javax.swing.JLabel();
-        txtEntityName = new javax.swing.JTextField();
-        txtEntityLegalId = new javax.swing.JTextField();
-        txtEntityNumber = new javax.swing.JTextField();
-        txtEntityEmail = new javax.swing.JTextField();
-        txtEntityAdress = new javax.swing.JTextField();
-        txtEntityDescription = new javax.swing.JTextField();
-        btnEntitySave = new javax.swing.JButton();
-        btnEntityDelete = new javax.swing.JButton();
-        pnMainMedition = new javax.swing.JPanel();
+        Medition = new javax.swing.JPanel();
         pnInfoCaudal = new javax.swing.JPanel();
         btnFlowEdit = new javax.swing.JButton();
         lblFlowObservation = new javax.swing.JLabel();
@@ -128,24 +157,6 @@ public class Register extends javax.swing.JFrame {
         pnCaudalTable = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblFlowMeasure = new javax.swing.JTable();
-        pnMainUser = new javax.swing.JPanel();
-        pnUserTable = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblUser = new javax.swing.JTable();
-        pnInfoUser = new javax.swing.JPanel();
-        lblUserName = new javax.swing.JLabel();
-        btnUserEdit = new javax.swing.JButton();
-        lblPassaword = new javax.swing.JLabel();
-        lblEmailUser = new javax.swing.JLabel();
-        txtUserEmail = new javax.swing.JTextField();
-        txtUserName = new javax.swing.JTextField();
-        txtUserPassaword = new javax.swing.JTextField();
-        btnUserSave = new javax.swing.JButton();
-        btnUserDelete = new javax.swing.JButton();
-        cbxRolUser = new javax.swing.JComboBox<>();
-        lblUserName1 = new javax.swing.JLabel();
-        lblUserName2 = new javax.swing.JLabel();
-        cbxEntityUser = new javax.swing.JComboBox<>();
         Muestreo = new javax.swing.JPanel();
         pnMainMeassureSite = new javax.swing.JPanel();
         pnMeassureSiteTable = new javax.swing.JPanel();
@@ -165,7 +176,7 @@ public class Register extends javax.swing.JFrame {
         lblMeassureSite3 = new javax.swing.JLabel();
         lblMeassureSite4 = new javax.swing.JLabel();
         cbxDistrictSampling = new javax.swing.JComboBox<>();
-        jPanel1 = new javax.swing.JPanel();
+        Reports = new javax.swing.JPanel();
         pnMainUser1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         btnUserSave1 = new javax.swing.JButton();
@@ -176,7 +187,284 @@ public class Register extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        Entidades.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        User.setBackground(new java.awt.Color(0, 152, 198));
+        User.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        pnUserTable.setBackground(new java.awt.Color(255, 255, 255));
+        pnUserTable.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tabla", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
+
+        tblUser.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "Nombre", "Correo", "Contraseña", "Entidad", "Rol"
+            }
+        ));
+        jScrollPane1.setViewportView(tblUser);
+
+        javax.swing.GroupLayout pnUserTableLayout = new javax.swing.GroupLayout(pnUserTable);
+        pnUserTable.setLayout(pnUserTableLayout);
+        pnUserTableLayout.setHorizontalGroup(
+            pnUserTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnUserTableLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 894, Short.MAX_VALUE))
+        );
+        pnUserTableLayout.setVerticalGroup(
+            pnUserTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnUserTableLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        User.add(pnUserTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, 910, 200));
+
+        pnInfoUser.setBackground(new java.awt.Color(255, 255, 255));
+        pnInfoUser.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Informacion del Usuario", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
+        pnInfoUser.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblUserName.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblUserName.setText("Rol:");
+        pnInfoUser.add(lblUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 80, -1, 28));
+
+        btnUserEdit.setText("Editar");
+        pnInfoUser.add(btnUserEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 180, 120, 50));
+
+        lblPassaword.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblPassaword.setText("Contraseña: ");
+        pnInfoUser.add(lblPassaword, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, 28));
+
+        lblEmailUser.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblEmailUser.setText("Correo electonico: ");
+        pnInfoUser.add(lblEmailUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 71, -1, 28));
+
+        txtUserEmail.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtUserEmail.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        pnInfoUser.add(txtUserEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, 260, -1));
+
+        txtUserName.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtUserName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        pnInfoUser.add(txtUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, 258, -1));
+
+        txtUserPassaword.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtUserPassaword.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        pnInfoUser.add(txtUserPassaword, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, 258, 26));
+
+        btnUserSave.setText("Guardar");
+        pnInfoUser.add(btnUserSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, 121, 50));
+
+        btnUserDelete.setText("Eliminar");
+        pnInfoUser.add(btnUserDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 180, 121, 48));
+
+        cbxRolUser.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        pnInfoUser.add(cbxRolUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 80, 230, 30));
+
+        lblUserName1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblUserName1.setText("Nombre: ");
+        pnInfoUser.add(lblUserName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 25, -1, 28));
+
+        lblUserName2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblUserName2.setText("Entidad:");
+        pnInfoUser.add(lblUserName2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 30, -1, 28));
+
+        cbxEntityUser.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        pnInfoUser.add(cbxEntityUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 30, 230, 30));
+
+        User.add(pnInfoUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, 760, 240));
+
+        jTabbedPane1.addTab("Registro Usuario", User);
+
+        Entities.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        pnMainEntity.setBackground(new java.awt.Color(0, 152, 198));
+        pnMainEntity.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        pnEntityTable.setBackground(new java.awt.Color(255, 255, 255));
+        pnEntityTable.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tabla", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
+
+        tblEntity.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "Cedula Juridica", "Nombre", "Email", "Telefono", "Direccion", "Descipcion"
+            }
+        ));
+        tblEntity.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblEntityMouseClicked(evt);
+            }
+        });
+        jScrollPane4.setViewportView(tblEntity);
+
+        javax.swing.GroupLayout pnEntityTableLayout = new javax.swing.GroupLayout(pnEntityTable);
+        pnEntityTable.setLayout(pnEntityTableLayout);
+        pnEntityTableLayout.setHorizontalGroup(
+            pnEntityTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnEntityTableLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 894, Short.MAX_VALUE))
+        );
+        pnEntityTableLayout.setVerticalGroup(
+            pnEntityTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
+        );
+
+        pnMainEntity.add(pnEntityTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, 910, 240));
+
+        pnInfoEntities.setBackground(new java.awt.Color(255, 255, 255));
+        pnInfoEntities.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Informacion de la Entidad", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
+
+        lblIdLegal.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblIdLegal.setText("Cedula Juridica: ");
+
+        btnEntityEdit.setText("Editar");
+        btnEntityEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEntityEditActionPerformed(evt);
+            }
+        });
+
+        lblEntityAdress.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblEntityAdress.setText("Direccion: ");
+
+        lblEntityEmail.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblEntityEmail.setText("Email: ");
+
+        lblEntityName.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblEntityName.setText("Nombre: ");
+
+        lblEntityTelephoneNumber.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblEntityTelephoneNumber.setText("Telefono: ");
+
+        lblEntityDescription.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblEntityDescription.setText("Descripcion: ");
+
+        txtEntityName.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtEntityName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        txtEntityLegalId.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtEntityLegalId.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        txtEntityNumber.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtEntityNumber.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        txtEntityEmail.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtEntityEmail.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        txtEntityAdress.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtEntityAdress.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        txtEntityDescription.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtEntityDescription.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        btnEntitySave.setText("Guardar");
+        btnEntitySave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEntitySaveActionPerformed(evt);
+            }
+        });
+
+        btnEntityDelete.setText("Eliminar");
+        btnEntityDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEntityDeleteActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnInfoEntitiesLayout = new javax.swing.GroupLayout(pnInfoEntities);
+        pnInfoEntities.setLayout(pnInfoEntitiesLayout);
+        pnInfoEntitiesLayout.setHorizontalGroup(
+            pnInfoEntitiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnInfoEntitiesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnInfoEntitiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(pnInfoEntitiesLayout.createSequentialGroup()
+                        .addComponent(lblEntityName)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtEntityName, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnInfoEntitiesLayout.createSequentialGroup()
+                        .addComponent(lblEntityEmail)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtEntityEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnInfoEntitiesLayout.createSequentialGroup()
+                        .addComponent(lblEntityTelephoneNumber)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtEntityNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnInfoEntitiesLayout.createSequentialGroup()
+                        .addGap(0, 2, Short.MAX_VALUE)
+                        .addComponent(lblIdLegal)
+                        .addGap(34, 34, 34)
+                        .addComponent(txtEntityLegalId, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnInfoEntitiesLayout.createSequentialGroup()
+                        .addComponent(lblEntityAdress)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtEntityAdress, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnInfoEntitiesLayout.createSequentialGroup()
+                        .addComponent(lblEntityDescription)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtEntityDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(34, 34, 34)
+                .addGroup(pnInfoEntitiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnEntitySave, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnEntityDelete, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE))
+                .addGap(42, 42, 42)
+                .addComponent(btnEntityEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 15, Short.MAX_VALUE))
+        );
+        pnInfoEntitiesLayout.setVerticalGroup(
+            pnInfoEntitiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnInfoEntitiesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnInfoEntitiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnInfoEntitiesLayout.createSequentialGroup()
+                        .addGroup(pnInfoEntitiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnInfoEntitiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(txtEntityLegalId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblIdLegal, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnEntitySave, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(pnInfoEntitiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblEntityName, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtEntityName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(26, 26, 26)
+                        .addGroup(pnInfoEntitiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblEntityEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtEntityEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(pnInfoEntitiesLayout.createSequentialGroup()
+                        .addComponent(btnEntityEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(40, 40, 40)
+                        .addComponent(btnEntityDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(pnInfoEntitiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtEntityNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblEntityTelephoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(pnInfoEntitiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtEntityAdress, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblEntityAdress, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(pnInfoEntitiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblEntityDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtEntityDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(12, Short.MAX_VALUE))
+        );
+
+        pnMainEntity.add(pnInfoEntities, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, 760, 330));
+
+        Entities.add(pnMainEntity, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, -1));
+
+        jTabbedPane1.addTab("Registro Entidades", Entities);
+
+        Springs.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         pnMainSprings.setBackground(new java.awt.Color(0, 152, 198));
         pnMainSprings.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -432,197 +720,12 @@ public class Register extends javax.swing.JFrame {
 
         pnMainSprings.add(pnInfoSprings, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, 760, 380));
 
-        Entidades.add(pnMainSprings, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1070, 680));
+        Springs.add(pnMainSprings, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1070, 680));
 
-        jTabbedPane1.addTab("Registro Nacientes", Entidades);
+        jTabbedPane1.addTab("Registro Nacientes", Springs);
 
-        Nacientes.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        pnMainEntity.setBackground(new java.awt.Color(0, 152, 198));
-        pnMainEntity.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        pnEntityTable.setBackground(new java.awt.Color(255, 255, 255));
-        pnEntityTable.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tabla", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
-
-        tblEntity.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "ID", "Cedula Juridica", "Nombre", "Email", "Telefono", "Direccion", "Descipcion"
-            }
-        ));
-        tblEntity.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tblEntityMouseClicked(evt);
-            }
-        });
-        jScrollPane4.setViewportView(tblEntity);
-
-        javax.swing.GroupLayout pnEntityTableLayout = new javax.swing.GroupLayout(pnEntityTable);
-        pnEntityTable.setLayout(pnEntityTableLayout);
-        pnEntityTableLayout.setHorizontalGroup(
-            pnEntityTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnEntityTableLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 894, Short.MAX_VALUE))
-        );
-        pnEntityTableLayout.setVerticalGroup(
-            pnEntityTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
-        );
-
-        pnMainEntity.add(pnEntityTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, 910, 240));
-
-        pnInfoEntities.setBackground(new java.awt.Color(255, 255, 255));
-        pnInfoEntities.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Informacion de la Entidad", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
-
-        lblIdLegal.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lblIdLegal.setText("Cedula Juridica: ");
-
-        btnEntityEdit.setText("Editar");
-        btnEntityEdit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEntityEditActionPerformed(evt);
-            }
-        });
-
-        lblEntityAdress.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lblEntityAdress.setText("Direccion: ");
-
-        lblEntityEmail.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lblEntityEmail.setText("Email: ");
-
-        lblEntityName.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lblEntityName.setText("Nombre: ");
-
-        lblEntityTelephoneNumber.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lblEntityTelephoneNumber.setText("Telefono: ");
-
-        lblEntityDescription.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lblEntityDescription.setText("Descripcion: ");
-
-        txtEntityName.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        txtEntityName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-
-        txtEntityLegalId.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        txtEntityLegalId.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-
-        txtEntityNumber.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        txtEntityNumber.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-
-        txtEntityEmail.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        txtEntityEmail.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-
-        txtEntityAdress.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        txtEntityAdress.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-
-        txtEntityDescription.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        txtEntityDescription.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-
-        btnEntitySave.setText("Guardar");
-        btnEntitySave.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEntitySaveActionPerformed(evt);
-            }
-        });
-
-        btnEntityDelete.setText("Eliminar");
-        btnEntityDelete.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEntityDeleteActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout pnInfoEntitiesLayout = new javax.swing.GroupLayout(pnInfoEntities);
-        pnInfoEntities.setLayout(pnInfoEntitiesLayout);
-        pnInfoEntitiesLayout.setHorizontalGroup(
-            pnInfoEntitiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnInfoEntitiesLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pnInfoEntitiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(pnInfoEntitiesLayout.createSequentialGroup()
-                        .addComponent(lblEntityName)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtEntityName, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnInfoEntitiesLayout.createSequentialGroup()
-                        .addComponent(lblEntityEmail)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtEntityEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnInfoEntitiesLayout.createSequentialGroup()
-                        .addComponent(lblEntityTelephoneNumber)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtEntityNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnInfoEntitiesLayout.createSequentialGroup()
-                        .addGap(0, 2, Short.MAX_VALUE)
-                        .addComponent(lblIdLegal)
-                        .addGap(34, 34, 34)
-                        .addComponent(txtEntityLegalId, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnInfoEntitiesLayout.createSequentialGroup()
-                        .addComponent(lblEntityAdress)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtEntityAdress, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnInfoEntitiesLayout.createSequentialGroup()
-                        .addComponent(lblEntityDescription)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtEntityDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(34, 34, 34)
-                .addGroup(pnInfoEntitiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnEntitySave, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnEntityDelete, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE))
-                .addGap(42, 42, 42)
-                .addComponent(btnEntityEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 15, Short.MAX_VALUE))
-        );
-        pnInfoEntitiesLayout.setVerticalGroup(
-            pnInfoEntitiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnInfoEntitiesLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pnInfoEntitiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnInfoEntitiesLayout.createSequentialGroup()
-                        .addGroup(pnInfoEntitiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnInfoEntitiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(txtEntityLegalId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lblIdLegal, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(btnEntitySave, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(pnInfoEntitiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblEntityName, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtEntityName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(26, 26, 26)
-                        .addGroup(pnInfoEntitiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblEntityEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtEntityEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(pnInfoEntitiesLayout.createSequentialGroup()
-                        .addComponent(btnEntityEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(40, 40, 40)
-                        .addComponent(btnEntityDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addGroup(pnInfoEntitiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtEntityNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblEntityTelephoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(pnInfoEntitiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtEntityAdress, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblEntityAdress, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(pnInfoEntitiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblEntityDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtEntityDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(12, Short.MAX_VALUE))
-        );
-
-        pnMainEntity.add(pnInfoEntities, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, 760, 330));
-
-        Nacientes.add(pnMainEntity, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, -1));
-
-        jTabbedPane1.addTab("Registro Entidades", Nacientes);
-
-        pnMainMedition.setBackground(new java.awt.Color(0, 152, 192));
-        pnMainMedition.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        Medition.setBackground(new java.awt.Color(0, 152, 192));
+        Medition.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         pnInfoCaudal.setBackground(new java.awt.Color(255, 255, 255));
         pnInfoCaudal.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Informacion del Caudal", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
@@ -677,6 +780,11 @@ public class Register extends javax.swing.JFrame {
         lblUserName10.setText("Naciente:");
 
         cbxSpringsMeasure.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbxSpringsMeasure.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxSpringsMeasureActionPerformed(evt);
+            }
+        });
 
         cbxSamplingMeasure.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -755,7 +863,7 @@ public class Register extends javax.swing.JFrame {
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
-        pnMainMedition.add(pnInfoCaudal, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 810, 350));
+        Medition.add(pnInfoCaudal, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 810, 350));
 
         pnCaudalTable.setBackground(new java.awt.Color(255, 255, 255));
         pnCaudalTable.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tabla", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
@@ -792,101 +900,9 @@ public class Register extends javax.swing.JFrame {
             .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
         );
 
-        pnMainMedition.add(pnCaudalTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, 980, 240));
+        Medition.add(pnCaudalTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, 980, 240));
 
-        jTabbedPane1.addTab("Registro de la Medicion del Caudal", pnMainMedition);
-
-        pnMainUser.setBackground(new java.awt.Color(0, 152, 198));
-        pnMainUser.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        pnUserTable.setBackground(new java.awt.Color(255, 255, 255));
-        pnUserTable.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tabla", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
-
-        tblUser.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
-            },
-            new String [] {
-                "ID", "Nombre", "Correo", "Contraseña", "Entidad", "Rol"
-            }
-        ));
-        jScrollPane1.setViewportView(tblUser);
-
-        javax.swing.GroupLayout pnUserTableLayout = new javax.swing.GroupLayout(pnUserTable);
-        pnUserTable.setLayout(pnUserTableLayout);
-        pnUserTableLayout.setHorizontalGroup(
-            pnUserTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnUserTableLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 894, Short.MAX_VALUE))
-        );
-        pnUserTableLayout.setVerticalGroup(
-            pnUserTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnUserTableLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        pnMainUser.add(pnUserTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, 910, 200));
-
-        pnInfoUser.setBackground(new java.awt.Color(255, 255, 255));
-        pnInfoUser.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Informacion del Usuario", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
-        pnInfoUser.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblUserName.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lblUserName.setText("Rol:");
-        pnInfoUser.add(lblUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 80, -1, 28));
-
-        btnUserEdit.setText("Editar");
-        pnInfoUser.add(btnUserEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 180, 120, 50));
-
-        lblPassaword.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lblPassaword.setText("Contraseña: ");
-        pnInfoUser.add(lblPassaword, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, 28));
-
-        lblEmailUser.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lblEmailUser.setText("Correo electonico: ");
-        pnInfoUser.add(lblEmailUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 71, -1, 28));
-
-        txtUserEmail.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        txtUserEmail.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        pnInfoUser.add(txtUserEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, 260, -1));
-
-        txtUserName.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        txtUserName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        pnInfoUser.add(txtUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, 258, -1));
-
-        txtUserPassaword.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        txtUserPassaword.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        pnInfoUser.add(txtUserPassaword, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, 258, 26));
-
-        btnUserSave.setText("Guardar");
-        pnInfoUser.add(btnUserSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, 121, 50));
-
-        btnUserDelete.setText("Eliminar");
-        pnInfoUser.add(btnUserDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 180, 121, 48));
-
-        cbxRolUser.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        pnInfoUser.add(cbxRolUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 80, 230, 30));
-
-        lblUserName1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lblUserName1.setText("Nombre: ");
-        pnInfoUser.add(lblUserName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 25, -1, 28));
-
-        lblUserName2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lblUserName2.setText("Entidad:");
-        pnInfoUser.add(lblUserName2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 30, -1, 28));
-
-        cbxEntityUser.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        pnInfoUser.add(cbxEntityUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 30, 230, 30));
-
-        pnMainUser.add(pnInfoUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, 760, 240));
-
-        jTabbedPane1.addTab("Registro Usuario", pnMainUser);
+        jTabbedPane1.addTab("Registro de la Medicion del Caudal", Medition);
 
         Muestreo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -1051,23 +1067,23 @@ public class Register extends javax.swing.JFrame {
 
         pnMainUser1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 40, 470, 440));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout ReportsLayout = new javax.swing.GroupLayout(Reports);
+        Reports.setLayout(ReportsLayout);
+        ReportsLayout.setHorizontalGroup(
+            ReportsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ReportsLayout.createSequentialGroup()
                 .addGap(0, 10, Short.MAX_VALUE)
                 .addComponent(pnMainUser1, javax.swing.GroupLayout.PREFERRED_SIZE, 1060, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        ReportsLayout.setVerticalGroup(
+            ReportsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ReportsLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(pnMainUser1, javax.swing.GroupLayout.PREFERRED_SIZE, 660, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Reportes", jPanel1);
+        jTabbedPane1.addTab("Reportes", Reports);
 
         btnLogout.setText("Cerrar Sesión");
         btnLogout.addActionListener(new java.awt.event.ActionListener() {
@@ -1082,11 +1098,11 @@ public class Register extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTabbedPane1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jTabbedPane1)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -1094,9 +1110,8 @@ public class Register extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btnLogout)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 686, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 686, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -1216,11 +1231,18 @@ public class Register extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnFlowEditActionPerformed
 
+    private void cbxSpringsMeasureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxSpringsMeasureActionPerformed
+        
+    }//GEN-LAST:event_cbxSpringsMeasureActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel Entidades;
+    private javax.swing.JPanel Entities;
+    private javax.swing.JPanel Medition;
     private javax.swing.JPanel Muestreo;
-    private javax.swing.JPanel Nacientes;
+    private javax.swing.JPanel Reports;
+    private javax.swing.JPanel Springs;
+    private javax.swing.JPanel User;
     private javax.swing.JButton btnEntityDelete;
     private javax.swing.JButton btnEntityEdit;
     private javax.swing.JButton btnEntitySave;
@@ -1255,7 +1277,6 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbxSamplingMeasure;
     private javax.swing.JComboBox<String> cbxSpringsMeasure;
     private javax.swing.JComboBox<String> cbxWeather;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -1303,9 +1324,7 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JPanel pnInfoUser;
     private javax.swing.JPanel pnMainEntity;
     private javax.swing.JPanel pnMainMeassureSite;
-    private javax.swing.JPanel pnMainMedition;
     private javax.swing.JPanel pnMainSprings;
-    private javax.swing.JPanel pnMainUser;
     private javax.swing.JPanel pnMainUser1;
     private javax.swing.JPanel pnMeassureSiteTable;
     private javax.swing.JPanel pnSpringsTable;
@@ -1333,4 +1352,8 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JTextField txtUserName;
     private javax.swing.JTextField txtUserPassaword;
     // End of variables declaration//GEN-END:variables
+
+    private void Springs() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
