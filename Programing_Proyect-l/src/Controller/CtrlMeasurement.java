@@ -5,8 +5,10 @@ import Model.FlowMeasurementDAO;
 import Model.SamplingSiteDAO;
 import Model.WaterSpringsDAO;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -42,29 +44,27 @@ public class CtrlMeasurement {
         }
     }
 
-    public void addFlowMeasurement(JTextField capacity, JTextField metod, JTextField observation, JTextField date, JComboBox<String> weather, JComboBox<String> done) {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+    public void addFlowMeasurement(JComboBox<String> metod, JTextField observation, JComboBox<String> weather, JTextField done) {
         try {
-            Date dateF = dateFormat.parse(date.getText());
-            this.dao.create(new FlowMeasurement(Double.parseDouble(capacity.getText()), metod.getText(), observation.getText(), (String) weather.getSelectedItem(), (String) done.getSelectedItem(), dateF, this.idSprings, this.idSampling));
+            double randomCapacity = randomCapacity();
+            Date randomDate = randomDate();
+            this.dao.create(new FlowMeasurement(randomCapacity, (String) metod.getSelectedItem(), observation.getText(), (String) weather.getSelectedItem(), done.getText(), randomDate, this.idSprings, this.idSampling));
             JOptionPane.showMessageDialog(null, "La medición de caudal se ha guardado correctamente");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "No se pudo guardar la medición de caudal, error: " + e.toString());
         }
     }
 
-    public void selectedRow(JTable table, JTextField capacity, JTextField metod, JTextField observation, JTextField date,
-            JComboBox<String> weather, JComboBox<String> done, JComboBox springs, JComboBox sampling) {
+    public void selectedRow(JTable table, JComboBox<String> metod, JTextField observation,
+            JComboBox<String> weather, JTextField done, JComboBox springs, JComboBox sampling) {
         try {
             int row = table.getSelectedRow();
             if (row >= 0) {
                 this.id = Integer.parseInt(table.getValueAt(row, 0).toString());
-                capacity.setText(table.getValueAt(row, 1).toString());
-                metod.setText(table.getValueAt(row, 2).toString());
+                metod.setSelectedItem(table.getValueAt(row, 2).toString());
                 observation.setText(table.getValueAt(row, 3).toString());
-                date.setText(table.getValueAt(row, 4).toString());
                 weather.setSelectedItem(table.getValueAt(row, 5).toString());
-                done.setSelectedItem(table.getValueAt(row, 6).toString());
+                done.setText(table.getValueAt(row, 6).toString());
                 springs.setSelectedItem(table.getValueAt(row, 7).toString());
                 sampling.setSelectedItem(table.getValueAt(row, 8).toString());
             } else {
@@ -73,6 +73,26 @@ public class CtrlMeasurement {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error de selección, error: " + e.toString());
         }
+    }
+
+    public Date randomDate() {
+        // Generate a random date between January 1 and December 31, 2022
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.YEAR, 2022);
+        calendar.set(Calendar.MONTH, Calendar.JANUARY);
+        calendar.set(Calendar.DAY_OF_MONTH, 1);
+        long startMillis = calendar.getTimeInMillis();
+        calendar.set(Calendar.MONTH, Calendar.DECEMBER);
+        calendar.set(Calendar.DAY_OF_MONTH, 31);
+        long endMillis = calendar.getTimeInMillis();
+        long randomMillis = startMillis + (long) (Math.random() * (endMillis - startMillis));
+        return new Date(randomMillis);
+    }
+
+    public double randomCapacity() {
+        // Generate a random decimal number in the range 0.1 to 100
+        double randomCapacity = 0.1 + (100 - 0.1) * new Random().nextDouble();
+        return Math.round(randomCapacity * 100.0) / 100.0;
     }
 
     public void deleteFlowMeasurement() {
