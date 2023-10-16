@@ -89,6 +89,9 @@ public class CtrlUser {
             JOptionPane.showMessageDialog(null, "No se pudo guardar el usuario, error: " + e.toString());
         }
     }
+    public void updateUser(JTextField userName, JTextField mail, JPasswordField password, JComboBox entity, JComboBox rol){
+        this.dao.update(new User(userName.getText(), mail.getText(), new String(password.getPassword()), this.idEntity, this.idRol));
+    }
 
     public void selectedRow(JTable table, JTextField userName, JTextField mail, JPasswordField password, JComboBox entity, JComboBox rol) {
         try {
@@ -110,6 +113,11 @@ public class CtrlUser {
 
     public void deleteUser() {
         this.dao.delete(this.id);
+    }
+    public void clearFields(JTextField userName, JTextField mail, JPasswordField password){
+        userName.setText("");
+        mail.setText("");
+        password.setText("");
     }
 
     public void getIdEntity(JComboBox entity) {

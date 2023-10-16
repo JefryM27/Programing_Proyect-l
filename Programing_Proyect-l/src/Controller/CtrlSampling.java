@@ -52,6 +52,9 @@ public class CtrlSampling {
             JOptionPane.showMessageDialog(null, "No se pudo guardar el sitio de muestreo, error: " + e.toString());
         }
     }
+    public void updateSamplingSite(JTextField name, JComboBox province, JComboBox canton, JComboBox district, JComboBox entity){
+        this.dao.update(new SamplingSite(name.getText(), this.idProvince, this.idCanton, this.idDistrict, this.idEntity));
+    }
 
     public void selectedRow(JTable table, JTextField name, JComboBox province, JComboBox canton, JComboBox district, JComboBox entity) {
         try {
@@ -74,7 +77,9 @@ public class CtrlSampling {
     public void deleteSamplingSite() {
         this.dao.delete(this.id);
     }
-
+    public void clearFields(JTextField name){
+        name.setText("");
+    }
     public void getIDProvince(JComboBox province) {
         this.idProvince = this.province.getIDProvince(province.getSelectedItem().toString());
     }

@@ -48,6 +48,9 @@ public class CtrlSprings {
             JOptionPane.showMessageDialog(null, "No se pudo guardar la naciente, error: " + e.toString());
         }
     }
+    public void updateWaterSprings(JTextField name, JTextField address, JTextField latitude, JTextField length, JTextField description){
+        this.dao.update(new WaterSprings(name.getText(), address.getText(), latitude.getText(), length.getText(), description.getText(), this.idProvince, this.idCanton, this.idDistrict, this.idEntity));
+    }
 
     public void selectedRow(JTable table, JTextField name, JTextField address, JTextField latitude, JTextField length, JTextField description, JComboBox province, JComboBox canton, JComboBox district, JComboBox entity) {
         try {
@@ -73,6 +76,13 @@ public class CtrlSprings {
 
     public void deleteWaterSprings() {
         this.dao.delete(this.id);
+    }
+    public void clearFields(JTextField name, JTextField address, JTextField latitude, JTextField length, JTextField description){
+        name.setText("");
+        address.setText("");
+        latitude.setText("");
+        length.setText("");
+        description.setText("");
     }
 
     public void getIDProvince(JComboBox province) {
