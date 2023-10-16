@@ -1,10 +1,6 @@
 package View;
 
-import Controller.CtrlCanton;
-import Controller.CtrlDistrict;
-import Controller.CtrlEntity;
-import Controller.CtrlProvince;
-import Controller.CtrlRol;
+import Controller.*;
 
 /**
  *
@@ -15,8 +11,12 @@ public class Register extends javax.swing.JFrame {
     CtrlProvince cp = new CtrlProvince();
     CtrlCanton cc = new CtrlCanton();
     CtrlDistrict cd = new CtrlDistrict();
-    CtrlEntity ce = new CtrlEntity();
     CtrlRol cr = new CtrlRol();
+    CtrlEntity entity = new CtrlEntity();
+    CtrlSprings springs = new CtrlSprings();
+    CtrlSampling sampling = new CtrlSampling();
+    CtrlUser user = new CtrlUser();
+    CtrlMeasurement measure = new CtrlMeasurement();
 
     public Register() {
         initComponents();
@@ -25,6 +25,7 @@ public class Register extends javax.swing.JFrame {
         this.loadPlaces();
         this.entities();
         this.roles();
+        loadTables();
     }
 
     public void loadPlaces() {
@@ -37,13 +38,21 @@ public class Register extends javax.swing.JFrame {
     }
 
     public void entities() {
-        this.ce.loadEntity(cbxEntitySprings);
-        this.ce.loadEntity(cbxEntityUser);
-        this.ce.loadEntity(cbxEntitySampling);
+        this.entity.loadEntity(cbxEntitySprings);
+        this.entity.loadEntity(cbxEntityUser);
+        this.entity.loadEntity(cbxEntitySampling);
     }
 
     public void roles() {
         this.cr.loadRol(cbxRolUser);
+    }
+    
+    public void loadTables(){
+        this.springs.loadDataSprings(tblSprings);
+        this.entity.loadDataEntity(tblEntity);
+        this.sampling.loadDataSamplingSites(tblSamplingSite);
+        this.user.loadDataUsers(tblUser);
+        this.measure.loadDataMeasurements(tblFlowMeasure);
     }
 
     @SuppressWarnings("unchecked")
@@ -118,7 +127,7 @@ public class Register extends javax.swing.JFrame {
         cbxSamplingMeasure = new javax.swing.JComboBox<>();
         pnCaudalTable = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tblFlowMeassure = new javax.swing.JTable();
+        tblFlowMeasure = new javax.swing.JTable();
         pnMainUser = new javax.swing.JPanel();
         pnUserTable = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -137,18 +146,11 @@ public class Register extends javax.swing.JFrame {
         lblUserName1 = new javax.swing.JLabel();
         lblUserName2 = new javax.swing.JLabel();
         cbxEntityUser = new javax.swing.JComboBox<>();
-        jPanel1 = new javax.swing.JPanel();
-        pnMainUser1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        btnUserSave1 = new javax.swing.JButton();
-        btnUserEdit1 = new javax.swing.JButton();
-        btnUserDelete1 = new javax.swing.JButton();
-        btnGeneratePDF = new javax.swing.JButton();
         Muestreo = new javax.swing.JPanel();
         pnMainMeassureSite = new javax.swing.JPanel();
         pnMeassureSiteTable = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        tblSamplingSite = new javax.swing.JTable();
         pnInfoMeassureSite = new javax.swing.JPanel();
         lblMeassureSite = new javax.swing.JLabel();
         btnMeassureEdit = new javax.swing.JButton();
@@ -163,6 +165,13 @@ public class Register extends javax.swing.JFrame {
         lblMeassureSite3 = new javax.swing.JLabel();
         lblMeassureSite4 = new javax.swing.JLabel();
         cbxDistrictSampling = new javax.swing.JComboBox<>();
+        jPanel1 = new javax.swing.JPanel();
+        pnMainUser1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        btnUserSave1 = new javax.swing.JButton();
+        btnUserEdit1 = new javax.swing.JButton();
+        btnUserDelete1 = new javax.swing.JButton();
+        btnGeneratePDF = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -676,7 +685,7 @@ public class Register extends javax.swing.JFrame {
         pnCaudalTable.setBackground(new java.awt.Color(255, 255, 255));
         pnCaudalTable.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tabla", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
 
-        tblFlowMeassure.setModel(new javax.swing.table.DefaultTableModel(
+        tblFlowMeasure.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null},
@@ -687,7 +696,7 @@ public class Register extends javax.swing.JFrame {
                 "ID", "Capacidad", "Metodo", "Observasion", "Fecha", "Clima", "Realizado por", "Naciente", "Sitio de Muestreo"
             }
         ));
-        jScrollPane2.setViewportView(tblFlowMeassure);
+        jScrollPane2.setViewportView(tblFlowMeasure);
 
         javax.swing.GroupLayout pnCaudalTableLayout = new javax.swing.GroupLayout(pnCaudalTable);
         pnCaudalTable.setLayout(pnCaudalTableLayout);
@@ -799,81 +808,6 @@ public class Register extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Registro Usuario", pnMainUser);
 
-        pnMainUser1.setBackground(new java.awt.Color(0, 152, 198));
-        pnMainUser1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Generar Reportes", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
-
-        btnUserSave1.setText("Reporte de nacientes");
-        btnUserSave1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUserSave1ActionPerformed(evt);
-            }
-        });
-
-        btnUserEdit1.setText("Reporte de medición de caudal");
-
-        btnUserDelete1.setText("Reporte de todos los sitios de muestreo");
-        btnUserDelete1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUserDelete1ActionPerformed(evt);
-            }
-        });
-
-        btnGeneratePDF.setText("Generar PDF");
-        btnGeneratePDF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGeneratePDFActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(97, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnGeneratePDF, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnUserDelete1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnUserEdit1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnUserSave1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(93, 93, 93))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(btnUserSave1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49)
-                .addComponent(btnUserEdit1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48)
-                .addComponent(btnUserDelete1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
-                .addComponent(btnGeneratePDF, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(44, Short.MAX_VALUE))
-        );
-
-        pnMainUser1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 40, 470, 440));
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 10, Short.MAX_VALUE)
-                .addComponent(pnMainUser1, javax.swing.GroupLayout.PREFERRED_SIZE, 1060, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(pnMainUser1, javax.swing.GroupLayout.PREFERRED_SIZE, 660, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jTabbedPane1.addTab("Reportes", jPanel1);
-
         Muestreo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         pnMainMeassureSite.setBackground(new java.awt.Color(0, 152, 198));
@@ -882,7 +816,7 @@ public class Register extends javax.swing.JFrame {
         pnMeassureSiteTable.setBackground(new java.awt.Color(255, 255, 255));
         pnMeassureSiteTable.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tabla", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        tblSamplingSite.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -893,7 +827,7 @@ public class Register extends javax.swing.JFrame {
                 "ID", "Nombre del Sitio", "Provincia", "Canton", "Distrito ", "Entidad"
             }
         ));
-        jScrollPane3.setViewportView(jTable3);
+        jScrollPane3.setViewportView(tblSamplingSite);
 
         javax.swing.GroupLayout pnMeassureSiteTableLayout = new javax.swing.GroupLayout(pnMeassureSiteTable);
         pnMeassureSiteTable.setLayout(pnMeassureSiteTableLayout);
@@ -979,6 +913,81 @@ public class Register extends javax.swing.JFrame {
         Muestreo.add(pnMainMeassureSite, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1020, 650));
 
         jTabbedPane1.addTab("Registro Sitio de Muestreo", Muestreo);
+
+        pnMainUser1.setBackground(new java.awt.Color(0, 152, 198));
+        pnMainUser1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Generar Reportes", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
+
+        btnUserSave1.setText("Reporte de nacientes");
+        btnUserSave1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUserSave1ActionPerformed(evt);
+            }
+        });
+
+        btnUserEdit1.setText("Reporte de medición de caudal");
+
+        btnUserDelete1.setText("Reporte de todos los sitios de muestreo");
+        btnUserDelete1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUserDelete1ActionPerformed(evt);
+            }
+        });
+
+        btnGeneratePDF.setText("Generar PDF");
+        btnGeneratePDF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGeneratePDFActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(97, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnGeneratePDF, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnUserDelete1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnUserEdit1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnUserSave1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(93, 93, 93))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addComponent(btnUserSave1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(49, 49, 49)
+                .addComponent(btnUserEdit1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(48, 48, 48)
+                .addComponent(btnUserDelete1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41)
+                .addComponent(btnGeneratePDF, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(44, Short.MAX_VALUE))
+        );
+
+        pnMainUser1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 40, 470, 440));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 10, Short.MAX_VALUE)
+                .addComponent(pnMainUser1, javax.swing.GroupLayout.PREFERRED_SIZE, 1060, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(pnMainUser1, javax.swing.GroupLayout.PREFERRED_SIZE, 660, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Reportes", jPanel1);
 
         btnLogout.setText("Cerrar Sesión");
         btnLogout.addActionListener(new java.awt.event.ActionListener() {
@@ -1104,7 +1113,6 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable3;
     private javax.swing.JLabel lblEmailUser;
     private javax.swing.JLabel lblEntityAdress;
     private javax.swing.JLabel lblEntityDescription;
@@ -1153,7 +1161,8 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JPanel pnSpringsTable;
     private javax.swing.JPanel pnUserTable;
     private javax.swing.JTable tblEntity;
-    private javax.swing.JTable tblFlowMeassure;
+    private javax.swing.JTable tblFlowMeasure;
+    private javax.swing.JTable tblSamplingSite;
     private javax.swing.JTable tblSprings;
     private javax.swing.JTable tblUser;
     private javax.swing.JTextField txtDoneBy;

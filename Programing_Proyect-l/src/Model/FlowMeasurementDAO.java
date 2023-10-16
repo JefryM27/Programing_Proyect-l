@@ -24,7 +24,7 @@ public class FlowMeasurementDAO {
             ps.setDouble(1, measurement.getCapacity());
             ps.setString(2, measurement.getMetod());
             ps.setString(3, measurement.getObservation());
-            ps.setDate(4, (java.sql.Date) measurement.getDate());
+            ps.setDate(4, new java.sql.Date(measurement.getDate().getTime()));
             ps.setString(5, measurement.getWeather());
             ps.setString(6, measurement.getDone());
             ps.setInt(7, measurement.getSpringsId());
@@ -77,7 +77,7 @@ public class FlowMeasurementDAO {
              ps.setDouble(1, flowmeasurement.getCapacity());
              ps.setString(2, flowmeasurement.getMetod());
              ps.setString(3, flowmeasurement.getObservation());
-             ps.setDate(4, (java.sql.Date) flowmeasurement.getDate());
+             ps.setDate(4, new java.sql.Date(flowmeasurement.getDate().getTime()));
              ps.setString(5, flowmeasurement.getWeather());
              ps.setInt(6, flowmeasurement.getSpringsId());
              ps.setInt(8, flowmeasurement.getSamplingId());

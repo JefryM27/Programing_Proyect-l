@@ -21,7 +21,7 @@ public class FlowMeasurement {
     public FlowMeasurement() {
     }
 
-    public FlowMeasurement(int springsId, int samplingId, double capacity, String metod, String observation, String weather, String done, Date date) {
+    public FlowMeasurement(double capacity, String metod, String observation, String weather, String done, Date date,int springsId, int samplingId) {
         this.springsId = springsId;
         this.samplingId = samplingId;
         this.capacity = capacity;
