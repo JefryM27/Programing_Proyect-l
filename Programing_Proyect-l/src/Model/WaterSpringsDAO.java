@@ -16,7 +16,7 @@ public class WaterSpringsDAO {
     public void create(WaterSprings springs) {
 
         DBConnection db = new DBConnection();
-        String consultaSQL = "INSERT INTO water_springs (name, address, latitude, length, description, province_id, canton_id, district_id, entity_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String consultaSQL = "INSERT INTO water_springs (name, address, latitute, length, description, province_id, canton_id, district_id, entity_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try {
             PreparedStatement ps = db.getConnection().prepareStatement(consultaSQL);
             ps.setString(1, springs.getSpringName());

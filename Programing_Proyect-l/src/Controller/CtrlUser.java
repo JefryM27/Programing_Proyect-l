@@ -84,8 +84,7 @@ public class CtrlUser {
 
     public void addUser(JTextField userName, JTextField mail, JPasswordField password, JComboBox entity, JComboBox rol) {
         try {
-            this.dao.create(new User(userName.getText(), mail.getText(), new String(password.getPassword()), this.idEntity, this.idRol));
-            JOptionPane.showMessageDialog(null, "El usuario se ha guardado correctamente");
+            this.dao.create(new User(userName.getText(), mail.getText(), new String(password.getPassword()), this.idEntity, this.idRol)); 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "No se pudo guardar el usuario, error: " + e.toString());
         }

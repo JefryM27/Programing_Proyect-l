@@ -48,7 +48,6 @@ public class CtrlSampling {
     public void addSamplingSite(JTextField name, JComboBox province, JComboBox canton, JComboBox district, JComboBox entity) {
         try {
             this.dao.create(new SamplingSite(name.getText(), this.idProvince, this.idCanton, this.idDistrict, this.idEntity));
-            JOptionPane.showMessageDialog(null, "El sitio de muestreo se ha guardado correctamente");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "No se pudo guardar el sitio de muestreo, error: " + e.toString());
         }

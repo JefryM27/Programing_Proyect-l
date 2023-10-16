@@ -195,6 +195,11 @@ public class Register extends javax.swing.JFrame {
                 "ID", "Nombre", "Direccion", "Latitud", "Longitud", "Descipcion", "Provincia", "Canton", "Distrito", "Entidad"
             }
         ));
+        tblSprings.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblSpringsMouseClicked(evt);
+            }
+        });
         jScrollPane5.setViewportView(tblSprings);
 
         javax.swing.GroupLayout pnSpringsTableLayout = new javax.swing.GroupLayout(pnSpringsTable);
@@ -217,6 +222,11 @@ public class Register extends javax.swing.JFrame {
         pnInfoSprings.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Informacion de la Naciente", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
 
         btnSpringsEdit.setText("Editar");
+        btnSpringsEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSpringsEditActionPerformed(evt);
+            }
+        });
 
         lblSpringsLenght.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lblSpringsLenght.setText("Longitud: ");
@@ -249,10 +259,25 @@ public class Register extends javax.swing.JFrame {
         txtSpringsDescription.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         btnSpringsSave.setText("Guardar");
+        btnSpringsSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSpringsSaveActionPerformed(evt);
+            }
+        });
 
         btnSpringsDelete.setText("Eliminar");
+        btnSpringsDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSpringsDeleteActionPerformed(evt);
+            }
+        });
 
         cbxProvinceSprings.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbxProvinceSprings.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbxProvinceSpringsItemStateChanged(evt);
+            }
+        });
         cbxProvinceSprings.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbxProvinceSpringsActionPerformed(evt);
@@ -266,6 +291,11 @@ public class Register extends javax.swing.JFrame {
         lblSpringsDescripsion2.setText("Canton:");
 
         cbxCantonSprings.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbxCantonSprings.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbxCantonSpringsItemStateChanged(evt);
+            }
+        });
         cbxCantonSprings.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbxCantonSpringsActionPerformed(evt);
@@ -276,11 +306,21 @@ public class Register extends javax.swing.JFrame {
         lblSpringsDescripsion3.setText("Distrito:");
 
         cbxDistrictSprings.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbxDistrictSprings.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbxDistrictSpringsItemStateChanged(evt);
+            }
+        });
 
         lblSpringsDescripsion4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lblSpringsDescripsion4.setText("Entidad:");
 
         cbxEntitySprings.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbxEntitySprings.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbxEntitySpringsItemStateChanged(evt);
+            }
+        });
         cbxEntitySprings.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbxEntitySpringsActionPerformed(evt);
@@ -415,6 +455,11 @@ public class Register extends javax.swing.JFrame {
                 "ID", "Cedula Juridica", "Nombre", "Email", "Telefono", "Direccion", "Descipcion"
             }
         ));
+        tblEntity.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblEntityMouseClicked(evt);
+            }
+        });
         jScrollPane4.setViewportView(tblEntity);
 
         javax.swing.GroupLayout pnEntityTableLayout = new javax.swing.GroupLayout(pnEntityTable);
@@ -439,6 +484,11 @@ public class Register extends javax.swing.JFrame {
         lblIdLegal.setText("Cedula Juridica: ");
 
         btnEntityEdit.setText("Editar");
+        btnEntityEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEntityEditActionPerformed(evt);
+            }
+        });
 
         lblEntityAdress.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lblEntityAdress.setText("Direccion: ");
@@ -474,8 +524,18 @@ public class Register extends javax.swing.JFrame {
         txtEntityDescription.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         btnEntitySave.setText("Guardar");
+        btnEntitySave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEntitySaveActionPerformed(evt);
+            }
+        });
 
         btnEntityDelete.setText("Eliminar");
+        btnEntityDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEntityDeleteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnInfoEntitiesLayout = new javax.swing.GroupLayout(pnInfoEntities);
         pnInfoEntities.setLayout(pnInfoEntitiesLayout);
@@ -568,6 +628,11 @@ public class Register extends javax.swing.JFrame {
         pnInfoCaudal.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Informacion del Caudal", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
 
         btnFlowEdit.setText("Editar");
+        btnFlowEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFlowEditActionPerformed(evt);
+            }
+        });
 
         lblFlowObservation.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lblFlowObservation.setText("Observacion: ");
@@ -588,8 +653,18 @@ public class Register extends javax.swing.JFrame {
         txtDoneBy.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         btnFlowSave.setText("Guardar");
+        btnFlowSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFlowSaveActionPerformed(evt);
+            }
+        });
 
         btnFlowDelete.setText("Eliminar");
+        btnFlowDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFlowDeleteActionPerformed(evt);
+            }
+        });
 
         cbxMethod.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Directo", "Indirecto" }));
 
@@ -696,6 +771,11 @@ public class Register extends javax.swing.JFrame {
                 "ID", "Capacidad", "Metodo", "Observasion", "Fecha", "Clima", "Realizado por", "Naciente", "Sitio de Muestreo"
             }
         ));
+        tblFlowMeasure.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblFlowMeasureMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(tblFlowMeasure);
 
         javax.swing.GroupLayout pnCaudalTableLayout = new javax.swing.GroupLayout(pnCaudalTable);
@@ -1065,6 +1145,76 @@ public class Register extends javax.swing.JFrame {
     private void cbxCantonSamplingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxCantonSamplingActionPerformed
         cd.loadDistrictsByCanton(cbxCantonSampling, cbxDistrictSampling);
     }//GEN-LAST:event_cbxCantonSamplingActionPerformed
+
+    private void tblSpringsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblSpringsMouseClicked
+       springs.selectedRow(tblSprings, txtSpringsName, txtSpringsAdress, txtSpringsLatitude, txtSpringsLenght, txtSpringsDescription, cbxProvinceSprings, cbxCantonSprings, cbxDistrictSprings, cbxEntitySprings);
+    }//GEN-LAST:event_tblSpringsMouseClicked
+
+    private void btnSpringsSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSpringsSaveActionPerformed
+        springs.addWaterSpring(txtSpringsName, txtSpringsAdress, txtSpringsLatitude, txtSpringsLenght, txtSpringsDescription);
+        loadTables();
+    }//GEN-LAST:event_btnSpringsSaveActionPerformed
+
+    private void btnSpringsEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSpringsEditActionPerformed
+        
+    }//GEN-LAST:event_btnSpringsEditActionPerformed
+
+    private void btnSpringsDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSpringsDeleteActionPerformed
+        springs.deleteWaterSprings();
+        loadTables();
+    }//GEN-LAST:event_btnSpringsDeleteActionPerformed
+
+    private void cbxProvinceSpringsItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxProvinceSpringsItemStateChanged
+        springs.getIDProvince(cbxProvinceSprings);
+    }//GEN-LAST:event_cbxProvinceSpringsItemStateChanged
+
+    private void cbxCantonSpringsItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxCantonSpringsItemStateChanged
+        springs.getIDCanton(cbxCantonSprings);
+    }//GEN-LAST:event_cbxCantonSpringsItemStateChanged
+
+    private void cbxDistrictSpringsItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxDistrictSpringsItemStateChanged
+        springs.getIdDistrict(cbxDistrictSprings);
+    }//GEN-LAST:event_cbxDistrictSpringsItemStateChanged
+
+    private void cbxEntitySpringsItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxEntitySpringsItemStateChanged
+        springs.getIdEntity(cbxEntitySprings);
+    }//GEN-LAST:event_cbxEntitySpringsItemStateChanged
+
+    private void tblEntityMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblEntityMouseClicked
+        entity.selectedRow(tblEntity, txtEntityLegalId, txtEntityNumber, txtEntityName, txtEntityEmail, txtEntityAdress, txtEntityDescription);
+    }//GEN-LAST:event_tblEntityMouseClicked
+
+    private void btnEntitySaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntitySaveActionPerformed
+        entity.addEntity(txtEntityLegalId, txtEntityNumber, txtEntityName, txtEntityEmail, txtEntityAdress, txtEntityDescription);
+        loadTables();
+    }//GEN-LAST:event_btnEntitySaveActionPerformed
+
+    private void btnEntityEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntityEditActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEntityEditActionPerformed
+
+    private void btnEntityDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntityDeleteActionPerformed
+        entity.deleteEntity();
+        loadTables();
+    }//GEN-LAST:event_btnEntityDeleteActionPerformed
+
+    private void tblFlowMeasureMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblFlowMeasureMouseClicked
+        measure.selectedRow(tblFlowMeasure, cbxMethod, txtFlowObservation, cbxWeather, txtDoneBy, cbxSpringsMeasure, cbxSamplingMeasure);
+    }//GEN-LAST:event_tblFlowMeasureMouseClicked
+
+    private void btnFlowSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFlowSaveActionPerformed
+        measure.addFlowMeasurement(cbxMethod, txtFlowObservation, cbxWeather, txtDoneBy);
+        loadTables();
+    }//GEN-LAST:event_btnFlowSaveActionPerformed
+
+    private void btnFlowDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFlowDeleteActionPerformed
+        measure.deleteFlowMeasurement();
+        loadTables();
+    }//GEN-LAST:event_btnFlowDeleteActionPerformed
+
+    private void btnFlowEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFlowEditActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnFlowEditActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

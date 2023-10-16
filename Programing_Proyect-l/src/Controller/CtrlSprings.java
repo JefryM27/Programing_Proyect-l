@@ -44,7 +44,6 @@ public class CtrlSprings {
     public void addWaterSpring(JTextField name, JTextField address, JTextField latitude, JTextField length, JTextField description) {
         try {
             this.dao.create(new WaterSprings(name.getText(), address.getText(), latitude.getText(), length.getText(), description.getText(), this.idProvince, this.idCanton, this.idDistrict, this.idEntity));
-            JOptionPane.showMessageDialog(null, "La naciente se ha guardado correctamente");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "No se pudo guardar la naciente, error: " + e.toString());
         }

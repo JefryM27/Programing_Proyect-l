@@ -38,7 +38,7 @@ public class CtrlEntity {
         model.setRowCount(0);
         List<Entity> entities = entity.readEntities();
         for (Entity entity : entities) {
-            Object[] row = {entity.getId(), entity.getLegalId(), entity.getEntityName(), entity.getTelephone(), entity.getAddress(), entity.getDescription()};
+            Object[] row = {entity.getId(), entity.getLegalId(), entity.getEntityName(), entity.getEmail(), entity.getTelephone(), entity.getAddress(), entity.getDescription()};
             model.addRow(row);
         }
     }
@@ -46,7 +46,6 @@ public class CtrlEntity {
     public void addEntity(JTextField legalId, JTextField telephone, JTextField entityName, JTextField email, JTextField address, JTextField description) {
         try {
             this.entity.create(new Entity(legalId.getText(), Integer.parseInt(telephone.getText()), entityName.getText(), email.getText(), address.getText(), description.getText()));
-            JOptionPane.showMessageDialog(null, "La entidad se ha guardado correctamente");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "No se pudo guardar la entidad, error: " + e.toString());
         }
