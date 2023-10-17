@@ -46,13 +46,15 @@ public class CtrlEntity {
     public void addEntity(JTextField legalId, JTextField telephone, JTextField entityName, JTextField email, JTextField address, JTextField description) {
         try {
             this.entity.create(new Entity(legalId.getText(), Integer.parseInt(telephone.getText()), entityName.getText(), email.getText(), address.getText(), description.getText()));
+            clearFields(legalId, telephone, entityName, email, address, description);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "No se pudo guardar la entidad, error: " + e.toString());
         }
     }
+    
 
     public void updateEntity(JTextField legalId, JTextField telephone, JTextField entityName, JTextField email, JTextField address, JTextField description) {
-        this.entity.update(new Entity(legalId.getText(), Integer.parseInt(telephone.getText()), entityName.getText(), email.getText(), address.getText(), description.getText()));
+        this.entity.update(new Entity(this.id, legalId.getText(), Integer.parseInt(telephone.getText()), entityName.getText(), email.getText(), address.getText(), description.getText()));
     }
 
     public void selectedRow(JTable table, JTextField legalId, JTextField telephone, JTextField entityName, JTextField email, JTextField address, JTextField description) {

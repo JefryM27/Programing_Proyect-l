@@ -1,16 +1,13 @@
 package Controller;
 
-import Model.Entity;
 import Model.FlowMeasurement;
 import Model.FlowMeasurementDAO;
 import Model.SamplingSiteDAO;
 import Model.WaterSpringsDAO;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -51,6 +48,7 @@ public class CtrlMeasurement {
             double randomCapacity = randomCapacity();
             Date randomDate = randomDate();
             this.dao.create(new FlowMeasurement(randomCapacity, (String) metod.getSelectedItem(), observation.getText(), (String) weather.getSelectedItem(), done.getText(), randomDate, this.idSprings, this.idSampling));
+            clearFields(observation, done);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "No se pudo guardar la medición de caudal, error: " + e.toString());
         }

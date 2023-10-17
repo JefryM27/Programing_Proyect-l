@@ -66,15 +66,16 @@ public class EntityDAO {
 
     public void update(Entity entity) {
         DBConnection db = new DBConnection();
-        String consultaSQL = "UPDATE entity SET legalID=?, name=?, email=?,telephone=?,address=?,description=? WHERE id=?";
+        String consultaSQL = "UPDATE entity SET legal_id=?, name=?, email=?,telephone=?,address=?,description=? WHERE id=?";
         try {
             PreparedStatement ps = db.getConnection().prepareStatement(consultaSQL);
             ps.setString(1, entity.getLegalId());
             ps.setString(2, entity.getEntityName());
-            ps.setInt(3, entity.getTelephone());
-            ps.setString(4, entity.getAddress());
-            ps.setString(5, entity.getDescription());
-            ps.setInt(6, entity.getId());
+            ps.setString(3,entity.getEmail());
+            ps.setInt(4, entity.getTelephone());
+            ps.setString(5, entity.getAddress());
+            ps.setString(6, entity.getDescription());
+            ps.setInt(7, entity.getId());
             ps.execute();
             JOptionPane.showMessageDialog(null, "Actualización exitosa");
         } catch (SQLException e) {

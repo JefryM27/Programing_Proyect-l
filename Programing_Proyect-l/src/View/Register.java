@@ -1064,7 +1064,7 @@ public class Register extends javax.swing.JFrame {
         ReportsLayout.setHorizontalGroup(
             ReportsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ReportsLayout.createSequentialGroup()
-                .addGap(0, 10, Short.MAX_VALUE)
+                .addGap(0, 46, Short.MAX_VALUE)
                 .addComponent(pnMainUser1, javax.swing.GroupLayout.PREFERRED_SIZE, 1060, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         ReportsLayout.setVerticalGroup(
@@ -1091,11 +1091,8 @@ public class Register extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jTabbedPane1)
-                .addContainerGap())
+                .addContainerGap(949, Short.MAX_VALUE))
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1197,7 +1194,9 @@ public class Register extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEntitySaveActionPerformed
 
     private void btnEntityEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntityEditActionPerformed
-        // TODO add your handling code here:
+        entity.updateEntity(txtEntityLegalId, txtEntityNumber, txtEntityName, txtEntityEmail, txtEntityAdress, txtEntityDescription);
+        entity.clearFields(txtDoneBy, txtDoneBy, txtEntityName, txtUserEmail, txtDoneBy, txtEntityDescription);
+        loadTables();
     }//GEN-LAST:event_btnEntityEditActionPerformed
 
     private void btnEntityDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntityDeleteActionPerformed
