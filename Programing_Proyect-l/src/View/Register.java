@@ -24,11 +24,9 @@ public class Register extends javax.swing.JFrame {
         setResizable(false);
         setLocationRelativeTo(null);
         this.loadPlaces();
-        this.entities();
-        this.roles();
         this.loadTables();
-        this.springs();
-        this.Samplings();
+        this.loadEntities();
+        this.loadResources();
     }
 
     public void loadPlaces() {
@@ -40,22 +38,16 @@ public class Register extends javax.swing.JFrame {
         cd.loadDistrictsByCanton(cbxCantonSampling, cbxDistrictSampling);
     }
 
-    public void entities() {
+    public void loadEntities() {
         this.entity.loadEntity(cbxEntitySprings);
         this.entity.loadEntity(cbxEntityUser);
         this.entity.loadEntity(cbxEntitySampling);
     }
 
-    public void roles() {
+    public void loadResources() {
         this.cr.loadRol(cbxRolUser);
-    }
-    
-    public void springs(){
-        this.springs.loadSprings(cbxSpringsMeasure);
-    }
-    
-    public void Samplings(){
         this.sampling.loadSampling(cbxSamplingMeasure);
+        this.springs.loadSprings(cbxSpringsMeasure);
     }
     
     public void loadTables(){

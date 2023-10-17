@@ -49,12 +49,13 @@ public class login extends javax.swing.JFrame {
         PNMain.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblTitle.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitle.setText("Titulo");
-        PNMain.add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 200, 250, -1));
+        lblTitle.setText("Control del Recurso Hidrico");
+        PNMain.add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 20, 330, -1));
 
-        lblCity.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Images/ciudad.jpg"))); // NOI18N
-        PNMain.add(lblCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 0, 260, 510));
+        lblCity.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Images/Catarata.gif"))); // NOI18N
+        PNMain.add(lblCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 0, 350, 510));
 
         lblLogin.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         lblLogin.setText("INICIAR SESIÓN");
@@ -63,7 +64,7 @@ public class login extends javax.swing.JFrame {
         lblPassword.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         lblPassword.setText("Contraseña");
         PNMain.add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 110, 30));
-        PNMain.add(spPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 470, 20));
+        PNMain.add(spPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 440, 20));
 
         lblUser.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         lblUser.setText("USUARIO");
@@ -83,8 +84,8 @@ public class login extends javax.swing.JFrame {
                 txtUserActionPerformed(evt);
             }
         });
-        PNMain.add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 470, 30));
-        PNMain.add(spUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 470, 10));
+        PNMain.add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 430, 30));
+        PNMain.add(spUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 440, 10));
 
         psPassword.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         psPassword.setForeground(new java.awt.Color(204, 204, 204));
@@ -95,7 +96,7 @@ public class login extends javax.swing.JFrame {
                 psPasswordMousePressed(evt);
             }
         });
-        PNMain.add(psPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 470, 30));
+        PNMain.add(psPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 440, 30));
 
         pnButtonEnter.setBackground(new java.awt.Color(0, 134, 190));
 
