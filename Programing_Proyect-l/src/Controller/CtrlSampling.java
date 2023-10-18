@@ -64,7 +64,7 @@ public class CtrlSampling {
         }
     }
     public void updateSamplingSite(JTextField name, JComboBox province, JComboBox canton, JComboBox district, JComboBox entity){
-        this.dao.update(new SamplingSite(name.getText(), this.idProvince, this.idCanton, this.idDistrict, this.idEntity));
+        this.dao.update(new SamplingSite(this.id, name.getText(), this.idProvince, this.idCanton, this.idDistrict, this.idEntity));
     }
 
     public void selectedRow(JTable table, JTextField name, JComboBox province, JComboBox canton, JComboBox district, JComboBox entity) {

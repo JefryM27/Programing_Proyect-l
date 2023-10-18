@@ -26,7 +26,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
               <Component id="btnLogout" min="-2" pref="142" max="-2" attributes="0"/>
-              <EmptySpace pref="949" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
           <Component id="jTabbedPane1" alignment="1" max="32767" attributes="0"/>
       </Group>
@@ -206,6 +206,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Editar"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnUserEditActionPerformed"/>
+                  </Events>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="330" y="180" width="120" height="50"/>
@@ -281,6 +284,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Guardar"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnUserSaveActionPerformed"/>
+                  </Events>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="160" y="180" width="121" height="50"/>
@@ -291,6 +297,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Eliminar"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnUserDeleteActionPerformed"/>
+                  </Events>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="500" y="180" width="121" height="48"/>
@@ -1838,10 +1847,13 @@
                         </Constraint>
                       </Constraints>
                     </Component>
-                    <Component class="javax.swing.JButton" name="btnMeassureEdit">
+                    <Component class="javax.swing.JButton" name="btnEditSamplingSite">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Editar"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEditSamplingSiteActionPerformed"/>
+                      </Events>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                           <AbsoluteConstraints x="390" y="270" width="120" height="50"/>
@@ -1861,20 +1873,26 @@
                         </Constraint>
                       </Constraints>
                     </Component>
-                    <Component class="javax.swing.JButton" name="btnMeassureSave">
+                    <Component class="javax.swing.JButton" name="btnSaveSamplingSite">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Guardar"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSaveSamplingSiteActionPerformed"/>
+                      </Events>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                           <AbsoluteConstraints x="210" y="270" width="121" height="50"/>
                         </Constraint>
                       </Constraints>
                     </Component>
-                    <Component class="javax.swing.JButton" name="btnMeassureDelete">
+                    <Component class="javax.swing.JButton" name="btnDeleteSamplingSite">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Eliminar"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDeleteSamplingSiteActionPerformed"/>
+                      </Events>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                           <AbsoluteConstraints x="570" y="270" width="121" height="48"/>
@@ -2091,9 +2109,9 @@
                               <EmptySpace pref="97" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="btnGeneratePDF" min="-2" pref="270" max="-2" attributes="0"/>
-                                  <Component id="btnUserDelete1" min="-2" pref="270" max="-2" attributes="0"/>
-                                  <Component id="btnUserEdit1" min="-2" pref="270" max="-2" attributes="0"/>
-                                  <Component id="btnUserSave1" min="-2" pref="270" max="-2" attributes="0"/>
+                                  <Component id="btnReportSamplingSite" min="-2" pref="270" max="-2" attributes="0"/>
+                                  <Component id="btnReportFlowMeasurement" min="-2" pref="270" max="-2" attributes="0"/>
+                                  <Component id="btnReportWaterSprings" min="-2" pref="270" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
                           </Group>
@@ -2103,11 +2121,11 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                              <Component id="btnUserSave1" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="btnReportWaterSprings" min="-2" pref="50" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-                              <Component id="btnUserEdit1" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="btnReportFlowMeasurement" min="-2" pref="50" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-                              <Component id="btnUserDelete1" min="-2" pref="48" max="-2" attributes="0"/>
+                              <Component id="btnReportSamplingSite" min="-2" pref="48" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                               <Component id="btnGeneratePDF" min="-2" pref="48" max="-2" attributes="0"/>
                               <EmptySpace pref="44" max="32767" attributes="0"/>
@@ -2116,25 +2134,25 @@
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Component class="javax.swing.JButton" name="btnUserSave1">
+                    <Component class="javax.swing.JButton" name="btnReportWaterSprings">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Reporte de nacientes"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnUserSave1ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnReportWaterSpringsActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JButton" name="btnUserEdit1">
+                    <Component class="javax.swing.JButton" name="btnReportFlowMeasurement">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Reporte de medici&#xf3;n de caudal"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JButton" name="btnUserDelete1">
+                    <Component class="javax.swing.JButton" name="btnReportSamplingSite">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Reporte de todos los sitios de muestreo"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnUserDelete1ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnReportSamplingSiteActionPerformed"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnGeneratePDF">

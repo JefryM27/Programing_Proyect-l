@@ -2,6 +2,7 @@ package View;
 
 import Controller.*;
 
+
 /**
  *
  * @author jefry
@@ -156,10 +157,10 @@ public class Register extends javax.swing.JFrame {
         tblSamplingSite = new javax.swing.JTable();
         pnInfoMeassureSite = new javax.swing.JPanel();
         lblMeassureSite = new javax.swing.JLabel();
-        btnMeassureEdit = new javax.swing.JButton();
+        btnEditSamplingSite = new javax.swing.JButton();
         txtMeassureName = new javax.swing.JTextField();
-        btnMeassureSave = new javax.swing.JButton();
-        btnMeassureDelete = new javax.swing.JButton();
+        btnSaveSamplingSite = new javax.swing.JButton();
+        btnDeleteSamplingSite = new javax.swing.JButton();
         cbxEntitySampling = new javax.swing.JComboBox<>();
         cbxProvinceSampling = new javax.swing.JComboBox<>();
         cbxCantonSampling = new javax.swing.JComboBox<>();
@@ -171,9 +172,9 @@ public class Register extends javax.swing.JFrame {
         Reports = new javax.swing.JPanel();
         pnMainUser1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        btnUserSave1 = new javax.swing.JButton();
-        btnUserEdit1 = new javax.swing.JButton();
-        btnUserDelete1 = new javax.swing.JButton();
+        btnReportWaterSprings = new javax.swing.JButton();
+        btnReportFlowMeasurement = new javax.swing.JButton();
+        btnReportSamplingSite = new javax.swing.JButton();
         btnGeneratePDF = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
 
@@ -225,6 +226,11 @@ public class Register extends javax.swing.JFrame {
         pnInfoUser.add(lblUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 80, -1, 28));
 
         btnUserEdit.setText("Editar");
+        btnUserEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUserEditActionPerformed(evt);
+            }
+        });
         pnInfoUser.add(btnUserEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 180, 120, 50));
 
         lblPassaword.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -248,9 +254,19 @@ public class Register extends javax.swing.JFrame {
         pnInfoUser.add(txtUserPassaword, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, 258, 26));
 
         btnUserSave.setText("Guardar");
+        btnUserSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUserSaveActionPerformed(evt);
+            }
+        });
         pnInfoUser.add(btnUserSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, 121, 50));
 
         btnUserDelete.setText("Eliminar");
+        btnUserDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUserDeleteActionPerformed(evt);
+            }
+        });
         pnInfoUser.add(btnUserDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 180, 121, 48));
 
         cbxRolUser.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -940,18 +956,33 @@ public class Register extends javax.swing.JFrame {
         lblMeassureSite.setText("Entidad:");
         pnInfoMeassureSite.add(lblMeassureSite, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 220, -1, 28));
 
-        btnMeassureEdit.setText("Editar");
-        pnInfoMeassureSite.add(btnMeassureEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 270, 120, 50));
+        btnEditSamplingSite.setText("Editar");
+        btnEditSamplingSite.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditSamplingSiteActionPerformed(evt);
+            }
+        });
+        pnInfoMeassureSite.add(btnEditSamplingSite, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 270, 120, 50));
 
         txtMeassureName.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         txtMeassureName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         pnInfoMeassureSite.add(txtMeassureName, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 60, 258, -1));
 
-        btnMeassureSave.setText("Guardar");
-        pnInfoMeassureSite.add(btnMeassureSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 270, 121, 50));
+        btnSaveSamplingSite.setText("Guardar");
+        btnSaveSamplingSite.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveSamplingSiteActionPerformed(evt);
+            }
+        });
+        pnInfoMeassureSite.add(btnSaveSamplingSite, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 270, 121, 50));
 
-        btnMeassureDelete.setText("Eliminar");
-        pnInfoMeassureSite.add(btnMeassureDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 270, 121, 48));
+        btnDeleteSamplingSite.setText("Eliminar");
+        btnDeleteSamplingSite.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteSamplingSiteActionPerformed(evt);
+            }
+        });
+        pnInfoMeassureSite.add(btnDeleteSamplingSite, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 270, 121, 48));
 
         cbxEntitySampling.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         pnInfoMeassureSite.add(cbxEntitySampling, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 220, 260, -1));
@@ -1007,19 +1038,19 @@ public class Register extends javax.swing.JFrame {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Generar Reportes", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
 
-        btnUserSave1.setText("Reporte de nacientes");
-        btnUserSave1.addActionListener(new java.awt.event.ActionListener() {
+        btnReportWaterSprings.setText("Reporte de nacientes");
+        btnReportWaterSprings.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUserSave1ActionPerformed(evt);
+                btnReportWaterSpringsActionPerformed(evt);
             }
         });
 
-        btnUserEdit1.setText("Reporte de medición de caudal");
+        btnReportFlowMeasurement.setText("Reporte de medición de caudal");
 
-        btnUserDelete1.setText("Reporte de todos los sitios de muestreo");
-        btnUserDelete1.addActionListener(new java.awt.event.ActionListener() {
+        btnReportSamplingSite.setText("Reporte de todos los sitios de muestreo");
+        btnReportSamplingSite.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUserDelete1ActionPerformed(evt);
+                btnReportSamplingSiteActionPerformed(evt);
             }
         });
 
@@ -1038,20 +1069,20 @@ public class Register extends javax.swing.JFrame {
                 .addContainerGap(97, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnGeneratePDF, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnUserDelete1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnUserEdit1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnUserSave1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnReportSamplingSite, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnReportFlowMeasurement, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnReportWaterSprings, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(93, 93, 93))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(35, 35, 35)
-                .addComponent(btnUserSave1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnReportWaterSprings, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(49, 49, 49)
-                .addComponent(btnUserEdit1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnReportFlowMeasurement, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(48, 48, 48)
-                .addComponent(btnUserDelete1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnReportSamplingSite, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41)
                 .addComponent(btnGeneratePDF, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(44, Short.MAX_VALUE))
@@ -1091,7 +1122,7 @@ public class Register extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(949, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         layout.setVerticalGroup(
@@ -1106,16 +1137,16 @@ public class Register extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnUserDelete1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUserDelete1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnUserDelete1ActionPerformed
+    private void btnReportSamplingSiteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportSamplingSiteActionPerformed
+        
+    }//GEN-LAST:event_btnReportSamplingSiteActionPerformed
 
-    private void btnUserSave1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUserSave1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnUserSave1ActionPerformed
+    private void btnReportWaterSpringsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportWaterSpringsActionPerformed
+        
+    }//GEN-LAST:event_btnReportWaterSpringsActionPerformed
 
     private void btnGeneratePDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGeneratePDFActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_btnGeneratePDFActionPerformed
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
@@ -1125,7 +1156,7 @@ public class Register extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLogoutActionPerformed
 
     private void cbxEntitySpringsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxEntitySpringsActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_cbxEntitySpringsActionPerformed
 
     private void cbxCantonSpringsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxCantonSpringsActionPerformed
@@ -1143,7 +1174,7 @@ public class Register extends javax.swing.JFrame {
     }//GEN-LAST:event_cbxProvinceSamplingActionPerformed
 
     private void cbxDistrictSamplingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxDistrictSamplingActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_cbxDistrictSamplingActionPerformed
 
     private void cbxCantonSamplingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxCantonSamplingActionPerformed
@@ -1160,7 +1191,9 @@ public class Register extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSpringsSaveActionPerformed
 
     private void btnSpringsEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSpringsEditActionPerformed
-        
+    springs.updateWaterSprings(txtUserName, txtDoneBy, txtDoneBy, txtDoneBy, txtEntityDescription);
+    springs.clearFields(txtUserName, txtDoneBy, txtDoneBy, txtDoneBy, txtEntityDescription);
+    loadTables();
     }//GEN-LAST:event_btnSpringsEditActionPerformed
 
     private void btnSpringsDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSpringsDeleteActionPerformed
@@ -1219,12 +1252,46 @@ public class Register extends javax.swing.JFrame {
     }//GEN-LAST:event_btnFlowDeleteActionPerformed
 
     private void btnFlowEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFlowEditActionPerformed
-        // TODO add your handling code here:
+    measure.updateFlowMeasurement(cbxMethod, txtFlowObservation, cbxWeather, txtDoneBy);
+    measure.clearFields(txtFlowObservation, txtDoneBy);
+    loadTables();
     }//GEN-LAST:event_btnFlowEditActionPerformed
 
     private void cbxSpringsMeasureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxSpringsMeasureActionPerformed
         
     }//GEN-LAST:event_cbxSpringsMeasureActionPerformed
+
+    private void btnUserSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUserSaveActionPerformed
+    //user.addUser(txtUserName, txtUserEmail, String(password.getPassword()), cbxEntityUser, cbxRolUser);
+    loadTables();
+    }//GEN-LAST:event_btnUserSaveActionPerformed
+
+    private void btnSaveSamplingSiteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveSamplingSiteActionPerformed
+    sampling.addSamplingSite(txtUserName, cbxRolUser, cbxMethod, cbxMethod, cbxEntityUser);
+    loadTables();
+    }//GEN-LAST:event_btnSaveSamplingSiteActionPerformed
+
+    private void btnEditSamplingSiteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditSamplingSiteActionPerformed
+    sampling.updateSamplingSite(txtUserName, cbxRolUser, cbxMethod, cbxMethod, cbxEntityUser);
+    sampling.clearFields(txtUserName);
+    loadTables();
+    }//GEN-LAST:event_btnEditSamplingSiteActionPerformed
+
+    private void btnDeleteSamplingSiteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteSamplingSiteActionPerformed
+    sampling.deleteSamplingSite();
+    loadTables();
+    }//GEN-LAST:event_btnDeleteSamplingSiteActionPerformed
+
+    private void btnUserEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUserEditActionPerformed
+    //user.updateUser(txtUserName, txtUserEmail, String(password.getPassword()), cbxEntityUser, cbxRolUser);
+    //user.clearFields(txtUserName, txtUserEmail,String(password.getPassword()));
+    loadTables();
+    }//GEN-LAST:event_btnUserEditActionPerformed
+
+    private void btnUserDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUserDeleteActionPerformed
+    user.deleteUser();
+    loadTables();
+    }//GEN-LAST:event_btnUserDeleteActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1234,6 +1301,8 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JPanel Reports;
     private javax.swing.JPanel Springs;
     private javax.swing.JPanel User;
+    private javax.swing.JButton btnDeleteSamplingSite;
+    private javax.swing.JButton btnEditSamplingSite;
     private javax.swing.JButton btnEntityDelete;
     private javax.swing.JButton btnEntityEdit;
     private javax.swing.JButton btnEntitySave;
@@ -1242,18 +1311,16 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JButton btnFlowSave;
     private javax.swing.JButton btnGeneratePDF;
     private javax.swing.JButton btnLogout;
-    private javax.swing.JButton btnMeassureDelete;
-    private javax.swing.JButton btnMeassureEdit;
-    private javax.swing.JButton btnMeassureSave;
+    private javax.swing.JButton btnReportFlowMeasurement;
+    private javax.swing.JButton btnReportSamplingSite;
+    private javax.swing.JButton btnReportWaterSprings;
+    private javax.swing.JButton btnSaveSamplingSite;
     private javax.swing.JButton btnSpringsDelete;
     private javax.swing.JButton btnSpringsEdit;
     private javax.swing.JButton btnSpringsSave;
     private javax.swing.JButton btnUserDelete;
-    private javax.swing.JButton btnUserDelete1;
     private javax.swing.JButton btnUserEdit;
-    private javax.swing.JButton btnUserEdit1;
     private javax.swing.JButton btnUserSave;
-    private javax.swing.JButton btnUserSave1;
     private javax.swing.JComboBox<String> cbxCantonSampling;
     private javax.swing.JComboBox<String> cbxCantonSprings;
     private javax.swing.JComboBox<String> cbxDistrictSampling;

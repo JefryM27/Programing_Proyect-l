@@ -91,7 +91,7 @@ public class CtrlUser {
         }
     }
     public void updateUser(JTextField userName, JTextField mail, JPasswordField password, JComboBox entity, JComboBox rol){
-        this.dao.update(new User(userName.getText(), mail.getText(), new String(password.getPassword()), this.idEntity, this.idRol));
+        this.dao.update(new User(this.id, userName.getText(), mail.getText(), new String(password.getPassword()), this.idEntity, this.idRol));
     }
 
     public void selectedRow(JTable table, JTextField userName, JTextField mail, JPasswordField password, JComboBox entity, JComboBox rol) {
