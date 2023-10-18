@@ -197,6 +197,11 @@ public class Register extends javax.swing.JFrame {
                 "ID", "Nombre", "Correo", "Contraseña", "Entidad", "Rol"
             }
         ));
+        tblUser.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblUserMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblUser);
 
         javax.swing.GroupLayout pnUserTableLayout = new javax.swing.GroupLayout(pnUserTable);
@@ -1262,7 +1267,7 @@ public class Register extends javax.swing.JFrame {
     }//GEN-LAST:event_cbxSpringsMeasureActionPerformed
 
     private void btnUserSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUserSaveActionPerformed
-    //user.addUser(txtUserName, txtUserEmail, String(password.getPassword()), cbxEntityUser, cbxRolUser);
+    user.addUser(txtUserName, txtUserEmail, txtUserPassaword, cbxEntityUser, cbxRolUser);
     loadTables();
     }//GEN-LAST:event_btnUserSaveActionPerformed
 
@@ -1283,8 +1288,8 @@ public class Register extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDeleteSamplingSiteActionPerformed
 
     private void btnUserEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUserEditActionPerformed
-    //user.updateUser(txtUserName, txtUserEmail, String(password.getPassword()), cbxEntityUser, cbxRolUser);
-    //user.clearFields(txtUserName, txtUserEmail,String(password.getPassword()));
+    user.updateUser(txtUserName, txtUserEmail, txtUserPassaword, cbxEntityUser, cbxRolUser);
+    user.clearFields(txtUserName, txtUserEmail,txtUserPassaword);
     loadTables();
     }//GEN-LAST:event_btnUserEditActionPerformed
 
@@ -1292,6 +1297,10 @@ public class Register extends javax.swing.JFrame {
     user.deleteUser();
     loadTables();
     }//GEN-LAST:event_btnUserDeleteActionPerformed
+
+    private void tblUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblUserMouseClicked
+        user.selectedRow(tblUser, txtUserName, txtUserEmail, txtUserPassaword, cbxEntityUser, cbxRolUser);
+    }//GEN-LAST:event_tblUserMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

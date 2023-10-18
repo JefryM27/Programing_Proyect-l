@@ -82,19 +82,19 @@ public class CtrlUser {
         }
     }
 
-    public void addUser(JTextField userName, JTextField mail, JPasswordField password, JComboBox entity, JComboBox rol) {
+    public void addUser(JTextField userName, JTextField mail, JTextField password, JComboBox entity, JComboBox rol) {
         try {
-            this.dao.create(new User(userName.getText(), mail.getText(), new String(password.getPassword()), this.idEntity, this.idRol)); 
+            this.dao.create(new User(userName.getText(), mail.getText(), password.getText(), this.idEntity, this.idRol)); 
             clearFields(userName, mail, password);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "No se pudo guardar el usuario, error: " + e.toString());
         }
     }
-    public void updateUser(JTextField userName, JTextField mail, JPasswordField password, JComboBox entity, JComboBox rol){
-        this.dao.update(new User(this.id, userName.getText(), mail.getText(), new String(password.getPassword()), this.idEntity, this.idRol));
+    public void updateUser(JTextField userName, JTextField mail, JTextField password, JComboBox entity, JComboBox rol){
+        this.dao.update(new User(this.id, userName.getText(), mail.getText(), password.getText(), this.idEntity, this.idRol));
     }
 
-    public void selectedRow(JTable table, JTextField userName, JTextField mail, JPasswordField password, JComboBox entity, JComboBox rol) {
+    public void selectedRow(JTable table, JTextField userName, JTextField mail, JTextField password, JComboBox entity, JComboBox rol) {
         try {
             int row = table.getSelectedRow();
             if (row >= 0) {
@@ -115,7 +115,7 @@ public class CtrlUser {
     public void deleteUser() {
         this.dao.delete(this.id);
     }
-    public void clearFields(JTextField userName, JTextField mail, JPasswordField password){
+    public void clearFields(JTextField userName, JTextField mail, JTextField password){
         userName.setText("");
         mail.setText("");
         password.setText("");
