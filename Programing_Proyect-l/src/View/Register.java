@@ -158,7 +158,7 @@ public class Register extends javax.swing.JFrame {
         pnInfoMeassureSite = new javax.swing.JPanel();
         lblMeassureSite = new javax.swing.JLabel();
         btnEditSamplingSite = new javax.swing.JButton();
-        txtMeassureName = new javax.swing.JTextField();
+        txtSamplingName = new javax.swing.JTextField();
         btnSaveSamplingSite = new javax.swing.JButton();
         btnDeleteSamplingSite = new javax.swing.JButton();
         cbxEntitySampling = new javax.swing.JComboBox<>();
@@ -793,6 +793,11 @@ public class Register extends javax.swing.JFrame {
         lblUserName10.setText("Naciente:");
 
         cbxSpringsMeasure.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbxSpringsMeasure.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbxSpringsMeasureItemStateChanged(evt);
+            }
+        });
         cbxSpringsMeasure.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbxSpringsMeasureActionPerformed(evt);
@@ -800,6 +805,16 @@ public class Register extends javax.swing.JFrame {
         });
 
         cbxSamplingMeasure.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbxSamplingMeasure.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbxSamplingMeasureItemStateChanged(evt);
+            }
+        });
+        cbxSamplingMeasure.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxSamplingMeasureActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnInfoCaudalLayout = new javax.swing.GroupLayout(pnInfoCaudal);
         pnInfoCaudal.setLayout(pnInfoCaudalLayout);
@@ -936,6 +951,11 @@ public class Register extends javax.swing.JFrame {
                 "ID", "Nombre del Sitio", "Provincia", "Canton", "Distrito ", "Entidad"
             }
         ));
+        tblSamplingSite.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblSamplingSiteMouseClicked(evt);
+            }
+        });
         jScrollPane3.setViewportView(tblSamplingSite);
 
         javax.swing.GroupLayout pnMeassureSiteTableLayout = new javax.swing.GroupLayout(pnMeassureSiteTable);
@@ -969,9 +989,9 @@ public class Register extends javax.swing.JFrame {
         });
         pnInfoMeassureSite.add(btnEditSamplingSite, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 270, 120, 50));
 
-        txtMeassureName.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        txtMeassureName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        pnInfoMeassureSite.add(txtMeassureName, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 60, 258, -1));
+        txtSamplingName.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtSamplingName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        pnInfoMeassureSite.add(txtSamplingName, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 60, 258, -1));
 
         btnSaveSamplingSite.setText("Guardar");
         btnSaveSamplingSite.addActionListener(new java.awt.event.ActionListener() {
@@ -990,9 +1010,19 @@ public class Register extends javax.swing.JFrame {
         pnInfoMeassureSite.add(btnDeleteSamplingSite, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 270, 121, 48));
 
         cbxEntitySampling.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbxEntitySampling.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbxEntitySamplingItemStateChanged(evt);
+            }
+        });
         pnInfoMeassureSite.add(cbxEntitySampling, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 220, 260, -1));
 
         cbxProvinceSampling.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbxProvinceSampling.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbxProvinceSamplingItemStateChanged(evt);
+            }
+        });
         cbxProvinceSampling.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbxProvinceSamplingActionPerformed(evt);
@@ -1001,6 +1031,11 @@ public class Register extends javax.swing.JFrame {
         pnInfoMeassureSite.add(cbxProvinceSampling, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 100, 260, -1));
 
         cbxCantonSampling.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbxCantonSampling.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbxCantonSamplingItemStateChanged(evt);
+            }
+        });
         cbxCantonSampling.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbxCantonSamplingActionPerformed(evt);
@@ -1025,6 +1060,11 @@ public class Register extends javax.swing.JFrame {
         pnInfoMeassureSite.add(lblMeassureSite4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 180, -1, 28));
 
         cbxDistrictSampling.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbxDistrictSampling.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbxDistrictSamplingItemStateChanged(evt);
+            }
+        });
         cbxDistrictSampling.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbxDistrictSamplingActionPerformed(evt);
@@ -1196,8 +1236,8 @@ public class Register extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSpringsSaveActionPerformed
 
     private void btnSpringsEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSpringsEditActionPerformed
-    springs.updateWaterSprings(txtUserName, txtDoneBy, txtDoneBy, txtDoneBy, txtEntityDescription);
-    springs.clearFields(txtUserName, txtDoneBy, txtDoneBy, txtDoneBy, txtEntityDescription);
+    springs.updateWaterSprings(txtSpringsName, txtSpringsAdress, txtSpringsLatitude, txtSpringsLenght, txtSpringsDescription);
+    springs.clearFields(txtSpringsName, txtSpringsAdress, txtSpringsLatitude, txtSpringsLenght, txtSpringsDescription);
     loadTables();
     }//GEN-LAST:event_btnSpringsEditActionPerformed
 
@@ -1272,13 +1312,13 @@ public class Register extends javax.swing.JFrame {
     }//GEN-LAST:event_btnUserSaveActionPerformed
 
     private void btnSaveSamplingSiteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveSamplingSiteActionPerformed
-    sampling.addSamplingSite(txtUserName, cbxRolUser, cbxMethod, cbxMethod, cbxEntityUser);
+    sampling.addSamplingSite(txtSamplingName, cbxProvinceSampling, cbxCantonSampling, cbxDistrictSampling, cbxEntitySampling);
     loadTables();
     }//GEN-LAST:event_btnSaveSamplingSiteActionPerformed
 
     private void btnEditSamplingSiteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditSamplingSiteActionPerformed
-    sampling.updateSamplingSite(txtUserName, cbxRolUser, cbxMethod, cbxMethod, cbxEntityUser);
-    sampling.clearFields(txtUserName);
+    sampling.updateSamplingSite(txtSamplingName, cbxProvinceSampling, cbxCantonSampling, cbxDistrictSampling, cbxEntitySampling);
+    sampling.clearFields(txtSamplingName);
     loadTables();
     }//GEN-LAST:event_btnEditSamplingSiteActionPerformed
 
@@ -1299,8 +1339,40 @@ public class Register extends javax.swing.JFrame {
     }//GEN-LAST:event_btnUserDeleteActionPerformed
 
     private void tblUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblUserMouseClicked
-        user.selectedRow(tblUser, txtUserName, txtUserEmail, txtUserPassaword, cbxEntityUser, cbxRolUser);
+    user.selectedRow(tblUser, txtUserName, txtUserEmail, txtUserPassaword, cbxEntityUser, cbxRolUser);
     }//GEN-LAST:event_tblUserMouseClicked
+
+    private void cbxSamplingMeasureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxSamplingMeasureActionPerformed
+     
+    }//GEN-LAST:event_cbxSamplingMeasureActionPerformed
+
+    private void tblSamplingSiteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblSamplingSiteMouseClicked
+        sampling.selectedRow(tblSamplingSite, txtSamplingName, cbxProvinceSampling, cbxCantonSampling, cbxDistrictSampling, cbxEntitySampling);
+    }//GEN-LAST:event_tblSamplingSiteMouseClicked
+
+    private void cbxProvinceSamplingItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxProvinceSamplingItemStateChanged
+        sampling.getIDProvince(cbxProvinceSampling);
+    }//GEN-LAST:event_cbxProvinceSamplingItemStateChanged
+
+    private void cbxCantonSamplingItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxCantonSamplingItemStateChanged
+         sampling.getIDCanton(cbxCantonSampling);
+    }//GEN-LAST:event_cbxCantonSamplingItemStateChanged
+
+    private void cbxDistrictSamplingItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxDistrictSamplingItemStateChanged
+         sampling.getIdDistrict(cbxDistrictSampling);
+    }//GEN-LAST:event_cbxDistrictSamplingItemStateChanged
+
+    private void cbxEntitySamplingItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxEntitySamplingItemStateChanged
+         sampling.getIdEntity(cbxEntitySampling);
+    }//GEN-LAST:event_cbxEntitySamplingItemStateChanged
+
+    private void cbxSpringsMeasureItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxSpringsMeasureItemStateChanged
+        measure.getIDSprings(cbxSpringsMeasure);
+    }//GEN-LAST:event_cbxSpringsMeasureItemStateChanged
+
+    private void cbxSamplingMeasureItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxSamplingMeasureItemStateChanged
+        measure.getIdSampling(cbxSamplingMeasure);
+    }//GEN-LAST:event_cbxSamplingMeasureItemStateChanged
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1409,7 +1481,7 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JTextField txtEntityName;
     private javax.swing.JTextField txtEntityNumber;
     private javax.swing.JTextField txtFlowObservation;
-    private javax.swing.JTextField txtMeassureName;
+    private javax.swing.JTextField txtSamplingName;
     private javax.swing.JTextField txtSpringsAdress;
     private javax.swing.JTextField txtSpringsDescription;
     private javax.swing.JTextField txtSpringsLatitude;
@@ -1420,7 +1492,5 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JTextField txtUserPassaword;
     // End of variables declaration//GEN-END:variables
 
-    private void Springs() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+
 }

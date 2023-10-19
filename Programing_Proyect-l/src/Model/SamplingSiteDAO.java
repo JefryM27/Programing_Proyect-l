@@ -64,7 +64,7 @@ public class SamplingSiteDAO {
 
     public void update(SamplingSite sampling) {
         DBConnection db = new DBConnection();
-        String consultaSQL = "UPDATE sampling_site SET name=?, province_id=?, canton_id=?,distric_id=?,entity_id=? WHERE id=?";
+        String consultaSQL = "UPDATE sampling_site SET name=?, province_id=?, canton_id=?,district_id=?,entity_id=? WHERE id=?";
         try {
             PreparedStatement ps = db.getConnection().prepareStatement(consultaSQL);
             ps.setString(1, sampling.getSamplingName());

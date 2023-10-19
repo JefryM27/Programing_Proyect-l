@@ -72,7 +72,7 @@ public class WaterSpringsDAO {
 
     public void update(WaterSprings springs) {
         DBConnection db = new DBConnection();
-        String consultaSQL = "UPDATE water_springs SET name=?, address=?, latitude=?,length=?,description=?,province_id=?,canton_id=?,distric_id=?,entity_id=? WHERE id=?";
+        String consultaSQL = "UPDATE water_springs SET name=?, address=?, latitute=?,length=?,description=?,province_id=?,canton_id=?,district_id=?,entity_id=? WHERE id=?";
         try {
             PreparedStatement ps = db.getConnection().prepareStatement(consultaSQL);
             ps.setString(1, springs.getSpringName());
