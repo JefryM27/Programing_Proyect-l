@@ -1,6 +1,7 @@
 package View;
 
 import Controller.*;
+import java.awt.Color;
 
 
 /**
@@ -18,7 +19,7 @@ public class Register extends javax.swing.JFrame {
     CtrlSampling sampling = new CtrlSampling();
     CtrlUser user = new CtrlUser();
     CtrlMeasurement measure = new CtrlMeasurement();
-   
+   int xMouse, yMouse;
 
     public Register() {
         initComponents();
@@ -82,6 +83,7 @@ public class Register extends javax.swing.JFrame {
         lblUserName1 = new javax.swing.JLabel();
         lblUserName2 = new javax.swing.JLabel();
         cbxEntityUser = new javax.swing.JComboBox<>();
+        btnLogout = new javax.swing.JButton();
         Entities = new javax.swing.JPanel();
         pnMainEntity = new javax.swing.JPanel();
         pnEntityTable = new javax.swing.JPanel();
@@ -176,9 +178,17 @@ public class Register extends javax.swing.JFrame {
         btnReportFlowMeasurement = new javax.swing.JButton();
         btnReportSamplingSite = new javax.swing.JButton();
         btnGeneratePDF = new javax.swing.JButton();
-        btnLogout = new javax.swing.JButton();
+        bar = new javax.swing.JPanel();
+        btnExit = new javax.swing.JPanel();
+        lblExit = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocationByPlatform(true);
+        setUndecorated(true);
+        setResizable(false);
+
+        jTabbedPane1.setBackground(new java.awt.Color(255, 255, 255));
+        jTabbedPane1.setForeground(new java.awt.Color(0, 0, 0));
 
         User.setBackground(new java.awt.Color(0, 152, 198));
         User.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -220,7 +230,7 @@ public class Register extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        User.add(pnUserTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, 910, 200));
+        User.add(pnUserTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 370, 910, 200));
 
         pnInfoUser.setBackground(new java.awt.Color(255, 255, 255));
         pnInfoUser.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Informacion del Usuario", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
@@ -303,7 +313,15 @@ public class Register extends javax.swing.JFrame {
         });
         pnInfoUser.add(cbxEntityUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 30, 230, 30));
 
-        User.add(pnInfoUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, 760, 240));
+        User.add(pnInfoUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, 760, 240));
+
+        btnLogout.setText("Cerrar Sesión");
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
+        User.add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 142, -1));
 
         jTabbedPane1.addTab("Registro Usuario", User);
 
@@ -338,15 +356,16 @@ public class Register extends javax.swing.JFrame {
         pnEntityTableLayout.setHorizontalGroup(
             pnEntityTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnEntityTableLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 894, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 876, Short.MAX_VALUE)
+                .addContainerGap())
         );
         pnEntityTableLayout.setVerticalGroup(
             pnEntityTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
+            .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
         );
 
-        pnMainEntity.add(pnEntityTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, 910, 240));
+        pnMainEntity.add(pnEntityTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 380, 910, 240));
 
         pnInfoEntities.setBackground(new java.awt.Color(255, 255, 255));
         pnInfoEntities.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Informacion de la Entidad", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
@@ -428,7 +447,7 @@ public class Register extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(txtEntityNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pnInfoEntitiesLayout.createSequentialGroup()
-                        .addGap(0, 2, Short.MAX_VALUE)
+                        .addGap(0, 3, Short.MAX_VALUE)
                         .addComponent(lblIdLegal)
                         .addGap(34, 34, 34)
                         .addComponent(txtEntityLegalId, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -486,9 +505,9 @@ public class Register extends javax.swing.JFrame {
                 .addContainerGap(12, Short.MAX_VALUE))
         );
 
-        pnMainEntity.add(pnInfoEntities, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, 760, 330));
+        pnMainEntity.add(pnInfoEntities, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, 760, 330));
 
-        Entities.add(pnMainEntity, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, -1));
+        Entities.add(pnMainEntity, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 670));
 
         jTabbedPane1.addTab("Registro Entidades", Entities);
 
@@ -658,7 +677,7 @@ public class Register extends javax.swing.JFrame {
                                 .addComponent(txtSpringsName, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(pnInfoSpringsLayout.createSequentialGroup()
                                 .addComponent(lblSpringAdress)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
                                 .addComponent(txtSpringsAdress, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(pnInfoSpringsLayout.createSequentialGroup()
                                 .addComponent(lblSpringsLatitude)
@@ -669,7 +688,7 @@ public class Register extends javax.swing.JFrame {
                                     .addComponent(lblSpringsDescripsion)
                                     .addComponent(lblSpringsLenght)
                                     .addComponent(lblSpringsDescripsion1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
                                 .addGroup(pnInfoSpringsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnInfoSpringsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(cbxProvinceSprings, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1148,15 +1167,16 @@ public class Register extends javax.swing.JFrame {
                 .addContainerGap(44, Short.MAX_VALUE))
         );
 
-        pnMainUser1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 40, 470, 440));
+        pnMainUser1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 40, 470, 440));
 
         javax.swing.GroupLayout ReportsLayout = new javax.swing.GroupLayout(Reports);
         Reports.setLayout(ReportsLayout);
         ReportsLayout.setHorizontalGroup(
             ReportsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ReportsLayout.createSequentialGroup()
-                .addGap(0, 50, Short.MAX_VALUE)
-                .addComponent(pnMainUser1, javax.swing.GroupLayout.PREFERRED_SIZE, 1060, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(ReportsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(pnMainUser1, javax.swing.GroupLayout.PREFERRED_SIZE, 1060, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         ReportsLayout.setVerticalGroup(
             ReportsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1168,30 +1188,86 @@ public class Register extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Reportes", Reports);
 
-        btnLogout.setText("Cerrar Sesión");
-        btnLogout.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLogoutActionPerformed(evt);
+        bar.setBackground(new java.awt.Color(255, 255, 255));
+        bar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                barMouseDragged(evt);
             }
         });
+        bar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                barMousePressed(evt);
+            }
+        });
+
+        btnExit.setBackground(new java.awt.Color(255, 255, 255));
+        btnExit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnExitMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnExitMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnExitMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnExitMousePressed(evt);
+            }
+        });
+
+        lblExit.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        lblExit.setForeground(new java.awt.Color(0, 0, 0));
+        lblExit.setText("   X");
+        lblExit.setToolTipText("");
+        lblExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblExit.setFocusable(false);
+        lblExit.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+
+        javax.swing.GroupLayout btnExitLayout = new javax.swing.GroupLayout(btnExit);
+        btnExit.setLayout(btnExitLayout);
+        btnExitLayout.setHorizontalGroup(
+            btnExitLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnExitLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblExit, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        btnExitLayout.setVerticalGroup(
+            btnExitLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnExitLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblExit)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout barLayout = new javax.swing.GroupLayout(bar);
+        bar.setLayout(barLayout);
+        barLayout.setHorizontalGroup(
+            barLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, barLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        barLayout.setVerticalGroup(
+            barLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(bar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1051, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnLogout)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(bar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         pack();
@@ -1210,9 +1286,7 @@ public class Register extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGeneratePDFActionPerformed
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
-        dispose();
-        login l = new login();
-        l.setVisible(true);
+        
     }//GEN-LAST:event_btnLogoutActionPerformed
 
     private void cbxEntitySpringsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxEntitySpringsActionPerformed
@@ -1396,6 +1470,37 @@ public class Register extends javax.swing.JFrame {
         user.getIdEntity(cbxEntityUser);
     }//GEN-LAST:event_cbxEntityUserItemStateChanged
 
+    private void barMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_barMousePressed
+        xMouse = evt.getX();
+        yMouse = evt.getY();
+    }//GEN-LAST:event_barMousePressed
+
+    private void barMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_barMouseDragged
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        this.setLocation(x - xMouse, y - yMouse);
+    }//GEN-LAST:event_barMouseDragged
+
+    private void btnExitMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMousePressed
+
+    }//GEN-LAST:event_btnExitMousePressed
+
+    private void btnExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMouseClicked
+        dispose();
+        login l = new login();
+        l.setVisible(true);
+    }//GEN-LAST:event_btnExitMouseClicked
+
+    private void btnExitMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMouseEntered
+        btnExit.setBackground(Color.red);
+        lblExit.setBackground(Color.white);
+    }//GEN-LAST:event_btnExitMouseEntered
+
+    private void btnExitMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMouseExited
+        btnExit.setBackground(Color.white);
+        lblExit.setBackground(Color.black);
+    }//GEN-LAST:event_btnExitMouseExited
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Entities;
@@ -1404,11 +1509,13 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JPanel Reports;
     private javax.swing.JPanel Springs;
     private javax.swing.JPanel User;
+    private javax.swing.JPanel bar;
     private javax.swing.JButton btnDeleteSamplingSite;
     private javax.swing.JButton btnEditSamplingSite;
     private javax.swing.JButton btnEntityDelete;
     private javax.swing.JButton btnEntityEdit;
     private javax.swing.JButton btnEntitySave;
+    private javax.swing.JPanel btnExit;
     private javax.swing.JButton btnFlowDelete;
     private javax.swing.JButton btnFlowEdit;
     private javax.swing.JButton btnFlowSave;
@@ -1451,6 +1558,7 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JLabel lblEntityEmail;
     private javax.swing.JLabel lblEntityName;
     private javax.swing.JLabel lblEntityTelephoneNumber;
+    private javax.swing.JLabel lblExit;
     private javax.swing.JLabel lblFlowDone;
     private javax.swing.JLabel lblFlowObservation;
     private javax.swing.JLabel lblIdLegal;
