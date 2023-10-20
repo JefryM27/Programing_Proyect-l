@@ -296,6 +296,11 @@ public class Register extends javax.swing.JFrame {
         pnInfoUser.add(lblUserName2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 30, -1, 28));
 
         cbxEntityUser.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbxEntityUser.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbxEntityUserItemStateChanged(evt);
+            }
+        });
         pnInfoUser.add(cbxEntityUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 30, 230, 30));
 
         User.add(pnInfoUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, 760, 240));
@@ -1391,6 +1396,10 @@ public class Register extends javax.swing.JFrame {
     private void cbxRolUserItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxRolUserItemStateChanged
         user.getIdRol(cbxRolUser);
     }//GEN-LAST:event_cbxRolUserItemStateChanged
+
+    private void cbxEntityUserItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxEntityUserItemStateChanged
+        user.getIdEntity(cbxEntityUser);
+    }//GEN-LAST:event_cbxEntityUserItemStateChanged
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

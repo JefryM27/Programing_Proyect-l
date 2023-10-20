@@ -12,19 +12,18 @@ import javax.swing.JOptionPane;
  * @author Bravo
  */
 public class UserDAO {
-    
-    
-public void create(User user) {
+
+    public void create(User user) {
 
         DBConnection db = new DBConnection();
-        String consultaSQL = "INSERT INTO user (name, mail, password, entity_id, rol_id) VALUES (?, ?, ?, ?, ?, ?)";
+        String consultaSQL = "INSERT INTO user (name, mail, password, entity_id, rol_id) VALUES (?, ?, ?, ?, ?)";
         try {
             PreparedStatement ps = db.getConnection().prepareStatement(consultaSQL);
             ps.setString(1, user.getUserName());
             ps.setString(2, user.getMail());
             ps.setString(3, user.getPassword());
             ps.setInt(4, user.getEntity_id());
-            ps.setInt(6, user.getRol_id());
+            ps.setInt(5, user.getRol_id());
             ps.execute();
             JOptionPane.showMessageDialog(null, "El usuario se ha guardado correctamente");
         } catch (SQLException e) {
@@ -33,6 +32,7 @@ public void create(User user) {
             db.disconnect();
         }
     }
+
     public List<User> readUsers() {
         DBConnection db = new DBConnection();
         List<User> users = new ArrayList<>();
@@ -61,26 +61,27 @@ public void create(User user) {
 
         return users;
     }
-        public void update(User user){
-        DBConnection db= new DBConnection();
-        String consultaSQL= "UPDATE user SET name=?, mail=?, password=?,entity_id=?,rol_id=? WHERE id=?";
-        try{
-             PreparedStatement ps = db.getConnection().prepareStatement(consultaSQL);
-             ps.setString(1, user.getUserName());
-             ps.setString(2, user.getMail());
-             ps.setString(3, user.getPassword());
-             ps.setInt(4, user.getEntity_id());
-             ps.setInt(5, user.getRol_id());
-             ps.setInt(6, user.getId());
-             ps.execute();
-             JOptionPane.showMessageDialog(null, "Actualización exitosa");
-        } catch (SQLException e){
+
+    public void update(User user) {
+        DBConnection db = new DBConnection();
+        String consultaSQL = "UPDATE user SET name=?, mail=?, password=?,entity_id=?,rol_id=? WHERE id=?";
+        try {
+            PreparedStatement ps = db.getConnection().prepareStatement(consultaSQL);
+            ps.setString(1, user.getUserName());
+            ps.setString(2, user.getMail());
+            ps.setString(3, user.getPassword());
+            ps.setInt(4, user.getEntity_id());
+            ps.setInt(5, user.getRol_id());
+            ps.setInt(6, user.getId());
+            ps.execute();
+            JOptionPane.showMessageDialog(null, "Actualización exitosa");
+        } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error, no se actualizó: " + e.toString());
-        }finally{
+        } finally {
             db.disconnect();
         }
     }
-    
+
     public void delete(int id) {
 
         DBConnection db = new DBConnection();
@@ -96,10 +97,10 @@ public void create(User user) {
         } catch (SQLException e) {
 
             JOptionPane.showMessageDialog(null, "No se pudo eliminar, error: " + e.toString());
-        }finally {
+        } finally {
             db.disconnect();
         }
-        
+
     }
 
 }
