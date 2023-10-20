@@ -79,8 +79,10 @@ public class FlowMeasurementDAO {
              ps.setString(3, flowmeasurement.getObservation());
              ps.setDate(4, new java.sql.Date(flowmeasurement.getDate().getTime()));
              ps.setString(5, flowmeasurement.getWeather());
-             ps.setInt(6, flowmeasurement.getSpringsId());
+             ps.setString(6, flowmeasurement.getDone());
+             ps.setInt(7, flowmeasurement.getSpringsId());
              ps.setInt(8, flowmeasurement.getSamplingId());
+             ps.setInt(9, flowmeasurement.getId());
              ps.execute();
              JOptionPane.showMessageDialog(null, "Actualización exitosa");
         } catch (SQLException e){

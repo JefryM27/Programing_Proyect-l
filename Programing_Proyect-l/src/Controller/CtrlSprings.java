@@ -27,18 +27,11 @@ public class CtrlSprings {
     int idCanton;
     int idDistrict;
     int idEntity;
+    private static int entityId;
 
+    // SUPER ADMIN
     public void loadSprings(JComboBox c) {
         List<WaterSprings> springs = this.dao.readWaterSprings();
-        DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
-        for (WaterSprings water : springs) {
-            model.addElement(water.getSpringName());
-        }
-        c.setModel(model);
-    }
-
-    public void loadSpringsByEntity(JComboBox c, int currentEntityId) {
-        List<WaterSprings> springs = this.dao.readWaterSpringsByEntity(currentEntityId);
         DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
         for (WaterSprings water : springs) {
             model.addElement(water.getSpringName());
@@ -57,22 +50,6 @@ public class CtrlSprings {
             Object[] row = {water.getId(), water.getSpringName(), water.getAddress(), water.getLatitute(), water.getLenght(),
                 water.getDescription(), this.province.getNameProvince(water.getProvinceId()), this.canton.getNameCanton(water.getCantonId()), this.district.getNameDistrict(water.getDistrictId()), this.entity.getNameEntity(water.getEntityId())};
             model.addRow(row);
-        }
-    }
-
-    public void loadDataSpringsByEntity(JTable table, int entityId) {
-        DefaultTableModel model = (DefaultTableModel) table.getModel();
-        TableRowSorter<TableModel> order = new TableRowSorter<TableModel>(model);
-        table.setRowSorter(order);
-        model.setRowCount(0);
-        List<WaterSprings> springs = dao.readWaterSprings();
-
-        for (WaterSprings water : springs) {
-            if (water.getEntityId() == entityId) {
-                Object[] row = {water.getId(), water.getSpringName(), water.getAddress(), water.getLatitute(), water.getLenght(),
-                    water.getDescription(), this.province.getNameProvince(water.getProvinceId()), this.canton.getNameCanton(water.getCantonId()), this.district.getNameDistrict(water.getDistrictId()), this.entity.getNameEntity(water.getEntityId())};
-                model.addRow(row);
-            }
         }
     }
 
@@ -111,6 +88,45 @@ public class CtrlSprings {
         }
     }
 
+    // ADMIN
+    public void loadSpringsByEntity(JComboBox c, int currentEntityId) {
+        List<WaterSprings> springs = this.dao.readWaterSpringsByEntity(currentEntityId);
+        DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
+        for (WaterSprings water : springs) {
+            model.addElement(water.getSpringName());
+        }
+        c.setModel(model);
+    }
+
+    public void loadDataSpringsByEntity(JTable table, int entityId) {
+        DefaultTableModel model = (DefaultTableModel) table.getModel();
+        TableRowSorter<TableModel> order = new TableRowSorter<TableModel>(model);
+        table.setRowSorter(order);
+        model.setRowCount(0);
+        List<WaterSprings> springs = dao.readWaterSprings();
+
+        for (WaterSprings water : springs) {
+            if (water.getEntityId() == entityId) {
+                Object[] row = {water.getId(), water.getSpringName(), water.getAddress(), water.getLatitute(), water.getLenght(),
+                    water.getDescription(), this.province.getNameProvince(water.getProvinceId()), this.canton.getNameCanton(water.getCantonId()), this.district.getNameDistrict(water.getDistrictId()), this.entity.getNameEntity(water.getEntityId())};
+                model.addRow(row);
+            }
+        }
+    }
+
+    public void addWaterSpringForAdmin(JTextField name, JTextField address, JTextField latitude, JTextField length, JTextField description) {
+        try {
+            this.dao.create(new WaterSprings(name.getText(), address.getText(), latitude.getText(), length.getText(), description.getText(), this.idProvince, this.idCanton, this.idDistrict, this.entityId));
+            clearFields(name, address, latitude, length, description);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No se pudo guardar la naciente, error: " + e.toString());
+        }
+    }
+
+    public void updateWaterSpringsForAdmin(JTextField name, JTextField address, JTextField latitude, JTextField length, JTextField description) {
+        this.dao.update(new WaterSprings(this.id, name.getText(), address.getText(), latitude.getText(), length.getText(), description.getText(), this.idProvince, this.idCanton, this.idDistrict, this.entityId));
+    }
+
     public void deleteWaterSprings() {
         this.dao.delete(this.id);
     }
@@ -137,5 +153,9 @@ public class CtrlSprings {
 
     public void getIdEntity(JComboBox entity) {
         this.idEntity = this.entity.getIDEntity(entity.getSelectedItem().toString());
+    }
+
+    public static void setEntityId(int id) {
+        entityId = id;
     }
 }

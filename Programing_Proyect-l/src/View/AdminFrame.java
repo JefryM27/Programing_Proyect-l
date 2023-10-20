@@ -1,13 +1,14 @@
 package View;
 
 import Controller.*;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author jefry
  */
 public class AdminFrame extends javax.swing.JFrame {
-    
+
     private int entityId;
     CtrlProvince cp = new CtrlProvince();
     CtrlCanton cc = new CtrlCanton();
@@ -17,7 +18,7 @@ public class AdminFrame extends javax.swing.JFrame {
     CtrlSampling sampling = new CtrlSampling();
     CtrlUser user = new CtrlUser();
     CtrlMeasurement measure = new CtrlMeasurement();
-    
+
     public AdminFrame(int entityId) {
         this.entityId = entityId;
         initComponents();
@@ -25,9 +26,9 @@ public class AdminFrame extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         loadPlaces();
         loadTables();
-        loadResources();
+        loadResources();      
     }
-    
+
     public void loadPlaces() {
         cp.loadProvince(cbxProvinceSprings);
         cp.loadProvince(cbxProvinceSampling);
@@ -36,20 +37,20 @@ public class AdminFrame extends javax.swing.JFrame {
         cc.loadCantonsByProvince(cbxProvinceSampling, cbxCantonSampling);
         cd.loadDistrictsByCanton(cbxCantonSampling, cbxDistrictSampling);
     }
-    
+
     public void loadResources() {
-        this.cr.loadDigitadorRol(cbxRolUser);
+        springs.getIDProvince(cbxProvinceSprings);
         this.sampling.loadSamplingByEntity(cbxSamplingMeasure, this.entityId);
         this.springs.loadSpringsByEntity(cbxSpringsMeasure, this.entityId);
     }
-    
+
     public void loadTables() {
         this.springs.loadDataSpringsByEntity(tblSprings, this.entityId);
         this.sampling.loadDataSamplingSitesByEntity(tblSamplingSite, this.entityId);
         this.user.loadDataUsersByEntity(tblUser, this.entityId);
         this.measure.loadDataMeasurementsByEntity(tblFlowMeasure, this.entityId);
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -60,7 +61,6 @@ public class AdminFrame extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblUser = new javax.swing.JTable();
         pnInfoUser = new javax.swing.JPanel();
-        lblUserName = new javax.swing.JLabel();
         btnUserEdit = new javax.swing.JButton();
         lblPassaword = new javax.swing.JLabel();
         lblEmailUser = new javax.swing.JLabel();
@@ -69,7 +69,6 @@ public class AdminFrame extends javax.swing.JFrame {
         txtUserPassaword = new javax.swing.JTextField();
         btnUserSave = new javax.swing.JButton();
         btnUserDelete = new javax.swing.JButton();
-        cbxRolUser = new javax.swing.JComboBox<>();
         lblUserName1 = new javax.swing.JLabel();
         Springs = new javax.swing.JPanel();
         pnMainSprings = new javax.swing.JPanel();
@@ -133,13 +132,6 @@ public class AdminFrame extends javax.swing.JFrame {
         lblMeassureSite3 = new javax.swing.JLabel();
         lblMeassureSite4 = new javax.swing.JLabel();
         cbxDistrictSampling = new javax.swing.JComboBox<>();
-        Reports = new javax.swing.JPanel();
-        pnMainUser1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        btnReportWaterSprings = new javax.swing.JButton();
-        btnReportFlowMeasurement = new javax.swing.JButton();
-        btnReportSamplingSite = new javax.swing.JButton();
-        btnGeneratePDF = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -190,10 +182,6 @@ public class AdminFrame extends javax.swing.JFrame {
         pnInfoUser.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Informacion del Usuario", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
         pnInfoUser.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblUserName.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lblUserName.setText("Rol:");
-        pnInfoUser.add(lblUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 80, -1, 28));
-
         btnUserEdit.setText("Editar");
         btnUserEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -237,14 +225,6 @@ public class AdminFrame extends javax.swing.JFrame {
             }
         });
         pnInfoUser.add(btnUserDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 180, 121, 48));
-
-        cbxRolUser.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        cbxRolUser.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                cbxRolUserItemStateChanged(evt);
-            }
-        });
-        pnInfoUser.add(cbxRolUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 80, 230, 30));
 
         lblUserName1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lblUserName1.setText("Nombre: ");
@@ -821,81 +801,6 @@ public class AdminFrame extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Registro Sitio de Muestreo", Muestreo);
 
-        pnMainUser1.setBackground(new java.awt.Color(0, 152, 198));
-        pnMainUser1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Generar Reportes", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
-
-        btnReportWaterSprings.setText("Reporte de nacientes");
-        btnReportWaterSprings.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnReportWaterSpringsActionPerformed(evt);
-            }
-        });
-
-        btnReportFlowMeasurement.setText("Reporte de medición de caudal");
-
-        btnReportSamplingSite.setText("Reporte de todos los sitios de muestreo");
-        btnReportSamplingSite.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnReportSamplingSiteActionPerformed(evt);
-            }
-        });
-
-        btnGeneratePDF.setText("Generar PDF");
-        btnGeneratePDF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGeneratePDFActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(97, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnGeneratePDF, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnReportSamplingSite, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnReportFlowMeasurement, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnReportWaterSprings, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(93, 93, 93))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(btnReportWaterSprings, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49)
-                .addComponent(btnReportFlowMeasurement, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48)
-                .addComponent(btnReportSamplingSite, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
-                .addComponent(btnGeneratePDF, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(44, Short.MAX_VALUE))
-        );
-
-        pnMainUser1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 40, 470, 440));
-
-        javax.swing.GroupLayout ReportsLayout = new javax.swing.GroupLayout(Reports);
-        Reports.setLayout(ReportsLayout);
-        ReportsLayout.setHorizontalGroup(
-            ReportsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ReportsLayout.createSequentialGroup()
-                .addGap(0, 40, Short.MAX_VALUE)
-                .addComponent(pnMainUser1, javax.swing.GroupLayout.PREFERRED_SIZE, 1060, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        ReportsLayout.setVerticalGroup(
-            ReportsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ReportsLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(pnMainUser1, javax.swing.GroupLayout.PREFERRED_SIZE, 660, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jTabbedPane1.addTab("Reportes", Reports);
-
         btnLogout.setText("Cerrar Sesión");
         btnLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -933,18 +838,6 @@ public class AdminFrame extends javax.swing.JFrame {
         l.setVisible(true);
     }//GEN-LAST:event_btnLogoutActionPerformed
 
-    private void btnGeneratePDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGeneratePDFActionPerformed
-
-    }//GEN-LAST:event_btnGeneratePDFActionPerformed
-
-    private void btnReportSamplingSiteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportSamplingSiteActionPerformed
-
-    }//GEN-LAST:event_btnReportSamplingSiteActionPerformed
-
-    private void btnReportWaterSpringsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportWaterSpringsActionPerformed
-
-    }//GEN-LAST:event_btnReportWaterSpringsActionPerformed
-
     private void cbxDistrictSamplingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxDistrictSamplingActionPerformed
 
     }//GEN-LAST:event_cbxDistrictSamplingActionPerformed
@@ -976,11 +869,11 @@ public class AdminFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDeleteSamplingSiteActionPerformed
 
     private void btnSaveSamplingSiteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveSamplingSiteActionPerformed
- loadTables();
+        loadTables();
     }//GEN-LAST:event_btnSaveSamplingSiteActionPerformed
 
     private void btnEditSamplingSiteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditSamplingSiteActionPerformed
-        
+
         sampling.clearFields(txtSamplingName);
         loadTables();
     }//GEN-LAST:event_btnEditSamplingSiteActionPerformed
@@ -1052,18 +945,18 @@ public class AdminFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSpringsDeleteActionPerformed
 
     private void btnSpringsSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSpringsSaveActionPerformed
-        springs.addWaterSpring(txtSpringsName, txtSpringsAdress, txtSpringsLatitude, txtSpringsLenght, txtSpringsDescription);
+        springs.addWaterSpringForAdmin(txtSpringsName, txtSpringsAdress, txtSpringsLatitude, txtSpringsLenght, txtSpringsDescription);
         loadTables();
     }//GEN-LAST:event_btnSpringsSaveActionPerformed
 
     private void btnSpringsEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSpringsEditActionPerformed
-        springs.updateWaterSprings(txtSpringsName, txtSpringsAdress, txtSpringsLatitude, txtSpringsLenght, txtSpringsDescription);
+        springs.updateWaterSpringsForAdmin(txtSpringsName, txtSpringsAdress, txtSpringsLatitude, txtSpringsLenght, txtSpringsDescription);
         springs.clearFields(txtSpringsName, txtSpringsAdress, txtSpringsLatitude, txtSpringsLenght, txtSpringsDescription);
         loadTables();
     }//GEN-LAST:event_btnSpringsEditActionPerformed
 
     private void tblSpringsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblSpringsMouseClicked
-
+        springs.selectedRow(tblSprings, txtSpringsName, txtSpringsAdress, txtSpringsLatitude, txtSpringsLenght, txtSpringsDescription, cbxProvinceSprings, cbxCantonSprings, cbxDistrictSprings, cbxMethod);
     }//GEN-LAST:event_tblSpringsMouseClicked
 
     private void btnUserDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUserDeleteActionPerformed
@@ -1072,29 +965,24 @@ public class AdminFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnUserDeleteActionPerformed
 
     private void btnUserSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUserSaveActionPerformed
-        user.addUserByEntity(txtUserName, txtUserEmail, txtUserPassaword,this.entityId, cbxRolUser);
+        user.addUserByEntity(txtUserName, txtUserEmail, txtUserPassaword);
         loadTables();
     }//GEN-LAST:event_btnUserSaveActionPerformed
 
     private void btnUserEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUserEditActionPerformed
-        user.updateUserByEntity(txtUserName, txtUserEmail, txtUserPassaword,this.entityId, cbxRolUser);
+        user.updateUserByEntity(tblUser, txtUserName, txtUserEmail, txtUserPassaword);
         user.clearFields(txtUserName, txtUserEmail, txtUserPassaword);
         loadTables();
     }//GEN-LAST:event_btnUserEditActionPerformed
 
     private void tblUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblUserMouseClicked
-        user.selectedRowByEntity(tblUser, txtUserName, txtUserEmail, txtUserPassaword, cbxRolUser);
+        user.selectedRow(tblUser, txtUserName, txtUserEmail, txtUserPassaword,cbxMethod,cbxMethod);
     }//GEN-LAST:event_tblUserMouseClicked
-
-    private void cbxRolUserItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxRolUserItemStateChanged
-        user.getIdRol(cbxRolUser);
-    }//GEN-LAST:event_cbxRolUserItemStateChanged
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Medition;
     private javax.swing.JPanel Muestreo;
-    private javax.swing.JPanel Reports;
     private javax.swing.JPanel Springs;
     private javax.swing.JPanel User;
     private javax.swing.JButton btnDeleteSamplingSite;
@@ -1102,11 +990,7 @@ public class AdminFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnFlowDelete;
     private javax.swing.JButton btnFlowEdit;
     private javax.swing.JButton btnFlowSave;
-    private javax.swing.JButton btnGeneratePDF;
     private javax.swing.JButton btnLogout;
-    private javax.swing.JButton btnReportFlowMeasurement;
-    private javax.swing.JButton btnReportSamplingSite;
-    private javax.swing.JButton btnReportWaterSprings;
     private javax.swing.JButton btnSaveSamplingSite;
     private javax.swing.JButton btnSpringsDelete;
     private javax.swing.JButton btnSpringsEdit;
@@ -1121,11 +1005,9 @@ public class AdminFrame extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbxMethod;
     private javax.swing.JComboBox<String> cbxProvinceSampling;
     private javax.swing.JComboBox<String> cbxProvinceSprings;
-    private javax.swing.JComboBox<String> cbxRolUser;
     private javax.swing.JComboBox<String> cbxSamplingMeasure;
     private javax.swing.JComboBox<String> cbxSpringsMeasure;
     private javax.swing.JComboBox<String> cbxWeather;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -1147,7 +1029,6 @@ public class AdminFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lblSpringsLatitude;
     private javax.swing.JLabel lblSpringsLenght;
     private javax.swing.JLabel lblSpringsName;
-    private javax.swing.JLabel lblUserName;
     private javax.swing.JLabel lblUserName1;
     private javax.swing.JLabel lblUserName10;
     private javax.swing.JLabel lblUserName7;
@@ -1160,7 +1041,6 @@ public class AdminFrame extends javax.swing.JFrame {
     private javax.swing.JPanel pnInfoUser;
     private javax.swing.JPanel pnMainMeassureSite;
     private javax.swing.JPanel pnMainSprings;
-    private javax.swing.JPanel pnMainUser1;
     private javax.swing.JPanel pnMeassureSiteTable;
     private javax.swing.JPanel pnSpringsTable;
     private javax.swing.JPanel pnUserTable;

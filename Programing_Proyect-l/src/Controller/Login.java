@@ -21,6 +21,7 @@ public class Login {
     User authenticatedUser = null;
     UserDAO dao = new UserDAO();
     CtrlUser user = new CtrlUser();
+    CtrlSprings springs = new CtrlSprings();
 
     public void loginUser(String enteredMail, String enteredPassword) {
         List<User> userList = dao.readUsers();
@@ -58,14 +59,18 @@ public class Login {
     private void openAdminFrame() {
         int entityId = authenticatedUser.getEntity_id();
         user.setEntityId(entityId);
+        springs.setEntityId(entityId);
+        user.setRolId(3);
         AdminFrame regis = new AdminFrame(entityId);
         regis.setVisible(true);
     }
 
     private void openDigitadorFrame() {
-         int entityId = authenticatedUser.getEntity_id();
+        int digitizerId = authenticatedUser.getId();
+        int entityId = authenticatedUser.getEntity_id();
         user.setEntityId(entityId);
-        DigitadorFrame regis = new DigitadorFrame();
+        user.setRolId(3);
+        DigitadorFrame regis = new DigitadorFrame(entityId, digitizerId);
         regis.setVisible(true);
     }
 }

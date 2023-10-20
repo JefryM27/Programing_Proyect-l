@@ -87,7 +87,7 @@ public class CtrlMeasurement {
         try {
             double randomCapacity = randomCapacity();
             Date randomDate = randomDate();
-            this.dao.update(new FlowMeasurement(randomCapacity, (String) metod.getSelectedItem(), observation.getText(), (String) weather.getSelectedItem(), done.getText(), randomDate, this.idSprings, this.idSampling));
+            this.dao.update(new FlowMeasurement(this.id,  this.idSprings, this.idSampling,randomCapacity, (String) metod.getSelectedItem(), observation.getText(), (String) weather.getSelectedItem(), done.getText(), randomDate));
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "No se pudo guardar la medición de caudal, error: " + e.toString());
         }

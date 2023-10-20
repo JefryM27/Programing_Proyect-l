@@ -2,20 +2,22 @@ package View;
 
 import Controller.*;
 
-
 /**
  *
  * @author jefry
  */
 public class DigitadorFrame extends javax.swing.JFrame {
 
+    private int entityId;
+    private int digitizerId;
     CtrlSprings springs = new CtrlSprings();
     CtrlSampling sampling = new CtrlSampling();
     CtrlUser user = new CtrlUser();
     CtrlMeasurement measure = new CtrlMeasurement();
-   
 
-    public DigitadorFrame() {
+    public DigitadorFrame(int entityId, int digitizerId) {
+        this.entityId = entityId;
+        this.digitizerId = digitizerId;
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
@@ -23,14 +25,13 @@ public class DigitadorFrame extends javax.swing.JFrame {
         this.loadResources();
     }
 
-
     public void loadResources() {
         this.sampling.loadSampling(cbxSamplingMeasure);
         this.springs.loadSprings(cbxSpringsMeasure);
     }
-    
-    public void loadTables(){
-        this.user.loadDataUsers(tblUser);
+
+    public void loadTables() {
+        this.user.loadDataDigitador(tblUser, this.digitizerId);
         this.measure.loadDataMeasurements(tblFlowMeasure);
     }
 
@@ -426,12 +427,13 @@ public class DigitadorFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnFlowEditActionPerformed
 
     private void btnUserEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUserEditActionPerformed
-        user.clearFields(txtUserName, txtUserEmail,txtUserPassaword);
+        user.updateUserByEntity(tblUser, txtUserName, txtUserEmail, txtUserPassaword);
+        user.clearFields(txtUserName, txtUserEmail, txtUserPassaword);
         loadTables();
     }//GEN-LAST:event_btnUserEditActionPerformed
 
     private void tblUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblUserMouseClicked
-      
+        user.selectedRowByEntity(tblUser, txtUserName, txtUserEmail, txtUserPassaword);
     }//GEN-LAST:event_tblUserMouseClicked
 
 
@@ -471,6 +473,5 @@ public class DigitadorFrame extends javax.swing.JFrame {
     private javax.swing.JTextField txtUserName;
     private javax.swing.JTextField txtUserPassaword;
     // End of variables declaration//GEN-END:variables
-
 
 }

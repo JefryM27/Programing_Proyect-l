@@ -22,17 +22,4 @@ public class CtrlRol {
         }
         c.setModel(model);
     }
-
-    public void loadDigitadorRol(JComboBox c) {
-        List<Rol> rols = this.rol.readRols();
-        DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
-
-        for (Rol rol : rols) {
-            if (rol.getRolName().equals("Digitador")) {
-                model.addElement(rol.getRolName());
-            }
-        }
-
-        c.setModel(model);
-    }
 }
