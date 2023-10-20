@@ -62,6 +62,36 @@ public class SamplingSiteDAO {
         return samplingSites;
     }
 
+    public List<SamplingSite> readSamplingSitesByEntity(int entityID) {
+        DBConnection db = new DBConnection();
+        List<SamplingSite> samplingSites = new ArrayList<>();
+        String sql = "SELECT * FROM sampling_site WHERE entity_id = ?";
+
+        try {
+            PreparedStatement ps = db.getConnection().prepareStatement(sql);
+            ps.setInt(1, entityID); // Establecer el ID de entidad
+            ResultSet resultSet = ps.executeQuery();
+
+            while (resultSet.next()) {
+                int id = resultSet.getInt("id");
+                String samplingName = resultSet.getString("name");
+                int province_id = resultSet.getInt("province_id");
+                int canton_id = resultSet.getInt("canton_id");
+                int district_id = resultSet.getInt("district_id");
+                int entity_id = resultSet.getInt("entity_id");
+
+                SamplingSite site = new SamplingSite(id, samplingName, province_id, canton_id, district_id, entity_id);
+                samplingSites.add(site);
+            }
+        } catch (SQLException e) {
+            System.err.println("Error: " + e.getMessage());
+        } finally {
+            db.disconnect();
+        }
+
+        return samplingSites;
+    }
+
     public void update(SamplingSite sampling) {
         DBConnection db = new DBConnection();
         String consultaSQL = "UPDATE sampling_site SET name=?, province_id=?, canton_id=?,district_id=?,entity_id=? WHERE id=?";
@@ -120,7 +150,7 @@ public class SamplingSiteDAO {
         }
         return value;
     }
-    
+
     public String getNameSampling(int id) {
         String value = "";
         DBConnection db = new DBConnection();

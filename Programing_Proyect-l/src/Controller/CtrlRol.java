@@ -1,4 +1,3 @@
-
 package Controller;
 
 import Model.Rol;
@@ -12,14 +11,28 @@ import javax.swing.JComboBox;
  * @author Bravo
  */
 public class CtrlRol {
-     RolDAO rol = new RolDAO();
-   
+
+    RolDAO rol = new RolDAO();
+
     public void loadRol(JComboBox c) {
         List<Rol> rols = this.rol.readRols();
         DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
         for (Rol rol : rols) {
             model.addElement(rol.getRolName());
         }
+        c.setModel(model);
+    }
+
+    public void loadDigitadorRol(JComboBox c) {
+        List<Rol> rols = this.rol.readRols();
+        DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
+
+        for (Rol rol : rols) {
+            if (rol.getRolName().equals("Digitador")) {
+                model.addElement(rol.getRolName());
+            }
+        }
+
         c.setModel(model);
     }
 }

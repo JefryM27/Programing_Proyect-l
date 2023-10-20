@@ -15,6 +15,7 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
+
 /**
  *
  * @author allys
@@ -31,9 +32,18 @@ public class CtrlSampling {
     int idCanton;
     int idDistrict;
     int idEntity;
-    
+
     public void loadSampling(JComboBox c) {
         List<SamplingSite> dao = this.dao.readSamplingSites();
+        DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
+        for (SamplingSite site : dao) {
+            model.addElement(site.getSamplingName());
+        }
+        c.setModel(model);
+    }
+
+    public void loadSamplingByEntity(JComboBox c, int currentEntityId) {
+        List<SamplingSite> dao = this.dao.readSamplingSitesByEntity(currentEntityId);
         DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
         for (SamplingSite site : dao) {
             model.addElement(site.getSamplingName());
@@ -49,9 +59,27 @@ public class CtrlSampling {
         model.setRowCount(0);
         List<SamplingSite> site = dao.readSamplingSites();
         for (SamplingSite sampling : site) {
-            Object[] row = {sampling.getId(), sampling.getSamplingName(),  this.province.getNameProvince(sampling.getProvince_id()),
+            Object[] row = {sampling.getId(), sampling.getSamplingName(), this.province.getNameProvince(sampling.getProvince_id()),
                 this.canton.getNameCanton(sampling.getCanton_id()), this.district.getNameDistrict(sampling.getDistrict_id()), this.entity.getNameEntity(sampling.getEntity_id())};
             model.addRow(row);
+        }
+    }
+
+    public void loadDataSamplingSitesByEntity(JTable table, int entityId) {
+        DefaultTableModel model = (DefaultTableModel) table.getModel();
+        TableRowSorter<TableModel> order = new TableRowSorter<TableModel>(model);
+        table.setRowSorter(order);
+        model.setRowCount(0);
+
+        List<SamplingSite> site = dao.readSamplingSites();
+
+        for (SamplingSite sampling : site) {
+            if (sampling.getEntity_id() == entityId) {
+                Object[] row = {
+                    sampling.getId(), sampling.getSamplingName(), this.province.getNameProvince(sampling.getProvince_id()), this.canton.getNameCanton(sampling.getCanton_id()), this.district.getNameDistrict(sampling.getDistrict_id()), this.entity.getNameEntity(sampling.getEntity_id())
+                };
+                model.addRow(row);
+            }
         }
     }
 
@@ -63,7 +91,8 @@ public class CtrlSampling {
             JOptionPane.showMessageDialog(null, "No se pudo guardar el sitio de muestreo, error: " + e.toString());
         }
     }
-    public void updateSamplingSite(JTextField name, JComboBox province, JComboBox canton, JComboBox district, JComboBox entity){
+
+    public void updateSamplingSite(JTextField name, JComboBox province, JComboBox canton, JComboBox district, JComboBox entity) {
         this.dao.update(new SamplingSite(this.id, name.getText(), this.idProvince, this.idCanton, this.idDistrict, this.idEntity));
     }
 
@@ -88,9 +117,11 @@ public class CtrlSampling {
     public void deleteSamplingSite() {
         this.dao.delete(this.id);
     }
-    public void clearFields(JTextField name){
+
+    public void clearFields(JTextField name) {
         name.setText("");
     }
+
     public void getIDProvince(JComboBox province) {
         this.idProvince = this.province.getIDProvince(province.getSelectedItem().toString());
     }

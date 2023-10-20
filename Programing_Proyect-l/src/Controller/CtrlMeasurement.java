@@ -3,6 +3,7 @@ package Controller;
 import Model.FlowMeasurement;
 import Model.FlowMeasurementDAO;
 import Model.SamplingSiteDAO;
+import Model.WaterSprings;
 import Model.WaterSpringsDAO;
 import java.util.Calendar;
 import java.util.Date;
@@ -43,6 +44,34 @@ public class CtrlMeasurement {
         }
     }
 
+    public void loadDataMeasurementsByEntity(JTable table, int entityId) {
+        DefaultTableModel model = (DefaultTableModel) table.getModel();
+        TableRowSorter<TableModel> order = new TableRowSorter<TableModel>(model);
+        table.setRowSorter(order);
+        model.setRowCount(0);
+
+        List<FlowMeasurement> measurement = dao.readFlowMeasurements();
+
+        for (FlowMeasurement flow : measurement) {
+            // Comprueba si el naciente al que pertenece esta medición pertenece a la entidad del usuario logueado
+            WaterSprings spring = springDAO.getWaterSprings(flow.getSpringsId());
+            if (spring != null && spring.getEntityId() == entityId) {
+                Object[] row = {
+                    flow.getId(),
+                    flow.getCapacity(),
+                    flow.getMetod(),
+                    flow.getObservation(),
+                    flow.getDate(),
+                    flow.getWeather(),
+                    flow.getDone(),
+                    this.springDAO.getNameWater(flow.getSpringsId()),
+                    this.samplingDAO.getNameSampling(flow.getSamplingId())
+                };
+                model.addRow(row);
+            }
+        }
+    }
+
     public void addFlowMeasurement(JComboBox<String> metod, JTextField observation, JComboBox<String> weather, JTextField done) {
         try {
             double randomCapacity = randomCapacity();
@@ -53,7 +82,8 @@ public class CtrlMeasurement {
             JOptionPane.showMessageDialog(null, "No se pudo guardar la medición de caudal, error: " + e.toString());
         }
     }
-    public void updateFlowMeasurement(JComboBox<String> metod, JTextField observation, JComboBox<String> weather, JTextField done){
+
+    public void updateFlowMeasurement(JComboBox<String> metod, JTextField observation, JComboBox<String> weather, JTextField done) {
         try {
             double randomCapacity = randomCapacity();
             Date randomDate = randomDate();
@@ -61,7 +91,7 @@ public class CtrlMeasurement {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "No se pudo guardar la medición de caudal, error: " + e.toString());
         }
-    
+
     }
 
     public void selectedRow(JTable table, JComboBox<String> metod, JTextField observation,
@@ -107,7 +137,8 @@ public class CtrlMeasurement {
     public void deleteFlowMeasurement() {
         this.dao.delete(this.id);
     }
-    public void clearFields(JTextField observation,JTextField done){
+
+    public void clearFields(JTextField observation, JTextField done) {
         observation.setText("");
         done.setText("");
     }

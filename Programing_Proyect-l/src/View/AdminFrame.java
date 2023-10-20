@@ -2,34 +2,32 @@ package View;
 
 import Controller.*;
 
-
 /**
  *
  * @author jefry
  */
-public class Register extends javax.swing.JFrame {
-
+public class AdminFrame extends javax.swing.JFrame {
+    
+    private int entityId;
     CtrlProvince cp = new CtrlProvince();
     CtrlCanton cc = new CtrlCanton();
     CtrlDistrict cd = new CtrlDistrict();
     CtrlRol cr = new CtrlRol();
-    CtrlEntity entity = new CtrlEntity();
     CtrlSprings springs = new CtrlSprings();
     CtrlSampling sampling = new CtrlSampling();
     CtrlUser user = new CtrlUser();
     CtrlMeasurement measure = new CtrlMeasurement();
-   
-
-    public Register() {
+    
+    public AdminFrame(int entityId) {
+        this.entityId = entityId;
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
-        this.loadPlaces();
-        this.loadTables();
-        this.loadEntities();
-        this.loadResources();
+        loadPlaces();
+        loadTables();
+        loadResources();
     }
-
+    
     public void loadPlaces() {
         cp.loadProvince(cbxProvinceSprings);
         cp.loadProvince(cbxProvinceSampling);
@@ -38,27 +36,20 @@ public class Register extends javax.swing.JFrame {
         cc.loadCantonsByProvince(cbxProvinceSampling, cbxCantonSampling);
         cd.loadDistrictsByCanton(cbxCantonSampling, cbxDistrictSampling);
     }
-
-    public void loadEntities() {
-        this.entity.loadEntity(cbxEntitySprings);
-        this.entity.loadEntity(cbxEntityUser);
-        this.entity.loadEntity(cbxEntitySampling);
-    }
-
+    
     public void loadResources() {
-        this.cr.loadRol(cbxRolUser);
-        this.sampling.loadSampling(cbxSamplingMeasure);
-        this.springs.loadSprings(cbxSpringsMeasure);
+        this.cr.loadDigitadorRol(cbxRolUser);
+        this.sampling.loadSamplingByEntity(cbxSamplingMeasure, this.entityId);
+        this.springs.loadSpringsByEntity(cbxSpringsMeasure, this.entityId);
     }
     
-    public void loadTables(){
-        this.springs.loadDataSprings(tblSprings);
-        this.entity.loadDataEntity(tblEntity);
-        this.sampling.loadDataSamplingSites(tblSamplingSite);
-        this.user.loadDataUsers(tblUser);
-        this.measure.loadDataMeasurements(tblFlowMeasure);
+    public void loadTables() {
+        this.springs.loadDataSpringsByEntity(tblSprings, this.entityId);
+        this.sampling.loadDataSamplingSitesByEntity(tblSamplingSite, this.entityId);
+        this.user.loadDataUsersByEntity(tblUser, this.entityId);
+        this.measure.loadDataMeasurementsByEntity(tblFlowMeasure, this.entityId);
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -80,29 +71,6 @@ public class Register extends javax.swing.JFrame {
         btnUserDelete = new javax.swing.JButton();
         cbxRolUser = new javax.swing.JComboBox<>();
         lblUserName1 = new javax.swing.JLabel();
-        lblUserName2 = new javax.swing.JLabel();
-        cbxEntityUser = new javax.swing.JComboBox<>();
-        Entities = new javax.swing.JPanel();
-        pnMainEntity = new javax.swing.JPanel();
-        pnEntityTable = new javax.swing.JPanel();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        tblEntity = new javax.swing.JTable();
-        pnInfoEntities = new javax.swing.JPanel();
-        lblIdLegal = new javax.swing.JLabel();
-        btnEntityEdit = new javax.swing.JButton();
-        lblEntityAdress = new javax.swing.JLabel();
-        lblEntityEmail = new javax.swing.JLabel();
-        lblEntityName = new javax.swing.JLabel();
-        lblEntityTelephoneNumber = new javax.swing.JLabel();
-        lblEntityDescription = new javax.swing.JLabel();
-        txtEntityName = new javax.swing.JTextField();
-        txtEntityLegalId = new javax.swing.JTextField();
-        txtEntityNumber = new javax.swing.JTextField();
-        txtEntityEmail = new javax.swing.JTextField();
-        txtEntityAdress = new javax.swing.JTextField();
-        txtEntityDescription = new javax.swing.JTextField();
-        btnEntitySave = new javax.swing.JButton();
-        btnEntityDelete = new javax.swing.JButton();
         Springs = new javax.swing.JPanel();
         pnMainSprings = new javax.swing.JPanel();
         pnSpringsTable = new javax.swing.JPanel();
@@ -128,8 +96,6 @@ public class Register extends javax.swing.JFrame {
         cbxCantonSprings = new javax.swing.JComboBox<>();
         lblSpringsDescripsion3 = new javax.swing.JLabel();
         cbxDistrictSprings = new javax.swing.JComboBox<>();
-        lblSpringsDescripsion4 = new javax.swing.JLabel();
-        cbxEntitySprings = new javax.swing.JComboBox<>();
         Medition = new javax.swing.JPanel();
         pnInfoCaudal = new javax.swing.JPanel();
         btnFlowEdit = new javax.swing.JButton();
@@ -156,12 +122,10 @@ public class Register extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         tblSamplingSite = new javax.swing.JTable();
         pnInfoMeassureSite = new javax.swing.JPanel();
-        lblMeassureSite = new javax.swing.JLabel();
         btnEditSamplingSite = new javax.swing.JButton();
         txtSamplingName = new javax.swing.JTextField();
         btnSaveSamplingSite = new javax.swing.JButton();
         btnDeleteSamplingSite = new javax.swing.JButton();
-        cbxEntitySampling = new javax.swing.JComboBox<>();
         cbxProvinceSampling = new javax.swing.JComboBox<>();
         cbxCantonSampling = new javax.swing.JComboBox<>();
         lblMeassureSite1 = new javax.swing.JLabel();
@@ -280,212 +244,15 @@ public class Register extends javax.swing.JFrame {
                 cbxRolUserItemStateChanged(evt);
             }
         });
-        cbxRolUser.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbxRolUserActionPerformed(evt);
-            }
-        });
         pnInfoUser.add(cbxRolUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 80, 230, 30));
 
         lblUserName1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lblUserName1.setText("Nombre: ");
         pnInfoUser.add(lblUserName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 25, -1, 28));
 
-        lblUserName2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lblUserName2.setText("Entidad:");
-        pnInfoUser.add(lblUserName2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 30, -1, 28));
-
-        cbxEntityUser.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        pnInfoUser.add(cbxEntityUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 30, 230, 30));
-
         User.add(pnInfoUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, 760, 240));
 
         jTabbedPane1.addTab("Registro Usuario", User);
-
-        Entities.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        pnMainEntity.setBackground(new java.awt.Color(0, 152, 198));
-        pnMainEntity.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        pnEntityTable.setBackground(new java.awt.Color(255, 255, 255));
-        pnEntityTable.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tabla", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
-
-        tblEntity.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "ID", "Cedula Juridica", "Nombre", "Email", "Telefono", "Direccion", "Descipcion"
-            }
-        ));
-        tblEntity.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tblEntityMouseClicked(evt);
-            }
-        });
-        jScrollPane4.setViewportView(tblEntity);
-
-        javax.swing.GroupLayout pnEntityTableLayout = new javax.swing.GroupLayout(pnEntityTable);
-        pnEntityTable.setLayout(pnEntityTableLayout);
-        pnEntityTableLayout.setHorizontalGroup(
-            pnEntityTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnEntityTableLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 894, Short.MAX_VALUE))
-        );
-        pnEntityTableLayout.setVerticalGroup(
-            pnEntityTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
-        );
-
-        pnMainEntity.add(pnEntityTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, 910, 240));
-
-        pnInfoEntities.setBackground(new java.awt.Color(255, 255, 255));
-        pnInfoEntities.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Informacion de la Entidad", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
-
-        lblIdLegal.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lblIdLegal.setText("Cedula Juridica: ");
-
-        btnEntityEdit.setText("Editar");
-        btnEntityEdit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEntityEditActionPerformed(evt);
-            }
-        });
-
-        lblEntityAdress.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lblEntityAdress.setText("Direccion: ");
-
-        lblEntityEmail.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lblEntityEmail.setText("Email: ");
-
-        lblEntityName.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lblEntityName.setText("Nombre: ");
-
-        lblEntityTelephoneNumber.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lblEntityTelephoneNumber.setText("Telefono: ");
-
-        lblEntityDescription.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lblEntityDescription.setText("Descripcion: ");
-
-        txtEntityName.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        txtEntityName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-
-        txtEntityLegalId.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        txtEntityLegalId.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-
-        txtEntityNumber.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        txtEntityNumber.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-
-        txtEntityEmail.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        txtEntityEmail.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-
-        txtEntityAdress.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        txtEntityAdress.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-
-        txtEntityDescription.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        txtEntityDescription.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-
-        btnEntitySave.setText("Guardar");
-        btnEntitySave.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEntitySaveActionPerformed(evt);
-            }
-        });
-
-        btnEntityDelete.setText("Eliminar");
-        btnEntityDelete.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEntityDeleteActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout pnInfoEntitiesLayout = new javax.swing.GroupLayout(pnInfoEntities);
-        pnInfoEntities.setLayout(pnInfoEntitiesLayout);
-        pnInfoEntitiesLayout.setHorizontalGroup(
-            pnInfoEntitiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnInfoEntitiesLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pnInfoEntitiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(pnInfoEntitiesLayout.createSequentialGroup()
-                        .addComponent(lblEntityName)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtEntityName, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnInfoEntitiesLayout.createSequentialGroup()
-                        .addComponent(lblEntityEmail)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtEntityEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnInfoEntitiesLayout.createSequentialGroup()
-                        .addComponent(lblEntityTelephoneNumber)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtEntityNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnInfoEntitiesLayout.createSequentialGroup()
-                        .addGap(0, 2, Short.MAX_VALUE)
-                        .addComponent(lblIdLegal)
-                        .addGap(34, 34, 34)
-                        .addComponent(txtEntityLegalId, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnInfoEntitiesLayout.createSequentialGroup()
-                        .addComponent(lblEntityAdress)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtEntityAdress, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnInfoEntitiesLayout.createSequentialGroup()
-                        .addComponent(lblEntityDescription)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtEntityDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(34, 34, 34)
-                .addGroup(pnInfoEntitiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnEntitySave, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnEntityDelete, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE))
-                .addGap(42, 42, 42)
-                .addComponent(btnEntityEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 15, Short.MAX_VALUE))
-        );
-        pnInfoEntitiesLayout.setVerticalGroup(
-            pnInfoEntitiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnInfoEntitiesLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pnInfoEntitiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnInfoEntitiesLayout.createSequentialGroup()
-                        .addGroup(pnInfoEntitiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnInfoEntitiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(txtEntityLegalId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lblIdLegal, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(btnEntitySave, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(pnInfoEntitiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblEntityName, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtEntityName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(26, 26, 26)
-                        .addGroup(pnInfoEntitiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblEntityEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtEntityEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(pnInfoEntitiesLayout.createSequentialGroup()
-                        .addComponent(btnEntityEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(40, 40, 40)
-                        .addComponent(btnEntityDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addGroup(pnInfoEntitiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtEntityNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblEntityTelephoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(pnInfoEntitiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtEntityAdress, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblEntityAdress, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(pnInfoEntitiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblEntityDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtEntityDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(12, Short.MAX_VALUE))
-        );
-
-        pnMainEntity.add(pnInfoEntities, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, 760, 330));
-
-        Entities.add(pnMainEntity, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, -1));
-
-        jTabbedPane1.addTab("Registro Entidades", Entities);
 
         Springs.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -623,21 +390,6 @@ public class Register extends javax.swing.JFrame {
             }
         });
 
-        lblSpringsDescripsion4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lblSpringsDescripsion4.setText("Entidad:");
-
-        cbxEntitySprings.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        cbxEntitySprings.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                cbxEntitySpringsItemStateChanged(evt);
-            }
-        });
-        cbxEntitySprings.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbxEntitySpringsActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout pnInfoSpringsLayout = new javax.swing.GroupLayout(pnInfoSprings);
         pnInfoSprings.setLayout(pnInfoSpringsLayout);
         pnInfoSpringsLayout.setHorizontalGroup(
@@ -670,8 +422,7 @@ public class Register extends javax.swing.JFrame {
                                         .addComponent(cbxProvinceSprings, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(txtSpringsDescription, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
                                         .addComponent(cbxCantonSprings, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(cbxDistrictSprings, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(cbxEntitySprings, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addComponent(cbxDistrictSprings, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                     .addComponent(txtSpringsLenght, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(34, 34, 34)
                         .addGroup(pnInfoSpringsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -684,9 +435,7 @@ public class Register extends javax.swing.JFrame {
                         .addComponent(lblSpringsDescripsion2, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(pnInfoSpringsLayout.createSequentialGroup()
-                        .addGroup(pnInfoSpringsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblSpringsDescripsion3, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblSpringsDescripsion4, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lblSpringsDescripsion3, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         pnInfoSpringsLayout.setVerticalGroup(
@@ -727,11 +476,7 @@ public class Register extends javax.swing.JFrame {
                         .addGroup(pnInfoSpringsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblSpringsDescripsion3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cbxDistrictSprings, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pnInfoSpringsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblSpringsDescripsion4, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbxEntitySprings, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(12, Short.MAX_VALUE))
+                        .addContainerGap(46, Short.MAX_VALUE))
                     .addGroup(pnInfoSpringsLayout.createSequentialGroup()
                         .addComponent(btnSpringsSave, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(13, 13, 13)
@@ -987,10 +732,6 @@ public class Register extends javax.swing.JFrame {
         pnInfoMeassureSite.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Informacion de los sitios de muestreo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
         pnInfoMeassureSite.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblMeassureSite.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lblMeassureSite.setText("Entidad:");
-        pnInfoMeassureSite.add(lblMeassureSite, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 220, -1, 28));
-
         btnEditSamplingSite.setText("Editar");
         btnEditSamplingSite.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1018,14 +759,6 @@ public class Register extends javax.swing.JFrame {
             }
         });
         pnInfoMeassureSite.add(btnDeleteSamplingSite, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 270, 121, 48));
-
-        cbxEntitySampling.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        cbxEntitySampling.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                cbxEntitySamplingItemStateChanged(evt);
-            }
-        });
-        pnInfoMeassureSite.add(cbxEntitySampling, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 220, 260, -1));
 
         cbxProvinceSampling.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cbxProvinceSampling.addItemListener(new java.awt.event.ItemListener() {
@@ -1150,7 +883,7 @@ public class Register extends javax.swing.JFrame {
         ReportsLayout.setHorizontalGroup(
             ReportsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ReportsLayout.createSequentialGroup()
-                .addGap(0, 46, Short.MAX_VALUE)
+                .addGap(0, 40, Short.MAX_VALUE)
                 .addComponent(pnMainUser1, javax.swing.GroupLayout.PREFERRED_SIZE, 1060, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         ReportsLayout.setVerticalGroup(
@@ -1178,7 +911,9 @@ public class Register extends javax.swing.JFrame {
                 .addGap(15, 15, 15)
                 .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTabbedPane1))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1192,53 +927,129 @@ public class Register extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnReportSamplingSiteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportSamplingSiteActionPerformed
-        
-    }//GEN-LAST:event_btnReportSamplingSiteActionPerformed
-
-    private void btnReportWaterSpringsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportWaterSpringsActionPerformed
-        
-    }//GEN-LAST:event_btnReportWaterSpringsActionPerformed
-
-    private void btnGeneratePDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGeneratePDFActionPerformed
-        
-    }//GEN-LAST:event_btnGeneratePDFActionPerformed
-
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
         dispose();
         login l = new login();
         l.setVisible(true);
     }//GEN-LAST:event_btnLogoutActionPerformed
 
-    private void cbxEntitySpringsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxEntitySpringsActionPerformed
-        
-    }//GEN-LAST:event_cbxEntitySpringsActionPerformed
+    private void btnGeneratePDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGeneratePDFActionPerformed
 
-    private void cbxCantonSpringsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxCantonSpringsActionPerformed
-        cd.loadDistrictsByCanton(cbxCantonSprings, cbxDistrictSprings);
-    }//GEN-LAST:event_cbxCantonSpringsActionPerformed
+    }//GEN-LAST:event_btnGeneratePDFActionPerformed
 
-    private void cbxProvinceSpringsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxProvinceSpringsActionPerformed
-        cc.loadCantonsByProvince(cbxProvinceSprings, cbxCantonSprings);
-        cd.loadDistrictsByCanton(cbxCantonSprings, cbxDistrictSprings);
-    }//GEN-LAST:event_cbxProvinceSpringsActionPerformed
+    private void btnReportSamplingSiteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportSamplingSiteActionPerformed
+
+    }//GEN-LAST:event_btnReportSamplingSiteActionPerformed
+
+    private void btnReportWaterSpringsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportWaterSpringsActionPerformed
+
+    }//GEN-LAST:event_btnReportWaterSpringsActionPerformed
+
+    private void cbxDistrictSamplingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxDistrictSamplingActionPerformed
+
+    }//GEN-LAST:event_cbxDistrictSamplingActionPerformed
+
+    private void cbxDistrictSamplingItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxDistrictSamplingItemStateChanged
+        sampling.getIdDistrict(cbxDistrictSampling);
+    }//GEN-LAST:event_cbxDistrictSamplingItemStateChanged
+
+    private void cbxCantonSamplingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxCantonSamplingActionPerformed
+        cd.loadDistrictsByCanton(cbxCantonSampling, cbxDistrictSampling);
+    }//GEN-LAST:event_cbxCantonSamplingActionPerformed
+
+    private void cbxCantonSamplingItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxCantonSamplingItemStateChanged
+        sampling.getIDCanton(cbxCantonSampling);
+    }//GEN-LAST:event_cbxCantonSamplingItemStateChanged
 
     private void cbxProvinceSamplingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxProvinceSamplingActionPerformed
         cc.loadCantonsByProvince(cbxProvinceSampling, cbxCantonSampling);
         cd.loadDistrictsByCanton(cbxCantonSampling, cbxDistrictSampling);
     }//GEN-LAST:event_cbxProvinceSamplingActionPerformed
 
-    private void cbxDistrictSamplingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxDistrictSamplingActionPerformed
+    private void cbxProvinceSamplingItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxProvinceSamplingItemStateChanged
+        sampling.getIDProvince(cbxProvinceSampling);
+    }//GEN-LAST:event_cbxProvinceSamplingItemStateChanged
+
+    private void btnDeleteSamplingSiteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteSamplingSiteActionPerformed
+        sampling.deleteSamplingSite();
+        loadTables();
+    }//GEN-LAST:event_btnDeleteSamplingSiteActionPerformed
+
+    private void btnSaveSamplingSiteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveSamplingSiteActionPerformed
+ loadTables();
+    }//GEN-LAST:event_btnSaveSamplingSiteActionPerformed
+
+    private void btnEditSamplingSiteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditSamplingSiteActionPerformed
         
-    }//GEN-LAST:event_cbxDistrictSamplingActionPerformed
+        sampling.clearFields(txtSamplingName);
+        loadTables();
+    }//GEN-LAST:event_btnEditSamplingSiteActionPerformed
 
-    private void cbxCantonSamplingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxCantonSamplingActionPerformed
-        cd.loadDistrictsByCanton(cbxCantonSampling, cbxDistrictSampling);
-    }//GEN-LAST:event_cbxCantonSamplingActionPerformed
+    private void tblSamplingSiteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblSamplingSiteMouseClicked
 
-    private void tblSpringsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblSpringsMouseClicked
-       springs.selectedRow(tblSprings, txtSpringsName, txtSpringsAdress, txtSpringsLatitude, txtSpringsLenght, txtSpringsDescription, cbxProvinceSprings, cbxCantonSprings, cbxDistrictSprings, cbxEntitySprings);
-    }//GEN-LAST:event_tblSpringsMouseClicked
+    }//GEN-LAST:event_tblSamplingSiteMouseClicked
+
+    private void tblFlowMeasureMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblFlowMeasureMouseClicked
+        measure.selectedRow(tblFlowMeasure, cbxMethod, txtFlowObservation, cbxWeather, txtDoneBy, cbxSpringsMeasure, cbxSamplingMeasure);
+    }//GEN-LAST:event_tblFlowMeasureMouseClicked
+
+    private void cbxSamplingMeasureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxSamplingMeasureActionPerformed
+
+    }//GEN-LAST:event_cbxSamplingMeasureActionPerformed
+
+    private void cbxSamplingMeasureItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxSamplingMeasureItemStateChanged
+        measure.getIdSampling(cbxSamplingMeasure);
+    }//GEN-LAST:event_cbxSamplingMeasureItemStateChanged
+
+    private void cbxSpringsMeasureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxSpringsMeasureActionPerformed
+
+    }//GEN-LAST:event_cbxSpringsMeasureActionPerformed
+
+    private void cbxSpringsMeasureItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxSpringsMeasureItemStateChanged
+        measure.getIDSprings(cbxSpringsMeasure);
+    }//GEN-LAST:event_cbxSpringsMeasureItemStateChanged
+
+    private void btnFlowDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFlowDeleteActionPerformed
+        measure.deleteFlowMeasurement();
+        loadTables();
+    }//GEN-LAST:event_btnFlowDeleteActionPerformed
+
+    private void btnFlowSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFlowSaveActionPerformed
+        measure.addFlowMeasurement(cbxMethod, txtFlowObservation, cbxWeather, txtDoneBy);
+        loadTables();
+    }//GEN-LAST:event_btnFlowSaveActionPerformed
+
+    private void btnFlowEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFlowEditActionPerformed
+        measure.updateFlowMeasurement(cbxMethod, txtFlowObservation, cbxWeather, txtDoneBy);
+        measure.clearFields(txtFlowObservation, txtDoneBy);
+        loadTables();
+    }//GEN-LAST:event_btnFlowEditActionPerformed
+
+    private void cbxDistrictSpringsItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxDistrictSpringsItemStateChanged
+        springs.getIdDistrict(cbxDistrictSprings);
+    }//GEN-LAST:event_cbxDistrictSpringsItemStateChanged
+
+    private void cbxCantonSpringsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxCantonSpringsActionPerformed
+        cd.loadDistrictsByCanton(cbxCantonSprings, cbxDistrictSprings);
+    }//GEN-LAST:event_cbxCantonSpringsActionPerformed
+
+    private void cbxCantonSpringsItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxCantonSpringsItemStateChanged
+        springs.getIDCanton(cbxCantonSprings);
+    }//GEN-LAST:event_cbxCantonSpringsItemStateChanged
+
+    private void cbxProvinceSpringsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxProvinceSpringsActionPerformed
+        cc.loadCantonsByProvince(cbxProvinceSprings, cbxCantonSprings);
+        cd.loadDistrictsByCanton(cbxCantonSprings, cbxDistrictSprings);
+    }//GEN-LAST:event_cbxProvinceSpringsActionPerformed
+
+    private void cbxProvinceSpringsItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxProvinceSpringsItemStateChanged
+        springs.getIDProvince(cbxProvinceSprings);
+    }//GEN-LAST:event_cbxProvinceSpringsItemStateChanged
+
+    private void btnSpringsDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSpringsDeleteActionPerformed
+        springs.deleteWaterSprings();
+        loadTables();
+    }//GEN-LAST:event_btnSpringsDeleteActionPerformed
 
     private void btnSpringsSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSpringsSaveActionPerformed
         springs.addWaterSpring(txtSpringsName, txtSpringsAdress, txtSpringsLatitude, txtSpringsLenght, txtSpringsDescription);
@@ -1246,147 +1057,34 @@ public class Register extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSpringsSaveActionPerformed
 
     private void btnSpringsEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSpringsEditActionPerformed
-    springs.updateWaterSprings(txtSpringsName, txtSpringsAdress, txtSpringsLatitude, txtSpringsLenght, txtSpringsDescription);
-    springs.clearFields(txtSpringsName, txtSpringsAdress, txtSpringsLatitude, txtSpringsLenght, txtSpringsDescription);
-    loadTables();
+        springs.updateWaterSprings(txtSpringsName, txtSpringsAdress, txtSpringsLatitude, txtSpringsLenght, txtSpringsDescription);
+        springs.clearFields(txtSpringsName, txtSpringsAdress, txtSpringsLatitude, txtSpringsLenght, txtSpringsDescription);
+        loadTables();
     }//GEN-LAST:event_btnSpringsEditActionPerformed
 
-    private void btnSpringsDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSpringsDeleteActionPerformed
-        springs.deleteWaterSprings();
-        loadTables();
-    }//GEN-LAST:event_btnSpringsDeleteActionPerformed
+    private void tblSpringsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblSpringsMouseClicked
 
-    private void cbxProvinceSpringsItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxProvinceSpringsItemStateChanged
-        springs.getIDProvince(cbxProvinceSprings);
-    }//GEN-LAST:event_cbxProvinceSpringsItemStateChanged
-
-    private void cbxCantonSpringsItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxCantonSpringsItemStateChanged
-        springs.getIDCanton(cbxCantonSprings);
-    }//GEN-LAST:event_cbxCantonSpringsItemStateChanged
-
-    private void cbxDistrictSpringsItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxDistrictSpringsItemStateChanged
-        springs.getIdDistrict(cbxDistrictSprings);
-    }//GEN-LAST:event_cbxDistrictSpringsItemStateChanged
-
-    private void cbxEntitySpringsItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxEntitySpringsItemStateChanged
-        springs.getIdEntity(cbxEntitySprings);
-    }//GEN-LAST:event_cbxEntitySpringsItemStateChanged
-
-    private void tblEntityMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblEntityMouseClicked
-        entity.selectedRow(tblEntity, txtEntityLegalId, txtEntityNumber, txtEntityName, txtEntityEmail, txtEntityAdress, txtEntityDescription);
-    }//GEN-LAST:event_tblEntityMouseClicked
-
-    private void btnEntitySaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntitySaveActionPerformed
-        entity.addEntity(txtEntityLegalId, txtEntityNumber, txtEntityName, txtEntityEmail, txtEntityAdress, txtEntityDescription);
-        loadTables();
-    }//GEN-LAST:event_btnEntitySaveActionPerformed
-
-    private void btnEntityEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntityEditActionPerformed
-        entity.updateEntity(txtEntityLegalId, txtEntityNumber, txtEntityName, txtEntityEmail, txtEntityAdress, txtEntityDescription);
-        entity.clearFields(txtDoneBy, txtDoneBy, txtEntityName, txtUserEmail, txtDoneBy, txtEntityDescription);
-        loadTables();
-    }//GEN-LAST:event_btnEntityEditActionPerformed
-
-    private void btnEntityDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntityDeleteActionPerformed
-        entity.deleteEntity();
-        loadTables();
-    }//GEN-LAST:event_btnEntityDeleteActionPerformed
-
-    private void tblFlowMeasureMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblFlowMeasureMouseClicked
-        measure.selectedRow(tblFlowMeasure, cbxMethod, txtFlowObservation, cbxWeather, txtDoneBy, cbxSpringsMeasure, cbxSamplingMeasure);
-    }//GEN-LAST:event_tblFlowMeasureMouseClicked
-
-    private void btnFlowSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFlowSaveActionPerformed
-        measure.addFlowMeasurement(cbxMethod, txtFlowObservation, cbxWeather, txtDoneBy);
-        loadTables();
-    }//GEN-LAST:event_btnFlowSaveActionPerformed
-
-    private void btnFlowDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFlowDeleteActionPerformed
-        measure.deleteFlowMeasurement();
-        loadTables();
-    }//GEN-LAST:event_btnFlowDeleteActionPerformed
-
-    private void btnFlowEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFlowEditActionPerformed
-    measure.updateFlowMeasurement(cbxMethod, txtFlowObservation, cbxWeather, txtDoneBy);
-    measure.clearFields(txtFlowObservation, txtDoneBy);
-    loadTables();
-    }//GEN-LAST:event_btnFlowEditActionPerformed
-
-    private void cbxSpringsMeasureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxSpringsMeasureActionPerformed
-        
-    }//GEN-LAST:event_cbxSpringsMeasureActionPerformed
-
-    private void btnUserSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUserSaveActionPerformed
-    user.addUser(txtUserName, txtUserEmail, txtUserPassaword, cbxEntityUser, cbxRolUser);
-    loadTables();
-    }//GEN-LAST:event_btnUserSaveActionPerformed
-
-    private void btnSaveSamplingSiteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveSamplingSiteActionPerformed
-    sampling.addSamplingSite(txtSamplingName, cbxProvinceSampling, cbxCantonSampling, cbxDistrictSampling, cbxEntitySampling);
-    loadTables();
-    }//GEN-LAST:event_btnSaveSamplingSiteActionPerformed
-
-    private void btnEditSamplingSiteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditSamplingSiteActionPerformed
-    sampling.updateSamplingSite(txtSamplingName, cbxProvinceSampling, cbxCantonSampling, cbxDistrictSampling, cbxEntitySampling);
-    sampling.clearFields(txtSamplingName);
-    loadTables();
-    }//GEN-LAST:event_btnEditSamplingSiteActionPerformed
-
-    private void btnDeleteSamplingSiteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteSamplingSiteActionPerformed
-    sampling.deleteSamplingSite();
-    loadTables();
-    }//GEN-LAST:event_btnDeleteSamplingSiteActionPerformed
-
-    private void btnUserEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUserEditActionPerformed
-    user.updateUser(txtUserName, txtUserEmail, txtUserPassaword, cbxEntityUser, cbxRolUser);
-    user.clearFields(txtUserName, txtUserEmail,txtUserPassaword);
-    loadTables();
-    }//GEN-LAST:event_btnUserEditActionPerformed
+    }//GEN-LAST:event_tblSpringsMouseClicked
 
     private void btnUserDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUserDeleteActionPerformed
-    user.deleteUser();
-    loadTables();
+        user.deleteUser();
+        loadTables();
     }//GEN-LAST:event_btnUserDeleteActionPerformed
 
+    private void btnUserSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUserSaveActionPerformed
+        user.addUserByEntity(txtUserName, txtUserEmail, txtUserPassaword,this.entityId, cbxRolUser);
+        loadTables();
+    }//GEN-LAST:event_btnUserSaveActionPerformed
+
+    private void btnUserEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUserEditActionPerformed
+        user.updateUserByEntity(txtUserName, txtUserEmail, txtUserPassaword,this.entityId, cbxRolUser);
+        user.clearFields(txtUserName, txtUserEmail, txtUserPassaword);
+        loadTables();
+    }//GEN-LAST:event_btnUserEditActionPerformed
+
     private void tblUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblUserMouseClicked
-    user.selectedRow(tblUser, txtUserName, txtUserEmail, txtUserPassaword, cbxEntityUser, cbxRolUser);
+        user.selectedRowByEntity(tblUser, txtUserName, txtUserEmail, txtUserPassaword, cbxRolUser);
     }//GEN-LAST:event_tblUserMouseClicked
-
-    private void cbxSamplingMeasureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxSamplingMeasureActionPerformed
-     
-    }//GEN-LAST:event_cbxSamplingMeasureActionPerformed
-
-    private void tblSamplingSiteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblSamplingSiteMouseClicked
-        sampling.selectedRow(tblSamplingSite, txtSamplingName, cbxProvinceSampling, cbxCantonSampling, cbxDistrictSampling, cbxEntitySampling);
-    }//GEN-LAST:event_tblSamplingSiteMouseClicked
-
-    private void cbxProvinceSamplingItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxProvinceSamplingItemStateChanged
-        sampling.getIDProvince(cbxProvinceSampling);
-    }//GEN-LAST:event_cbxProvinceSamplingItemStateChanged
-
-    private void cbxCantonSamplingItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxCantonSamplingItemStateChanged
-         sampling.getIDCanton(cbxCantonSampling);
-    }//GEN-LAST:event_cbxCantonSamplingItemStateChanged
-
-    private void cbxDistrictSamplingItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxDistrictSamplingItemStateChanged
-         sampling.getIdDistrict(cbxDistrictSampling);
-    }//GEN-LAST:event_cbxDistrictSamplingItemStateChanged
-
-    private void cbxEntitySamplingItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxEntitySamplingItemStateChanged
-         sampling.getIdEntity(cbxEntitySampling);
-    }//GEN-LAST:event_cbxEntitySamplingItemStateChanged
-
-    private void cbxSpringsMeasureItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxSpringsMeasureItemStateChanged
-        measure.getIDSprings(cbxSpringsMeasure);
-    }//GEN-LAST:event_cbxSpringsMeasureItemStateChanged
-
-    private void cbxSamplingMeasureItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxSamplingMeasureItemStateChanged
-        measure.getIdSampling(cbxSamplingMeasure);
-    }//GEN-LAST:event_cbxSamplingMeasureItemStateChanged
-
-    private void cbxRolUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxRolUserActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbxRolUserActionPerformed
 
     private void cbxRolUserItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxRolUserItemStateChanged
         user.getIdRol(cbxRolUser);
@@ -1394,7 +1092,6 @@ public class Register extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel Entities;
     private javax.swing.JPanel Medition;
     private javax.swing.JPanel Muestreo;
     private javax.swing.JPanel Reports;
@@ -1402,9 +1099,6 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JPanel User;
     private javax.swing.JButton btnDeleteSamplingSite;
     private javax.swing.JButton btnEditSamplingSite;
-    private javax.swing.JButton btnEntityDelete;
-    private javax.swing.JButton btnEntityEdit;
-    private javax.swing.JButton btnEntitySave;
     private javax.swing.JButton btnFlowDelete;
     private javax.swing.JButton btnFlowEdit;
     private javax.swing.JButton btnFlowSave;
@@ -1424,9 +1118,6 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbxCantonSprings;
     private javax.swing.JComboBox<String> cbxDistrictSampling;
     private javax.swing.JComboBox<String> cbxDistrictSprings;
-    private javax.swing.JComboBox<String> cbxEntitySampling;
-    public javax.swing.JComboBox<String> cbxEntitySprings;
-    private javax.swing.JComboBox<String> cbxEntityUser;
     private javax.swing.JComboBox<String> cbxMethod;
     private javax.swing.JComboBox<String> cbxProvinceSampling;
     private javax.swing.JComboBox<String> cbxProvinceSprings;
@@ -1438,19 +1129,11 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JLabel lblEmailUser;
-    private javax.swing.JLabel lblEntityAdress;
-    private javax.swing.JLabel lblEntityDescription;
-    private javax.swing.JLabel lblEntityEmail;
-    private javax.swing.JLabel lblEntityName;
-    private javax.swing.JLabel lblEntityTelephoneNumber;
     private javax.swing.JLabel lblFlowDone;
     private javax.swing.JLabel lblFlowObservation;
-    private javax.swing.JLabel lblIdLegal;
-    private javax.swing.JLabel lblMeassureSite;
     private javax.swing.JLabel lblMeassureSite1;
     private javax.swing.JLabel lblMeassureSite2;
     private javax.swing.JLabel lblMeassureSite3;
@@ -1461,43 +1144,31 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JLabel lblSpringsDescripsion1;
     private javax.swing.JLabel lblSpringsDescripsion2;
     private javax.swing.JLabel lblSpringsDescripsion3;
-    private javax.swing.JLabel lblSpringsDescripsion4;
     private javax.swing.JLabel lblSpringsLatitude;
     private javax.swing.JLabel lblSpringsLenght;
     private javax.swing.JLabel lblSpringsName;
     private javax.swing.JLabel lblUserName;
     private javax.swing.JLabel lblUserName1;
     private javax.swing.JLabel lblUserName10;
-    private javax.swing.JLabel lblUserName2;
     private javax.swing.JLabel lblUserName7;
     private javax.swing.JLabel lblUserName8;
     private javax.swing.JLabel lblUserName9;
     private javax.swing.JPanel pnCaudalTable;
-    private javax.swing.JPanel pnEntityTable;
     private javax.swing.JPanel pnInfoCaudal;
-    private javax.swing.JPanel pnInfoEntities;
     private javax.swing.JPanel pnInfoMeassureSite;
     private javax.swing.JPanel pnInfoSprings;
     private javax.swing.JPanel pnInfoUser;
-    private javax.swing.JPanel pnMainEntity;
     private javax.swing.JPanel pnMainMeassureSite;
     private javax.swing.JPanel pnMainSprings;
     private javax.swing.JPanel pnMainUser1;
     private javax.swing.JPanel pnMeassureSiteTable;
     private javax.swing.JPanel pnSpringsTable;
     private javax.swing.JPanel pnUserTable;
-    private javax.swing.JTable tblEntity;
     private javax.swing.JTable tblFlowMeasure;
     private javax.swing.JTable tblSamplingSite;
     private javax.swing.JTable tblSprings;
     private javax.swing.JTable tblUser;
     private javax.swing.JTextField txtDoneBy;
-    private javax.swing.JTextField txtEntityAdress;
-    private javax.swing.JTextField txtEntityDescription;
-    private javax.swing.JTextField txtEntityEmail;
-    private javax.swing.JTextField txtEntityLegalId;
-    private javax.swing.JTextField txtEntityName;
-    private javax.swing.JTextField txtEntityNumber;
     private javax.swing.JTextField txtFlowObservation;
     private javax.swing.JTextField txtSamplingName;
     private javax.swing.JTextField txtSpringsAdress;
@@ -1509,6 +1180,5 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JTextField txtUserName;
     private javax.swing.JTextField txtUserPassaword;
     // End of variables declaration//GEN-END:variables
-
 
 }

@@ -70,6 +70,72 @@ public class WaterSpringsDAO {
         return waterSpringsList;
     }
 
+    public List<WaterSprings> readWaterSpringsByEntity(int entityID) {
+        DBConnection db = new DBConnection();
+        List<WaterSprings> waterSpringsList = new ArrayList<>();
+        String sql = "SELECT * FROM water_springs WHERE entity_id = ?";
+
+        try {
+            PreparedStatement ps = db.getConnection().prepareStatement(sql);
+            ps.setInt(1, entityID); // Establecer el ID de entidad
+            ResultSet resultSet = ps.executeQuery();
+
+            while (resultSet.next()) {
+                int id = resultSet.getInt("id");
+                String springName = resultSet.getString("name");
+                String address = resultSet.getString("address");
+                String latitute = resultSet.getString("latitute");
+                String length = resultSet.getString("length");
+                String description = resultSet.getString("description");
+                int provinceId = resultSet.getInt("province_id");
+                int cantonId = resultSet.getInt("canton_id");
+                int districtId = resultSet.getInt("district_id");
+                int entityId = resultSet.getInt("entity_id");
+
+                WaterSprings waterSprings = new WaterSprings(id, springName, address, latitute, length, description, provinceId, cantonId, districtId, entityId);
+                waterSpringsList.add(waterSprings);
+            }
+        } catch (SQLException e) {
+            System.err.println("Error: " + e.getMessage());
+        } finally {
+            db.disconnect();
+        }
+
+        return waterSpringsList;
+    }
+
+    public WaterSprings getWaterSprings(int id) {
+        WaterSprings waterSprings = null;
+        DBConnection db = new DBConnection();
+        String sql = "SELECT * FROM water_springs WHERE id = ?";
+
+        try (PreparedStatement ps = db.getConnection().prepareStatement(sql)) {
+            ps.setInt(1, id);
+            ResultSet resultSet = ps.executeQuery();
+
+            if (resultSet.next()) {
+                waterSprings = new WaterSprings(
+                        resultSet.getInt("id"),
+                        resultSet.getString("name"),
+                        resultSet.getString("address"),
+                        resultSet.getString("latitute"),
+                        resultSet.getString("length"),
+                        resultSet.getString("description"),
+                        resultSet.getInt("province_id"),
+                        resultSet.getInt("canton_id"),
+                        resultSet.getInt("district_id"),
+                        resultSet.getInt("entity_id")
+                );
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            db.disconnect();
+        }
+
+        return waterSprings;
+    }
+
     public void update(WaterSprings springs) {
         DBConnection db = new DBConnection();
         String consultaSQL = "UPDATE water_springs SET name=?, address=?, latitute=?,length=?,description=?,province_id=?,canton_id=?,district_id=?,entity_id=? WHERE id=?";
@@ -133,7 +199,7 @@ public class WaterSpringsDAO {
         }
         return value;
     }
-    
+
     public String getNameWater(int id) {
         String value = "";
         DBConnection db = new DBConnection();

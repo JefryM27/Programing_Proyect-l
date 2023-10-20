@@ -1,6 +1,6 @@
 package View;
 
-import Controller.CtrlUser;
+import Controller.Login;
 import java.awt.Color;
 
 /**
@@ -11,7 +11,7 @@ public class login extends javax.swing.JFrame {
 
     private int xMouse;
     private int yMouse;
-    CtrlUser user = new CtrlUser();
+    Login user = new Login();
 
     public login() {
         initComponents();

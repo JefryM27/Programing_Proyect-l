@@ -27,10 +27,18 @@ public class CtrlSprings {
     int idCanton;
     int idDistrict;
     int idEntity;
-    
-        
+
     public void loadSprings(JComboBox c) {
         List<WaterSprings> springs = this.dao.readWaterSprings();
+        DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
+        for (WaterSprings water : springs) {
+            model.addElement(water.getSpringName());
+        }
+        c.setModel(model);
+    }
+
+    public void loadSpringsByEntity(JComboBox c, int currentEntityId) {
+        List<WaterSprings> springs = this.dao.readWaterSpringsByEntity(currentEntityId);
         DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
         for (WaterSprings water : springs) {
             model.addElement(water.getSpringName());
@@ -52,6 +60,22 @@ public class CtrlSprings {
         }
     }
 
+    public void loadDataSpringsByEntity(JTable table, int entityId) {
+        DefaultTableModel model = (DefaultTableModel) table.getModel();
+        TableRowSorter<TableModel> order = new TableRowSorter<TableModel>(model);
+        table.setRowSorter(order);
+        model.setRowCount(0);
+        List<WaterSprings> springs = dao.readWaterSprings();
+
+        for (WaterSprings water : springs) {
+            if (water.getEntityId() == entityId) {
+                Object[] row = {water.getId(), water.getSpringName(), water.getAddress(), water.getLatitute(), water.getLenght(),
+                    water.getDescription(), this.province.getNameProvince(water.getProvinceId()), this.canton.getNameCanton(water.getCantonId()), this.district.getNameDistrict(water.getDistrictId()), this.entity.getNameEntity(water.getEntityId())};
+                model.addRow(row);
+            }
+        }
+    }
+
     public void addWaterSpring(JTextField name, JTextField address, JTextField latitude, JTextField length, JTextField description) {
         try {
             this.dao.create(new WaterSprings(name.getText(), address.getText(), latitude.getText(), length.getText(), description.getText(), this.idProvince, this.idCanton, this.idDistrict, this.idEntity));
@@ -60,8 +84,9 @@ public class CtrlSprings {
             JOptionPane.showMessageDialog(null, "No se pudo guardar la naciente, error: " + e.toString());
         }
     }
-    public void updateWaterSprings(JTextField name, JTextField address, JTextField latitude, JTextField length, JTextField description){
-        this.dao.update(new WaterSprings(this.id,name.getText(), address.getText(), latitude.getText(), length.getText(), description.getText(), this.idProvince, this.idCanton, this.idDistrict, this.idEntity));
+
+    public void updateWaterSprings(JTextField name, JTextField address, JTextField latitude, JTextField length, JTextField description) {
+        this.dao.update(new WaterSprings(this.id, name.getText(), address.getText(), latitude.getText(), length.getText(), description.getText(), this.idProvince, this.idCanton, this.idDistrict, this.idEntity));
     }
 
     public void selectedRow(JTable table, JTextField name, JTextField address, JTextField latitude, JTextField length, JTextField description, JComboBox province, JComboBox canton, JComboBox district, JComboBox entity) {
@@ -89,7 +114,8 @@ public class CtrlSprings {
     public void deleteWaterSprings() {
         this.dao.delete(this.id);
     }
-    public void clearFields(JTextField name, JTextField address, JTextField latitude, JTextField length, JTextField description){
+
+    public void clearFields(JTextField name, JTextField address, JTextField latitude, JTextField length, JTextField description) {
         name.setText("");
         address.setText("");
         latitude.setText("");
