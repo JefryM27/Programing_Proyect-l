@@ -30,6 +30,7 @@ public class CtrlMeasurement {
     int idSprings;
     int idSampling;
 
+    // SUPER ADMIN
     public void loadDataMeasurements(JTable table) {
 
         DefaultTableModel model = (DefaultTableModel) table.getModel();
@@ -44,28 +45,19 @@ public class CtrlMeasurement {
         }
     }
 
-    public void loadDataMeasurementsByEntity(JTable table, int entityId) {
+    // ADMIN
+    public void loadDataMeasurementsForADM(JTable table, int entityId) {
         DefaultTableModel model = (DefaultTableModel) table.getModel();
         TableRowSorter<TableModel> order = new TableRowSorter<TableModel>(model);
         table.setRowSorter(order);
         model.setRowCount(0);
-
         List<FlowMeasurement> measurement = dao.readFlowMeasurements();
-
         for (FlowMeasurement flow : measurement) {
-            // Comprueba si el naciente al que pertenece esta medición pertenece a la entidad del usuario logueado
+            // Checks if the nascent to which this measurement belongs belongs to the entity of the logged in user
             WaterSprings spring = springDAO.getWaterSprings(flow.getSpringsId());
             if (spring != null && spring.getEntityId() == entityId) {
-                Object[] row = {
-                    flow.getId(),
-                    flow.getCapacity(),
-                    flow.getMetod(),
-                    flow.getObservation(),
-                    flow.getDate(),
-                    flow.getWeather(),
-                    flow.getDone(),
-                    this.springDAO.getNameWater(flow.getSpringsId()),
-                    this.samplingDAO.getNameSampling(flow.getSamplingId())
+                Object[] row = {flow.getId(), flow.getCapacity(), flow.getMetod(), flow.getObservation(), flow.getDate(), flow.getWeather(), flow.getDone(),
+                    this.springDAO.getNameWater(flow.getSpringsId()), this.samplingDAO.getNameSampling(flow.getSamplingId())
                 };
                 model.addRow(row);
             }
@@ -87,14 +79,17 @@ public class CtrlMeasurement {
         }
     }
 
-    public void updateFlowMeasurement(JComboBox<String> metod, JTextField observation, JComboBox<String> weather, JTextField done) {
+    public void updateFlowMeasurement(JTable table, JComboBox<String> metod, JTextField observation, JComboBox<String> weather, JTextField done) {
         if (!Validation.validateLyrics(observation.getText()) || !Validation.validateLyrics(done.getText())) {
             JOptionPane.showMessageDialog(null, "Error en el nombre y descripcion de la naciente, solo se permiten letras.");
         } else {
             try {
-                double randomCapacity = randomCapacity();
-                Date randomDate = randomDate();
-                this.dao.update(new FlowMeasurement(this.id, this.idSprings, this.idSampling, randomCapacity, (String) metod.getSelectedItem(), observation.getText(), (String) weather.getSelectedItem(), done.getText(), randomDate));
+                int row = table.getSelectedRow();
+                if (row >= 0) {
+                    double selectedCapacity = Double.parseDouble(table.getValueAt(row, 1).toString());
+                    Date selectedDate = (Date) table.getValueAt(row, 4);
+                    this.dao.update(new FlowMeasurement(this.id, this.idSprings, this.idSampling, selectedCapacity, (String) metod.getSelectedItem(), observation.getText(), (String) weather.getSelectedItem(), done.getText(), selectedDate));
+                }
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "No se pudo guardar la medición de caudal, error: " + e.toString());
             }

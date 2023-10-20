@@ -32,18 +32,11 @@ public class CtrlSampling {
     int idCanton;
     int idDistrict;
     int idEntity;
+    private static int entityADM;
 
+    // SUPER ADMIN
     public void loadSampling(JComboBox c) {
         List<SamplingSite> dao = this.dao.readSamplingSites();
-        DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
-        for (SamplingSite site : dao) {
-            model.addElement(site.getSamplingName());
-        }
-        c.setModel(model);
-    }
-
-    public void loadSamplingByEntity(JComboBox c, int currentEntityId) {
-        List<SamplingSite> dao = this.dao.readSamplingSitesByEntity(currentEntityId);
         DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
         for (SamplingSite site : dao) {
             model.addElement(site.getSamplingName());
@@ -65,34 +58,15 @@ public class CtrlSampling {
         }
     }
 
-    public void loadDataSamplingSitesByEntity(JTable table, int entityId) {
-        DefaultTableModel model = (DefaultTableModel) table.getModel();
-        TableRowSorter<TableModel> order = new TableRowSorter<TableModel>(model);
-        table.setRowSorter(order);
-        model.setRowCount(0);
-
-        List<SamplingSite> site = dao.readSamplingSites();
-
-        for (SamplingSite sampling : site) {
-            if (sampling.getEntity_id() == entityId) {
-                Object[] row = {
-                    sampling.getId(), sampling.getSamplingName(), this.province.getNameProvince(sampling.getProvince_id()), this.canton.getNameCanton(sampling.getCanton_id()), this.district.getNameDistrict(sampling.getDistrict_id()), this.entity.getNameEntity(sampling.getEntity_id())
-                };
-                model.addRow(row);
-            }
-        }
-    }
-
     public void addSamplingSite(JTextField name, JComboBox province, JComboBox canton, JComboBox district, JComboBox entity) {
         try {
             String siteName = name.getText();
-
             if (Validation.verificateSamplingSiteExisting(siteName)) {
                 JOptionPane.showMessageDialog(null, "El sitio de muestreo que desea registrar ya existe en la base de datos.");
             } else if (!Validation.validateLyrics(siteName)) {
                 JOptionPane.showMessageDialog(null, "Error de formato en el nombre del sitio de muestreo.");
             } else {
-                this.dao.create(new SamplingSite(this.id, siteName, this.idProvince, this.idCanton, this.idDistrict, this.idEntity));
+                this.dao.create(new SamplingSite(siteName, this.idProvince, this.idCanton, this.idDistrict, this.idEntity));
                 clearFields(name);
             }
         } catch (Exception e) {
@@ -135,6 +109,68 @@ public class CtrlSampling {
         }
     }
 
+    // ADMIN
+    public void loadSamplingForADM(JComboBox c, int currentEntityId) {
+        List<SamplingSite> dao = this.dao.readSamplingSitesByEntity(currentEntityId);
+        DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
+        for (SamplingSite site : dao) {
+            model.addElement(site.getSamplingName());
+        }
+        c.setModel(model);
+    }
+
+    public void loadDataSamplingSitesForADM(JTable table, int entityId) {
+        DefaultTableModel model = (DefaultTableModel) table.getModel();
+        TableRowSorter<TableModel> order = new TableRowSorter<TableModel>(model);
+        table.setRowSorter(order);
+        model.setRowCount(0);
+
+        List<SamplingSite> site = dao.readSamplingSites();
+
+        for (SamplingSite sampling : site) {
+            if (sampling.getEntity_id() == entityId) {
+                Object[] row = {
+                    sampling.getId(), sampling.getSamplingName(), this.province.getNameProvince(sampling.getProvince_id()), this.canton.getNameCanton(sampling.getCanton_id()), this.district.getNameDistrict(sampling.getDistrict_id()), this.entity.getNameEntity(sampling.getEntity_id())
+                };
+                model.addRow(row);
+            }
+        }
+    }
+
+    public void addSamplingSiteForADM(JTextField name, JComboBox province, JComboBox canton, JComboBox district) {
+        try {
+            String siteName = name.getText();
+
+            if (Validation.verificateSamplingSiteExisting(siteName)) {
+                JOptionPane.showMessageDialog(null, "El sitio de muestreo que desea registrar ya existe en la base de datos.");
+            } else if (!Validation.validateLyrics(siteName)) {
+                JOptionPane.showMessageDialog(null, "Error de formato en el nombre del sitio de muestreo.");
+            } else {
+                this.dao.create(new SamplingSite(siteName, this.idProvince, this.idCanton, this.idDistrict, entityADM));
+                clearFields(name);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No se pudo guardar el sitio de muestreo, error: " + e.toString());
+        }
+    }
+
+    public void updateSamplingSiteForADM(JTextField name, JComboBox province, JComboBox canton, JComboBox district) {
+        try {
+            String siteName = name.getText();
+
+            if (Validation.verificateSamplingSiteExisting(siteName)) {
+                JOptionPane.showMessageDialog(null, "El sitio de muestreo que desea registrar ya existe en la base de datos.");
+            } else if (!Validation.validateLyrics(siteName)) {
+                JOptionPane.showMessageDialog(null, "Error de formato en el nombre del sitio de muestreo.");
+            } else {
+                this.dao.update(new SamplingSite(this.id, name.getText(), this.idProvince, this.idCanton, this.idDistrict, entityADM));
+                clearFields(name);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No se pudo guardar el sitio de muestreo, error: " + e.toString());
+        }
+    }
+
     public void deleteSamplingSite() {
         this.dao.delete(this.id);
     }
@@ -157,5 +193,9 @@ public class CtrlSampling {
 
     public void getIdEntity(JComboBox entity) {
         this.idEntity = this.entity.getIDEntity(entity.getSelectedItem().toString());
+    }
+
+    public static void setEntityADM(int id) {
+        entityADM = id;
     }
 }

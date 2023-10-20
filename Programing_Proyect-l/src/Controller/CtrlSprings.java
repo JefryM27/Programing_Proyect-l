@@ -77,7 +77,7 @@ public class CtrlSprings {
             }
         }
     }
-    
+
     public void selectedRow(JTable table, JTextField name, JTextField address, JTextField latitude, JTextField length, JTextField description, JComboBox province, JComboBox canton, JComboBox district, JComboBox entity) {
         try {
             int row = table.getSelectedRow();
@@ -101,7 +101,7 @@ public class CtrlSprings {
     }
 
     // ADMIN
-    public void loadSpringsByEntity(JComboBox c, int currentEntityId) {
+    public void loadSpringsForADM(JComboBox c, int currentEntityId) {
         List<WaterSprings> springs = this.dao.readWaterSpringsByEntity(currentEntityId);
         DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
         for (WaterSprings water : springs) {
@@ -110,7 +110,7 @@ public class CtrlSprings {
         c.setModel(model);
     }
 
-    public void loadDataSpringsByEntity(JTable table, int entityId) {
+    public void loadDataSpringsForADM(JTable table, int entityId) {
         DefaultTableModel model = (DefaultTableModel) table.getModel();
         TableRowSorter<TableModel> order = new TableRowSorter<TableModel>(model);
         table.setRowSorter(order);
@@ -126,17 +126,29 @@ public class CtrlSprings {
         }
     }
 
-    public void addWaterSpringForAdmin(JTextField name, JTextField address, JTextField latitude, JTextField length, JTextField description) {
-        try {
-            this.dao.create(new WaterSprings(name.getText(), address.getText(), latitude.getText(), length.getText(), description.getText(), this.idProvince, this.idCanton, this.idDistrict, this.entityId));
-            clearFields(name, address, latitude, length, description);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "No se pudo guardar la naciente, error: " + e.toString());
+    public void addWaterSpringForADM(JTextField name, JTextField address, JTextField latitude, JTextField length, JTextField description) {
+        if (!Validation.validateLyrics(name.getText()) || !Validation.validateLyrics(description.getText())) {
+            JOptionPane.showMessageDialog(null, "Error en el nombre o descripcion de la naciente, solo se permiten letras.");
+        } else {
+            try {
+                this.dao.create(new WaterSprings(name.getText(), address.getText(), latitude.getText(), length.getText(), description.getText(), this.idProvince, this.idCanton, this.idDistrict, entityId));
+                clearFields(name, address, latitude, length, description);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "No se pudo guardar la naciente, error: " + e.toString());
+            }
         }
     }
 
-    public void updateWaterSpringsForAdmin(JTextField name, JTextField address, JTextField latitude, JTextField length, JTextField description) {
-        this.dao.update(new WaterSprings(this.id, name.getText(), address.getText(), latitude.getText(), length.getText(), description.getText(), this.idProvince, this.idCanton, this.idDistrict, this.entityId));
+    public void updateWaterSpringsForADM(JTextField name, JTextField address, JTextField latitude, JTextField length, JTextField description) {
+        if (!Validation.validateLyrics(name.getText()) || !Validation.validateLyrics(description.getText())) {
+            JOptionPane.showMessageDialog(null, "Error en el nombre o descripcion de la naciente, solo se permiten letras.");
+        } else {
+            try {
+                this.dao.update(new WaterSprings(this.id, name.getText(), address.getText(), latitude.getText(), length.getText(), description.getText(), this.idProvince, this.idCanton, this.idDistrict, entityId));
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "No se pudo actualizar la fuente de agua, error: " + e.toString());
+            }
+        }
     }
 
     public void deleteWaterSprings() {

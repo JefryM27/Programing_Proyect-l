@@ -1,7 +1,6 @@
 package View;
 
 import Controller.*;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -13,7 +12,6 @@ public class AdminFrame extends javax.swing.JFrame {
     CtrlProvince cp = new CtrlProvince();
     CtrlCanton cc = new CtrlCanton();
     CtrlDistrict cd = new CtrlDistrict();
-    CtrlRol cr = new CtrlRol();
     CtrlSprings springs = new CtrlSprings();
     CtrlSampling sampling = new CtrlSampling();
     CtrlUser user = new CtrlUser();
@@ -26,7 +24,7 @@ public class AdminFrame extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         loadPlaces();
         loadTables();
-        loadResources();      
+        loadResources();
     }
 
     public void loadPlaces() {
@@ -39,16 +37,17 @@ public class AdminFrame extends javax.swing.JFrame {
     }
 
     public void loadResources() {
+        sampling.getIDProvince(cbxProvinceSampling);
         springs.getIDProvince(cbxProvinceSprings);
-        this.sampling.loadSamplingByEntity(cbxSamplingMeasure, this.entityId);
-        this.springs.loadSpringsByEntity(cbxSpringsMeasure, this.entityId);
+        this.sampling.loadSamplingForADM(cbxSamplingMeasure, this.entityId);
+        this.springs.loadSpringsForADM(cbxSpringsMeasure, this.entityId);
     }
 
     public void loadTables() {
-        this.springs.loadDataSpringsByEntity(tblSprings, this.entityId);
-        this.sampling.loadDataSamplingSitesByEntity(tblSamplingSite, this.entityId);
-        this.user.loadDataUsersByEntity(tblUser, this.entityId);
-        this.measure.loadDataMeasurementsByEntity(tblFlowMeasure, this.entityId);
+        this.springs.loadDataSpringsForADM(tblSprings, this.entityId);
+        this.sampling.loadDataSamplingSitesForADM(tblSamplingSite, this.entityId);
+        this.user.loadDataUsersForADM(tblUser, this.entityId);
+        this.measure.loadDataMeasurementsForADM(tblFlowMeasure, this.entityId);
     }
 
     @SuppressWarnings("unchecked")
@@ -869,17 +868,18 @@ public class AdminFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDeleteSamplingSiteActionPerformed
 
     private void btnSaveSamplingSiteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveSamplingSiteActionPerformed
+        sampling.addSamplingSiteForADM(txtSamplingName, cbxProvinceSampling, cbxCantonSampling, cbxDistrictSampling);
         loadTables();
     }//GEN-LAST:event_btnSaveSamplingSiteActionPerformed
 
     private void btnEditSamplingSiteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditSamplingSiteActionPerformed
-
+        sampling.updateSamplingSiteForADM(txtSamplingName, cbxProvinceSampling, cbxCantonSampling, cbxDistrictSampling);
         sampling.clearFields(txtSamplingName);
         loadTables();
     }//GEN-LAST:event_btnEditSamplingSiteActionPerformed
 
     private void tblSamplingSiteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblSamplingSiteMouseClicked
-
+        sampling.selectedRow(tblSamplingSite, txtSamplingName, cbxProvinceSampling, cbxCantonSampling, cbxDistrictSampling, cbxMethod);
     }//GEN-LAST:event_tblSamplingSiteMouseClicked
 
     private void tblFlowMeasureMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblFlowMeasureMouseClicked
@@ -913,7 +913,7 @@ public class AdminFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnFlowSaveActionPerformed
 
     private void btnFlowEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFlowEditActionPerformed
-        measure.updateFlowMeasurement(cbxMethod, txtFlowObservation, cbxWeather, txtDoneBy);
+        measure.updateFlowMeasurement(tblFlowMeasure,cbxMethod, txtFlowObservation, cbxWeather, txtDoneBy);
         measure.clearFields(txtFlowObservation, txtDoneBy);
         loadTables();
     }//GEN-LAST:event_btnFlowEditActionPerformed
@@ -945,12 +945,12 @@ public class AdminFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSpringsDeleteActionPerformed
 
     private void btnSpringsSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSpringsSaveActionPerformed
-        springs.addWaterSpringForAdmin(txtSpringsName, txtSpringsAdress, txtSpringsLatitude, txtSpringsLenght, txtSpringsDescription);
+        springs.addWaterSpringForADM(txtSpringsName, txtSpringsAdress, txtSpringsLatitude, txtSpringsLenght, txtSpringsDescription);
         loadTables();
     }//GEN-LAST:event_btnSpringsSaveActionPerformed
 
     private void btnSpringsEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSpringsEditActionPerformed
-        springs.updateWaterSpringsForAdmin(txtSpringsName, txtSpringsAdress, txtSpringsLatitude, txtSpringsLenght, txtSpringsDescription);
+        springs.updateWaterSpringsForADM(txtSpringsName, txtSpringsAdress, txtSpringsLatitude, txtSpringsLenght, txtSpringsDescription);
         springs.clearFields(txtSpringsName, txtSpringsAdress, txtSpringsLatitude, txtSpringsLenght, txtSpringsDescription);
         loadTables();
     }//GEN-LAST:event_btnSpringsEditActionPerformed
@@ -965,18 +965,18 @@ public class AdminFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnUserDeleteActionPerformed
 
     private void btnUserSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUserSaveActionPerformed
-        user.addUserByEntity(txtUserName, txtUserEmail, txtUserPassaword);
+        user.addUserForADM(txtUserName, txtUserEmail, txtUserPassaword);
         loadTables();
     }//GEN-LAST:event_btnUserSaveActionPerformed
 
     private void btnUserEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUserEditActionPerformed
-        user.updateUserByEntity(tblUser, txtUserName, txtUserEmail, txtUserPassaword);
+        user.updateUserForADM(tblUser, txtUserName, txtUserEmail, txtUserPassaword);
         user.clearFields(txtUserName, txtUserEmail, txtUserPassaword);
         loadTables();
     }//GEN-LAST:event_btnUserEditActionPerformed
 
     private void tblUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblUserMouseClicked
-        user.selectedRow(tblUser, txtUserName, txtUserEmail, txtUserPassaword,cbxMethod,cbxMethod);
+        user.selectedRow(tblUser, txtUserName, txtUserEmail, txtUserPassaword, cbxMethod, cbxMethod);
     }//GEN-LAST:event_tblUserMouseClicked
 
 

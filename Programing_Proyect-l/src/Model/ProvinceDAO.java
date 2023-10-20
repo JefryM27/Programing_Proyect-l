@@ -10,8 +10,7 @@ import java.sql.SQLException;
  *
  * @author jefry
  */
-public class ProvinceDAO  {
-
+public class ProvinceDAO {
 
     public List<Province> readProvinces() {
         DBConnection db = new DBConnection();
@@ -56,7 +55,7 @@ public class ProvinceDAO  {
         }
         return value;
     }
-    
+
     public String getNameProvince(int id) {
         String value = "";
         DBConnection db = new DBConnection();

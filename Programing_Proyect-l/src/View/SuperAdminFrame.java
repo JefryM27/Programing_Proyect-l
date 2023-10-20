@@ -8,7 +8,7 @@ import java.awt.Color;
  *
  * @author jefry
  */
-public class Register extends javax.swing.JFrame {
+public class SuperAdminFrame extends javax.swing.JFrame {
 
     CtrlProvince cp = new CtrlProvince();
     CtrlCanton cc = new CtrlCanton();
@@ -21,7 +21,7 @@ public class Register extends javax.swing.JFrame {
     CtrlMeasurement measure = new CtrlMeasurement();
    int xMouse, yMouse;
 
-    public Register() {
+    public SuperAdminFrame() {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
@@ -1384,7 +1384,7 @@ public class Register extends javax.swing.JFrame {
     }//GEN-LAST:event_btnFlowDeleteActionPerformed
 
     private void btnFlowEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFlowEditActionPerformed
-    measure.updateFlowMeasurement(cbxMethod, txtFlowObservation, cbxWeather, txtDoneBy);
+    measure.updateFlowMeasurement(tblFlowMeasure, cbxMethod, txtFlowObservation, cbxWeather, txtDoneBy);
     loadTables();
     }//GEN-LAST:event_btnFlowEditActionPerformed
 

@@ -83,7 +83,7 @@ public class CtrlUser {
     }
 
     // ADMIN
-    public void loadDataUsersByEntity(JTable table, int entityId) {
+    public void loadDataUsersForADM(JTable table, int entityId) {
         DefaultTableModel model = (DefaultTableModel) table.getModel();
         TableRowSorter<TableModel> order = new TableRowSorter<TableModel>(model);
         table.setRowSorter(order);
@@ -98,33 +98,41 @@ public class CtrlUser {
         }
     }
 
-    public void addUserByEntity(JTextField userName, JTextField mail, JTextField password) {
-        try {
-            this.dao.create(new User(userName.getText(), mail.getText(), password.getText(), this.entityId, this.rolId));
-            clearFields(userName, mail, password);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "No se pudo guardar el usuario, error: " + e.toString());
+    public void addUserForADM(JTextField userName, JTextField mail, JTextField password) {
+        if (!Validation.validateLyrics(userName.getText())) {
+            JOptionPane.showMessageDialog(null, "Error en el nombre de usuario, solo se permiten letras.");
+        } else {
+            try {
+                this.dao.create(new User(userName.getText(), mail.getText(), password.getText(), entityId, rolId));
+                clearFields(userName, mail, password);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "No se pudo guardar el usuario, error: " + e.toString());
+            }
         }
     }
 
-    public void updateUserByEntity(JTable table, JTextField userName, JTextField mail, JTextField password) {
-        try {
-            int selectedRow = table.getSelectedRow();
-            int userId = Integer.parseInt(table.getValueAt(selectedRow, 0).toString());
-            // verificate if user is admin
-            User selectedUser = getUserById(userId);
-            if (selectedUser != null && selectedUser.getRol_id() == 2) {
-                JOptionPane.showMessageDialog(null, "Los administradores no pueden ser editados", "Error", JOptionPane.ERROR_MESSAGE);
-                return;
+    public void updateUserForADM(JTable table, JTextField userName, JTextField mail, JTextField password) {
+        if (!Validation.validateLyrics(userName.getText())) {
+            JOptionPane.showMessageDialog(null, "Error en el nombre de usuario, solo se permiten letras.");
+        } else {
+            try {
+                int selectedRow = table.getSelectedRow();
+                int userId = Integer.parseInt(table.getValueAt(selectedRow, 0).toString());
+                // verificate if user is admin
+                User selectedUser = getUserById(userId);
+                if (selectedUser != null && selectedUser.getRol_id() == 2) {
+                    JOptionPane.showMessageDialog(null, "Los administradores no pueden ser editados", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+                this.dao.update(new User(this.id, userName.getText(), mail.getText(), password.getText(), entityId, rolId));
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "No se pudo actualizar el usuario, error: " + e.toString());
             }
-            this.dao.update(new User(this.id, userName.getText(), mail.getText(), password.getText(), this.entityId, this.rolId));
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "No se pudo actualizar el usuario, error: " + e.toString());
         }
     }
 
     // DIGITIZER
-    public void loadDataDigitador(JTable table, int digitizerId) {
+    public void loadDataDigitizer(JTable table, int digitizerId) {
         DefaultTableModel model = (DefaultTableModel) table.getModel();
         TableRowSorter<TableModel> order = new TableRowSorter<TableModel>(model);
         table.setRowSorter(order);

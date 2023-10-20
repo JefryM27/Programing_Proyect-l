@@ -26,13 +26,13 @@ public class DigitadorFrame extends javax.swing.JFrame {
     }
 
     public void loadResources() {
-        this.sampling.loadSampling(cbxSamplingMeasure);
-        this.springs.loadSprings(cbxSpringsMeasure);
+        this.sampling.loadSamplingForADM(cbxSamplingMeasure,this.entityId);
+        this.springs.loadSpringsForADM(cbxSpringsMeasure, this.entityId);
     }
 
     public void loadTables() {
-        this.user.loadDataDigitador(tblUser, this.digitizerId);
-        this.measure.loadDataMeasurements(tblFlowMeasure);
+        this.user.loadDataDigitizer(tblUser, this.digitizerId);
+        this.measure.loadDataMeasurementsForADM(tblFlowMeasure, this.entityId);
     }
 
     @SuppressWarnings("unchecked")
@@ -421,13 +421,13 @@ public class DigitadorFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnFlowSaveActionPerformed
 
     private void btnFlowEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFlowEditActionPerformed
-        measure.updateFlowMeasurement(cbxMethod, txtFlowObservation, cbxWeather, txtDoneBy);
+        measure.updateFlowMeasurement(tblFlowMeasure,cbxMethod, txtFlowObservation, cbxWeather, txtDoneBy);
         measure.clearFields(txtFlowObservation, txtDoneBy);
         loadTables();
     }//GEN-LAST:event_btnFlowEditActionPerformed
 
     private void btnUserEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUserEditActionPerformed
-        user.updateUserByEntity(tblUser, txtUserName, txtUserEmail, txtUserPassaword);
+        user.updateUserForADM(tblUser, txtUserName, txtUserEmail, txtUserPassaword);
         user.clearFields(txtUserName, txtUserEmail, txtUserPassaword);
         loadTables();
     }//GEN-LAST:event_btnUserEditActionPerformed

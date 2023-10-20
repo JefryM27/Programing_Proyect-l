@@ -8,7 +8,7 @@ import Model.User;
 import Model.UserDAO;
 import View.AdminFrame;
 import View.DigitadorFrame;
-import View.Register;
+import View.SuperAdminFrame;
 import java.util.List;
 import javax.swing.JOptionPane;
 
@@ -22,6 +22,7 @@ public class Login {
     UserDAO dao = new UserDAO();
     CtrlUser user = new CtrlUser();
     CtrlSprings springs = new CtrlSprings();
+    CtrlSampling sampling = new CtrlSampling();
 
     public void loginUser(String enteredMail, String enteredPassword) {
         List<User> userList = dao.readUsers();
@@ -52,15 +53,16 @@ public class Login {
     }
 
     private void openSuperAdminFrame() {
-        Register regis = new Register();
+        SuperAdminFrame regis = new SuperAdminFrame();
         regis.setVisible(true);
     }
 
     private void openAdminFrame() {
         int entityId = authenticatedUser.getEntity_id();
         user.setEntityId(entityId);
-        springs.setEntityId(entityId);
         user.setRolId(3);
+        springs.setEntityId(entityId);
+        sampling.setEntityADM(entityId);
         AdminFrame regis = new AdminFrame(entityId);
         regis.setVisible(true);
     }
