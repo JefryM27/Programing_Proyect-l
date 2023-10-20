@@ -40,19 +40,27 @@ public class CtrlUser {
     }
 
     public void addUser(JTextField userName, JTextField mail, JTextField password, JComboBox entity, JComboBox rol) {
-        try {
-            this.dao.create(new User(userName.getText(), mail.getText(), password.getText(), this.idEntity, this.idRol));
-            clearFields(userName, mail, password);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "No se pudo guardar el usuario, error: " + e.toString());
+        if (!Validation.validateLyrics(userName.getText())) {
+            JOptionPane.showMessageDialog(null, "Error en el nombre de usuario, solo se permiten letras.");
+        } else {
+            try {
+                this.dao.create(new User(userName.getText(), mail.getText(), password.getText(), this.idEntity, this.idRol));
+                clearFields(userName, mail, password);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "No se pudo guardar el usuario, error: " + e.toString());
+            }
         }
     }
 
     public void updateUser(JTextField userName, JTextField mail, JTextField password, JComboBox entity, JComboBox rol) {
-        try {
-            this.dao.update(new User(this.id, userName.getText(), mail.getText(), password.getText(), this.idEntity, this.idRol));
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "No se pudo actualizar el usuario, error: " + e.toString());
+        if (!Validation.validateLyrics(userName.getText())) {
+            JOptionPane.showMessageDialog(null, "Error en el nombre de usuario, solo se permiten letras.");
+        } else {
+            try {
+                this.dao.update(new User(this.id, userName.getText(), mail.getText(), password.getText(), this.idEntity, this.idRol));
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "No se pudo actualizar el usuario, error: " + e.toString());
+            }
         }
     }
 

@@ -44,17 +44,47 @@ public class CtrlEntity {
     }
 
     public void addEntity(JTextField legalId, JTextField telephone, JTextField entityName, JTextField email, JTextField address, JTextField description) {
-        try {
-            this.entity.create(new Entity(legalId.getText(), Integer.parseInt(telephone.getText()), entityName.getText(), email.getText(), address.getText(), description.getText()));
-            clearFields(legalId, telephone, entityName, email, address, description);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "No se pudo guardar la entidad, error: " + e.toString());
+        if (legalId.getText().length() == 9) {
+            if (Validation.verificateLegalIdExisting(legalId.getText())) {
+                JOptionPane.showMessageDialog(null, "La entidad que desea registrar ya existe en la base de datos.");
+            } else {
+                try {
+                    if (!Validation.validateNumbers(telephone.getText()) || !Validation.validateLyrics(entityName.getText())|| !Validation.validateLyrics(description.getText())) {
+                        JOptionPane.showMessageDialog(null, "Posible error de formato, por favor digite el formato correspondiente a su espacio.");
+                    } else {
+                        this.entity.create(new Entity(legalId.getText(), Integer.parseInt(telephone.getText()), entityName.getText(), email.getText(), address.getText(), description.getText()));
+                        clearFields(legalId, telephone, entityName, email, address, description);
+                    }
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(null, "No se pudo guardar la entidad, error: " + e.toString());
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "La longitud de la cédula juridica no es valido, esta debe tener 11 digitos.");
         }
     }
     
 
     public void updateEntity(JTextField legalId, JTextField telephone, JTextField entityName, JTextField email, JTextField address, JTextField description) {
-        this.entity.update(new Entity(this.id, legalId.getText(), Integer.parseInt(telephone.getText()), entityName.getText(), email.getText(), address.getText(), description.getText()));
+        if (legalId.getText().length() == 9) {
+            if (Validation.verificateLegalIdExisting(legalId.getText())) {
+                JOptionPane.showMessageDialog(null, "La entidad que desea registrar ya existe en la base de datos.");
+            } else {
+                try {
+                    if (!Validation.validateNumbers(telephone.getText()) || !Validation.validateLyrics(entityName.getText()) || !Validation.validateLyrics(address.getText())
+                            || !Validation.validateLyrics(description.getText())) {
+                        JOptionPane.showMessageDialog(null, "Posible error de formato, por favor digite el formato correspondiente a su espacio.");
+                    } else {
+                        this.entity.update(new Entity(this.id, legalId.getText(), Integer.parseInt(telephone.getText()), entityName.getText(), email.getText(), address.getText(), description.getText()));
+                        clearFields(legalId, telephone, entityName, email, address, description);
+                    }
+                }  catch (Exception e) {
+        JOptionPane.showMessageDialog(null, "No se pudo actualizar la entidad, error: " + e.toString());
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "La longitud de la cédula juridica no es valido, esta debe tener 11 digitos.");
+        }
     }
 
     public void selectedRow(JTable table, JTextField legalId, JTextField telephone, JTextField entityName, JTextField email, JTextField address, JTextField description) {

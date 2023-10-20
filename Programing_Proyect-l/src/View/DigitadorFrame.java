@@ -433,7 +433,7 @@ public class DigitadorFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnUserEditActionPerformed
 
     private void tblUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblUserMouseClicked
-        user.selectedRowByEntity(tblUser, txtUserName, txtUserEmail, txtUserPassaword);
+        user.selectedRow(tblUser, txtUserName, txtUserEmail, txtUserPassaword, cbxMethod, cbxMethod);
     }//GEN-LAST:event_tblUserMouseClicked
 
 

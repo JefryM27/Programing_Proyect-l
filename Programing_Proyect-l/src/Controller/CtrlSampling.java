@@ -85,15 +85,36 @@ public class CtrlSampling {
 
     public void addSamplingSite(JTextField name, JComboBox province, JComboBox canton, JComboBox district, JComboBox entity) {
         try {
-            this.dao.create(new SamplingSite(name.getText(), this.idProvince, this.idCanton, this.idDistrict, this.idEntity));
-            clearFields(name);
+            String siteName = name.getText();
+
+            if (Validation.verificateSamplingSiteExisting(siteName)) {
+                JOptionPane.showMessageDialog(null, "El sitio de muestreo que desea registrar ya existe en la base de datos.");
+            } else if (!Validation.validateLyrics(siteName)) {
+                JOptionPane.showMessageDialog(null, "Error de formato en el nombre del sitio de muestreo.");
+            } else {
+                this.dao.create(new SamplingSite(this.id, siteName, this.idProvince, this.idCanton, this.idDistrict, this.idEntity));
+                clearFields(name);
+            }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "No se pudo guardar el sitio de muestreo, error: " + e.toString());
         }
     }
 
     public void updateSamplingSite(JTextField name, JComboBox province, JComboBox canton, JComboBox district, JComboBox entity) {
-        this.dao.update(new SamplingSite(this.id, name.getText(), this.idProvince, this.idCanton, this.idDistrict, this.idEntity));
+        try {
+            String siteName = name.getText();
+
+            if (Validation.verificateSamplingSiteExisting(siteName)) {
+                JOptionPane.showMessageDialog(null, "El sitio de muestreo que desea registrar ya existe en la base de datos.");
+            } else if (!Validation.validateLyrics(siteName)) {
+                JOptionPane.showMessageDialog(null, "Error de formato en el nombre del sitio de muestreo.");
+            } else {
+                this.dao.update(new SamplingSite(this.id, name.getText(), this.idProvince, this.idCanton, this.idDistrict, this.idEntity));
+                clearFields(name);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No se pudo guardar el sitio de muestreo, error: " + e.toString());
+        }
     }
 
     public void selectedRow(JTable table, JTextField name, JComboBox province, JComboBox canton, JComboBox district, JComboBox entity) {

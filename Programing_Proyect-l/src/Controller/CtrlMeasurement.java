@@ -73,25 +73,32 @@ public class CtrlMeasurement {
     }
 
     public void addFlowMeasurement(JComboBox<String> metod, JTextField observation, JComboBox<String> weather, JTextField done) {
-        try {
-            double randomCapacity = randomCapacity();
-            Date randomDate = randomDate();
-            this.dao.create(new FlowMeasurement(randomCapacity, (String) metod.getSelectedItem(), observation.getText(), (String) weather.getSelectedItem(), done.getText(), randomDate, this.idSprings, this.idSampling));
-            clearFields(observation, done);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "No se pudo guardar la medición de caudal, error: " + e.toString());
+        if (!Validation.validateLyrics(observation.getText()) || !Validation.validateLyrics(done.getText())) {
+            JOptionPane.showMessageDialog(null, "Error en el nombre y descripcion de la naciente, solo se permiten letras.");
+        } else {
+            try {
+                double randomCapacity = randomCapacity();
+                Date randomDate = randomDate();
+                this.dao.create(new FlowMeasurement(randomCapacity, (String) metod.getSelectedItem(), observation.getText(), (String) weather.getSelectedItem(), done.getText(), randomDate, this.idSprings, this.idSampling));
+                clearFields(observation, done);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "No se pudo guardar la medición de caudal, error: " + e.toString());
+            }
         }
     }
 
     public void updateFlowMeasurement(JComboBox<String> metod, JTextField observation, JComboBox<String> weather, JTextField done) {
-        try {
-            double randomCapacity = randomCapacity();
-            Date randomDate = randomDate();
-            this.dao.update(new FlowMeasurement(this.id,  this.idSprings, this.idSampling,randomCapacity, (String) metod.getSelectedItem(), observation.getText(), (String) weather.getSelectedItem(), done.getText(), randomDate));
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "No se pudo guardar la medición de caudal, error: " + e.toString());
+        if (!Validation.validateLyrics(observation.getText()) || !Validation.validateLyrics(done.getText())) {
+            JOptionPane.showMessageDialog(null, "Error en el nombre y descripcion de la naciente, solo se permiten letras.");
+        } else {
+            try {
+                double randomCapacity = randomCapacity();
+                Date randomDate = randomDate();
+                this.dao.update(new FlowMeasurement(this.id, this.idSprings, this.idSampling, randomCapacity, (String) metod.getSelectedItem(), observation.getText(), (String) weather.getSelectedItem(), done.getText(), randomDate));
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "No se pudo guardar la medición de caudal, error: " + e.toString());
+            }
         }
-
     }
 
     public void selectedRow(JTable table, JComboBox<String> metod, JTextField observation,

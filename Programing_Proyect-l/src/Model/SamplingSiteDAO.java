@@ -27,7 +27,7 @@ public class SamplingSiteDAO {
             ps.execute();
             JOptionPane.showMessageDialog(null, "El sitio de muestro se ha guardado correctamente");
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "NNo se pudo guardar la medicion del caudal, error: " + e.toString());
+            JOptionPane.showMessageDialog(null, "No se pudo guardar la medicion del caudal, error: " + e.toString());
         } finally {
             db.disconnect();
         }

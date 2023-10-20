@@ -303,7 +303,7 @@ public class Register extends javax.swing.JFrame {
         });
         pnInfoUser.add(cbxEntityUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 30, 230, 30));
 
-        User.add(pnInfoUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, 760, 240));
+        User.add(pnInfoUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, 760, 240));
 
         jTabbedPane1.addTab("Registro Usuario", User);
 
@@ -1089,7 +1089,7 @@ public class Register extends javax.swing.JFrame {
 
         pnMainMeassureSite.add(pnInfoMeassureSite, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, 840, 340));
 
-        Muestreo.add(pnMainMeassureSite, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1020, 650));
+        Muestreo.add(pnMainMeassureSite, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1110, 680));
 
         jTabbedPane1.addTab("Registro Sitio de Muestreo", Muestreo);
 
@@ -1155,7 +1155,7 @@ public class Register extends javax.swing.JFrame {
         ReportsLayout.setHorizontalGroup(
             ReportsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ReportsLayout.createSequentialGroup()
-                .addGap(0, 46, Short.MAX_VALUE)
+                .addGap(0, 50, Short.MAX_VALUE)
                 .addComponent(pnMainUser1, javax.swing.GroupLayout.PREFERRED_SIZE, 1060, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         ReportsLayout.setVerticalGroup(
@@ -1252,7 +1252,6 @@ public class Register extends javax.swing.JFrame {
 
     private void btnSpringsEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSpringsEditActionPerformed
     springs.updateWaterSprings(txtSpringsName, txtSpringsAdress, txtSpringsLatitude, txtSpringsLenght, txtSpringsDescription);
-    springs.clearFields(txtSpringsName, txtSpringsAdress, txtSpringsLatitude, txtSpringsLenght, txtSpringsDescription);
     loadTables();
     }//GEN-LAST:event_btnSpringsEditActionPerformed
 
@@ -1288,7 +1287,6 @@ public class Register extends javax.swing.JFrame {
 
     private void btnEntityEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntityEditActionPerformed
         entity.updateEntity(txtEntityLegalId, txtEntityNumber, txtEntityName, txtEntityEmail, txtEntityAdress, txtEntityDescription);
-        entity.clearFields(txtDoneBy, txtDoneBy, txtEntityName, txtUserEmail, txtDoneBy, txtEntityDescription);
         loadTables();
     }//GEN-LAST:event_btnEntityEditActionPerformed
 
@@ -1313,7 +1311,6 @@ public class Register extends javax.swing.JFrame {
 
     private void btnFlowEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFlowEditActionPerformed
     measure.updateFlowMeasurement(cbxMethod, txtFlowObservation, cbxWeather, txtDoneBy);
-    measure.clearFields(txtFlowObservation, txtDoneBy);
     loadTables();
     }//GEN-LAST:event_btnFlowEditActionPerformed
 
@@ -1333,7 +1330,6 @@ public class Register extends javax.swing.JFrame {
 
     private void btnEditSamplingSiteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditSamplingSiteActionPerformed
     sampling.updateSamplingSite(txtSamplingName, cbxProvinceSampling, cbxCantonSampling, cbxDistrictSampling, cbxEntitySampling);
-    sampling.clearFields(txtSamplingName);
     loadTables();
     }//GEN-LAST:event_btnEditSamplingSiteActionPerformed
 
@@ -1344,7 +1340,6 @@ public class Register extends javax.swing.JFrame {
 
     private void btnUserEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUserEditActionPerformed
     user.updateUser(txtUserName, txtUserEmail, txtUserPassaword, cbxEntityUser, cbxRolUser);
-    user.clearFields(txtUserName, txtUserEmail,txtUserPassaword);
     loadTables();
     }//GEN-LAST:event_btnUserEditActionPerformed
 
