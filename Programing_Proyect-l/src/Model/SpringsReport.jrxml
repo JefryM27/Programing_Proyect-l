@@ -3,6 +3,12 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
+	<parameter name="Nombre de la Entidad" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="Id de la entidad" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
 	<queryString>
 		<![CDATA[SELECT
   entity.name as entity_name,
@@ -13,7 +19,8 @@ FROM
 INNER JOIN
   entity
 ON
-  water_springs.entity_id = entity.id;
+  water_springs.entity_id = entity.id
+WHERE entity.id = $P!{Id de la entidad}
 ]]>
 	</queryString>
 	<field name="entity_name" class="java.lang.String"/>
