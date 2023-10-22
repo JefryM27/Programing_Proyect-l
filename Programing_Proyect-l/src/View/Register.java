@@ -1,7 +1,19 @@
 package View;
 
 import Controller.*;
+import Model.DBConnection;
+import java.sql.Connection;
 import java.awt.Color;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 
 /**
@@ -83,7 +95,6 @@ public class Register extends javax.swing.JFrame {
         lblUserName1 = new javax.swing.JLabel();
         lblUserName2 = new javax.swing.JLabel();
         cbxEntityUser = new javax.swing.JComboBox<>();
-        btnLogout = new javax.swing.JButton();
         Entities = new javax.swing.JPanel();
         pnMainEntity = new javax.swing.JPanel();
         pnEntityTable = new javax.swing.JPanel();
@@ -314,14 +325,6 @@ public class Register extends javax.swing.JFrame {
         pnInfoUser.add(cbxEntityUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 30, 230, 30));
 
         User.add(pnInfoUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, 760, 240));
-
-        btnLogout.setText("Cerrar Sesión");
-        btnLogout.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLogoutActionPerformed(evt);
-            }
-        });
-        User.add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 142, -1));
 
         jTabbedPane1.addTab("Registro Usuario", User);
 
@@ -1218,11 +1221,12 @@ public class Register extends javax.swing.JFrame {
 
         lblExit.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         lblExit.setForeground(new java.awt.Color(0, 0, 0));
+        lblExit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblExit.setText("   X");
         lblExit.setToolTipText("");
         lblExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblExit.setFocusable(false);
-        lblExit.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        lblExit.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout btnExitLayout = new javax.swing.GroupLayout(btnExit);
         btnExit.setLayout(btnExitLayout);
@@ -1230,8 +1234,8 @@ public class Register extends javax.swing.JFrame {
             btnExitLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btnExitLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblExit, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(lblExit)
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         btnExitLayout.setVerticalGroup(
             btnExitLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1278,16 +1282,31 @@ public class Register extends javax.swing.JFrame {
     }//GEN-LAST:event_btnReportSamplingSiteActionPerformed
 
     private void btnReportWaterSpringsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportWaterSpringsActionPerformed
+        try {
+        DBConnection db = new DBConnection();
+        Connection con = (Connection) db.getConnection();
         
+        JasperReport report = null;
+        String path = "src\\Model\\SpringsReport.jasper";
+        
+        Map parameter = new HashMap();
+        parameter.put("Id de la entidad", 4);
+        
+            report = (JasperReport) JRLoader.loadObjectFromFile(path);
+            JasperPrint jprint = JasperFillManager.fillReport(report, parameter, con);
+            JasperViewer view = new JasperViewer(jprint, false);
+            
+            view.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+            view.setVisible(true);
+            
+        } catch (JRException ex) {
+            Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnReportWaterSpringsActionPerformed
 
     private void btnGeneratePDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGeneratePDFActionPerformed
         
     }//GEN-LAST:event_btnGeneratePDFActionPerformed
-
-    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
-        
-    }//GEN-LAST:event_btnLogoutActionPerformed
 
     private void cbxEntitySpringsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxEntitySpringsActionPerformed
         
@@ -1520,7 +1539,6 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JButton btnFlowEdit;
     private javax.swing.JButton btnFlowSave;
     private javax.swing.JButton btnGeneratePDF;
-    private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnReportFlowMeasurement;
     private javax.swing.JButton btnReportSamplingSite;
     private javax.swing.JButton btnReportWaterSprings;

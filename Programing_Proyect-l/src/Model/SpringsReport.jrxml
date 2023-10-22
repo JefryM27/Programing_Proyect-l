@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SpringsReport" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ba2a4cbe-0ce6-46e6-8474-5623be809744">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+  entity.name as entity_name,
+  water_springs.name as water_springs_name,
+  water_springs.entity_id as water_springs_id_entity
+FROM
+  water_springs
+INNER JOIN
+  entity
+ON
+  water_springs.entity_id = entity.id;
+]]>
+	</queryString>
+	<field name="entity_name" class="java.lang.String"/>
+	<field name="water_springs_name" class="java.lang.String"/>
+	<field name="water_springs_id_entity" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="132" y="20" width="316" height="27" uuid="9797029c-00ec-4fef-b75b-4314a188adb2"/>
+				<textElement>
+					<font size="20"/>
+				</textElement>
+				<text><![CDATA[Reporte de Nacientes por Entidad]]></text>
+			</staticText>
+			<image>
+				<reportElement x="0" y="0" width="132" height="79" uuid="490428ce-6dbd-4c97-b942-4a9252377a65"/>
+				<imageExpression><![CDATA["C:\\Users\\jefry\\OneDrive\\Desktop\\UTN\\3º Cuatrimestre\\Programacion ll\\Proyectos\\Programing_Proyect-l\\Programing_Proyect-l\\src\\View\\Images\\agua-cano.jpg"]]></imageExpression>
+			</image>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="472" y="0" width="100" height="20" uuid="9a29da4b-e7b5-49e5-945b-0293c028490c"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="25" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20" uuid="b67062d1-d91c-4939-a912-11f2a04ffeb5"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Entidad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="232" y="2" width="100" height="20" uuid="137221bc-0a53-4523-8f73-0bb94c36167e"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[ID de la entidad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="415" y="2" width="157" height="20" uuid="20591bd1-7bed-45d6-a690-bd625856c97b"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Nombre de la Naciente]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="40" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="167" height="20" uuid="721153d7-d7e2-40a5-b7fb-463561a0a4da"/>
+				<textFieldExpression><![CDATA[$F{entity_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="232" y="6" width="100" height="20" uuid="016d022c-c27c-4b22-98e7-f478f3263a1d"/>
+				<textFieldExpression><![CDATA[$F{water_springs_id_entity}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="415" y="6" width="100" height="20" uuid="57cb20a2-181c-4098-a4b5-e841e441074c"/>
+				<textFieldExpression><![CDATA[$F{water_springs_name}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="2" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
