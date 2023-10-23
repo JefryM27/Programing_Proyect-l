@@ -20,7 +20,6 @@ INNER JOIN
   entity
 ON
   water_springs.entity_id = entity.id
-WHERE entity.id = $P!{Id de la entidad}
 ]]>
 	</queryString>
 	<field name="entity_name" class="java.lang.String"/>

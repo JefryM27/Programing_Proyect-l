@@ -4,8 +4,6 @@ import Controller.*;
 import Model.DBConnection;
 import java.sql.Connection;
 import java.awt.Color;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import net.sf.jasperreports.engine.JRException;
@@ -188,7 +186,6 @@ public class SuperAdminFrame extends javax.swing.JFrame {
         btnReportWaterSprings = new javax.swing.JButton();
         btnReportFlowMeasurement = new javax.swing.JButton();
         btnReportSamplingSite = new javax.swing.JButton();
-        btnGeneratePDF = new javax.swing.JButton();
         bar = new javax.swing.JPanel();
         btnExit = new javax.swing.JPanel();
         lblExit = new javax.swing.JLabel();
@@ -199,7 +196,6 @@ public class SuperAdminFrame extends javax.swing.JFrame {
         setResizable(false);
 
         jTabbedPane1.setBackground(new java.awt.Color(255, 255, 255));
-        jTabbedPane1.setForeground(new java.awt.Color(0, 0, 0));
 
         User.setBackground(new java.awt.Color(0, 152, 198));
         User.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1136,13 +1132,6 @@ public class SuperAdminFrame extends javax.swing.JFrame {
             }
         });
 
-        btnGeneratePDF.setText("Generar PDF");
-        btnGeneratePDF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGeneratePDFActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -1150,7 +1139,6 @@ public class SuperAdminFrame extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(97, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnGeneratePDF, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnReportSamplingSite, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnReportFlowMeasurement, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnReportWaterSprings, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1165,12 +1153,10 @@ public class SuperAdminFrame extends javax.swing.JFrame {
                 .addComponent(btnReportFlowMeasurement, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(48, 48, 48)
                 .addComponent(btnReportSamplingSite, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
-                .addComponent(btnGeneratePDF, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
 
-        pnMainUser1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 40, 470, 440));
+        pnMainUser1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 40, 470, 350));
 
         javax.swing.GroupLayout ReportsLayout = new javax.swing.GroupLayout(Reports);
         Reports.setLayout(ReportsLayout);
@@ -1220,7 +1206,6 @@ public class SuperAdminFrame extends javax.swing.JFrame {
         });
 
         lblExit.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        lblExit.setForeground(new java.awt.Color(0, 0, 0));
         lblExit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblExit.setText("   X");
         lblExit.setToolTipText("");
@@ -1278,7 +1263,24 @@ public class SuperAdminFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnReportSamplingSiteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportSamplingSiteActionPerformed
+         try {
+        DBConnection db = new DBConnection();
+        Connection con = (Connection) db.getConnection();
         
+        JasperReport report = null;
+        String path = "src\\Model\\SamplingSitesReport.jasper";
+
+        
+            report = (JasperReport) JRLoader.loadObjectFromFile(path);
+            JasperPrint jprint = JasperFillManager.fillReport(report, null, con);
+            JasperViewer view = new JasperViewer(jprint, false);
+            
+            view.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+            view.setVisible(true);
+            
+        } catch (JRException ex) {
+            Logger.getLogger(SuperAdminFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnReportSamplingSiteActionPerformed
 
     private void btnReportWaterSpringsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportWaterSpringsActionPerformed
@@ -1288,12 +1290,10 @@ public class SuperAdminFrame extends javax.swing.JFrame {
         
         JasperReport report = null;
         String path = "src\\Model\\SpringsReport.jasper";
-        
-        Map parameter = new HashMap();
-        parameter.put("Id de la entidad", 4);
+
         
             report = (JasperReport) JRLoader.loadObjectFromFile(path);
-            JasperPrint jprint = JasperFillManager.fillReport(report, parameter, con);
+            JasperPrint jprint = JasperFillManager.fillReport(report, null, con);
             JasperViewer view = new JasperViewer(jprint, false);
             
             view.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -1303,10 +1303,6 @@ public class SuperAdminFrame extends javax.swing.JFrame {
             Logger.getLogger(SuperAdminFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnReportWaterSpringsActionPerformed
-
-    private void btnGeneratePDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGeneratePDFActionPerformed
-        
-    }//GEN-LAST:event_btnGeneratePDFActionPerformed
 
     private void cbxEntitySpringsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxEntitySpringsActionPerformed
         
@@ -1538,7 +1534,6 @@ public class SuperAdminFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnFlowDelete;
     private javax.swing.JButton btnFlowEdit;
     private javax.swing.JButton btnFlowSave;
-    private javax.swing.JButton btnGeneratePDF;
     private javax.swing.JButton btnReportFlowMeasurement;
     private javax.swing.JButton btnReportSamplingSite;
     private javax.swing.JButton btnReportWaterSprings;

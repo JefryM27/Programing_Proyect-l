@@ -2128,7 +2128,7 @@
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="260" y="40" width="470" height="440"/>
+                      <AbsoluteConstraints x="260" y="40" width="470" height="350"/>
                     </Constraint>
                   </Constraints>
 
@@ -2138,7 +2138,6 @@
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace pref="97" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="btnGeneratePDF" min="-2" pref="270" max="-2" attributes="0"/>
                                   <Component id="btnReportSamplingSite" min="-2" pref="270" max="-2" attributes="0"/>
                                   <Component id="btnReportFlowMeasurement" min="-2" pref="270" max="-2" attributes="0"/>
                                   <Component id="btnReportWaterSprings" min="-2" pref="270" max="-2" attributes="0"/>
@@ -2156,9 +2155,7 @@
                               <Component id="btnReportFlowMeasurement" min="-2" pref="50" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                               <Component id="btnReportSamplingSite" min="-2" pref="48" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                              <Component id="btnGeneratePDF" min="-2" pref="48" max="-2" attributes="0"/>
-                              <EmptySpace pref="44" max="32767" attributes="0"/>
+                              <EmptySpace pref="43" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -2183,14 +2180,6 @@
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnReportSamplingSiteActionPerformed"/>
-                      </Events>
-                    </Component>
-                    <Component class="javax.swing.JButton" name="btnGeneratePDF">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Generar PDF"/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGeneratePDFActionPerformed"/>
                       </Events>
                     </Component>
                   </SubComponents>
