@@ -12,10 +12,11 @@ import javax.swing.JOptionPane;
  * @author jefry
  */
 public class WaterSpringsDAO {
-
+//Method to create a Water springs
     public void create(WaterSprings springs) {
-
+      //establishes the connection to the databases
         DBConnection db = new DBConnection();
+        //Set the query with sql
         String consultaSQL = "INSERT INTO water_springs (name, address, latitute, length, description, province_id, canton_id, district_id, entity_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try {
             PreparedStatement ps = db.getConnection().prepareStatement(consultaSQL);
@@ -36,13 +37,17 @@ public class WaterSpringsDAO {
             db.disconnect();
         }
     }
-
+//Method to create a list to read water springs
     public List<WaterSprings> readWaterSprings() {
+         //establishes the connection to the databases
         DBConnection db = new DBConnection();
+          //Create a new list 
         List<WaterSprings> waterSpringsList = new ArrayList<>();
+         //Set the query with sql
         String sql = "SELECT * FROM water_springs";
 
         try {
+            //Prepare the declaration
             PreparedStatement ps = db.getConnection().prepareStatement(sql);
             ResultSet resultSet = ps.executeQuery();
 
@@ -69,13 +74,17 @@ public class WaterSpringsDAO {
 
         return waterSpringsList;
     }
-
+//Method to create a list to read WaterSprings by entity
     public List<WaterSprings> readWaterSpringsByEntity(int entityID) {
+        //establishes the connection to the databases
         DBConnection db = new DBConnection();
+        //Create a new list
         List<WaterSprings> waterSpringsList = new ArrayList<>();
+        //Set the query with sql
         String sql = "SELECT * FROM water_springs WHERE entity_id = ?";
 
         try {
+            //Prepare the declaration
             PreparedStatement ps = db.getConnection().prepareStatement(sql);
             ps.setInt(1, entityID); // Establecer el ID de entidad
             ResultSet resultSet = ps.executeQuery();
@@ -103,13 +112,17 @@ public class WaterSpringsDAO {
 
         return waterSpringsList;
     }
-
+//Method to get the WaterSprings 
     public WaterSprings getWaterSprings(int id) {
         WaterSprings waterSprings = null;
+        //establishes the connection to the database
         DBConnection db = new DBConnection();
+         //Set the query with sql
         String sql = "SELECT * FROM water_springs WHERE id = ?";
 
-        try (PreparedStatement ps = db.getConnection().prepareStatement(sql)) {
+        try 
+          
+            (PreparedStatement ps = db.getConnection().prepareStatement(sql)) {
             ps.setInt(1, id);
             ResultSet resultSet = ps.executeQuery();
 
@@ -135,11 +148,14 @@ public class WaterSpringsDAO {
 
         return waterSprings;
     }
-
+//Method to update WaterSprings in databases
     public void update(WaterSprings springs) {
+        //establishes the connection to the database
         DBConnection db = new DBConnection();
+        //Set the query with sql
         String consultaSQL = "UPDATE water_springs SET name=?, address=?, latitute=?,length=?,description=?,province_id=?,canton_id=?,district_id=?,entity_id=? WHERE id=?";
         try {
+             //Prepare the declaration
             PreparedStatement ps = db.getConnection().prepareStatement(consultaSQL);
             ps.setString(1, springs.getSpringName());
             ps.setString(2, springs.getAddress());
@@ -159,14 +175,15 @@ public class WaterSpringsDAO {
             db.disconnect();
         }
     }
-
+//Method to delete the WaterSprings of databases
     public void delete(int id) {
-
+      //Establishes the connection to the databases
         DBConnection db = new DBConnection();
-
+       //Set the query with sql
         String consultaSQL = "DELETE FROM water_springs WHERE id=?";
 
         try {
+            //Prepare the declaration
             PreparedStatement preparedStatement = db.getConnection().prepareStatement(consultaSQL);
             preparedStatement.setInt(1, id);
             preparedStatement.execute();
@@ -180,12 +197,15 @@ public class WaterSpringsDAO {
         }
 
     }
-
+//Method to get the WaterSpringsId and show the name  
     public int getIDWaterSprings(String name) {
         int value = 0;
+        //Establishes the connection to the databases
         DBConnection db = new DBConnection();
+        //Set the query with sql
         String sql = "SELECT id FROM water_springs WHERE name = ?";
         try {
+            //Prepare the declaration
             PreparedStatement ps = db.getConnection().prepareStatement(sql);
             ps.setString(1, name);
             ResultSet resultSet = ps.executeQuery();
@@ -199,12 +219,15 @@ public class WaterSpringsDAO {
         }
         return value;
     }
-
+ //Method to string the Water Spring name according to id  
     public String getNameWater(int id) {
         String value = "";
+        //Establishes the connection to the databases
         DBConnection db = new DBConnection();
+        //Set the query with sql
         String sql = "SELECT name FROM water_springs WHERE id = ?";
         try {
+            //Prepare the declaration
             PreparedStatement ps = db.getConnection().prepareStatement(sql);
             ps.setInt(1, id);
             ResultSet resultSet = ps.executeQuery();

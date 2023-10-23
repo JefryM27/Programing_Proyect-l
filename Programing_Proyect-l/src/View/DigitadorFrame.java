@@ -24,12 +24,12 @@ public class DigitadorFrame extends javax.swing.JFrame {
         this.loadTables();
         this.loadResources();
     }
-
+//Method to load sampling and springs according combobox SamplingMeasure and entityId
     public void loadResources() {
         this.sampling.loadSamplingForADM(cbxSamplingMeasure,this.entityId);
         this.springs.loadSpringsForADM(cbxSpringsMeasure, this.entityId);
     }
-
+//Method to load all tables of digitizer frame
     public void loadTables() {
         this.user.loadDataDigitizer(tblUser, this.digitizerId);
         this.measure.loadDataMeasurementsForADM(tblFlowMeasure, this.entityId);

@@ -12,10 +12,11 @@ import javax.swing.JOptionPane;
  * @author allys
  */
 public class EntityDAO {
-
+//Method to create a entity
     public void create(Entity entity) {
-
+        //establishes the connection to the databases
         DBConnection db = new DBConnection();
+        //Set the query
         String consultaSQL = "INSERT INTO entity (legal_id, name, email, telephone, address, description) VALUES (?, ?, ?, ?, ?, ?)";
         try {
             PreparedStatement ps = db.getConnection().prepareStatement(consultaSQL);
@@ -33,13 +34,17 @@ public class EntityDAO {
             db.disconnect();
         }
     }
-
+  //Method to create a list to read entities
     public List<Entity> readEntities() {
+        //establishes the connection to the databases
         DBConnection db = new DBConnection();
+        //Create a new list 
         List<Entity> entities = new ArrayList<>();
+        //Set the query with sql
         String sql = "SELECT * FROM entity";
 
         try {
+            //Prepare the declaration
             PreparedStatement ps = db.getConnection().prepareStatement(sql);
             ResultSet resultSet = ps.executeQuery();
 
@@ -63,11 +68,14 @@ public class EntityDAO {
 
         return entities;
     }
-
+//Method to update entity in databases
     public void update(Entity entity) {
+        //establishes the connection to the database
         DBConnection db = new DBConnection();
+        //Set the query with sql
         String consultaSQL = "UPDATE entity SET legal_id=?, name=?, email=?,telephone=?,address=?,description=? WHERE id=?";
         try {
+            //Prepare the declaration
             PreparedStatement ps = db.getConnection().prepareStatement(consultaSQL);
             ps.setString(1, entity.getLegalId());
             ps.setString(2, entity.getEntityName());
@@ -84,14 +92,15 @@ public class EntityDAO {
             db.disconnect();
         }
     }
-
+  //Method to delete the Entity of databases
     public void delete(int id) {
-
+       //Establishes the connection to the databases
         DBConnection db = new DBConnection();
-
+       //Set the query with sql
         String consultaSQL = "DELETE FROM entity WHERE id=?";
-
+        
         try {
+            //Prepare the declaration 
             PreparedStatement preparedStatement = db.getConnection().prepareStatement(consultaSQL);
             preparedStatement.setInt(1, id);
             preparedStatement.execute();
@@ -104,12 +113,15 @@ public class EntityDAO {
             db.disconnect();
         }
     }
-
+//Method to get the EntityId and show the name  
     public int getIDEntity(String name) {
         int value = 0;
+        //Establishes the connection to the databases
         DBConnection db = new DBConnection();
+        //Set the query with sql
         String sql = "SELECT id FROM entity WHERE name = ?";
         try {
+            //Prepare the declaration
             PreparedStatement ps = db.getConnection().prepareStatement(sql);
             ps.setString(1, name);
             ResultSet resultSet = ps.executeQuery();
@@ -123,12 +135,15 @@ public class EntityDAO {
         }
         return value;
     }
-    
+ //Method to string the Entity name according to id  
     public String getNameEntity(int id) {
         String value = "";
+        //Establishes the connection to the databases
         DBConnection db = new DBConnection();
+        //Set the query with sql
         String sql = "SELECT name FROM entity WHERE id = ?";
         try {
+            //Prepare the declaration
             PreparedStatement ps = db.getConnection().prepareStatement(sql);
             ps.setInt(1, id);
             ResultSet resultSet = ps.executeQuery();

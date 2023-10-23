@@ -25,7 +25,7 @@ public class CtrlUser {
     private static int entityId;
     private static int rolId;
 
-     //Method to load measurement data into the table for super admin
+     //Method to load user data into the table for super admin
     public void loadDataUsers(JTable table) {
         DefaultTableModel model = (DefaultTableModel) table.getModel();
         TableRowSorter<TableModel> order = new TableRowSorter<TableModel>(model);
@@ -38,7 +38,7 @@ public class CtrlUser {
             model.addRow(row);
         }
     }
-  //Method to add new user from the table 
+  //Method to add new user from the table for super admin
     public void addUser(JTextField userName, JTextField mail, JTextField password, JComboBox entity, JComboBox rol) {
         if (!Validation.validateLyrics(userName.getText())) {
             JOptionPane.showMessageDialog(null, "Error en el nombre de usuario, solo se permiten letras.");
@@ -51,7 +51,7 @@ public class CtrlUser {
             }
         }
     }
-
+ //Method to update user from the table for super admin
     public void updateUser(JTextField userName, JTextField mail, JTextField password, JComboBox entity, JComboBox rol) {
         if (!Validation.validateLyrics(userName.getText())) {
             JOptionPane.showMessageDialog(null, "Error en el nombre de usuario, solo se permiten letras.");
@@ -63,7 +63,7 @@ public class CtrlUser {
             }
         }
     }
-
+//Method to select and access a table row 
     public void selectedRow(JTable table, JTextField userName, JTextField mail, JTextField password, JComboBox entity, JComboBox rol) {
         try {
             int row = table.getSelectedRow();
@@ -82,7 +82,7 @@ public class CtrlUser {
         }
     }
 
-    // ADMIN
+    //Method to load user data into the table for admin
     public void loadDataUsersForADM(JTable table, int entityId) {
         DefaultTableModel model = (DefaultTableModel) table.getModel();
         TableRowSorter<TableModel> order = new TableRowSorter<TableModel>(model);
@@ -97,7 +97,7 @@ public class CtrlUser {
             }
         }
     }
-
+//Method to add new user from the table for admin
     public void addUserForADM(JTextField userName, JTextField mail, JTextField password) {
         if (!Validation.validateLyrics(userName.getText())) {
             JOptionPane.showMessageDialog(null, "Error en el nombre de usuario, solo se permiten letras.");
@@ -110,7 +110,7 @@ public class CtrlUser {
             }
         }
     }
-
+//Method to update user from the table for admin
     public void updateUserForADM(JTable table, JTextField userName, JTextField mail, JTextField password) {
         if (!Validation.validateLyrics(userName.getText())) {
             JOptionPane.showMessageDialog(null, "Error en el nombre de usuario, solo se permiten letras.");
@@ -131,7 +131,7 @@ public class CtrlUser {
         }
     }
 
-    // DIGITIZER
+    //Method to load digitizer data into the table for digitizer
     public void loadDataDigitizer(JTable table, int digitizerId) {
         DefaultTableModel model = (DefaultTableModel) table.getModel();
         TableRowSorter<TableModel> order = new TableRowSorter<TableModel>(model);
@@ -146,21 +146,21 @@ public class CtrlUser {
             }
         }
     }
-
+//Method to remove an user from the table
     public void deleteUser() {
         this.dao.delete(this.id);
     }
-
+ //Method to clean the table fields 
     public void clearFields(JTextField userName, JTextField mail, JTextField password) {
         userName.setText("");
         mail.setText("");
         password.setText("");
     }
-
+//Method to get the id Entity and load in the combobox 
     public void getIdEntity(JComboBox entity) {
         this.idEntity = this.entity.getIDEntity(entity.getSelectedItem().toString());
     }
-
+//Method to get the id rol and load in the combobox 
     public void getIdRol(JComboBox rol) {
         this.idRol = this.rol.getIDRol(rol.getSelectedItem().toString());
     }
@@ -172,7 +172,7 @@ public class CtrlUser {
     public static void setRolId(int id) {
         rolId = id;
     }
-
+//Method to get a user by Id
     public User getUserById(int userId) {
         List<User> users = dao.readUsers();
         for (User user : users) {

@@ -15,11 +15,14 @@ import javax.swing.JOptionPane;
 
 public class FlowMeasurementDAO {
     
-    
+    //Method to create a Flow measurement
     public void create(FlowMeasurement measurement) {
+        //Establishes the connection to the databases
         DBConnection db = new DBConnection();
+        //Set the query 
         String consultaSQL = "INSERT INTO flow_measurement (capacity, metod, observation, date, weather, done, springs_id, sampling_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         try {
+            //Prepare the declaration
             PreparedStatement ps = db.getConnection().prepareStatement(consultaSQL);
             ps.setDouble(1, measurement.getCapacity());
             ps.setString(2, measurement.getMetod());
@@ -37,13 +40,17 @@ public class FlowMeasurementDAO {
             db.disconnect();
         }
     }
-
+  //Method to create a list to read flow measurements
     public List<FlowMeasurement> readFlowMeasurements() {
+        //Establishes the connection to the databases
         DBConnection db = new DBConnection();
+        //Create a new list
         List<FlowMeasurement> measurements = new ArrayList<>();
+        //Set the query with sql
         String sql = "SELECT * FROM flow_measurement";
 
         try {
+            //Prepare the declaration
             PreparedStatement ps = db.getConnection().prepareStatement(sql);
             ResultSet resultSet = ps.executeQuery();
 
@@ -68,11 +75,14 @@ public class FlowMeasurementDAO {
 
         return measurements;
     }
-    
+  //Method to update flow measurement in databases
     public void update(FlowMeasurement flowmeasurement){
+        //Establishes the connection to the databases
         DBConnection db= new DBConnection();
+        //Set the query with sql
         String consultaSQL= "UPDATE flow_measurement SET capacity=?, metod=?, observation=?,date=?,weather=?,done=?,springs_id=?,sampling_id=? WHERE id=?";
         try{
+         
              PreparedStatement ps = db.getConnection().prepareStatement(consultaSQL);
              ps.setDouble(1, flowmeasurement.getCapacity());
              ps.setString(2, flowmeasurement.getMetod());
@@ -91,14 +101,15 @@ public class FlowMeasurementDAO {
             db.disconnect();
         }
     }
-    
+     //Method to delete the Flow measurement of databases
     public void delete(int id) {
-
+       //Establishes the connection to the databases
         DBConnection db = new DBConnection();
-
+      //Set the query with sql
         String consultaSQL = "DELETE FROM flow_measurement WHERE id=?";
 
         try {
+            //Prepare the declaration
             PreparedStatement preparedStatement = db.getConnection().prepareStatement(consultaSQL);
             preparedStatement.setInt(1, id);
             preparedStatement.execute();

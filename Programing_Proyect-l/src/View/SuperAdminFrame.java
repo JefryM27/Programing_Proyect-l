@@ -40,7 +40,7 @@ public class SuperAdminFrame extends javax.swing.JFrame {
         this.loadEntities();
         this.loadResources();
     }
-
+//Method to load all Provinces, Cantons and districts of Samplings and Springs
     public void loadPlaces() {
         cp.loadProvince(cbxProvinceSprings);
         cp.loadProvince(cbxProvinceSampling);
@@ -49,19 +49,19 @@ public class SuperAdminFrame extends javax.swing.JFrame {
         cc.loadCantonsByProvince(cbxProvinceSampling, cbxCantonSampling);
         cd.loadDistrictsByCanton(cbxCantonSampling, cbxDistrictSampling);
     }
-
+//Method to load all Entities
     public void loadEntities() {
         this.entity.loadEntity(cbxEntitySprings);
         this.entity.loadEntity(cbxEntityUser);
         this.entity.loadEntity(cbxEntitySampling);
     }
-
+//Method to load sampling,springs and rol according combobox rolUser, SamplingMeasure and SpringMeasure
     public void loadResources() {
         this.cr.loadRol(cbxRolUser);
         this.sampling.loadSampling(cbxSamplingMeasure);
         this.springs.loadSprings(cbxSpringsMeasure);
     }
-    
+ //Method to load all tables of super administrator frame
     public void loadTables(){
         this.springs.loadDataSprings(tblSprings);
         this.entity.loadDataEntity(tblEntity);
@@ -1264,6 +1264,7 @@ public class SuperAdminFrame extends javax.swing.JFrame {
 
     private void btnReportSamplingSiteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportSamplingSiteActionPerformed
          try {
+        //Establishes the connection to the databases
         DBConnection db = new DBConnection();
         Connection con = (Connection) db.getConnection();
         
@@ -1285,6 +1286,7 @@ public class SuperAdminFrame extends javax.swing.JFrame {
 
     private void btnReportWaterSpringsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportWaterSpringsActionPerformed
         try {
+        //Establishes the connection to the databases
         DBConnection db = new DBConnection();
         Connection con = (Connection) db.getConnection();
         

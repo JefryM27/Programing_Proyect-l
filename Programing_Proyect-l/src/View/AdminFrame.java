@@ -26,7 +26,7 @@ public class AdminFrame extends javax.swing.JFrame {
         loadTables();
         loadResources();
     }
-
+//Method to load all Provinces, Cantons and districts of Springs and Samplings
     public void loadPlaces() {
         cp.loadProvince(cbxProvinceSprings);
         cp.loadProvince(cbxProvinceSampling);
@@ -35,14 +35,14 @@ public class AdminFrame extends javax.swing.JFrame {
         cc.loadCantonsByProvince(cbxProvinceSampling, cbxCantonSampling);
         cd.loadDistrictsByCanton(cbxCantonSampling, cbxDistrictSampling);
     }
-
+//Method to load sampling and springs according combobox province and entityId
     public void loadResources() {
         sampling.getIDProvince(cbxProvinceSampling);
         springs.getIDProvince(cbxProvinceSprings);
         this.sampling.loadSamplingForADM(cbxSamplingMeasure, this.entityId);
         this.springs.loadSpringsForADM(cbxSpringsMeasure, this.entityId);
     }
-
+//Method to load all tables of administrator frame
     public void loadTables() {
         this.springs.loadDataSpringsForADM(tblSprings, this.entityId);
         this.sampling.loadDataSamplingSitesForADM(tblSamplingSite, this.entityId);
