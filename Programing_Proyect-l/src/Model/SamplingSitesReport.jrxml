@@ -1,29 +1,102 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE jasperReport PUBLIC "-//JasperReports//DTD JasperReport//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
-
-<jasperReport name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" language="groovy">
-    <background>
-        <band/>
-    </background>
-    <title>
-        <band height="79"/>
-    </title>
-    <pageHeader>
-        <band height="35"/>
-    </pageHeader>
-    <columnHeader>
-        <band height="61"/>
-    </columnHeader>
-    <detail>
-        <band height="125"/>
-    </detail>
-    <columnFooter>
-        <band height="45"/>
-    </columnFooter>
-    <pageFooter>
-        <band height="54"/>
-    </pageFooter>
-    <summary>
-        <band height="42"/>
-    </summary>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="571e7f83-50d3-430c-8e80-ec4a484600ce">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+  district.name AS Distritos,
+  water_springs.name AS Nacientes,
+  sampling_site.name AS Sitios
+FROM
+  district
+  LEFT JOIN water_springs ON district.id = water_springs.district_id
+  LEFT JOIN sampling_site ON district.id = sampling_site.district_id
+WHERE
+  water_springs.name IS NOT NULL OR sampling_site.name IS NOT NULL;
+]]>
+	</queryString>
+	<field name="Distritos" class="java.lang.String"/>
+	<field name="Nacientes" class="java.lang.String"/>
+	<field name="Sitios" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="134" y="10" width="282" height="47" uuid="fcca6c96-7bf4-4399-bec1-02b544ad790c"/>
+				<textElement textAlignment="Center">
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[Reporte de Nacientes y Sitios de Muestreo por Distrito]]></text>
+			</staticText>
+			<image>
+				<reportElement x="0" y="0" width="105" height="79" uuid="5ee3ca4a-7b60-455c-8a55-0e3d50ab0e15"/>
+				<imageExpression><![CDATA["C:\\Users\\jefry\\OneDrive\\Desktop\\UTN\\3º Cuatrimestre\\Programacion ll\\Proyectos\\Programing_Proyect-l\\Programing_Proyect-l\\src\\View\\Images\\Mapa_de_Costa_Rica_(cantones_y_distritos).svg.jpg"]]></imageExpression>
+			</image>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="455" y="10" width="100" height="20" uuid="e62ae2ac-394f-4ee8-99cf-98955a7ecf7d"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="29" splitType="Stretch">
+			<staticText>
+				<reportElement x="5" y="0" width="100" height="26" uuid="06ca7423-a4f6-473a-9a2f-610d4f4b94cc"/>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Distritos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="202" y="2" width="100" height="24" uuid="2302eac1-2d09-40da-9df5-b7deb74f01d8"/>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Nacientes]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="416" y="2" width="100" height="24" uuid="5800db29-0fe1-4cf4-9706-4d479a1c3007"/>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Sitios]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="48" splitType="Stretch">
+			<textField>
+				<reportElement x="5" y="24" width="100" height="20" uuid="26468258-183e-4074-80f1-95d10ad7bc18"/>
+				<textFieldExpression><![CDATA[$F{Distritos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="202" y="24" width="100" height="20" uuid="d732c045-17e9-431e-9db7-b3cdd44b279f"/>
+				<textFieldExpression><![CDATA[$F{Nacientes}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="416" y="24" width="100" height="20" uuid="7c9c9214-15e3-48a8-8f35-aef6c55368a8"/>
+				<textFieldExpression><![CDATA[$F{Sitios}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="455" y="34" width="100" height="20" uuid="631de83f-ccc9-4d21-9c2a-4aed22db0fd1"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
 </jasperReport>
