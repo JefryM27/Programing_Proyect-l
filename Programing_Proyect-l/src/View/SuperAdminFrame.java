@@ -184,7 +184,6 @@ public class SuperAdminFrame extends javax.swing.JFrame {
         pnMainUser1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         btnReportWaterSprings = new javax.swing.JButton();
-        btnReportFlowMeasurement = new javax.swing.JButton();
         btnReportSamplingSite = new javax.swing.JButton();
         bar = new javax.swing.JPanel();
         btnExit = new javax.swing.JPanel();
@@ -1123,8 +1122,6 @@ public class SuperAdminFrame extends javax.swing.JFrame {
             }
         });
 
-        btnReportFlowMeasurement.setText("Reporte de medición de caudal");
-
         btnReportSamplingSite.setText("Reporte de todos los sitios de muestreo");
         btnReportSamplingSite.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1140,20 +1137,17 @@ public class SuperAdminFrame extends javax.swing.JFrame {
                 .addContainerGap(97, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnReportSamplingSite, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnReportFlowMeasurement, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnReportWaterSprings, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(93, 93, 93))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(btnReportWaterSprings, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49)
-                .addComponent(btnReportFlowMeasurement, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48)
+                .addGap(66, 66, 66)
+                .addComponent(btnReportWaterSprings, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
                 .addComponent(btnReportSamplingSite, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addGap(70, 70, 70))
         );
 
         pnMainUser1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 40, 470, 350));
@@ -1536,7 +1530,6 @@ public class SuperAdminFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnFlowDelete;
     private javax.swing.JButton btnFlowEdit;
     private javax.swing.JButton btnFlowSave;
-    private javax.swing.JButton btnReportFlowMeasurement;
     private javax.swing.JButton btnReportSamplingSite;
     private javax.swing.JButton btnReportWaterSprings;
     private javax.swing.JButton btnSaveSamplingSite;

@@ -961,6 +961,7 @@ public class AdminFrame extends javax.swing.JFrame {
 
     private void btnUserDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUserDeleteActionPerformed
         user.deleteUser();
+        user.clearFields(txtUserName, txtUserEmail, txtUserPassaword);
         loadTables();
     }//GEN-LAST:event_btnUserDeleteActionPerformed
 

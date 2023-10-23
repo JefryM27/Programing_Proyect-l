@@ -45,7 +45,7 @@ public class CtrlEntity {
     //Method to add new entities
     public void addEntity(JTextField legalId, JTextField telephone, JTextField entityName, JTextField email, JTextField address, JTextField description) {
        //Get the legal id and validate if is equals to nine
-        if (legalId.getText().length() == 9) {
+        if (legalId.getText().length() == 11) {
             //Get the legal id and verify if the entity is already 
             if (Validation.verificateLegalIdExisting(legalId.getText())) {
                 JOptionPane.showMessageDialog(null, "La entidad que desea registrar ya existe en la base de datos.");
