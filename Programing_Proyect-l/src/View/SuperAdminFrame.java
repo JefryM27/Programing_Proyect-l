@@ -1300,7 +1300,7 @@ public class SuperAdminFrame extends javax.swing.JFrame {
             view.setVisible(true);
             
         } catch (JRException ex) {
-            Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SuperAdminFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnReportWaterSpringsActionPerformed
 
