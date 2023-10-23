@@ -19,8 +19,7 @@ FROM
 INNER JOIN
   entity
 ON
-  water_springs.entity_id = entity.id
-]]>
+  water_springs.entity_id = entity.id]]>
 	</queryString>
 	<field name="entity_name" class="java.lang.String"/>
 	<field name="water_springs_name" class="java.lang.String"/>
@@ -37,10 +36,6 @@ ON
 				</textElement>
 				<text><![CDATA[Reporte de Nacientes por Entidad]]></text>
 			</staticText>
-			<image>
-				<reportElement x="0" y="0" width="132" height="79" uuid="490428ce-6dbd-4c97-b942-4a9252377a65"/>
-				<imageExpression><![CDATA["C:\\Users\\jefry\\OneDrive\\Desktop\\UTN\\3º Cuatrimestre\\Programacion ll\\Proyectos\\Programing_Proyect-l\\Programing_Proyect-l\\src\\View\\Images\\agua-cano.jpg"]]></imageExpression>
-			</image>
 			<textField pattern="dd/MM/yyyy">
 				<reportElement x="472" y="0" width="100" height="20" uuid="9a29da4b-e7b5-49e5-945b-0293c028490c"/>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>

@@ -13,8 +13,7 @@ FROM
   LEFT JOIN water_springs ON district.id = water_springs.district_id
   LEFT JOIN sampling_site ON district.id = sampling_site.district_id
 WHERE
-  water_springs.name IS NOT NULL OR sampling_site.name IS NOT NULL;
-]]>
+  water_springs.name IS NOT NULL OR sampling_site.name IS NOT NULL;]]>
 	</queryString>
 	<field name="Distritos" class="java.lang.String"/>
 	<field name="Nacientes" class="java.lang.String"/>
@@ -31,10 +30,6 @@ WHERE
 				</textElement>
 				<text><![CDATA[Reporte de Nacientes y Sitios de Muestreo por Distrito]]></text>
 			</staticText>
-			<image>
-				<reportElement x="0" y="0" width="105" height="79" uuid="5ee3ca4a-7b60-455c-8a55-0e3d50ab0e15"/>
-				<imageExpression><![CDATA["C:\\Users\\jefry\\OneDrive\\Desktop\\UTN\\3º Cuatrimestre\\Programacion ll\\Proyectos\\Programing_Proyect-l\\Programing_Proyect-l\\src\\View\\Images\\Mapa_de_Costa_Rica_(cantones_y_distritos).svg.jpg"]]></imageExpression>
-			</image>
 			<textField pattern="dd/MM/yyyy">
 				<reportElement x="455" y="10" width="100" height="20" uuid="e62ae2ac-394f-4ee8-99cf-98955a7ecf7d"/>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
