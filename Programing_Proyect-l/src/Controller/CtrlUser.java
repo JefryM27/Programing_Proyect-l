@@ -25,7 +25,7 @@ public class CtrlUser {
     private static int entityId;
     private static int rolId;
 
-    // SUPER ADMIN
+     //Method to load measurement data into the table for super admin
     public void loadDataUsers(JTable table) {
         DefaultTableModel model = (DefaultTableModel) table.getModel();
         TableRowSorter<TableModel> order = new TableRowSorter<TableModel>(model);
@@ -38,7 +38,7 @@ public class CtrlUser {
             model.addRow(row);
         }
     }
-
+  //Method to add new user from the table 
     public void addUser(JTextField userName, JTextField mail, JTextField password, JComboBox entity, JComboBox rol) {
         if (!Validation.validateLyrics(userName.getText())) {
             JOptionPane.showMessageDialog(null, "Error en el nombre de usuario, solo se permiten letras.");

@@ -20,7 +20,7 @@ public class CtrlEntity {
 
     EntityDAO entity = new EntityDAO();
     int id;
-
+    //Method to load the Entity into the combobox
     public void loadEntity(JComboBox c) {
         List<Entity> entities = this.entity.readEntities();
         DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
@@ -29,9 +29,9 @@ public class CtrlEntity {
         }
         c.setModel(model);
     }
-
+   //Method to load entity data into table
     public void loadDataEntity(JTable table) {
-
+    //Creates a new table model
         DefaultTableModel model = (DefaultTableModel) table.getModel();
         TableRowSorter<TableModel> order = new TableRowSorter<TableModel>(model);
         table.setRowSorter(order);
@@ -42,9 +42,11 @@ public class CtrlEntity {
             model.addRow(row);
         }
     }
-
+    //Method to add new entities
     public void addEntity(JTextField legalId, JTextField telephone, JTextField entityName, JTextField email, JTextField address, JTextField description) {
+       //Get the legal id and validate if is equals to nine
         if (legalId.getText().length() == 9) {
+            //Get the legal id and verify if the entity is already 
             if (Validation.verificateLegalIdExisting(legalId.getText())) {
                 JOptionPane.showMessageDialog(null, "La entidad que desea registrar ya existe en la base de datos.");
             } else {
@@ -63,9 +65,11 @@ public class CtrlEntity {
             JOptionPane.showMessageDialog(null, "La longitud de la cédula juridica no es valido, esta debe tener 11 digitos.");
         }
     }
-
+  //Method to update the entities from the table 
     public void updateEntity(JTextField legalId, JTextField telephone, JTextField entityName, JTextField email, JTextField address, JTextField description) {
+        //Get the legal id and validate if is equals to nine
         if (legalId.getText().length() == 9) {
+            //Get the legal id and verify if the entity is already 
             if (Validation.verificateLegalIdExisting(legalId.getText())) {
                 JOptionPane.showMessageDialog(null, "La entidad que desea registrar ya existe en la base de datos.");
             } else {
@@ -85,7 +89,7 @@ public class CtrlEntity {
             JOptionPane.showMessageDialog(null, "La longitud de la cédula juridica no es valido, esta debe tener 11 digitos.");
         }
     }
-
+//Method to select and access a table row 
     public void selectedRow(JTable table, JTextField legalId, JTextField telephone, JTextField entityName, JTextField email, JTextField address, JTextField description) {
         try {
             int row = table.getSelectedRow();
@@ -104,11 +108,11 @@ public class CtrlEntity {
             JOptionPane.showMessageDialog(null, "Error de selección, error: " + e.toString());
         }
     }
-
+ //Method to remove an entity from the table
     public void deleteEntity() {
         this.entity.delete(this.id);
     }
-
+ //Method to clean the table fields 
     public void clearFields(JTextField legalId, JTextField telephone, JTextField entityName, JTextField email, JTextField address, JTextField description) {
         legalId.setText("");
         telephone.setText("");

@@ -43,9 +43,9 @@ public class CtrlSampling {
         }
         c.setModel(model);
     }
-
+  //Method to load saampling sites data into the table 
     public void loadDataSamplingSites(JTable table) {
-
+       //Creates a new table model
         DefaultTableModel model = (DefaultTableModel) table.getModel();
         TableRowSorter<TableModel> order = new TableRowSorter<TableModel>(model);
         table.setRowSorter(order);
@@ -57,7 +57,7 @@ public class CtrlSampling {
             model.addRow(row);
         }
     }
-
+  //Method to add new SamplingSite from the table 
     public void addSamplingSite(JTextField name, JComboBox province, JComboBox canton, JComboBox district, JComboBox entity) {
         try {
             String siteName = name.getText();
@@ -73,7 +73,7 @@ public class CtrlSampling {
             JOptionPane.showMessageDialog(null, "No se pudo guardar el sitio de muestreo, error: " + e.toString());
         }
     }
-
+   //Method to update the SamplingSite from the table 
     public void updateSamplingSite(JTextField name, JComboBox province, JComboBox canton, JComboBox district, JComboBox entity) {
         try {
             String siteName = name.getText();
@@ -90,7 +90,7 @@ public class CtrlSampling {
             JOptionPane.showMessageDialog(null, "No se pudo guardar el sitio de muestreo, error: " + e.toString());
         }
     }
-
+//Method to select and access a table row 
     public void selectedRow(JTable table, JTextField name, JComboBox province, JComboBox canton, JComboBox district, JComboBox entity) {
         try {
             int row = table.getSelectedRow();
@@ -109,7 +109,7 @@ public class CtrlSampling {
         }
     }
 
-    // ADMIN
+      //Method to load SamplingSite data into the combobox from admin
     public void loadSamplingForADM(JComboBox c, int currentEntityId) {
         List<SamplingSite> dao = this.dao.readSamplingSitesByEntity(currentEntityId);
         DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
@@ -118,7 +118,7 @@ public class CtrlSampling {
         }
         c.setModel(model);
     }
-
+  //Method to load SamplingSite data into the table for admin 
     public void loadDataSamplingSitesForADM(JTable table, int entityId) {
         DefaultTableModel model = (DefaultTableModel) table.getModel();
         TableRowSorter<TableModel> order = new TableRowSorter<TableModel>(model);
@@ -136,7 +136,7 @@ public class CtrlSampling {
             }
         }
     }
-
+ //Method to add new SamplingSite from the table for admin
     public void addSamplingSiteForADM(JTextField name, JComboBox province, JComboBox canton, JComboBox district) {
         try {
             String siteName = name.getText();
@@ -153,7 +153,7 @@ public class CtrlSampling {
             JOptionPane.showMessageDialog(null, "No se pudo guardar el sitio de muestreo, error: " + e.toString());
         }
     }
-
+ //Method to update new SamplingSite from the table for admin
     public void updateSamplingSiteForADM(JTextField name, JComboBox province, JComboBox canton, JComboBox district) {
         try {
             String siteName = name.getText();
@@ -170,27 +170,27 @@ public class CtrlSampling {
             JOptionPane.showMessageDialog(null, "No se pudo guardar el sitio de muestreo, error: " + e.toString());
         }
     }
-
+ //Method to remove an samplingsite from the table
     public void deleteSamplingSite() {
         this.dao.delete(this.id);
     }
-
+ //Method to clean the table fields 
     public void clearFields(JTextField name) {
         name.setText("");
     }
-
+ //Method to get the id province and load in the combobox 
     public void getIDProvince(JComboBox province) {
         this.idProvince = this.province.getIDProvince(province.getSelectedItem().toString());
     }
-
+ //Method to get the id canton and load in the combobox 
     public void getIDCanton(JComboBox canton) {
         this.idCanton = this.canton.getIDCanton(canton.getSelectedItem().toString());
     }
-
+ //Method to get the id district and load in the combobox 
     public void getIdDistrict(JComboBox district) {
         this.idDistrict = this.district.getIdDistrict(district.getSelectedItem().toString());
     }
-
+ //Method to get the id entity and load in the combobox 
     public void getIdEntity(JComboBox entity) {
         this.idEntity = this.entity.getIDEntity(entity.getSelectedItem().toString());
     }

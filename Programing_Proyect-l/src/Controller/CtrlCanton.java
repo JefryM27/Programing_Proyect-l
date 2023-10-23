@@ -13,11 +13,11 @@ import javax.swing.DefaultComboBoxModel;
 public class CtrlCanton {
 
     CantonDAO canton = new CantonDAO();
-
+    //Method to load the Cantons into the combobox
     public void loadCantonsByProvince(JComboBox provinceComboBox, JComboBox cantonComboBox) {
         String selectedProvince = (String) provinceComboBox.getSelectedItem();
         List<Canton> cantons = this.canton.readCantonsByProvince(selectedProvince);
-
+    //Creates a new object
         DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
         for (Canton canton : cantons) {
             model.addElement(canton.getCantonName());

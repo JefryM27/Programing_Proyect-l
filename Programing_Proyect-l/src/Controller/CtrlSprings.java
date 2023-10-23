@@ -29,7 +29,7 @@ public class CtrlSprings {
     int idEntity;
     private static int entityId;
 
-    // SUPER ADMIN
+    //Method to load springs data into the combobox for super admin
     public void loadSprings(JComboBox c) {
         List<WaterSprings> springs = this.dao.readWaterSprings();
         DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
@@ -38,7 +38,7 @@ public class CtrlSprings {
         }
         c.setModel(model);
     }
-
+ //Method to load springs data into the table for super admin
     public void loadDataSprings(JTable table) {
 
         DefaultTableModel model = (DefaultTableModel) table.getModel();
@@ -52,7 +52,7 @@ public class CtrlSprings {
             model.addRow(row);
         }
     }
-
+ //Method to add new water springs from the table 
     public void addWaterSpring(JTextField name, JTextField address, JTextField latitude, JTextField length, JTextField description) {
         if (!Validation.validateLyrics(name.getText()) || !Validation.validateLyrics(description.getText())) {
             JOptionPane.showMessageDialog(null, "Error en el nombre y descripcion de la naciente, solo se permiten letras.");
@@ -65,7 +65,7 @@ public class CtrlSprings {
             }
         }
     }
-
+ //Method to update the water springs from the table 
     public void updateWaterSprings(JTextField name, JTextField address, JTextField latitude, JTextField length, JTextField description) {
         if (!Validation.validateLyrics(name.getText()) || !Validation.validateLyrics(description.getText())) {
             JOptionPane.showMessageDialog(null, "Error en el nombre y descripcion de la naciente, solo se permiten letras.");
@@ -77,7 +77,7 @@ public class CtrlSprings {
             }
         }
     }
-
+//Method to select and access a table row 
     public void selectedRow(JTable table, JTextField name, JTextField address, JTextField latitude, JTextField length, JTextField description, JComboBox province, JComboBox canton, JComboBox district, JComboBox entity) {
         try {
             int row = table.getSelectedRow();
@@ -100,7 +100,7 @@ public class CtrlSprings {
         }
     }
 
-    // ADMIN
+     //Method to load springs data into the combobox for admin
     public void loadSpringsForADM(JComboBox c, int currentEntityId) {
         List<WaterSprings> springs = this.dao.readWaterSpringsByEntity(currentEntityId);
         DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
@@ -109,7 +109,7 @@ public class CtrlSprings {
         }
         c.setModel(model);
     }
-
+ //Method to load springs data into the table admin
     public void loadDataSpringsForADM(JTable table, int entityId) {
         DefaultTableModel model = (DefaultTableModel) table.getModel();
         TableRowSorter<TableModel> order = new TableRowSorter<TableModel>(model);
@@ -125,7 +125,7 @@ public class CtrlSprings {
             }
         }
     }
-
+ //Method to add new water springs from the table for admin 
     public void addWaterSpringForADM(JTextField name, JTextField address, JTextField latitude, JTextField length, JTextField description) {
         if (!Validation.validateLyrics(name.getText()) || !Validation.validateLyrics(description.getText())) {
             JOptionPane.showMessageDialog(null, "Error en el nombre o descripcion de la naciente, solo se permiten letras.");
@@ -138,7 +138,7 @@ public class CtrlSprings {
             }
         }
     }
-
+ //Method to update the water springs from the table for admin 
     public void updateWaterSpringsForADM(JTextField name, JTextField address, JTextField latitude, JTextField length, JTextField description) {
         if (!Validation.validateLyrics(name.getText()) || !Validation.validateLyrics(description.getText())) {
             JOptionPane.showMessageDialog(null, "Error en el nombre o descripcion de la naciente, solo se permiten letras.");
@@ -150,11 +150,11 @@ public class CtrlSprings {
             }
         }
     }
-
+ //Method to remove an water springs from the table
     public void deleteWaterSprings() {
         this.dao.delete(this.id);
     }
-
+ //Method to clean the table fields 
     public void clearFields(JTextField name, JTextField address, JTextField latitude, JTextField length, JTextField description) {
         name.setText("");
         address.setText("");
@@ -162,19 +162,19 @@ public class CtrlSprings {
         length.setText("");
         description.setText("");
     }
-
+//Method to get the id province and load in the combobox 
     public void getIDProvince(JComboBox province) {
         this.idProvince = this.province.getIDProvince(province.getSelectedItem().toString());
     }
-
+//Method to get the id canton and load in the combobox 
     public void getIDCanton(JComboBox canton) {
         this.idCanton = this.canton.getIDCanton(canton.getSelectedItem().toString());
     }
-
+//Method to get the id district and load in the combobox 
     public void getIdDistrict(JComboBox district) {
         this.idDistrict = this.district.getIdDistrict(district.getSelectedItem().toString());
     }
-
+//Method to get the id entity and load in the combobox 
     public void getIdEntity(JComboBox entity) {
         this.idEntity = this.entity.getIDEntity(entity.getSelectedItem().toString());
     }

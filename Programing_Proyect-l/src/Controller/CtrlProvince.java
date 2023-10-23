@@ -13,7 +13,7 @@ import javax.swing.JComboBox;
 public class CtrlProvince {
 
     ProvinceDAO province = new ProvinceDAO();
-
+ //Method to load the Province into the combobox
     public void loadProvince(JComboBox c) {
         List<Province> provinces = this.province.readProvinces();
         DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();

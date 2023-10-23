@@ -13,7 +13,7 @@ import javax.swing.JComboBox;
 public class CtrlRol {
 
     RolDAO rol = new RolDAO();
-
+ //Method to load the Rol into the combobox
     public void loadRol(JComboBox c) {
         List<Rol> rols = this.rol.readRols();
         DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();

@@ -30,9 +30,9 @@ public class CtrlMeasurement {
     int idSprings;
     int idSampling;
 
-    // SUPER ADMIN
+    //Method to load measurement data into the table for super admin
     public void loadDataMeasurements(JTable table) {
-
+    //Creates a new table model
         DefaultTableModel model = (DefaultTableModel) table.getModel();
         TableRowSorter<TableModel> order = new TableRowSorter<TableModel>(model);
         table.setRowSorter(order);
@@ -45,8 +45,9 @@ public class CtrlMeasurement {
         }
     }
 
-    // ADMIN
+    //Method to load measurement data into the table for admin 
     public void loadDataMeasurementsForADM(JTable table, int entityId) {
+        //Creates a new table model
         DefaultTableModel model = (DefaultTableModel) table.getModel();
         TableRowSorter<TableModel> order = new TableRowSorter<TableModel>(model);
         table.setRowSorter(order);
@@ -63,7 +64,7 @@ public class CtrlMeasurement {
             }
         }
     }
-
+  //Method to add new flow measurement from the table 
     public void addFlowMeasurement(JComboBox<String> metod, JTextField observation, JComboBox<String> weather, JTextField done) {
         if (!Validation.validateLyrics(observation.getText()) || !Validation.validateLyrics(done.getText())) {
             JOptionPane.showMessageDialog(null, "Error en el nombre y descripcion de la naciente, solo se permiten letras.");
@@ -78,7 +79,7 @@ public class CtrlMeasurement {
             }
         }
     }
-
+   //Method to update the flow measuremnet from the table 
     public void updateFlowMeasurement(JTable table, JComboBox<String> metod, JTextField observation, JComboBox<String> weather, JTextField done) {
         if (!Validation.validateLyrics(observation.getText()) || !Validation.validateLyrics(done.getText())) {
             JOptionPane.showMessageDialog(null, "Error en el nombre y descripcion de la naciente, solo se permiten letras.");
@@ -95,7 +96,7 @@ public class CtrlMeasurement {
             }
         }
     }
-
+//Method to select and access a table row 
     public void selectedRow(JTable table, JComboBox<String> metod, JTextField observation,
             JComboBox<String> weather, JTextField done, JComboBox springs, JComboBox sampling) {
         try {
@@ -115,7 +116,7 @@ public class CtrlMeasurement {
             JOptionPane.showMessageDialog(null, "Error de selección, error: " + e.toString());
         }
     }
-
+//Method to generated a date 
     public Date randomDate() {
         // Generate a random date between January 1 and December 31, 2022
         Calendar calendar = Calendar.getInstance();
@@ -129,26 +130,26 @@ public class CtrlMeasurement {
         long randomMillis = startMillis + (long) (Math.random() * (endMillis - startMillis));
         return new Date(randomMillis);
     }
-
+//Method to generated the flowmeasurement capacity 
     public double randomCapacity() {
         // Generate a random decimal number in the range 0.1 to 100
         double randomCapacity = 0.1 + (100 - 0.1) * new Random().nextDouble();
         return Math.round(randomCapacity * 100.0) / 100.0;
     }
-
+ //Method to remove an meaurement from the table
     public void deleteFlowMeasurement() {
         this.dao.delete(this.id);
     }
-
+ //Method to clean the table fields 
     public void clearFields(JTextField observation, JTextField done) {
         observation.setText("");
         done.setText("");
     }
-
+ //Method to get the id springs and load in the combobox 
     public void getIDSprings(JComboBox springs) {
         this.idSprings = this.springDAO.getIDWaterSprings(springs.getSelectedItem().toString());
     }
-
+ //Method to get the id sampling and load in the combobox 
     public void getIdSampling(JComboBox sampling) {
         this.idSampling = this.samplingDAO.getIDSampling(sampling.getSelectedItem().toString());
     }
